@@ -603,6 +603,7 @@
         <rdfs:label xml:lang="en">Retardation</rdfs:label>
     </owl:Class>
     
+ <!-- im comment steht dass man psychomotor retardation schreiben sollte, sehe ich auch so, würde es umbenennen und dann den comment als Erklärung drin lassen oder ggf löschen? -->
 
 
     <!-- http://purl.org/hitop#C00cSn -->
@@ -649,7 +650,7 @@
         <rdfs:comment xml:lang="en">A positive state of mental and physical health, encompassing feelings of happiness and contentment.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Wellbeing</rdfs:label>
     </owl:Class>
-    
+   <!-- der comment ist positiv gepolt und nicht auf Low Wellbeing, sollte m.E. konsistent sein -->  
 
 
     <!-- http://purl.org/hitop#C00fKQ -->
@@ -673,11 +674,11 @@
     <owl:Class rdf:about="http://purl.org/hitop#C00gvD">
         <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
         <obo:iaoIAO_0000115 xml:lang="en">
-            Re-experiencing =def. a Distress which is characterized by the involuntary re-living of traumatic events through 
+            Re-experiencing =def. a Distress which is characterized by the involuntary re-experiencing of traumatic events through 
             flashbacks, intrusive memories, or nightmares, often accompanied by intense emotional or physiological reactions.
         </obo:iaoIAO_0000115>
         <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
-        <rdfs:comment xml:lang="en">Re-living traumatic events through flashbacks, intrusive memories, or nightmares.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Re-experiencing traumatic events through flashbacks, intrusive memories, or nightmares.</rdfs:comment>
         <rdfs:label xml:lang="en">Re-experiencing</rdfs:label>
     </owl:Class>
     
@@ -1401,7 +1402,7 @@
         <rdfs:comment xml:lang="en">A trait characterized by limited or constricted emotional expression.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Restricted affectivity</rdfs:label>
     </owl:Class>
-    
+    <!-- ich nehme an das ist in Hitop auch so benannt, aber ich lese es als double negative also wenig restricted, finde ich verwirrend -->
 
 
     <!-- http://purl.org/hitop#T00Cgy -->
@@ -1510,7 +1511,7 @@
         <rdfs:comment xml:lang="en">A trait characterized by a perception of being immune to harm or negative effects.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Invulnerability</rdfs:label>
     </owl:Class>
-    
+    <!-- hier verstehe ich das (low) auch nicht ganz -->
 
 
     <!-- http://purl.org/hitop#T00ua9 -->
@@ -1680,7 +1681,7 @@
         <rdfs:comment xml:lang="en">A trait characterized by a strong desire to attract and hold the attention of others.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Attention seeking</rdfs:label>
     </owl:Class>
-    
+    <!-- hier bezieht sich der comment auch wieder auf attention seeking und der Rest auf low attention seeking. das Konzept von low attention seeking finde ich so wie es beschrieben ist auch eher untypisch für die klinische Beschreibung -->
 
 
     <!-- http://purl.org/hitop#T015o8 -->
@@ -1772,7 +1773,7 @@
         <rdfs:comment xml:lang="en">A trait characterized by an excessive and inflexible striving for perfection and high standards, often leading to self-criticism and stress.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Rigid perfectionism</rdfs:label>
     </owl:Class>
-    
+     <!-- hier ist das low gar nicht in der definition oder so einbezogen, fände ich auch nicht passend, rigid perfectionism ist gut so -->
 
 
     <!-- http://purl.org/hitop#T01BfQ -->
@@ -1787,7 +1788,7 @@
         <rdfs:comment xml:lang="en">A trait characterized by excessive and repetitive thinking about potential decisions and their outcomes, often leading to indecision and stress.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Ruminative deliberation</rdfs:label>
     </owl:Class>
-    
+     <!-- hier ebenfalls -->
 
 
     <!-- http://purl.org/hitop#T01C1W -->
@@ -1802,7 +1803,7 @@
         <rdfs:comment xml:lang="en">A trait characterized by an excessive and compulsive commitment to work, often at the expense of personal well-being and relationships.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Workaholism</rdfs:label>
     </owl:Class>
-    
+    <!-- hier ebenfalls -->
 
 
     <!-- http://purl.org/hitop#T01Neb -->
@@ -2118,7 +2119,7 @@
         <rdfs:comment xml:lang="en">A trait characterized by a tendency to be fearful or lacking in confidence, often leading to shyness or hesitation.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Timorousness</rdfs:label>
     </owl:Class>
-    
+    <!-- hier ebenfalls -->
 
 
     <!-- http://purl.org/hitop#T01hQc -->
@@ -2559,12 +2560,12 @@
     <owl:Class rdf:about="http://purl.org/hitop#T02A6">
         <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
         <obo:iaoIAO_0000115 xml:lang="en">
-            Romantic desinterest =def. a Detachment trait marked by diminished or absent interest in forming or maintaining 
+            Romantic disinterest =def. a Detachment trait marked by diminished or absent interest in forming or maintaining 
             romantic relationships, independent of sexual orientation or activity.
         </obo:iaoIAO_0000115>
         <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V10749"/>
         <rdfs:comment xml:lang="en">A trait marked by diminished or absent interest in forming or maintaining romantic relationships, independent of sexual orientation or activity.</rdfs:comment>
-        <rdfs:label xml:lang="en">Romantic desinterest</rdfs:label>
+        <rdfs:label xml:lang="en">Romantic disinterest</rdfs:label>
     </owl:Class>
 
 
