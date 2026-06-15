@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=77,<83", "wheel>=0.45,<1.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hitop-ontology-tools"
+version = "0.1.0"
+description = "Command line and Python tooling for the HiTOP ontology and manifestation suffix schema."
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+  { name = "HiTOP Ontologies contributors" }
+]
+keywords = [
+  "HiTOP",
+  "ontology",
+  "RDF",
+  "OWL",
+  "taxonomy",
+  "psychopathology"
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+  "Topic :: Scientific/Engineering :: Medical Science Apps."
+]
+dependencies = [
+  "lxml>=5.0,<7.0",
+  "PyYAML>=6.0,<7.0",
+  "rdflib>=7.0,<8.0"
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest>=8.0,<9.0"
+]
+dev = [
+  "build>=1.2,<2.0",
+  "pytest>=8.0,<9.0",
+  "tox>=4.0,<5.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/HiTOP-Ontologies/hitop-ontology"
+Repository = "https://github.com/HiTOP-Ontologies/hitop-ontology"
+Issues = "https://github.com/HiTOP-Ontologies/hitop-ontology/issues"
+Documentation = "https://github.com/HiTOP-Ontologies/hitop-ontology/tree/main/docs"
+
+[project.scripts]
+hitop-codegen = "hitop.base.hitop:main"
+hitop-suffix = "hitop.suffix.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["hitop", "hitop.*"]
+
+[tool.setuptools.package-data]
+"hitop.suffix" = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["validation"]
+pythonpath = ["src"]

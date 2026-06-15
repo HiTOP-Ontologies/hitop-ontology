@@ -1,0 +1,163 @@
+Code;Label;Segment;Segment Level;CheckDigit;HiTOP
+01;Conversion;C;0;qy;C001qy
+02;Somatization;C;0;17;C00217
+03;Malaise;C;0;3z;C0033z
+04;Head Pain;C;0;16;C00416
+05;Gastrointestinal;C;0;Sv;C005Sv
+06;Cognitive;C;0;MD;C006MD
+07;Anxiousness;T;0;eM;T007eM
+08;Emotional lability;T;0;mD;T008mD
+09;Hostility;T;0;4I;T0094I
+0A;Perseveration;T;0;0Z;T00A0Z
+0B;(low) Restricted affectivity;T;0;XK;T00BXK
+0C;Separation insecurity;T;0;gy;T00Cgy
+0D;Submissiveness;T;0;42;T00D42
+0E;Identity problems;T;0;ht;T00Eht
+0F;Negative relationships;T;0;e0;T00Fe0
+0G;Fragility;T;0;3d;T00G3d
+0H;Ineptitude;T;0;Cy;T00HCy
+0I;(low) Invulnerability;T;0;AT;T00IAT
+0J;Interactive anxiety;C;0;TU;C00JTU
+0K;Performance anxiety;C;0;L0;C00KL0
+0L;Public places;C;0;qY;C00LqY
+0M;Enclosed spaces;C;0;pl;C00Mpl
+0N;Animal phobia;C;0;4I;C00N4I
+0O;Situational phobia;C;0;uR;C00OuR
+0P;Blood-injection-injury;C;0;jp;C00Pjp
+0Q;Physiological panic;C;0;1t;C00Q1t
+0R;Psychological panic;C;0;Gy;C00RGy
+0S;Cleaning;C;0;9m;C00S9m
+0T;Rituals;C;0;gL;C00TgL
+0U;Checking;C;0;rw;C00Urw
+0V;Dysphoria;C;0;Hv;C00VHv
+0W;Lassitude;C;0;Jc;C00WJc
+0X;Anhedonia;C;0;yI;C00XyI
+0Y;Insomnia;C;0;8j;C00Y8j
+0Z;Suicidality;C;0;yP;C00ZyP
+0a;Agitation;C;0;MF;C00aMF
+0b;Retardation;C;0;Ex;C00bEx
+0c;Appetite loss;C;0;Sn;C00cSn
+0d;Appetite gain;C;0;c1;C00dc1
+0e;(low) Wellbeing;C;0;0L;C00e0L
+0f;Generalized anxiety disorder symptoms;C;0;KQ;C00fKQ
+0g;Re-experiencing;C;0;vD;C00gvD
+0h;Avoidance;C;0;PJ;C00hPJ
+0i;Hyperarousal;C;0;Ah;C00iAh
+0j;Numbing;C;0;w5;C00jw5
+0k;Dissociation;C;0;EN;C00kEN
+0l;Irritability;C;0;5y;C00l5y
+0m;Pure obsessions;C;0;pe;C00mpe
+0n;Euphoric activation;C;0;yb;C00nyb
+0o;Hyperactive cognition;C;0;KM;C00oKM
+0p;Reckless overconfidence;C;0;nZ;C00pnZ
+0q;Psychotic;C;0;SD;C00qSD
+0r;Disorganized;C;0;nS;C00rnS
+0s;Inexpressivity;C;0;Wr;C00sWr
+0t;Avolition;C;0;UQ;C00tUQ
+0u;Eccentricity;T;0;a9;T00ua9
+0v;Cognitive perceptual dysregulation;T;0;jR;T00vjR
+0w;Unusual beliefs and experiences;T;0;k6;T00wk6
+0x;Fantasy proneness;T;0;Ln;T00xLn
+0y;Depressivity;T;0;fU;T00yfU
+0z;Intimacy avoidance;T;0;Dk;T00zDk
+10;Suspiciousness;T;0;c6;T010c6
+11;Withdrawal;T;0;K6;T011K6
+12;Interpersonal passivity;T;0;QL;T012QL
+13;Disaffiliativeness;T;0;F1;T013F1
+14;(low) Attention seeking;T;0;BA;T014BA
+15;Problematic impulsivity;T;0;o8;T015o8
+16;Irresponsibility;T;0;k0;T016k0
+17;Theft;T;0;7S;T0177S
+18;Distractibility;T;0;ir;T018ir
+19;Risk taking;T;0;Cj;T019Cj
+1A;(low) Rigid perfectionism;T;0;5i;T01A5i
+1B;(low) Ruminative deliberation;T;0;fQ;T01BfQ
+1C;(low) Workaholism;T;0;1W;T01C1W
+1D;Alcohol use;C;0;Ab;C01DAb
+1E;Alcohol problems;C;0;lz;C01Elz
+1F;Marijuana use;C;0;Dy;C01FDy
+1G;Marijuana problems;C;0;EY;C01GEY
+1H;Drug use;C;0;Gq;C01HGq
+1I;Drug problems;C;0;p4;C01Ip4
+1J;Physical aggression;C;0;H8;C01JH8
+1K;Destructive aggression;C;0;Xo;C01KXo
+1L;Relational aggression;C;0;Sp;C01LSp
+1M;Fraud;C;0;jB;C01MjB
+1N;Impatient urgency;T;0;eb;T01Neb
+1O;(low) Planful control;T;0;Y2;T01OY2
+1P;(low) Dependability;T;0;MW;T01PMW
+1Q;Alienation;T;0;NN;T01QNN
+1R;Boredom proneness;T;0;YG;T01RYG
+1S;Blame externalization;T;0;YW;T01SYW
+1T;(low) Honesty;T;0;3u;T01T3u
+1U;Rebelliousness;T;0;GN;T01UGN
+1V;(low) Empathy;T;0;Xq;T01VXq
+1W;Excitement seeking;T;0;1E;T01W1E
+1X;Attention seeking;T;0;Qi;T01XQi
+1Y;Callousness;T;0;7w;T01Y7w
+1Z;Deceitfulness;T;0;iz;T01Ziz
+1a;Grandiosity;T;0;7u;T01a7u
+1b;Manipulativeness;T;0;z7;T01bz7
+1c;Rudeness;T;0;X5;T01cX5
+1d;Egocentricity;T;0;9I;T01d9I
+1e;Dominance;T;0;G6;T01eG6
+1f;Flirtatiousness;T;0;c8;T01fc8
+1g;(low) Timorousness;T;0;KP;T01gKP
+1h;Anhedonia;T;0;Qc;T01hQc
+1i;Pain;C;0;7x;C01i7x
+1j;Fatigue;C;0;KN;C01jKN
+1k;Neurological;C;0;KJ;C01kKJ
+1l;Cardiopulmonary;C;0;9M;C01l9M
+1m;Negative emotionality;C;0;Pz;C01mPz
+1n;Anger/irritability;C;0;Vp;C01nVp
+1o;Behavioral avoidance;C;0;Mk;C01oMk
+1p;Anxiety sensitivity;C;0;c6;C01pc6
+1q;BII phobia;C;0;Ta;C01qTa
+1r;Body dissatisfaction;C;0;fi;C01rfi
+1s;Binge eating;C;0;9T;C01s9T
+1t;Cognitive restraint;C;0;Ak;C01tAk
+1u;Purging;C;0;eZ;C01ueZ
+1v;Excessive exercise;C;0;T5;C01vT5
+1w;Restricting;C;0;Sl;C01wSl
+1x;Muscle building;C;0;zj;C01xzj
+1y;Negative attitudes toward obesity;C;0;no;C01yno
+1z;Low sexual desire;C;0;Xz;C01zXz
+20;Difficulties with arousal;C;0;XA;C020XA
+21;Low orgasmic function;C;0;Q0;C021Q0
+22;Sex-related distress;C;0;PW;C022PW
+23;Decreased need for sleep;C;0;7W;C0237W
+24;Physiological anxiety;C;0;WG;C024WG
+25;Health/Illness anxiety;C;0;ex;C025ex
+26;Peculiarity;T;0;cQ;T026cQ
+27;Reality distortion;C;0;7d;C0277d
+28;Emotional detachment;T;0;jy;T028jy
+29;Social withdrawal;T;0;jr;T029jr
+2A;Romantic desinterest;T;0;06;T02A06
+2B;Inattention;C;0;O8;C02BO8
+2C;Destruction of property;C;0;iQ;C02CiQ
+2D;Exhibitionism;C;0;SC;C02DSC
+01;General Factor of Psychopathology;F;0;Hw;F001Hw
+01;Externalizing;S;0;3h;S0013h
+02;Emotional dysfunction;S;0;SE;S002SE
+03;Psychosis;S;0;TB;S003TB
+01;Somatoform;P;0;Y2;P001Y2
+02;Internalizing;P;0;nf;P002nf
+03;Thought Disorder;P;0;SL;P003SL
+04;Detachment;P;0;R1;P004R1
+05;Disinhibited Externalizing;P;0;xY;P005xY
+06;Antagonistic Externalizing;P;0;gM;P006gM
+01;Sexual Problems;U;0;2Y;U0012Y
+02;Eating Pathology;U;0;SC;U002SC
+03;Fear;U;0;6N;U0036N
+04;Distress;U;0;dm;U004dm
+05;Mania;U;0;0q;U0050q
+06;Harmful Substance Abuse;U;0;1L;U0061L
+07;Antisocial Behavior;U;0;EJ;U007EJ
+01;Level;O;0;Ih;O001Ih
+02;Tier;O;0;sP;O002sP
+03;Factor;O;0;0W;O0030W
+04;Version;0;0;KV;0004KV
+05;HiTOP Version 1.0;V;1;2k;V1052k
+06;HiTOP Emotional dysfunction superspectrum Version 1.0;V;1;mv;V106mv
+07;HiTOP Psychosis superspectrum Version 1.0;V;1;49;V10749
+08;HiTOP Externalizing superspectrum Version 1.0;V;1;kx;V108kx

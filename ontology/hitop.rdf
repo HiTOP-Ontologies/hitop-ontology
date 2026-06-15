@@ -596,14 +596,10 @@
         <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">
             Slowed cognitive and physical processes, including thinking, speaking, and moving. 
-            As the term &apos;retardation&apos; is considered sensitive and potentially stigmatizing, the expression 
-            &apos;psychomotor retardation&apos; is more commonly used in current clinical contexts. 
-            This definition adheres to the classical vocabulary used in the HiTOP working model. 
         </rdfs:comment>
         <rdfs:label xml:lang="en">Retardation</rdfs:label>
     </owl:Class>
     
- <!-- im comment steht dass man psychomotor retardation schreiben sollte, sehe ich auch so, würde es umbenennen und dann den comment als Erklärung drin lassen oder ggf löschen? -->
 
 
     <!-- http://purl.org/hitop#C00cSn -->
@@ -638,19 +634,18 @@
     
 
 
-    <!-- http://purl.org/hitop#C00eL -->
+    <!-- http://purl.org/hitop#C00e0L -->
 
-    <owl:Class rdf:about="http://purl.org/hitop#C00eL">
+    <owl:Class rdf:about="http://purl.org/hitop#C00e0L">
         <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
         <obo:iaoIAO_0000115 xml:lang="en">
             (low) Wellbeing =def. a Distress which is characterized by a diminished state of mental and physical health, 
             reflected in reduced happiness, life satisfaction, or emotional balance.
         </obo:iaoIAO_0000115>
         <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
-        <rdfs:comment xml:lang="en">A positive state of mental and physical health, encompassing feelings of happiness and contentment.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A low level of mental and physical wellbeing, characterized by reduced feelings of happiness, contentment, and overall health.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Wellbeing</rdfs:label>
     </owl:Class>
-   <!-- der comment ist positiv gepolt und nicht auf Low Wellbeing, sollte m.E. konsistent sein -->  
 
 
     <!-- http://purl.org/hitop#C00fKQ -->
@@ -1111,13 +1106,13 @@
     
 
 
-    <!-- http://purl.org/hitop#O003W -->
+    <!-- http://purl.org/hitop#O0030W -->
 
-    <owl:Class rdf:about="http://purl.org/hitop#O003W">
+    <owl:Class rdf:about="http://purl.org/hitop#O0030W">
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/hitop#hasFactor"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/hitop#O003W"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/hitop#O0030W"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">
@@ -1373,9 +1368,9 @@
     
 
 
-    <!-- http://purl.org/hitop#T00AZ -->
+    <!-- http://purl.org/hitop#T00A0Z -->
 
-    <owl:Class rdf:about="http://purl.org/hitop#T00AZ">
+    <owl:Class rdf:about="http://purl.org/hitop#T00A0Z">
         <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
         <obo:iaoIAO_0000115 xml:lang="en">
             Perseveration =def. an Internalizing which is characterized by the repetition of a particular response or 
@@ -1402,7 +1397,6 @@
         <rdfs:comment xml:lang="en">A trait characterized by limited or constricted emotional expression.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Restricted affectivity</rdfs:label>
     </owl:Class>
-    <!-- ich nehme an das ist in Hitop auch so benannt, aber ich lese es als double negative also wenig restricted, finde ich verwirrend -->
 
 
     <!-- http://purl.org/hitop#T00Cgy -->
@@ -1511,7 +1505,6 @@
         <rdfs:comment xml:lang="en">A trait characterized by a perception of being immune to harm or negative effects.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Invulnerability</rdfs:label>
     </owl:Class>
-    <!-- hier verstehe ich das (low) auch nicht ganz -->
 
 
     <!-- http://purl.org/hitop#T00ua9 -->
@@ -1678,10 +1671,9 @@
             social settings.
         </obo:iaoIAO_0000115>
         <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
-        <rdfs:comment xml:lang="en">A trait characterized by a strong desire to attract and hold the attention of others.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A trait characterized by limited motivation to attract, maintain, or enhance the attention of others, often manifested as reduced social display, self-promotion, or efforts to gain recognition.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Attention seeking</rdfs:label>
     </owl:Class>
-    <!-- hier bezieht sich der comment auch wieder auf attention seeking und der Rest auf low attention seeking. das Konzept von low attention seeking finde ich so wie es beschrieben ist auch eher untypisch für die klinische Beschreibung -->
 
 
     <!-- http://purl.org/hitop#T015o8 -->
@@ -1765,15 +1757,12 @@
     <owl:Class rdf:about="http://purl.org/hitop#T01A5i">
         <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
         <obo:iaoIAO_0000115 xml:lang="en">
-            (low) Rigid Perfectionism =def. a Disinhibited Externalizing which is characterized by an excessive and inflexible 
-            striving for perfection and high standards, often leading to self-criticism, stress, and difficulty adapting 
-            to mistakes or setbacks.
+            (low) Rigid Perfectionism =def. a Disinhibited Externalizing trait characterized by a reduced tendency to strive for perfection and inflexible high standards, often associated with greater tolerance of imperfections and increased adaptability to mistakes or setbacks.
         </obo:iaoIAO_0000115>
         <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
-        <rdfs:comment xml:lang="en">A trait characterized by an excessive and inflexible striving for perfection and high standards, often leading to self-criticism and stress.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A trait characterized by a low tendency toward excessive and inflexible striving for perfection and high standards.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Rigid perfectionism</rdfs:label>
     </owl:Class>
-     <!-- hier ist das low gar nicht in der definition oder so einbezogen, fände ich auch nicht passend, rigid perfectionism ist gut so -->
 
 
     <!-- http://purl.org/hitop#T01BfQ -->
@@ -1781,14 +1770,12 @@
     <owl:Class rdf:about="http://purl.org/hitop#T01BfQ">
         <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
         <obo:iaoIAO_0000115 xml:lang="en">
-            (low) Ruminative Deliberation =def. a Disinhibited Externalizing which is characterized by excessive and repetitive 
-            thinking about potential decisions and their outcomes, often leading to indecision, prolonged deliberation, and stress.
+            (low) Ruminative Deliberation =def. a Disinhibited Externalizing trait characterized by a reduced tendency to engage in prolonged and repetitive deliberation about potential decisions and their outcomes.
         </obo:iaoIAO_0000115>
         <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
-        <rdfs:comment xml:lang="en">A trait characterized by excessive and repetitive thinking about potential decisions and their outcomes, often leading to indecision and stress.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A trait characterized by a low tendency toward excessive and repetitive thinking about potential decisions and their outcomes.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Ruminative deliberation</rdfs:label>
     </owl:Class>
-     <!-- hier ebenfalls -->
 
 
     <!-- http://purl.org/hitop#T01C1W -->
@@ -1796,14 +1783,12 @@
     <owl:Class rdf:about="http://purl.org/hitop#T01C1W">
         <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
         <obo:iaoIAO_0000115 xml:lang="en">
-            (low) Workaholism =def. a Disinhibited Externalizing which is characterized by an excessive and compulsive commitment 
-            to work, often at the expense of personal well-being, relationships, and leisure time, leading to stress and burnout.
+            (low) Workaholism =def. a Disinhibited Externalizing trait characterized by a reduced tendency toward excessive and compulsive involvement in work, resulting in less interference with personal wellbeing, relationships, and leisure time.
         </obo:iaoIAO_0000115>
         <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
-        <rdfs:comment xml:lang="en">A trait characterized by an excessive and compulsive commitment to work, often at the expense of personal well-being and relationships.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A trait characterized by reduced levels of excessive and compulsive commitment to work, with less impact on personal well-being and relationships.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Workaholism</rdfs:label>
     </owl:Class>
-    <!-- hier ebenfalls -->
 
 
     <!-- http://purl.org/hitop#T01Neb -->
@@ -2111,15 +2096,12 @@
     <owl:Class rdf:about="http://purl.org/hitop#T01gKP">
         <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
         <obo:iaoIAO_0000115 xml:lang="en">
-            (low) Timorousness =def. an Antagonistic Externalizing which is characterized by a tendency to be fearful 
-            or lacking in confidence, often leading to shyness, hesitation, or avoidance of social interactions and 
-            opportunities due to fear of judgment or failure.
+            (low) Timorousness =def. an Antagonistic Externalizing trait characterized by a reduced tendency to be fearful or lacking in confidence, resulting in less hesitation and avoidance in social and achievement-related situations.
         </obo:iaoIAO_0000115>
         <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
-        <rdfs:comment xml:lang="en">A trait characterized by a tendency to be fearful or lacking in confidence, often leading to shyness or hesitation.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A trait characterized by a low tendency to be fearful or lacking in confidence, often reflected in reduced shyness and hesitation.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Timorousness</rdfs:label>
     </owl:Class>
-    <!-- hier ebenfalls -->
 
 
     <!-- http://purl.org/hitop#T01hQc -->
@@ -2555,9 +2537,9 @@
 
 
 
-    <!-- http://purl.org/hitop#T02A6 -->
+    <!-- http://purl.org/hitop#T02A06 -->
 
-    <owl:Class rdf:about="http://purl.org/hitop#T02A6">
+    <owl:Class rdf:about="http://purl.org/hitop#T02A06">
         <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
         <obo:iaoIAO_0000115 xml:lang="en">
             Romantic disinterest =def. a Detachment trait marked by diminished or absent interest in forming or maintaining 
@@ -2704,9 +2686,9 @@
     
 
 
-    <!-- http://purl.org/hitop#U005q -->
+    <!-- http://purl.org/hitop#U0050q -->
 
-    <owl:Class rdf:about="http://purl.org/hitop#U005q">
+    <owl:Class rdf:about="http://purl.org/hitop#U0050q">
         <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
         <obo:iaoIAO_0000115 xml:lang="en">
             Mania =def. an Internalizing and Thought Disorder which is characterized by elevated mood, 
