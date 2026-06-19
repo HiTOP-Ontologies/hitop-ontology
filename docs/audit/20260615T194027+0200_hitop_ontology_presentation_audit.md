@@ -59,15 +59,15 @@ Die HiTOP Ontology ueberfuehrt das dimensionale HiTOP-Modell der Psychopathologi
 | --- | --- |
 | Zweck | Code- und Strukturprinzipien verstaendlich machen |
 | Kernaussage | Das Codesystem trennt stabile HiTOP-Konzeptidentitaet von lokalen Manifestationen. |
-| Content-Prompt | Erstelle ausschliesslich den Inhaltsbereich einer 16:9-Folie ohne Header und Footer. Beschreibe die Grundstruktur des Codesystems: Prefix `HiTOP`, Segment fuer Hierarchieebene, lokaler Konzeptcode, Pruefziffer und optionaler Manifestationssuffix. Zeige als Beispielstruktur `HiTOPSSccXX.M-<TT>-<NS>-<SLUG>` und erklaere knapp: Basiscode = fachliches HiTOP-Konzept, Suffix = konkrete Manifestation in einem Daten- oder Instrumentenkontext. Keine Seitenzahl, keine Fussnote, keine Logozeile und keine Quellenzeile. |
+| Content-Prompt | Erstelle ausschliesslich den Inhaltsbereich einer 16:9-Folie ohne Header und Footer. Beschreibe die Grundstruktur des Codesystems als zweistufiges Modell: stabiler HiTOP-Basiscode plus optionaler MNS. Stelle die Lesart `HiTOP SS cc XX + MNS` dar und erklaere die Bestandteile knapp: `HiTOP` = Praefix des Codesystems, `SS` = zweistelliges Segment fuer Hierarchieebene und Level, z.B. Superspektrum, Spektrum, Subfaktor, Komponente oder Trait, `cc` = lokaler alphanumerischer Konzeptcode, `XX` = zweistellige Pruefziffer ohne fachliche Bedeutung, `MNS` = Modularer Namespace-Suffix fuer konkrete Manifestationen. Zeige darunter die technische Form `HiTOPSSccXX.M-<TT>-<NS>-<SLUG>` und erklaere: Der Basiscode identifiziert das fachliche HiTOP-Konzept; der MNS nach dem Punkt beschreibt eine konkrete Manifestation in einem Daten-, Studien- oder Instrumentenkontext. Keine Seitenzahl, keine Fussnote, keine Logozeile und keine Quellenzeile. |
 
-### Folie 6: Manifestationen, Namespaces und Mapping
+### Folie 6: Modularer Namespace-Suffix
 
 | Feld | Inhalt |
 | --- | --- |
 | Zweck | Erweiterbarkeit und dezentrale Nutzbarkeit erklaeren |
 | Kernaussage | Lokale Manifestationen koennen eindeutig kodiert werden, ohne die gemeinsame HiTOP-Basis zu verlieren. |
-| Content-Prompt | Erstelle ausschliesslich den Inhaltsbereich einer 16:9-Folie ohne Header und Footer. Erklaere das modulare Manifestationssuffix: Manifestationstyp, Namespace-Token und lesbarer Slug. Zeige, dass unterschiedliche Studien oder Institutionen eigene Slugs nutzen koennen, waehrend Namespace-Token Kollisionen verhindern. Ergaenze, dass semantische Aehnlichkeit nicht ueber Umbenennung geloest wird, sondern ueber explizite Mapping-Artefakte mit Provenienz, Relation, Evidenz und Review-Level. Keine Seitenzahl, keine Fussnote, keine Logozeile und keine Quellenzeile. |
+| Content-Prompt | Erstelle ausschliesslich den Inhaltsbereich einer 16:9-Folie ohne Header und Footer. Erklaere knapp, aber konkret den modularen Namespace-Suffix als Erweiterung eines stabilen HiTOP-Basiscodes. Zeige die Syntax `HiTOPSSccXX.M-<TT>-<NS>-<SLUG>` und zerlege sie visuell in vier Teile: `HiTOPSSccXX` = gemeinsames HiTOP-Konzept, `M` = Manifestationsblock, `<TT>` = kontrollierter Manifestationstyp wie `AF`, `SS` oder `IM`, `<NS>` = lokaler Authority-Raum zur Kollisionsvermeidung, `<SLUG>` = lesbarer lokaler Name. Nutze ein konkretes Beispiel aus dem Repository: `HiTOPU0d1XX.M-AF-ROR3J2WQSVQFFIKK-PHQ4_1`. Erklaere den Nutzen in maximal drei Bulletpoints: dezentrale Studien und Instrumente koennen eigene Manifestationen kodieren, lokale Slugs kollidieren nicht zwischen Datenproduzenten, die gemeinsame HiTOP-Basis bleibt fuer Vergleich und spaeteres Mapping erhalten. Keine Regex-, Hash- oder Governance-Details. Keine Seitenzahl, keine Fussnote, keine Logozeile und keine Quellenzeile. |
 
 ### Folie 7: Vorteile fuer Forschung, Klinik und Datenintegration
 
