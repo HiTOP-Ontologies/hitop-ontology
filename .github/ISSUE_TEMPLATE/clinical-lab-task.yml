@@ -1,0 +1,45 @@
+name: Clinical Lab task
+description: Track a clinical review or governance task for the HiTOP Ontology production-readiness work.
+title: "CLIN-Cx-xx: "
+labels:
+  - clinical-lab
+body:
+  - type: input
+    id: task-id
+    attributes:
+      label: Task ID
+      description: Stable task identifier, e.g. CLIN-C1-01
+      placeholder: CLIN-C1-01
+    validations:
+      required: true
+  - type: textarea
+    id: task
+    attributes:
+      label: Aufgabe
+      description: What needs to be reviewed, decided, or documented.
+    validations:
+      required: true
+  - type: textarea
+    id: deliverable
+    attributes:
+      label: Deliverable
+      description: The concrete output that closes this task (a table, a document, a decision record, ...).
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priorität
+      options:
+        - P0 (Release-Blocker)
+        - P1 (starke Annahmebedingung fürs Paper)
+        - P2 (Politur)
+    validations:
+      required: true
+  - type: input
+    id: owner
+    attributes:
+      label: Owner
+      description: Person responsible, once named under CLIN-C5-01.
+    validations:
+      required: false
