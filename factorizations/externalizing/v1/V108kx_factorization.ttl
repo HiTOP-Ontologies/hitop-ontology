@@ -1,0 +1,108 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix hitop: <http://purl.org/hitop#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+hitop:S0013h hitop:hasLevelType hitop:O005pp ;
+    hitop:hasTier hitop:P005xY,
+        hitop:P006gM .
+
+<http://purl.org/hitop/factorizations/externalizing/vV108kx> a owl:Ontology ;
+    rdfs:label "Externalizing Superspectrum"@en ;
+    dcterms:bibliographicCitation "Kotov et al. (2021), World Psychiatry, doi:10.1002/wps.20844" ;
+    dcterms:created "2026-07-05"^^xsd:date ;
+    dcterms:creator "Dr. Rogério Blitz" ;
+    dcterms:isVersionOf "0.1.0" ;
+    dcterms:source "data/hitop/images/Externalizing superspectrum.jpg" ;
+    owl:imports <http://purl.org/hitop> ;
+    owl:versionInfo "V108kx" ;
+    skos:changeNote "status: draft"@en .
+
+hitop:C00oKM hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01HGq hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01Ip4 hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01JH8 hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01LSp hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01MjB hitop:hasLevelType hitop:O008Ob .
+
+hitop:C02BO8 hitop:hasLevelType hitop:O008Ob .
+
+hitop:C02CiQ hitop:hasLevelType hitop:O008Ob .
+
+hitop:C02DSC hitop:hasLevelType hitop:O009zM .
+
+hitop:P005xY hitop:hasLevelType hitop:O006lN ;
+    hitop:hasTier hitop:C00oKM,
+        hitop:C02BO8,
+        hitop:T015o8,
+        hitop:T016k0,
+        hitop:T018ir,
+        hitop:T019Cj,
+        hitop:T01A5i,
+        hitop:T01C1W,
+        hitop:T01OY2,
+        hitop:U0061L,
+        hitop:U007EJ .
+
+hitop:P006gM hitop:hasLevelType hitop:O006lN ;
+    hitop:hasTier hitop:C02DSC,
+        hitop:T0094I,
+        hitop:T010c6,
+        hitop:T01Y7w,
+        hitop:T01Ziz,
+        hitop:T01a7u,
+        hitop:T01bz7,
+        hitop:T01cX5,
+        hitop:T01eG6 .
+
+hitop:T0094I hitop:hasLevelType hitop:O009zM .
+
+hitop:T010c6 hitop:hasLevelType hitop:O009zM .
+
+hitop:T015o8 hitop:hasLevelType hitop:O009zM .
+
+hitop:T016k0 hitop:hasLevelType hitop:O009zM .
+
+hitop:T0177S hitop:hasLevelType hitop:O009zM .
+
+hitop:T018ir hitop:hasLevelType hitop:O009zM .
+
+hitop:T019Cj hitop:hasLevelType hitop:O009zM .
+
+hitop:T01A5i hitop:hasLevelType hitop:O009zM .
+
+hitop:T01C1W hitop:hasLevelType hitop:O009zM .
+
+hitop:T01OY2 hitop:hasLevelType hitop:O009zM .
+
+hitop:T01Y7w hitop:hasLevelType hitop:O009zM .
+
+hitop:T01Ziz hitop:hasLevelType hitop:O009zM .
+
+hitop:T01a7u hitop:hasLevelType hitop:O009zM .
+
+hitop:T01bz7 hitop:hasLevelType hitop:O009zM .
+
+hitop:T01cX5 hitop:hasLevelType hitop:O009zM .
+
+hitop:T01eG6 hitop:hasLevelType hitop:O009zM .
+
+hitop:U0061L hitop:hasLevelType hitop:O007SH ;
+    hitop:hasTier hitop:C01HGq,
+        hitop:C01Ip4 .
+
+hitop:U007EJ hitop:hasLevelType hitop:O007SH ;
+    hitop:hasTier hitop:C01JH8,
+        hitop:C01LSp,
+        hitop:C01MjB,
+        hitop:C02CiQ,
+        hitop:T0177S ;
+    skos:changeNote "Bridges: Disinhibition, Antagonism"@en .
+

@@ -1,0 +1,378 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix hitop: <http://purl.org/hitop#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+hitop:F001Hw hitop:hasLevelType hitop:O004Hd ;
+    hitop:hasTier hitop:P001Y2,
+        hitop:P002nf,
+        hitop:P003SL,
+        hitop:P004R1,
+        hitop:S0013h .
+
+<http://purl.org/hitop/factorizations/working-model/vV1052k> a owl:Ontology ;
+    rdfs:label "HiTOP Working Model"@en ;
+    dcterms:created "2026-07-05"^^xsd:date ;
+    dcterms:creator "Dr. Rogério Blitz" ;
+    dcterms:isVersionOf "0.1.0" ;
+    dcterms:source "data/hitop/images/hitop_working_model.png" ;
+    owl:imports <http://purl.org/hitop> ;
+    owl:versionInfo "V1052k" ;
+    skos:changeNote "status: draft"@en .
+
+hitop:C001qy hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00217 hitop:hasLevelType hitop:O008Ob .
+
+hitop:C0033z hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00416 hitop:hasLevelType hitop:O008Ob .
+
+hitop:C005Sv hitop:hasLevelType hitop:O008Ob .
+
+hitop:C006MD hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00JTU hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00KL0 hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00LqY hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00Mpl hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00N4I hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00OuR hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00Pjp hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00Q1t hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00RGy hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00S9m hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00TgL hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00Urw hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00VHv hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00WJc hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00XyI hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00Y8j hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00ZyP hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00aMF hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00bEx hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00cSn hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00dc1 hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00e0L hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00fKQ hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00gvD hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00hPJ hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00iAh hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00jw5 hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00kEN hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00l5y hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00mpe hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00nyb hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00oKM hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00pnZ hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00qSD hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00rnS hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00sWr hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00tUQ hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01DAb hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01Elz hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01FDy hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01GEY hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01HGq hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01Ip4 hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01JH8 hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01KXo hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01LSp hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01MjB hitop:hasLevelType hitop:O008Ob .
+
+hitop:P001Y2 hitop:hasLevelType hitop:O006lN ;
+    hitop:hasTier hitop:C001qy,
+        hitop:C00217,
+        hitop:C0033z,
+        hitop:C00416,
+        hitop:C005Sv,
+        hitop:C006MD .
+
+hitop:P002nf hitop:hasLevelType hitop:O006lN ;
+    hitop:hasTier hitop:T007eM,
+        hitop:T008mD,
+        hitop:T0094I,
+        hitop:T00A0Z,
+        hitop:T00BXK,
+        hitop:T00Cgy,
+        hitop:T00D42,
+        hitop:T00Eht,
+        hitop:T00Fe0,
+        hitop:T00G3d,
+        hitop:T00HCy,
+        hitop:T00IAT,
+        hitop:U0012Y,
+        hitop:U002SC,
+        hitop:U0036N,
+        hitop:U004dm,
+        hitop:U0050q .
+
+hitop:P003SL hitop:hasLevelType hitop:O006lN ;
+    hitop:hasTier hitop:C00qSD,
+        hitop:C00rnS,
+        hitop:C00sWr,
+        hitop:C00tUQ,
+        hitop:T00ua9,
+        hitop:T00vjR,
+        hitop:T00wk6,
+        hitop:T00xLn .
+
+hitop:P004R1 hitop:hasLevelType hitop:O006lN ;
+    hitop:hasTier hitop:T00yfU,
+        hitop:T00zDk,
+        hitop:T010c6,
+        hitop:T011K6,
+        hitop:T012QL,
+        hitop:T013F1,
+        hitop:T014BA,
+        hitop:T01hQc .
+
+hitop:P005xY hitop:hasLevelType hitop:O006lN ;
+    hitop:hasTier hitop:T015o8,
+        hitop:T016k0,
+        hitop:T0177S,
+        hitop:T018ir,
+        hitop:T019Cj,
+        hitop:T01A5i,
+        hitop:T01BfQ,
+        hitop:T01C1W,
+        hitop:U0061L,
+        hitop:U007EJ .
+
+hitop:P006gM hitop:hasLevelType hitop:O006lN ;
+    hitop:hasTier hitop:T01XQi,
+        hitop:T01Y7w,
+        hitop:T01Ziz,
+        hitop:T01a7u,
+        hitop:T01bz7,
+        hitop:T01cX5,
+        hitop:T01d9I,
+        hitop:T01eG6,
+        hitop:T01fc8,
+        hitop:T01gKP .
+
+hitop:S0013h hitop:hasLevelType hitop:O005pp ;
+    hitop:hasTier hitop:P005xY,
+        hitop:P006gM .
+
+hitop:T007eM hitop:hasLevelType hitop:O009zM .
+
+hitop:T008mD hitop:hasLevelType hitop:O009zM .
+
+hitop:T0094I hitop:hasLevelType hitop:O009zM .
+
+hitop:T00A0Z hitop:hasLevelType hitop:O009zM .
+
+hitop:T00BXK hitop:hasLevelType hitop:O009zM .
+
+hitop:T00Cgy hitop:hasLevelType hitop:O009zM .
+
+hitop:T00D42 hitop:hasLevelType hitop:O009zM .
+
+hitop:T00Eht hitop:hasLevelType hitop:O009zM .
+
+hitop:T00Fe0 hitop:hasLevelType hitop:O009zM .
+
+hitop:T00G3d hitop:hasLevelType hitop:O009zM .
+
+hitop:T00HCy hitop:hasLevelType hitop:O009zM .
+
+hitop:T00IAT hitop:hasLevelType hitop:O009zM .
+
+hitop:T00ua9 hitop:hasLevelType hitop:O009zM .
+
+hitop:T00vjR hitop:hasLevelType hitop:O009zM .
+
+hitop:T00wk6 hitop:hasLevelType hitop:O009zM .
+
+hitop:T00xLn hitop:hasLevelType hitop:O009zM .
+
+hitop:T00yfU hitop:hasLevelType hitop:O009zM .
+
+hitop:T00zDk hitop:hasLevelType hitop:O009zM .
+
+hitop:T010c6 hitop:hasLevelType hitop:O009zM .
+
+hitop:T011K6 hitop:hasLevelType hitop:O009zM .
+
+hitop:T012QL hitop:hasLevelType hitop:O009zM .
+
+hitop:T013F1 hitop:hasLevelType hitop:O009zM .
+
+hitop:T014BA hitop:hasLevelType hitop:O009zM .
+
+hitop:T015o8 hitop:hasLevelType hitop:O009zM .
+
+hitop:T016k0 hitop:hasLevelType hitop:O009zM .
+
+hitop:T0177S hitop:hasLevelType hitop:O009zM .
+
+hitop:T018ir hitop:hasLevelType hitop:O009zM .
+
+hitop:T019Cj hitop:hasLevelType hitop:O009zM .
+
+hitop:T01A5i hitop:hasLevelType hitop:O009zM .
+
+hitop:T01BfQ hitop:hasLevelType hitop:O009zM .
+
+hitop:T01C1W hitop:hasLevelType hitop:O009zM .
+
+hitop:T01Neb hitop:hasLevelType hitop:O009zM .
+
+hitop:T01OY2 hitop:hasLevelType hitop:O009zM .
+
+hitop:T01PMW hitop:hasLevelType hitop:O009zM .
+
+hitop:T01QNN hitop:hasLevelType hitop:O009zM .
+
+hitop:T01RYG hitop:hasLevelType hitop:O009zM .
+
+hitop:T01SYW hitop:hasLevelType hitop:O009zM .
+
+hitop:T01T3u hitop:hasLevelType hitop:O009zM .
+
+hitop:T01UGN hitop:hasLevelType hitop:O009zM .
+
+hitop:T01VXq hitop:hasLevelType hitop:O009zM .
+
+hitop:T01W1E hitop:hasLevelType hitop:O009zM .
+
+hitop:T01XQi hitop:hasLevelType hitop:O009zM .
+
+hitop:T01Y7w hitop:hasLevelType hitop:O009zM .
+
+hitop:T01Ziz hitop:hasLevelType hitop:O009zM .
+
+hitop:T01a7u hitop:hasLevelType hitop:O009zM .
+
+hitop:T01bz7 hitop:hasLevelType hitop:O009zM .
+
+hitop:T01cX5 hitop:hasLevelType hitop:O009zM .
+
+hitop:T01d9I hitop:hasLevelType hitop:O009zM .
+
+hitop:T01eG6 hitop:hasLevelType hitop:O009zM .
+
+hitop:T01fc8 hitop:hasLevelType hitop:O009zM .
+
+hitop:T01gKP hitop:hasLevelType hitop:O009zM .
+
+hitop:T01hQc hitop:hasLevelType hitop:O009zM .
+
+hitop:U0012Y hitop:hasLevelType hitop:O007SH .
+
+hitop:U002SC hitop:hasLevelType hitop:O007SH .
+
+hitop:U0036N hitop:hasLevelType hitop:O007SH ;
+    hitop:hasTier hitop:C00JTU,
+        hitop:C00KL0,
+        hitop:C00LqY,
+        hitop:C00Mpl,
+        hitop:C00N4I,
+        hitop:C00OuR,
+        hitop:C00Pjp,
+        hitop:C00Q1t,
+        hitop:C00RGy,
+        hitop:C00S9m,
+        hitop:C00TgL,
+        hitop:C00Urw .
+
+hitop:U004dm hitop:hasLevelType hitop:O007SH ;
+    hitop:hasTier hitop:C00VHv,
+        hitop:C00WJc,
+        hitop:C00XyI,
+        hitop:C00Y8j,
+        hitop:C00ZyP,
+        hitop:C00aMF,
+        hitop:C00bEx,
+        hitop:C00cSn,
+        hitop:C00dc1,
+        hitop:C00e0L,
+        hitop:C00fKQ,
+        hitop:C00gvD,
+        hitop:C00hPJ,
+        hitop:C00iAh,
+        hitop:C00jw5,
+        hitop:C00kEN,
+        hitop:C00l5y,
+        hitop:C00mpe .
+
+hitop:U0050q hitop:hasLevelType hitop:O007SH ;
+    hitop:hasTier hitop:C00nyb,
+        hitop:C00oKM,
+        hitop:C00pnZ ;
+    skos:changeNote "Bridges: Internalizing, Thought Disorder"@en .
+
+hitop:U0061L hitop:hasLevelType hitop:O007SH ;
+    hitop:hasTier hitop:C01DAb,
+        hitop:C01Elz,
+        hitop:C01FDy,
+        hitop:C01GEY,
+        hitop:C01HGq,
+        hitop:C01Ip4 .
+
+hitop:U007EJ hitop:hasLevelType hitop:O007SH ;
+    hitop:hasTier hitop:C01JH8,
+        hitop:C01KXo,
+        hitop:C01LSp,
+        hitop:C01MjB,
+        hitop:T01Neb,
+        hitop:T01OY2,
+        hitop:T01PMW,
+        hitop:T01QNN,
+        hitop:T01RYG,
+        hitop:T01SYW,
+        hitop:T01T3u,
+        hitop:T01UGN,
+        hitop:T01VXq,
+        hitop:T01W1E ;
+    skos:changeNote "Bridges: Disinhibited Externalizing, Antagonistic Externalizing"@en .
+

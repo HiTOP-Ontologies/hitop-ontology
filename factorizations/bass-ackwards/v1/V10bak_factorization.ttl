@@ -1,0 +1,16 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/hitop/factorizations/bass-ackwards/vV10bak> a owl:Ontology ;
+    rdfs:label "HiTOP Bass-Ackwards Structure"@en ;
+    dcterms:created "2026-07-03"^^xsd:date ;
+    dcterms:creator "Dr. Rogério Blitz" ;
+    dcterms:isVersionOf "0.1.0" ;
+    dcterms:source "TBD" ;
+    owl:imports <http://purl.org/hitop> ;
+    owl:versionInfo "V10bak" ;
+    skos:changeNote "status: draft"@en .
+

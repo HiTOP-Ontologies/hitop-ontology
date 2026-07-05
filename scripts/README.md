@@ -138,6 +138,43 @@ Common failure signals:
 | RDF/XML parse error | Source ontology is malformed | Fix the RDF/XML source before regenerating artifacts |
 | XML serialization error | The graph contains content that cannot be represented in the target XML form | Treat as a release blocker and inspect source triples |
 
+## Generate a Factorization Ontology
+
+```bash
+.venv/bin/python scripts/generate_factorization_ontology.py \
+  factorizations/working-model/v1/V1052k_hierarchy.yaml
+```
+
+Validates a `<version>_hierarchy.yaml` with the same rules as
+`validation/test_factorizations.py` (`hitop.factorization.validate`) and
+compiles it into an RDF factorization ontology: one `hitop:hasLevelType`
+triple per node and one `hitop:hasTier` triple per parent-child edge,
+referencing the stable classes in `ontology/hitop.ttl` by IRI. See
+`docs/factorizations.md` for the underlying vocabulary.
+
+Inputs:
+
+| Input | Default |
+| --- | --- |
+| positional `input_yaml` | required `factorizations/<id>/v<N>/<version>_hierarchy.yaml` |
+| `--ontology` | `ontology/hitop.ttl` |
+| `--output` | `<version>_factorization.ttl` next to the input file |
+
+Outputs:
+
+| Output | Meaning |
+| --- | --- |
+| `<version>_factorization.ttl` | Generated factorization ontology; not hand-maintained, regenerate after editing the hierarchy YAML |
+| JSON stdout | `{ "valid": true, ... }` on success or `{ "valid": false, "errors": [...] }` on validation failure |
+
+Common failure signals:
+
+| Signal | Likely cause | Resolution |
+| --- | --- | --- |
+| `code '...' does not exist as a class in ontology/hitop.ttl` | A node references a code that was never added to the core ontology, or a typo | Fix the code in the hierarchy YAML or add the class to the core ontology first |
+| `level '...' must be strictly below parent level '...'` | A child node's `level` is not narrower than its parent's on the `hitop:hasLevel` ladder | Fix the `level` value or the tree position |
+| `code '...' appears more than once in this tree` | The same `code` is used twice within one hierarchy | Remove the duplicate or assign the correct distinct code |
+
 ## Generate CSV-Derived Records
 
 ```bash

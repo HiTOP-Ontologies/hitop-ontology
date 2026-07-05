@@ -1,0 +1,404 @@
+# V1052k — HiTOP Working Model (Kernontologie)
+
+meta:
+  factorization_id: working-model
+  version: V1052k
+  label: HiTOP Working Model
+  source: data/hitop/images/hitop_working_model.png
+  status: draft
+  based_on:
+    ontology_iri: "http://purl.org/hitop"
+    ontology_version: "0.1.0"
+  provenance:
+    created_by: "Dr. Rogério Blitz"
+    created_at: "2026-07-05"
+
+hierarchy:
+  label: General Factor of Psychopathology (p-factor)
+  level: Factor
+  code: F001Hw
+  children:
+
+    - label: Externalizing
+      level: Superspectrum
+      code: S0013h
+      children:
+
+        - label: Disinhibited Externalizing
+          level: Spectrum
+          code: P005xY
+          children:
+            - label: Harmful Substance Use
+              level: Subfactor
+              code: U0061L
+              children:
+                - label: Alcohol use
+                  level: Component
+                  code: C01DAb
+                - label: Alcohol problems
+                  level: Component
+                  code: C01Elz
+                - label: Marijuana use
+                  level: Component
+                  code: C01FDy
+                - label: Marijuana problems
+                  level: Component
+                  code: C01GEY
+                - label: Drug use
+                  level: Component
+                  code: C01HGq
+                - label: Drug problems
+                  level: Component
+                  code: C01Ip4
+
+            - label: Antisocial Behavior
+              level: Subfactor
+              code: U007EJ
+              bridge: [Disinhibited Externalizing, Antagonistic Externalizing]
+              children:
+                - label: Physical aggression
+                  level: Component
+                  code: C01JH8
+                - label: Destructive aggression
+                  level: Component
+                  code: C01KXo
+                - label: Relational aggression
+                  level: Component
+                  code: C01LSp
+                - label: Fraud
+                  level: Component
+                  code: C01MjB
+                - label: Impatient urgency
+                  level: Trait
+                  code: T01Neb
+                - label: (low) Planful control
+                  level: Trait
+                  code: T01OY2
+                - label: (low) Dependability
+                  level: Trait
+                  code: T01PMW
+                - label: Alienation
+                  level: Trait
+                  code: T01QNN
+                - label: Boredom proneness
+                  level: Trait
+                  code: T01RYG
+                - label: Blame externalization
+                  level: Trait
+                  code: T01SYW
+                - label: (low) Honesty
+                  level: Trait
+                  code: T01T3u
+                - label: Rebelliousness
+                  level: Trait
+                  code: T01UGN
+                - label: (low) Empathy
+                  level: Trait
+                  code: T01VXq
+                - label: Excitement seeking
+                  level: Trait
+                  code: T01W1E
+
+            - label: Problematic impulsivity
+              level: Trait
+              code: T015o8
+            - label: Irresponsibility
+              level: Trait
+              code: T016k0
+            - label: Theft
+              level: Trait
+              code: T0177S
+            - label: Distractibility
+              level: Trait
+              code: T018ir
+            - label: Risk taking
+              level: Trait
+              code: T019Cj
+            - label: (low) Rigid perfectionism
+              level: Trait
+              code: T01A5i
+            - label: (low) Ruminative deliberation
+              level: Trait
+              code: T01BfQ
+            - label: (low) Workaholism
+              level: Trait
+              code: T01C1W
+
+        - label: Antagonistic Externalizing
+          level: Spectrum
+          code: P006gM
+          children:
+            - label: Attention seeking
+              level: Trait
+              code: T01XQi
+            - label: Callousness
+              level: Trait
+              code: T01Y7w
+            - label: Deceitfulness
+              level: Trait
+              code: T01Ziz
+            - label: Grandiosity
+              level: Trait
+              code: T01a7u
+            - label: Manipulativeness
+              level: Trait
+              code: T01bz7
+            - label: Rudeness
+              level: Trait
+              code: T01cX5
+            - label: Egocentricity
+              level: Trait
+              code: T01d9I
+            - label: Dominance
+              level: Trait
+              code: T01eG6
+            - label: Flirtatiousness
+              level: Trait
+              code: T01fc8
+            - label: (low) Timorousness
+              level: Trait
+              code: T01gKP
+    - label: Somatoform
+      level: Spectrum
+      code: P001Y2
+      children:
+        - label: Conversion
+          level: Component
+          code: C001qy
+        - label: Somatization
+          level: Component
+          code: C00217
+        - label: Malaise
+          level: Component
+          code: C0033z
+        - label: Head Pain
+          level: Component
+          code: C00416
+        - label: Gastrointestinal
+          level: Component
+          code: C005Sv
+        - label: Cognitive
+          level: Component
+          code: C006MD
+
+    - label: Internalizing
+      level: Spectrum
+      code: P002nf
+      children:
+        - label: Anxiousness
+          level: Trait
+          code: T007eM
+        - label: Emotional lability
+          level: Trait
+          code: T008mD
+        - label: Hostility
+          level: Trait
+          code: T0094I
+        - label: Perseveration
+          level: Trait
+          code: T00A0Z
+        - label: (low) Restricted affectivity
+          level: Trait
+          code: T00BXK
+        - label: Separation insecurity
+          level: Trait
+          code: T00Cgy
+        - label: Submissiveness
+          level: Trait
+          code: T00D42
+        - label: Identity problems
+          level: Trait
+          code: T00Eht
+        - label: Negative relationships
+          level: Trait
+          code: T00Fe0
+        - label: Fragility
+          level: Trait
+          code: T00G3d
+        - label: Ineptitude
+          level: Trait
+          code: T00HCy
+        - label: (low) Invulnerability
+          level: Trait
+          code: T00IAT
+
+        - label: Sexual Problems
+          level: Subfactor
+          code: U0012Y
+
+        - label: Eating Pathology
+          level: Subfactor
+          code: U002SC
+
+        - label: Fear
+          level: Subfactor
+          code: U0036N
+          children:
+            - label: Interactive anxiety
+              level: Component
+              code: C00JTU
+            - label: Performance anxiety
+              level: Component
+              code: C00KL0
+            - label: Public places
+              level: Component
+              code: C00LqY
+            - label: Enclosed spaces
+              level: Component
+              code: C00Mpl
+            - label: Animal phobia
+              level: Component
+              code: C00N4I
+            - label: Situational phobia
+              level: Component
+              code: C00OuR
+            - label: Blood-injection-injury
+              level: Component
+              code: C00Pjp
+            - label: Physiological panic
+              level: Component
+              code: C00Q1t
+            - label: Psychological panic
+              level: Component
+              code: C00RGy
+            - label: Cleaning
+              level: Component
+              code: C00S9m
+            - label: Rituals
+              level: Component
+              code: C00TgL
+            - label: Checking
+              level: Component
+              code: C00Urw
+
+        - label: Distress
+          level: Subfactor
+          code: U004dm
+          children:
+            - label: Dysphoria
+              level: Component
+              code: C00VHv
+            - label: Lassitude
+              level: Component
+              code: C00WJc
+            - label: Anhedonia
+              level: Component
+              code: C00XyI
+            - label: Insomnia
+              level: Component
+              code: C00Y8j
+            - label: Suicidality
+              level: Component
+              code: C00ZyP
+            - label: Agitation
+              level: Component
+              code: C00aMF
+            - label: Retardation
+              level: Component
+              code: C00bEx
+            - label: Appetite loss
+              level: Component
+              code: C00cSn
+            - label: Appetite gain
+              level: Component
+              code: C00dc1
+            - label: (low) Wellbeing
+              level: Component
+              code: C00e0L
+            - label: GAD Symptoms
+              level: Component
+              code: C00fKQ
+            - label: Re-experiencing
+              level: Component
+              code: C00gvD
+            - label: Avoidance
+              level: Component
+              code: C00hPJ
+            - label: Hyperarousal
+              level: Component
+              code: C00iAh
+            - label: Numbing
+              level: Component
+              code: C00jw5
+            - label: Dissociation
+              level: Component
+              code: C00kEN
+            - label: Irritability
+              level: Component
+              code: C00l5y
+            - label: Pure obsessions
+              level: Component
+              code: C00mpe
+
+        - label: Mania
+          level: Subfactor
+          code: U0050q
+          bridge: [Internalizing, Thought Disorder]
+          children:
+            - label: Euphoric activation
+              level: Component
+              code: C00nyb
+            - label: Hyper-active cognition
+              level: Component
+              code: C00oKM
+            - label: Reckless overconfidence
+              level: Component
+              code: C00pnZ
+
+    - label: Thought Disorder
+      level: Spectrum
+      code: P003SL
+      children:
+        - label: Psychotic
+          level: Component
+          code: C00qSD
+        - label: Disorganized
+          level: Component
+          code: C00rnS
+        - label: Inexpressivity
+          level: Component
+          code: C00sWr
+        - label: Avolition
+          level: Component
+          code: C00tUQ
+        - label: Eccentricity
+          level: Trait
+          code: T00ua9
+        - label: Cognitive/perceptual dysregulation
+          level: Trait
+          code: T00vjR
+        - label: Unusual beliefs and experiences
+          level: Trait
+          code: T00wk6
+        - label: Fantasy proneness
+          level: Trait
+          code: T00xLn
+
+    - label: Detachment
+      level: Spectrum
+      code: P004R1
+      children:
+        - label: Anhedonia
+          level: Trait
+          code: T01hQc
+        - label: Depressivity
+          level: Trait
+          code: T00yfU
+        - label: Intimacy avoidance
+          level: Trait
+          code: T00zDk
+        - label: Suspiciousness
+          level: Trait
+          code: T010c6
+        - label: Withdrawal
+          level: Trait
+          code: T011K6
+        - label: Interpersonal passivity
+          level: Trait
+          code: T012QL
+        - label: Disaffiliative
+          level: Trait
+          code: T013F1
+        - label: (low) Attention seeking
+          level: Trait
+          code: T014BA

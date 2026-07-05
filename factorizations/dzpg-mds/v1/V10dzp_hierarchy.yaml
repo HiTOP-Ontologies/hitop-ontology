@@ -1,0 +1,22 @@
+# V10dzp — HiTOP DZPG Minimal Data Set (Platzhalter)
+
+meta:
+  factorization_id: dzpg-mds
+  version: V10dzp
+  label: "HiTOP DZPG Minimal Data Set"
+  status: draft
+  source: "TBD"
+  based_on:
+    ontology_iri: "http://purl.org/hitop"
+    ontology_version: "0.1.0"
+  provenance:
+    created_by: "Dr. Rogério Blitz"
+    created_at: "2026-07-03"
+    notes: >
+      Placeholder for the DZPG "Psychische Gesundheit Basiserfassung"
+      minimal data set factorization. This factorization was previously
+      scaffolded as a standalone repository (hitop-dzpg-mds) and is being
+      consolidated into hitop-ontology. The tree has not been populated
+      yet; status must move from draft to active only once it is.
+
+hierarchy: null

@@ -1,0 +1,71 @@
+# V10749 — Psychosis Superspectrum
+
+meta:
+  factorization_id: psychosis
+  version: V10749
+  label: Psychosis Superspectrum
+  source: data/hitop/images/Psychosis superspectrum.jpg
+  paper: "Kotov et al. (2020), World Psychiatry, doi:10.1002/wps.20730"
+  status: draft
+  based_on:
+    ontology_iri: "http://purl.org/hitop"
+    ontology_version: "0.1.0"
+  provenance:
+    created_by: "Dr. Rogério Blitz"
+    created_at: "2026-07-05"
+
+hierarchy:
+  label: Psychosis
+  level: Superspectrum
+  code: S003TB
+  children:
+
+    - label: Thought disorder (Psychoticism)
+      level: Spectrum
+      code: P003SL
+      children:
+        - label: Fantasy proneness
+          level: Trait
+          code: T00xLn
+        - label: Unusual Beliefs and Experiences
+          level: Trait
+          code: T00wk6
+        - label: Peculiarity
+          level: Trait
+          code: T026cQ
+        - label: Mania
+          level: Component
+          provisional: true
+          code: U0050q
+        - label: Dissociation
+          level: Component
+          code: C00kEN
+        - label: Reality distortion
+          level: Component
+          code: C0277d
+        - label: Disorganization
+          level: Component
+          code: T01OY2
+
+    - label: Detachment
+      level: Spectrum
+      code: P004R1
+      children:
+        - label: Emotional detachment
+          level: Trait
+          code: T028jy
+        - label: Anhedonia
+          level: Trait
+          code: T01hQc
+        - label: Social withdrawal
+          level: Trait
+          code: T029jr
+        - label: Romantic disinterest
+          level: Trait
+          code: T02A06
+        - label: Inexpressivity
+          level: Component
+          code: C00sWr
+        - label: Avolition
+          level: Component
+          code: C00tUQ

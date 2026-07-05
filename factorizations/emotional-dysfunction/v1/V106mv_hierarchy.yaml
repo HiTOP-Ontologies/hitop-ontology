@@ -1,0 +1,207 @@
+# V106mv — Emotional Dysfunction Superspectrum
+
+meta:
+  factorization_id: emotional-dysfunction
+  version: V106mv
+  label: Emotional Dysfunction Superspectrum
+  source: data/hitop/images/Emotional dysfunction superspectrum.jpg
+  paper: "Kotov et al. (2021), World Psychiatry, doi:10.1002/wps.20943"
+  status: active
+  based_on:
+    ontology_iri: "http://purl.org/hitop"
+    ontology_version: "0.1.0"
+  provenance:
+    created_by: "Dr. Rogério Blitz"
+    created_at: "2026-07-05"
+
+hierarchy:
+  label: Emotional dysfunction
+  level: Superspectrum
+  code: S002SE
+  children:
+
+    - label: Somatoform
+      level: Spectrum
+      code: P001Y2
+      children:
+        - label: Malaise
+          level: Component
+          code: C0033z
+        - label: Pain
+          level: Component
+          code: C01i7x
+        - label: Fatigue
+          level: Component
+          code: C01jKN
+        - label: Neurological
+          level: Component
+          code: C01kKJ
+        - label: Gastrointestinal
+          level: Component
+          code: C005Sv
+        - label: Cardiopulmonary
+          level: Component
+          code: C01l9M
+        - label: Physiological anxiety
+          level: Component
+          code: C024WG
+          bridge: [Somatoform, Distress]
+        - label: Health/illness anxiety
+          level: Component
+          code: C025ex
+          bridge: [Somatoform, Distress]
+
+    - label: Internalizing
+      level: Spectrum
+      code: P002nf
+      children:
+        - label: Distress
+          level: Subfactor
+          code: U004dm
+          children:
+            - label: Negative emotionality
+              level: Component
+              code: C01mPz
+            - label: Anxiousness
+              level: Trait
+              code: T007eM
+            - label: Depressivity
+              level: Trait
+              code: T00yfU
+            - label: Dysphoria
+              level: Component
+              code: C00VHv
+            - label: Suicidality
+              level: Component
+              code: C00ZyP
+            - label: Insomnia
+              level: Component
+              code: C00Y8j
+            - label: Anger/irritability
+              level: Component
+              code: C01nVp
+            - label: Emotional lability
+              level: Trait
+              code: T008mD
+            - label: Hyperactive cognition
+              level: Component
+              code: C00oKM
+
+        - label: Mania
+          level: Subfactor
+          provisional: true
+          code: U0050q
+          children:
+            - label: Euphoric activation
+              level: Component
+              code: C00nyb
+            - label: Reckless overconfidence
+              level: Component
+              code: C00pnZ
+            - label: Decreased need for sleep
+              level: Component
+              code: C0237W
+
+        - label: Fear
+          level: Subfactor
+          code: U0036N
+          children:
+            - label: Behavioral avoidance
+              level: Component
+              code: C01oMk
+            - label: Anxiety sensitivity
+              level: Component
+              code: C01pc6
+            - label: Situational phobia
+              level: Component
+              code: C00OuR
+            - label: Animal phobia
+              level: Component
+              code: C00N4I
+            - label: BII phobia
+              level: Component
+              code: C01qTa
+            - label: Physiological panic
+              level: Component
+              code: C00Q1t
+            - label: Psychological panic
+              level: Component
+              code: C00RGy
+            - label: Performance anxiety
+              level: Component
+              code: C00KL0
+            - label: Interactive anxiety
+              level: Component
+              code: C00JTU
+            - label: Fear of public places
+              level: Component
+              code: C00LqY
+            - label: Fear of enclosed spaces
+              level: Component
+              code: C00Mpl
+
+        # Zwang/Attachment-Gruppe: direkt unter Internalizing, nicht unter Fear
+        - label: Pure obsessions
+          level: Component
+          code: C00mpe
+        - label: Compulsive checking
+          level: Component
+          code: C00Urw
+        - label: Compulsive rituals
+          level: Component
+          code: C00TgL
+        - label: Compulsive cleaning
+          level: Component
+          code: C00S9m
+        - label: Separation insecurity
+          level: Trait
+          code: T00Cgy
+        - label: Submissiveness
+          level: Trait
+          code: T00D42
+
+        - label: Eating pathology
+          level: Subfactor
+          code: U002SC
+          children:
+            - label: Body dissatisfaction
+              level: Component
+              code: C01rfi
+            - label: Binge eating
+              level: Component
+              code: C01s9T
+            - label: Cognitive restraint
+              level: Component
+              code: C01tAk
+            - label: Purging
+              level: Component
+              code: C01ueZ
+            - label: Excessive exercise
+              level: Component
+              code: C01vT5
+            - label: Restricting
+              level: Component
+              code: C01wSl
+            - label: Muscle building
+              level: Component
+              code: C01xzj
+            - label: Negative attitudes toward obesity
+              level: Component
+              code: C01yno
+
+        - label: Sexual problems
+          level: Subfactor
+          code: U0012Y
+          children:
+            - label: Low sexual desire
+              level: Component
+              code: C01zXz
+            - label: Difficulties with arousal
+              level: Component
+              code: C020XA
+            - label: Low orgasmic function
+              level: Component
+              code: C021Q0
+            - label: Sex-related distress
+              level: Component
+              code: C022PW

@@ -1,0 +1,191 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix hitop: <http://purl.org/hitop#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+hitop:S002SE hitop:hasLevelType hitop:O005pp ;
+    hitop:hasTier hitop:P001Y2,
+        hitop:P002nf .
+
+<http://purl.org/hitop/factorizations/emotional-dysfunction/vV106mv> a owl:Ontology ;
+    rdfs:label "Emotional Dysfunction Superspectrum"@en ;
+    dcterms:bibliographicCitation "Kotov et al. (2021), World Psychiatry, doi:10.1002/wps.20943" ;
+    dcterms:created "2026-07-05"^^xsd:date ;
+    dcterms:creator "Dr. Rogério Blitz" ;
+    dcterms:isVersionOf "0.1.0" ;
+    dcterms:source "data/hitop/images/Emotional dysfunction superspectrum.jpg" ;
+    owl:imports <http://purl.org/hitop> ;
+    owl:versionInfo "V106mv" ;
+    skos:changeNote "status: active"@en .
+
+hitop:C0033z hitop:hasLevelType hitop:O008Ob .
+
+hitop:C005Sv hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00JTU hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00KL0 hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00LqY hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00Mpl hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00N4I hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00OuR hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00Q1t hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00RGy hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00S9m hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00TgL hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00Urw hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00VHv hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00Y8j hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00ZyP hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00mpe hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00nyb hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00oKM hitop:hasLevelType hitop:O008Ob .
+
+hitop:C00pnZ hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01i7x hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01jKN hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01kKJ hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01l9M hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01mPz hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01nVp hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01oMk hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01pc6 hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01qTa hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01rfi hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01s9T hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01tAk hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01ueZ hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01vT5 hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01wSl hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01xzj hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01yno hitop:hasLevelType hitop:O008Ob .
+
+hitop:C01zXz hitop:hasLevelType hitop:O008Ob .
+
+hitop:C020XA hitop:hasLevelType hitop:O008Ob .
+
+hitop:C021Q0 hitop:hasLevelType hitop:O008Ob .
+
+hitop:C022PW hitop:hasLevelType hitop:O008Ob .
+
+hitop:C0237W hitop:hasLevelType hitop:O008Ob .
+
+hitop:C024WG hitop:hasLevelType hitop:O008Ob ;
+    skos:changeNote "Bridges: Somatoform, Distress"@en .
+
+hitop:C025ex hitop:hasLevelType hitop:O008Ob ;
+    skos:changeNote "Bridges: Somatoform, Distress"@en .
+
+hitop:P001Y2 hitop:hasLevelType hitop:O006lN ;
+    hitop:hasTier hitop:C0033z,
+        hitop:C005Sv,
+        hitop:C01i7x,
+        hitop:C01jKN,
+        hitop:C01kKJ,
+        hitop:C01l9M,
+        hitop:C024WG,
+        hitop:C025ex .
+
+hitop:P002nf hitop:hasLevelType hitop:O006lN ;
+    hitop:hasTier hitop:C00S9m,
+        hitop:C00TgL,
+        hitop:C00Urw,
+        hitop:C00mpe,
+        hitop:T00Cgy,
+        hitop:T00D42,
+        hitop:U0012Y,
+        hitop:U002SC,
+        hitop:U0036N,
+        hitop:U004dm,
+        hitop:U0050q .
+
+hitop:T007eM hitop:hasLevelType hitop:O009zM .
+
+hitop:T008mD hitop:hasLevelType hitop:O009zM .
+
+hitop:T00Cgy hitop:hasLevelType hitop:O009zM .
+
+hitop:T00D42 hitop:hasLevelType hitop:O009zM .
+
+hitop:T00yfU hitop:hasLevelType hitop:O009zM .
+
+hitop:U0012Y hitop:hasLevelType hitop:O007SH ;
+    hitop:hasTier hitop:C01zXz,
+        hitop:C020XA,
+        hitop:C021Q0,
+        hitop:C022PW .
+
+hitop:U002SC hitop:hasLevelType hitop:O007SH ;
+    hitop:hasTier hitop:C01rfi,
+        hitop:C01s9T,
+        hitop:C01tAk,
+        hitop:C01ueZ,
+        hitop:C01vT5,
+        hitop:C01wSl,
+        hitop:C01xzj,
+        hitop:C01yno .
+
+hitop:U0036N hitop:hasLevelType hitop:O007SH ;
+    hitop:hasTier hitop:C00JTU,
+        hitop:C00KL0,
+        hitop:C00LqY,
+        hitop:C00Mpl,
+        hitop:C00N4I,
+        hitop:C00OuR,
+        hitop:C00Q1t,
+        hitop:C00RGy,
+        hitop:C01oMk,
+        hitop:C01pc6,
+        hitop:C01qTa .
+
+hitop:U004dm hitop:hasLevelType hitop:O007SH ;
+    hitop:hasTier hitop:C00VHv,
+        hitop:C00Y8j,
+        hitop:C00ZyP,
+        hitop:C00oKM,
+        hitop:C01mPz,
+        hitop:C01nVp,
+        hitop:T007eM,
+        hitop:T008mD,
+        hitop:T00yfU .
+
+hitop:U0050q hitop:hasLevelType hitop:O007SH ;
+    hitop:hasTier hitop:C00nyb,
+        hitop:C00pnZ,
+        hitop:C0237W ;
+    skos:changeNote "provisional: true"@en .
+

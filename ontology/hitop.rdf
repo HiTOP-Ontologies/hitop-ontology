@@ -160,34 +160,32 @@
     
 
 
-    <!-- http://purl.org/hitop#hasFactor -->
-
-    <owl:ObjectProperty rdf:about="http://purl.org/hitop#hasFactor">
-        <rdfs:domain rdf:resource="http://purl.org/hitop#O001Ih"/>
-        <rdfs:range rdf:resource="http://purl.org/hitop#O001Ih"/>
-        <rdfs:comment xml:lang="en">This property represents the highest level of the HiTOP taxonomy, associating entities with the psychopathology factor level, which encompasses broad constructs underlying mental health and psychological disorders.</rdfs:comment>
-        <rdfs:label xml:lang="en">has Factor</rdfs:label>
-        <skos:changeNote xml:lang="en">
-            Indicates the possibility of extending or modifying the taxonomy at the factor level to incorporate new findings in the field of psychopathology. 
-            This supports the evolution of the model to remain aligned with contemporary research.
-        </skos:changeNote>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://purl.org/hitop#hasLevel -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/hitop#hasLevel">
         <rdfs:domain rdf:resource="http://purl.org/hitop#O001Ih"/>
         <rdfs:range rdf:resource="http://purl.org/hitop#O001Ih"/>
-        <rdfs:comment xml:lang="en">This property establishes a hierarchical relationship between entities, associating them with their respective level in the HiTOP taxonomy, such as psychopathology factors, superspectra, spectra, subfactors, or components.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Orders the fixed, shared set of Level subclasses (Factor, Superspectrum, Spectrum, Subfactor, Component, Trait) into the single vertical ladder used across all factorizations. Asserted once in the core ontology between the Level subclasses themselves; never asserted on concept classes and never asserted inside a factorization.</rdfs:comment>
         <rdfs:label xml:lang="en">has Level</rdfs:label>
         <skos:changeNote xml:lang="en">
-            Indicates the potential for future inclusion of additional levels or modification of existing ones to reflect new developments in the model.
-            Supports flexibility in expanding or refining the taxonomy based on emerging research and evolving understanding of psychological constructs.
+            hasLevel is scoped to the six Level subclasses only. It is not used to relate a HiTOP concept class to its position in the taxonomy -- that is the role of hitop:hasLevelType.
         </skos:changeNote>
     </owl:ObjectProperty>
-    
+
+
+
+    <!-- http://purl.org/hitop#hasLevelType -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/hitop#hasLevelType">
+        <rdfs:domain rdf:resource="http://purl.org/hitop#O002sP"/>
+        <rdfs:range rdf:resource="http://purl.org/hitop#O001Ih"/>
+        <rdfs:comment xml:lang="en">Tags a HiTOP concept (a Tier) with the Level subclass it plays -- Superspectrum, Spectrum, Subfactor, Component, or Trait -- within one specific factorization. The same concept can carry a different hasLevelType in a different factorization; this property is declared in the core ontology but is only ever asserted inside a factorization's own hierarchy file, never in the core ontology itself.</rdfs:comment>
+        <rdfs:label xml:lang="en">has Level Type</rdfs:label>
+        <skos:changeNote xml:lang="en">
+            Introduced to let the same HiTOP concept class occupy different vertical positions in different factorizations without encoding a single, global level into the class itself.
+        </skos:changeNote>
+    </owl:ObjectProperty>
+
 
 
     <!-- http://purl.org/hitop#hasTier -->
@@ -195,14 +193,14 @@
     <owl:ObjectProperty rdf:about="http://purl.org/hitop#hasTier">
         <rdfs:domain rdf:resource="http://purl.org/hitop#O002sP"/>
         <rdfs:range rdf:resource="http://purl.org/hitop#O002sP"/>
-        <rdfs:comment xml:lang="en">This property establishes a horizontal relationship between entities within the same level of the HiTOP taxonomy, associating them with their respective tier, such as clusters, categories, or subcategories.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Establishes the concrete parent-child relationship between two HiTOP concepts within one factorization, for example Internalizing hasTier Anxiousness. The child's hitop:hasLevelType is expected to be one Level step below the parent's, per the hitop:hasLevel ladder. Declared in the core ontology but only ever asserted inside a factorization's own hierarchy file, never in the core ontology itself.</rdfs:comment>
         <rdfs:label xml:lang="en">has Tier</rdfs:label>
         <skos:changeNote xml:lang="en">
-            Indicates the potential for future inclusion of additional tiers or modification of existing ones to reflect new developments within specific levels of the hierarchy. 
+            Indicates the potential for future inclusion of additional tiers or modification of existing ones to reflect new developments within specific levels of the hierarchy.
             Supports flexibility in expanding or refining the taxonomy based on emerging research and evolving understanding of horizontal relationships among psychological constructs.
         </skos:changeNote>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- 
@@ -225,7 +223,6 @@
             physical symptoms that are inconsistent with medical findings, reflecting unconscious processes underlying the 
             symptom presentation.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A component related to conversion disorders where psychological distress is expressed as physical symptoms.</rdfs:comment>
         <rdfs:label xml:lang="en">Conversion</rdfs:label>
     </owl:Class>
@@ -240,7 +237,6 @@
             Somatization =def. a Somatoform which is characterized by the expression of psychological distress through multiple, 
             recurrent physical symptoms that cannot be fully explained by medical conditions.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A component involving the expression of psychological distress through physical symptoms.</rdfs:comment>
         <rdfs:label xml:lang="en">Somatization</rdfs:label>
     </owl:Class>
@@ -255,7 +251,6 @@
             Malaise =def. a Somatoform which is characterized by a general feeling of discomfort, unease, or lack of well-being, 
             reflecting psychological distress manifesting as nonspecific physical symptoms.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A component related to general discomfort or unease.</rdfs:comment>
         <rdfs:label xml:lang="en">Malaise</rdfs:label>
     </owl:Class>
@@ -271,7 +266,6 @@
             fully attributable to identifiable medical causes, reflecting the expression of psychological distress 
             through somatic symptoms.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A component related to headaches or other types of head pain.</rdfs:comment>
         <rdfs:label xml:lang="en">Head Pain</rdfs:label>
     </owl:Class>
@@ -287,7 +281,6 @@
             bloating, nausea, or altered bowel habits that cannot be fully explained by medical findings, 
             reflecting psychological distress expressed through digestive complaints.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A component related to gastrointestinal symptoms and disorders.</rdfs:comment>
         <rdfs:label xml:lang="en">Gastrointestinal</rdfs:label>
     </owl:Class>
@@ -303,7 +296,6 @@
             with memory, attention, or concentration, that are not fully explained by medical or neurological conditions, 
             reflecting psychological distress manifesting in cognitive domains.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A component related to cognitive symptoms and dysfunctions.</rdfs:comment>
         <rdfs:label xml:lang="en">Cognitive</rdfs:label>
     </owl:Class>
@@ -318,7 +310,6 @@
             Interactive Anxiety =def. a Fear which is characterized by anxiety experienced in social interactions and 
             group settings, often involving concerns about being judged, embarrassed, or negatively evaluated by others.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Anxiety experienced in social interactions and group settings.</rdfs:comment>
         <rdfs:label xml:lang="en">Interactive anxiety</rdfs:label>
     </owl:Class>
@@ -333,7 +324,6 @@
             Performance Anxiety =def. a Fear which is characterized by anxiety related to performing tasks or activities, 
             particularly in public or under observation, often driven by fear of failure, embarrassment, or negative evaluation.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Anxiety related to performing tasks or activities, often in public or under observation.</rdfs:comment>
         <rdfs:label xml:lang="en">Performance anxiety</rdfs:label>
     </owl:Class>
@@ -348,7 +338,6 @@
             Public Places =def. a Fear which is characterized by fear or anxiety associated with being in public spaces, 
             often involving concern about escape or access to help in case of distress.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Fear or anxiety associated with being in public spaces.</rdfs:comment>
         <rdfs:label xml:lang="en">Public places</rdfs:label>
     </owl:Class>
@@ -363,7 +352,6 @@
             Enclosed Spaces =def. a Fear which is characterized by fear or anxiety related to confined or small spaces, 
             often involving concerns about restriction, suffocation, or inability to escape.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Fear or anxiety related to confined or small spaces.</rdfs:comment>
         <rdfs:label xml:lang="en">Enclosed spaces</rdfs:label>
     </owl:Class>
@@ -379,7 +367,6 @@
             often involving specific triggers such as dogs, insects, or snakes, and resulting in avoidance behavior or 
             intense distress upon exposure.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Fear or anxiety related to animals.</rdfs:comment>
         <rdfs:label xml:lang="en">Animal phobia</rdfs:label>
     </owl:Class>
@@ -394,7 +381,6 @@
             Situational Phobia =def. a Fear which is characterized by fear or anxiety related to specific situations 
             or environments, such as flying, driving, tunnels, or elevators, typically leading to avoidance or marked distress.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Fear or anxiety related to specific situations or environments.</rdfs:comment>
         <rdfs:label xml:lang="en">Situational phobia</rdfs:label>
     </owl:Class>
@@ -410,7 +396,6 @@
             or injuries, often accompanied by physiological responses such as fainting or nausea and resulting in 
             avoidance of medical procedures or traumatic stimuli.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Fear or anxiety related to blood, injections, or injuries.</rdfs:comment>
         <rdfs:label xml:lang="en">Blood-injection-injury</rdfs:label>
     </owl:Class>
@@ -426,7 +411,6 @@
             physiological symptoms such as rapid heartbeat, sweating, shortness of breath, or dizziness, 
             reflecting acute autonomic arousal.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Panic attacks characterized by physiological symptoms such as rapid heartbeat and sweating.</rdfs:comment>
         <rdfs:label xml:lang="en">Physiological panic</rdfs:label>
     </owl:Class>
@@ -442,7 +426,6 @@
             by cognitive symptoms such as a perceived loss of control, fear of going crazy, or impending doom, 
             often triggering physical reactions.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A component of psychological panic is an intense, overwhelming fear that triggers physical symptoms and a sense of losing control.</rdfs:comment>
         <rdfs:label xml:lang="en">Psychological panic</rdfs:label>
     </owl:Class>
@@ -457,7 +440,6 @@
             Cleaning =def. a Fear which is characterized by compulsive behaviors related to cleaning or hygiene, 
             typically performed to reduce anxiety about contamination or illness.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Compulsive behaviors related to cleaning or hygiene.</rdfs:comment>
         <rdfs:label xml:lang="en">Cleaning</rdfs:label>
     </owl:Class>
@@ -472,7 +454,6 @@
             Rituals =def. a Fear which is characterized by compulsive behaviors or mental acts performed in a specific and 
             repetitive manner, typically intended to prevent feared outcomes or reduce anxiety.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Compulsive rituals or behaviors performed in a specific manner.</rdfs:comment>
         <rdfs:label xml:lang="en">Rituals</rdfs:label>
     </owl:Class>
@@ -488,7 +469,6 @@
             situations—such as locks, appliances, or personal belongings—typically performed to reduce anxiety about 
             potential harm or danger.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Compulsive checking behaviors, such as repeatedly checking locks or appliances.</rdfs:comment>
         <rdfs:label xml:lang="en">Checking</rdfs:label>
     </owl:Class>
@@ -503,7 +483,6 @@
             Dysphoria =def. a Distress which is characterized by a generalized state of unhappiness, dissatisfaction, 
             or emotional discomfort, often involving irritability, restlessness, or low mood without a specific cause.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A state of generalized unhappiness or dissatisfaction.</rdfs:comment>
         <rdfs:label xml:lang="en">Dysphoria</rdfs:label>
     </owl:Class>
@@ -518,7 +497,6 @@
             Lassitude =def. a Distress which is characterized by physical or mental weariness and a lack of energy, 
             often accompanied by reduced motivation, sluggishness, or difficulty initiating tasks.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A state of physical or mental weariness and lack of energy.</rdfs:comment>
         <rdfs:label xml:lang="en">Lassitude</rdfs:label>
     </owl:Class>
@@ -533,7 +511,6 @@
             Anhedonia =def. a Distress which is conceptualized as a transient reduction in the capacity to experience pleasure, 
             often emerging in response to acute stress or mood states, leading to a temporary inability to enjoy previously pleasurable activities.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Anhedonia conceptualized as a Component refers to a transient reduction in the capacity to experience pleasure, often emerging in response to acute stress or mood states.</rdfs:comment>
         <rdfs:label xml:lang="en">Anhedonia</rdfs:label>
     </owl:Class>
@@ -548,7 +525,6 @@
             Insomnia =def. a Distress which is characterized by difficulty falling asleep, staying asleep, or waking too 
             early and being unable to return to sleep, often resulting in daytime fatigue, irritability, or impaired functioning.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Difficulty falling asleep or staying asleep, or waking up too early and not being able to go back to sleep.</rdfs:comment>
         <rdfs:label xml:lang="en">Insomnia</rdfs:label>
     </owl:Class>
@@ -563,7 +539,6 @@
             Suicidality =def. a Distress which is characterized by the presence of thoughts, intentions, or behaviors 
             related to ending one’s own life, often associated with severe emotional suffering and hopelessness.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">The presence of thoughts or behaviors related to suicide.</rdfs:comment>
         <rdfs:label xml:lang="en">Suicidality</rdfs:label>
     </owl:Class>
@@ -578,7 +553,6 @@
             Agitation =def. a Distress which is characterized by a state of heightened emotional or physiological arousal, 
             often resulting in restlessness, irritability, or erratic behavior.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">State of being overly excited or disturbed, often resulting in restlessness or erratic behavior.</rdfs:comment>
         <rdfs:label xml:lang="en">Agitation</rdfs:label>
     </owl:Class>
@@ -593,7 +567,6 @@
             Retardation =def. a Distress which is characterized by slowed cognitive and physical processes, including delays 
             in thinking, speaking, and moving, often observed in depressive states.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">
             Slowed cognitive and physical processes, including thinking, speaking, and moving. 
         </rdfs:comment>
@@ -611,7 +584,6 @@
             often resulting in decreased food intake and potential weight loss, commonly associated with depressive or 
             anxious states.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Reduction or loss of desire to eat, which can lead to weight loss.</rdfs:comment>
         <rdfs:label xml:lang="en">Appetite loss</rdfs:label>
     </owl:Class>
@@ -627,7 +599,6 @@
             elevated food intake and potential weight gain, commonly observed in atypical depressive states or in response 
             to emotional distress.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Increased desire to eat, which can lead to weight gain.</rdfs:comment>
         <rdfs:label xml:lang="en">Appetite gain</rdfs:label>
     </owl:Class>
@@ -642,7 +613,6 @@
             (low) Wellbeing =def. a Distress which is characterized by a diminished state of mental and physical health, 
             reflected in reduced happiness, life satisfaction, or emotional balance.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A low level of mental and physical wellbeing, characterized by reduced feelings of happiness, contentment, and overall health.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Wellbeing</rdfs:label>
     </owl:Class>
@@ -657,7 +627,6 @@
             that interferes with daily functioning, often accompanied by physical symptoms such as restlessness, fatigue, 
             and muscle tension.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A component of generalized anxiety disorder symptoms is excessive, persistent worry that interferes with daily life and is often accompanied by physical symptoms like restlessness and fatigue.</rdfs:comment>
         <rdfs:label xml:lang="en">Generalized anxiety disorder symptoms</rdfs:label>
     </owl:Class>
@@ -672,7 +641,6 @@
             Re-experiencing =def. a Distress which is characterized by the involuntary re-experiencing of traumatic events through 
             flashbacks, intrusive memories, or nightmares, often accompanied by intense emotional or physiological reactions.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Re-experiencing traumatic events through flashbacks, intrusive memories, or nightmares.</rdfs:comment>
         <rdfs:label xml:lang="en">Re-experiencing</rdfs:label>
     </owl:Class>
@@ -688,7 +656,6 @@
             or situations that are associated with traumatic experiences or stress, often as a means of reducing 
             emotional discomfort or fear.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Efforts to avoid reminders or situations that are associated with traumatic experiences or stress.</rdfs:comment>
         <rdfs:label xml:lang="en">Avoidance</rdfs:label>
     </owl:Class>
@@ -704,7 +671,6 @@
             hypervigilance, irritability, exaggerated startle response, and difficulty sleeping, often associated with 
             trauma-related or anxiety disorders.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Increased physiological arousal, including symptoms such as hypervigilance, irritability, and difficulty sleeping.</rdfs:comment>
         <rdfs:label xml:lang="en">Hyperarousal</rdfs:label>
     </owl:Class>
@@ -720,7 +686,6 @@
             typically as a psychological response to overwhelming stress or trauma, and often accompanied by 
             a diminished capacity to experience positive emotions.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Emotional numbness or detachment from feelings as a response to overwhelming stress or trauma.</rdfs:comment>
         <rdfs:label xml:lang="en">Numbing</rdfs:label>
     </owl:Class>
@@ -736,7 +701,6 @@
             leading to a sense of detachment from one’s surroundings, identity, or sense of self, and often resulting in 
             altered perception or memory.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A mental process used to cope with stress or trauma, leading to a sense of detachment from one&apos;s surroundings or self.</rdfs:comment>
         <rdfs:label xml:lang="en">Dissociation</rdfs:label>
     </owl:Class>
@@ -751,7 +715,6 @@
             Irritability =def. a Distress which is characterized by a heightened tendency to become easily annoyed or angered, 
             often involving a low tolerance for frustration and frequent mood outbursts.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">State of being easily annoyed or angered, often with a low tolerance for frustration.</rdfs:comment>
         <rdfs:label xml:lang="en">Irritability</rdfs:label>
     </owl:Class>
@@ -767,7 +730,6 @@
             or impulses that cause significant distress, without being accompanied by observable compulsive behaviors intended 
             to neutralize them.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Recurrent and persistent intrusive thoughts that cause significant distress, without accompanying compulsive behaviors.</rdfs:comment>
         <rdfs:label xml:lang="en">Pure obsessions</rdfs:label>
     </owl:Class>
@@ -782,7 +744,6 @@
             Euphoric Activation =def. a Mania which is characterized by heightened mood, increased energy, and elevated 
             self-confidence, often associated with euphoric or expansive affect seen in manic or hypomanic episodes.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A state of heightened mood and increased energy, often associated with mania or hypomania.</rdfs:comment>
         <rdfs:label xml:lang="en">Euphoric activation</rdfs:label>
     </owl:Class>
@@ -797,7 +758,6 @@
             Hyperactive Cognition =def. a Mania which is characterized by increased cognitive activity, including racing thoughts, 
             distractibility, and accelerated ideation, often leading to difficulties in concentration and goal-directed thinking.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Increased cognitive activity, often characterized by racing thoughts and distractibility.</rdfs:comment>
         <rdfs:label xml:lang="en">Hyperactive cognition</rdfs:label>
     </owl:Class>
@@ -813,7 +773,6 @@
             impulsive, or poorly judged behaviors, often without regard for potential negative consequences, as 
             commonly observed in manic episodes.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Excessive self-confidence leading to risky or impulsive behavior, often seen in manic episodes.</rdfs:comment>
         <rdfs:label xml:lang="en">Reckless overconfidence</rdfs:label>
     </owl:Class>
@@ -828,7 +787,6 @@
             Psychotic =def. a Thought Disorder which is characterized by symptoms of psychosis, such as delusions, 
             hallucinations, disorganized thinking, or impaired reality testing.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A component characterized by symptoms of psychosis.</rdfs:comment>
         <rdfs:label xml:lang="en">Psychotic</rdfs:label>
     </owl:Class>
@@ -843,7 +801,6 @@
             Disorganized =def. a Thought Disorder which is characterized by disorganized thinking and behavior, 
             including incoherent speech, erratic actions, and difficulties maintaining goal-directed activity.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A component characterized by disorganized thinking and behavior.</rdfs:comment>
         <rdfs:label xml:lang="en">Disorganized</rdfs:label>
     </owl:Class>
@@ -858,7 +815,6 @@
             Inexpressivity =def. a Thought Disorder which is characterized by a lack of emotional expression, including reduced 
             facial expressions, vocal inflection, and gestures, often observed as a negative symptom in psychotic disorders.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A component characterized by a lack of emotional expression.</rdfs:comment>
         <rdfs:label xml:lang="en">Inexpressivity</rdfs:label>
     </owl:Class>
@@ -873,7 +829,6 @@
             Avolition =def. a Thought Disorder which is characterized by a lack of motivation to initiate and sustain purposeful 
             activities, often resulting in reduced goal-directed behavior and functional impairment in daily life.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A component characterized by a lack of motivation to initiate and sustain purposeful activities.</rdfs:comment>
         <rdfs:label xml:lang="en">Avolition</rdfs:label>
     </owl:Class>
@@ -888,7 +843,6 @@
             Alcohol Use =def. a Harmful Substance Abuse which is characterized by the consumption of alcoholic beverages, 
             which may lead to problematic use, dependence, or negative physical, psychological, or social consequences.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">The consumption of alcoholic beverages, which may lead to problematic use.</rdfs:comment>
         <rdfs:label xml:lang="en">Alcohol use</rdfs:label>
     </owl:Class>
@@ -904,7 +858,6 @@
             including dependence, abuse, and the negative physical, psychological, and social consequences resulting from 
             excessive consumption.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Issues related to the use of alcohol, including dependence and abuse.</rdfs:comment>
         <rdfs:label xml:lang="en">Alcohol problems</rdfs:label>
     </owl:Class>
@@ -919,7 +872,6 @@
             Marijuana Use =def. a Harmful Substance Abuse which is characterized by the consumption of marijuana, 
             which may lead to problematic use, dependence, or negative physical, psychological, or social consequences.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">The consumption of marijuana, which may lead to problematic use.</rdfs:comment>
         <rdfs:label xml:lang="en">Marijuana use</rdfs:label>
     </owl:Class>
@@ -935,7 +887,6 @@
             including dependence, abuse, and the negative physical, psychological, and social consequences resulting from 
             excessive consumption.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Issues related to the use of marijuana, including dependence and abuse.</rdfs:comment>
         <rdfs:label xml:lang="en">Marijuana problems</rdfs:label>
     </owl:Class>
@@ -950,7 +901,6 @@
             Drug Use =def. a Harmful Substance Abuse which is characterized by the consumption of illicit or prescription drugs, 
             which may lead to problematic use, dependence, or negative physical, psychological, or social consequences.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">The consumption of illicit or prescription drugs, which may lead to problematic use.</rdfs:comment>
         <rdfs:label xml:lang="en">Drug use</rdfs:label>
     </owl:Class>
@@ -966,7 +916,6 @@
             including dependence, abuse, and the negative physical, psychological, and social consequences resulting from 
             excessive or harmful consumption.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Issues related to the use of drugs, including dependence and abuse.</rdfs:comment>
         <rdfs:label xml:lang="en">Drug problems</rdfs:label>
     </owl:Class>
@@ -982,7 +931,6 @@
             violence towards others, often involving harm or the threat of harm, and typically reflecting a disregard for 
             social norms and the rights of others.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Aggression involving physical acts of violence towards others.</rdfs:comment>
         <rdfs:label xml:lang="en">Physical aggression</rdfs:label>
     </owl:Class>
@@ -998,7 +946,6 @@
             damage to property or the environment, often reflecting a disregard for social norms, authority, or 
             the consequences of one’s actions.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Aggression that results in damage to property or the environment.</rdfs:comment>
         <rdfs:label xml:lang="en">Destructive aggression</rdfs:label>
     </owl:Class>
@@ -1014,7 +961,6 @@
             through manipulation of social relationships, such as spreading rumors, social exclusion, or 
             undermining someone&apos;s reputation.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Aggression that harms others through manipulation of social relationships.</rdfs:comment>
         <rdfs:label xml:lang="en">Relational aggression</rdfs:label>
     </owl:Class>
@@ -1029,7 +975,6 @@
             Fraud =def. an Antisocial Behavior which is characterized by deceptive behavior intended to secure unfair or 
             unlawful gain, often involving manipulation, dishonesty, or the misrepresentation of information to deceive others.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Deceptive behavior intended to secure unfair or unlawful gain.</rdfs:comment>
         <rdfs:label xml:lang="en">Fraud</rdfs:label>
     </owl:Class>
@@ -1045,7 +990,6 @@
             mental health disorders and includes broad symptoms such as mood disturbances, anxiety, 
             cognitive dysfunctions, and behavioral problems.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">
             General Psychopathology refers to the broad, overarching category of mental disorders and 
             psychological symptoms that can manifest across different mental health conditions. It encompasses a wide range of 
@@ -1067,23 +1011,80 @@
     <!-- http://purl.org/hitop#O001Ih -->
 
     <owl:Class rdf:about="http://purl.org/hitop#O001Ih">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/hitop#hasLevel"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/hitop#O001Ih"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">
-            A structural component of the HiTOP taxonomy used to define hierarchical relationships between psychological constructs. 
-            Each instance of Level represents a specific position in the vertical hierarchy, encompassing constructs such as 
-            psychopathology factors, superspectra, spectra, subfactors, and components.
-            The restriction ensures that all instances of this class must 
-            have at least one level (via the property hitop:hasLevel) 
-            that is also an instance of this class.
+            A structural component of the HiTOP taxonomy used to define the fixed vertical hierarchy of level types.
+            Level has exactly six subclasses -- Factor, Superspectrum, Spectrum, Subfactor, Component, and Trait --
+            ordered by hitop:hasLevel. A HiTOP concept class (a Tier) is tagged with one of these subclasses via
+            hitop:hasLevelType, scoped to a specific factorization.
         </rdfs:comment>
         <rdfs:label xml:lang="en">Level</rdfs:label>
     </owl:Class>
-    
+
+
+
+    <!-- http://purl.org/hitop#O004Hd -->
+
+    <owl:Class rdf:about="http://purl.org/hitop#O004Hd">
+        <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O001Ih"/>
+        <hitop:hasLevel rdf:resource="http://purl.org/hitop#O005pp"/>
+        <rdfs:comment xml:lang="en">The topmost Level: the general factor of psychopathology (p-factor) at the root of a factorization.</rdfs:comment>
+        <rdfs:label xml:lang="en">Factor</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://purl.org/hitop#O005pp -->
+
+    <owl:Class rdf:about="http://purl.org/hitop#O005pp">
+        <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O001Ih"/>
+        <hitop:hasLevel rdf:resource="http://purl.org/hitop#O006lN"/>
+        <rdfs:comment xml:lang="en">The Level below Factor: a broad grouping of related Spectra, for example Externalizing or Psychosis.</rdfs:comment>
+        <rdfs:label xml:lang="en">Superspectrum</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://purl.org/hitop#O006lN -->
+
+    <owl:Class rdf:about="http://purl.org/hitop#O006lN">
+        <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O001Ih"/>
+        <hitop:hasLevel rdf:resource="http://purl.org/hitop#O007SH"/>
+        <rdfs:comment xml:lang="en">The Level below Superspectrum: a dimensional syndrome, for example Internalizing or Disinhibited Externalizing.</rdfs:comment>
+        <rdfs:label xml:lang="en">Spectrum</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://purl.org/hitop#O007SH -->
+
+    <owl:Class rdf:about="http://purl.org/hitop#O007SH">
+        <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O001Ih"/>
+        <hitop:hasLevel rdf:resource="http://purl.org/hitop#O008Ob"/>
+        <rdfs:comment xml:lang="en">The Level below Spectrum: a narrower grouping of related Components within one Spectrum, for example Fear or Distress.</rdfs:comment>
+        <rdfs:label xml:lang="en">Subfactor</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://purl.org/hitop#O008Ob -->
+
+    <owl:Class rdf:about="http://purl.org/hitop#O008Ob">
+        <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O001Ih"/>
+        <hitop:hasLevel rdf:resource="http://purl.org/hitop#O009zM"/>
+        <rdfs:comment xml:lang="en">The Level below Subfactor: a specific symptom or behavior grouping, for example Insomnia or Suicidality.</rdfs:comment>
+        <rdfs:label xml:lang="en">Component</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://purl.org/hitop#O009zM -->
+
+    <owl:Class rdf:about="http://purl.org/hitop#O009zM">
+        <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O001Ih"/>
+        <rdfs:comment xml:lang="en">The bottom Level: an elementary personality trait, for example Anxiousness or Callousness.</rdfs:comment>
+        <rdfs:label xml:lang="en">Trait</rdfs:label>
+    </owl:Class>
+
 
 
     <!-- http://purl.org/hitop#O002sP -->
@@ -1106,24 +1107,6 @@
     
 
 
-    <!-- http://purl.org/hitop#O0030W -->
-
-    <owl:Class rdf:about="http://purl.org/hitop#O0030W">
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/hitop#hasFactor"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/hitop#O0030W"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">
-            A core construct in the HiTOP framework that represents broad, underlying dimensions of psychopathology. 
-            Factors are used to classify and diagnose mental health conditions, forming the highest level of the taxonomy.
-        </rdfs:comment>
-        <rdfs:label xml:lang="en">Factor</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/hitop#P001Y2 -->
 
     <owl:Class rdf:about="http://purl.org/hitop#P001Y2">
@@ -1132,7 +1115,6 @@
             Somatoform =def. a General Psychopathology which is characterized by physical symptoms that cannot be fully explained 
             by a medical condition and reflect psychological distress expressed through somatic complaints.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">
             The Somatoform label refers to a category of mental health disorders characterized by physical symptoms that cannot be 
             fully explained by any underlying medical condition, highlighting the complex interaction between mind and body in 
@@ -1155,7 +1137,6 @@
             Internalizing =def. a General Psychopathology which is characterized by inward-directed symptoms such as anxiety, 
             depression, and social withdrawal, indicating emotional and cognitive distress that is primarily internal in nature.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">
             The Internalizing label refers to a category of mental health disorders characterized by inward-focused symptoms such as 
             anxiety, depression, and withdrawal, reflecting emotional and cognitive distress.
@@ -1178,7 +1159,6 @@
             impaired reality testing, and disturbances in the form or content of thought, reflecting severe cognitive and 
             perceptual disruptions.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">
             Thought Disorder refers to a category of mental health conditions characterized by disorganized thinking, impaired 
             reality testing, and disturbances in the form or content of thought.
@@ -1200,7 +1180,6 @@
             Detachment =def. a General Psychopathology which is characterized by emotional distance and disengagement 
             from social interactions, reflecting a reduced capacity for affective connection and interpersonal involvement.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">
             Detachment refers to a psychological state characterized by emotional distance and disengagement from social interactions.
         </rdfs:comment>
@@ -1221,7 +1200,6 @@
             Disinhibited Externalizing =def. an Externalizing which is characterized by impulsive behaviors and 
             a lack of social restraint or inhibition, reflecting difficulties in self-regulation and behavioral control.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">
             Disinhibited Externalizing involves behaviors that are impulsive and lacking in social restraint or inhibition.
         </rdfs:comment>
@@ -1243,7 +1221,6 @@
             aggressive behaviors directed toward others, reflecting interpersonal antagonism and a tendency 
             to violate social norms or the rights of others.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">
             Antagonistic Externalizing describes behaviors that involve hostility and aggression towards others.
         </rdfs:comment>
@@ -1264,7 +1241,6 @@
             Externalizing =def. a General Psychopathology which is characterized by outwardly directed behaviors and 
             dysregulation, including impulsivity, aggression, and rule-breaking actions that disrupt external environments.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">
             Represents a broad HiTOP dimension characterized by outwardly directed behaviors and dysregulation.
         </rdfs:comment>
@@ -1285,7 +1261,6 @@
             Emotional dysfunction =def. a General Psychopathology superspectrum encompassing a broad range of disturbances in 
             emotional experience and regulation, including heightened negative affect, diminished positive affect, and difficulties in managing or expressing emotions.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">
             A superspectrum encompassing a broad range of disturbances in emotional experience and regulation, 
             including heightened negative affect, diminished positive affect, and difficulties in managing or expressing emotions.
@@ -1308,7 +1283,6 @@
             Psychosis =def. a General Psychopathology superspectrum encompassing disturbances in reality testing and self-experience, 
             including abnormalities of perception, belief, and thought such as hallucinations, delusions, disorganization, and related negative symptoms (e.g., avolition, blunted affect).
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V10749"/>
         <rdfs:comment xml:lang="en">
             A superspectrum encompassing disturbances in reality testing and self-experience, including abnormalities of perception, 
             belief, and thought such as hallucinations, delusions, disorganization, and related negative symptoms (e.g., avolition, blunted affect).
@@ -1331,7 +1305,6 @@
             Anxiousness =def. an Internalizing which is characterized by a tendency to experience anxiety, nervousness, or unease, 
             often in response to stress or uncertainty, leading to heightened arousal or worry about future events.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a tendency to experience anxiety or nervousness.</rdfs:comment>
         <rdfs:label xml:lang="en">Anxiousness</rdfs:label>
     </owl:Class>
@@ -1346,7 +1319,6 @@
             Emotional Lability =def. an Internalizing which is characterized by rapid and intense emotional changes, often leading 
             to unpredictable shifts in mood, ranging from euphoria to sadness, with difficulty in regulating emotional responses.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by rapid and intense emotional changes.</rdfs:comment>
         <rdfs:label xml:lang="en">Emotional lability</rdfs:label>
     </owl:Class>
@@ -1361,7 +1333,6 @@
             Hostility =def. an Internalizing which is characterized by a tendency toward aggression, antagonism, or ill will 
             towards others, often accompanied by a deep-seated mistrust or negative attitudes, leading to interpersonal conflict.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a tendency toward aggression or antagonism.</rdfs:comment>
         <rdfs:label xml:lang="en">Hostility</rdfs:label>
     </owl:Class>
@@ -1377,7 +1348,6 @@
             behavior despite the absence or cessation of a stimulus, often resulting in difficulty shifting attention or 
             adapting to changing situations.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by the repetition of a particular response despite the absence or cessation of a stimulus.</rdfs:comment>
         <rdfs:label xml:lang="en">Perseveration</rdfs:label>
     </owl:Class>
@@ -1393,7 +1363,6 @@
             often leading to a diminished range of emotional experiences or difficulty in expressing emotions in social or 
             interpersonal contexts.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by limited or constricted emotional expression.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Restricted affectivity</rdfs:label>
     </owl:Class>
@@ -1408,7 +1377,6 @@
             separation from significant others, often leading to clinginess, fear of abandonment, and difficulty coping with 
             distance or changes in relationships.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by anxiety and insecurity in response to separation from significant others.</rdfs:comment>
         <rdfs:label xml:lang="en">Separation insecurity</rdfs:label>
     </owl:Class>
@@ -1424,7 +1392,6 @@
             often resulting in passive behavior, difficulty in standing up for oneself, and a tendency to defer to the wishes or 
             authority of others.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a tendency to submit to others and avoid asserting oneself.</rdfs:comment>
         <rdfs:label xml:lang="en">Submissiveness</rdfs:label>
     </owl:Class>
@@ -1440,7 +1407,6 @@
             self, often resulting in confusion about one&apos;s values, goals, or role in life, and leading to instability in 
             personal identity or self-concept.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by difficulties in forming or maintaining a stable sense of self.</rdfs:comment>
         <rdfs:label xml:lang="en">Identity problems</rdfs:label>
     </owl:Class>
@@ -1456,7 +1422,6 @@
             conflict, or emotional harm, often undermining well-being, personal growth, and the ability to form positive, 
             supportive connections with others.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait of negative relationships is that they contribute to stress, conflict, or emotional harm, often undermining well-being and personal growth.</rdfs:comment>
         <rdfs:label xml:lang="en">Negative relationships</rdfs:label>
     </owl:Class>
@@ -1471,7 +1436,6 @@
             Fragility =def. an Internalizing which is characterized by a lack of resilience and a tendency to be easily hurt or 
             affected by stress, often leading to emotional instability or difficulty coping with adversity.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a lack of resilience and a tendency to be easily hurt or affected by stress.</rdfs:comment>
         <rdfs:label xml:lang="en">Fragility</rdfs:label>
     </owl:Class>
@@ -1486,7 +1450,6 @@
             Ineptitude =def. an Internalizing which is characterized by a lack of skill, competence, or ability in performing tasks 
             or handling situations, often resulting in difficulties in achieving goals or completing responsibilities.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a lack of skill or competence.</rdfs:comment>
         <rdfs:label xml:lang="en">Ineptitude</rdfs:label>
     </owl:Class>
@@ -1501,7 +1464,6 @@
             (low) Invulnerability =def. an Internalizing which is characterized by a perception of being immune to harm or 
             negative effects, often leading to risky behavior, overconfidence, or a lack of consideration for potential consequences.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a perception of being immune to harm or negative effects.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Invulnerability</rdfs:label>
     </owl:Class>
@@ -1515,7 +1477,6 @@
             Eccentricity =def. a Thought Disorder which is characterized by unconventional or peculiar behavior, 
             including odd mannerisms, unusual beliefs, or idiosyncratic ways of interacting with others.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by unconventional or peculiar behavior.</rdfs:comment>
         <rdfs:label xml:lang="en">Eccentricity</rdfs:label>
     </owl:Class>
@@ -1531,7 +1492,6 @@
             perception, including unusual beliefs, perceptual aberrations, and difficulties distinguishing internal thoughts 
             from external reality.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by disturbances in cognition and perception.</rdfs:comment>
         <rdfs:label xml:lang="en">Cognitive perceptual dysregulation</rdfs:label>
     </owl:Class>
@@ -1547,7 +1507,6 @@
             and perceptual experiences, such as magical thinking, perceptual distortions, or ideas of reference, that deviate 
             from cultural norms.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by the presence of atypical beliefs and experiences.</rdfs:comment>
         <rdfs:label xml:lang="en">Unusual beliefs and experiences</rdfs:label>
     </owl:Class>
@@ -1562,7 +1521,6 @@
             Fantasy Proneness =def. a Thought Disorder which is characterized by a tendency to engage in vivid and complex 
             fantasies, often involving imaginative immersion, daydreaming, or blurred boundaries between imagination and reality.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a tendency to engage in vivid and complex fantasies.</rdfs:comment>
         <rdfs:label xml:lang="en">Fantasy proneness</rdfs:label>
     </owl:Class>
@@ -1577,7 +1535,6 @@
             Depressivity =def. a Detachment which is characterized by persistent feelings of sadness, hopelessness, and 
             emotional pain, often accompanied by a diminished interest in life and a negative view of the self.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by feelings of sadness and hopelessness.</rdfs:comment>
         <rdfs:label xml:lang="en">Depressivity</rdfs:label>
     </owl:Class>
@@ -1592,7 +1549,6 @@
             Intimacy Avoidance =def. a Detachment which is characterized by a tendency to avoid close relationships and 
             emotional intimacy, often due to discomfort with closeness, fear of vulnerability, or preference for emotional distance.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a tendency to avoid close relationships and emotional intimacy.</rdfs:comment>
         <rdfs:label xml:lang="en">Intimacy avoidance</rdfs:label>
     </owl:Class>
@@ -1607,7 +1563,6 @@
             Suspiciousness =def. a Detachment which is characterized by a tendency to be distrustful and suspicious of others, 
             often involving beliefs that others have harmful intentions or cannot be relied upon.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a tendency to be distrustful and suspicious of others.</rdfs:comment>
         <rdfs:label xml:lang="en">Suspiciousness</rdfs:label>
     </owl:Class>
@@ -1623,7 +1578,6 @@
             engagement with others, often reflecting discomfort with social closeness or reduced motivation for 
             interpersonal connection.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a tendency to retreat from social interactions and avoid engagement with others.</rdfs:comment>
         <rdfs:label xml:lang="en">Withdrawal</rdfs:label>
     </owl:Class>
@@ -1639,7 +1593,6 @@
             social interactions, often manifesting as submissiveness, indecision, or reluctance to express personal needs 
             or preferences.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a lack of initiative or assertiveness in social interactions.</rdfs:comment>
         <rdfs:label xml:lang="en">Interpersonal passivity</rdfs:label>
     </owl:Class>
@@ -1654,7 +1607,6 @@
             Disaffiliativeness =def. a Detachment which is characterized by a lack of interest in forming or maintaining 
             social bonds, often reflecting indifference toward closeness, companionship, or interpersonal connection.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a lack of interest in forming or maintaining social bonds.</rdfs:comment>
         <rdfs:label xml:lang="en">Disaffiliativeness</rdfs:label>
     </owl:Class>
@@ -1670,7 +1622,6 @@
             the attention of others, often reflecting low social expressiveness or a preference for remaining unnoticed in 
             social settings.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by limited motivation to attract, maintain, or enhance the attention of others, often manifested as reduced social display, self-promotion, or efforts to gain recognition.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Attention seeking</rdfs:label>
     </owl:Class>
@@ -1684,7 +1635,6 @@
             Problematic Impulsivity =def. a Disinhibited Externalizing which is characterized by difficulty in controlling 
             impulsive behaviors, often resulting in actions that lead to negative consequences for oneself or others.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by difficulty in controlling impulsive behaviors, often leading to negative consequences.</rdfs:comment>
         <rdfs:label xml:lang="en">Problematic impulsivity</rdfs:label>
     </owl:Class>
@@ -1699,7 +1649,6 @@
             Irresponsibility =def. a Disinhibited Externalizing which is characterized by a lack of regard for the consequences 
             of one’s actions, often leading to reckless, careless, or socially inappropriate behaviors.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a lack of regard for the consequences of one&apos;s actions, often leading to reckless behavior.</rdfs:comment>
         <rdfs:label xml:lang="en">Irresponsibility</rdfs:label>
     </owl:Class>
@@ -1714,7 +1663,6 @@
             Theft =def. a Disinhibited Externalizing which is characterized by a tendency to steal or engage in dishonest 
             acquisition of property, often driven by impulsivity, disregard for social norms, or a lack of remorse.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a tendency to steal or engage in dishonest acquisition of property.</rdfs:comment>
         <rdfs:label xml:lang="en">Theft</rdfs:label>
     </owl:Class>
@@ -1729,7 +1677,6 @@
             Distractibility =def. a Disinhibited Externalizing which is characterized by an inability to maintain focus, 
             leading to frequent shifts in attention, impulsive responses to external stimuli, and difficulty completing tasks.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by an inability to maintain focus, leading to frequent shifts in attention.</rdfs:comment>
         <rdfs:label xml:lang="en">Distractibility</rdfs:label>
     </owl:Class>
@@ -1745,7 +1692,6 @@
             significant risk, often without regard for potential negative outcomes or consequences, driven by a desire 
             for stimulation or thrill-seeking.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by engaging in behaviors that involve significant risk, often without regard for potential negative outcomes.</rdfs:comment>
         <rdfs:label xml:lang="en">Risk taking</rdfs:label>
     </owl:Class>
@@ -1759,7 +1705,6 @@
         <obo:iaoIAO_0000115 xml:lang="en">
             (low) Rigid Perfectionism =def. a Disinhibited Externalizing trait characterized by a reduced tendency to strive for perfection and inflexible high standards, often associated with greater tolerance of imperfections and increased adaptability to mistakes or setbacks.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a low tendency toward excessive and inflexible striving for perfection and high standards.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Rigid perfectionism</rdfs:label>
     </owl:Class>
@@ -1772,7 +1717,6 @@
         <obo:iaoIAO_0000115 xml:lang="en">
             (low) Ruminative Deliberation =def. a Disinhibited Externalizing trait characterized by a reduced tendency to engage in prolonged and repetitive deliberation about potential decisions and their outcomes.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a low tendency toward excessive and repetitive thinking about potential decisions and their outcomes.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Ruminative deliberation</rdfs:label>
     </owl:Class>
@@ -1785,7 +1729,6 @@
         <obo:iaoIAO_0000115 xml:lang="en">
             (low) Workaholism =def. a Disinhibited Externalizing trait characterized by a reduced tendency toward excessive and compulsive involvement in work, resulting in less interference with personal wellbeing, relationships, and leisure time.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by reduced levels of excessive and compulsive commitment to work, with less impact on personal well-being and relationships.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Workaholism</rdfs:label>
     </owl:Class>
@@ -1800,7 +1743,6 @@
             impulsively in urgent situations, often leading to rash decisions and behaviors without consideration for the 
             consequences.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a lack of patience and a tendency to act impulsively in urgent situations.</rdfs:comment>
         <rdfs:label xml:lang="en">Impatient urgency</rdfs:label>
     </owl:Class>
@@ -1816,7 +1758,6 @@
             tasks effectively, often resulting in impulsive actions, disorganization, and an inability to meet goals 
             or manage responsibilities.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait indicating poor ability to plan and execute tasks effectively.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Planful control</rdfs:label>
     </owl:Class>
@@ -1832,7 +1773,6 @@
             in fulfilling obligations, often resulting in failure to meet commitments or responsibilities, and 
             causing disruptions in personal or professional relationships.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a lack of reliability and consistency in fulfilling obligations.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Dependability</rdfs:label>
     </owl:Class>
@@ -1848,7 +1788,6 @@
             often leading to feelings of social isolation, loneliness, and a lack of connection to social groups or 
             society at large.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait reflecting a sense of estrangement or detachment from others.</rdfs:comment>
         <rdfs:label xml:lang="en">Alienation</rdfs:label>
     </owl:Class>
@@ -1863,7 +1802,6 @@
             Boredom Proneness =def. an Antisocial Behavior which is characterized by a tendency to experience boredom frequently 
             and easily, often leading to restlessness, dissatisfaction, and a search for novel or stimulating experiences.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait indicating a tendency to experience boredom frequently and easily.</rdfs:comment>
         <rdfs:label xml:lang="en">Boredom proneness</rdfs:label>
     </owl:Class>
@@ -1879,7 +1817,6 @@
             problems to external factors, such as other people, circumstances, or societal influences, rather than 
             recognizing internal causes or personal responsibility.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a tendency to attribute failures or problems to external factors rather than internal ones.</rdfs:comment>
         <rdfs:label xml:lang="en">Blame externalization</rdfs:label>
     </owl:Class>
@@ -1894,7 +1831,6 @@
             (low) Honesty =def. an Antisocial Behavior which is characterized by a tendency to be deceitful or untruthful, 
             often involving the manipulation of others or a disregard for truthfulness in social interactions.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait marked by a tendency to be deceitful or untruthful.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Honesty</rdfs:label>
     </owl:Class>
@@ -1909,7 +1845,6 @@
             Rebelliousness =def. an Antisocial Behavior which is characterized by resistance to authority, rules, and 
             societal norms, often manifested through defiance, disobedience, or challenging established systems or conventions.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by resistance to authority and norms.</rdfs:comment>
         <rdfs:label xml:lang="en">Rebelliousness</rdfs:label>
     </owl:Class>
@@ -1925,7 +1860,6 @@
             share the feelings of others, often leading to emotional detachment, indifference, or difficulty in 
             forming meaningful interpersonal connections.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait indicating a reduced ability to understand and share the feelings of others.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Empathy</rdfs:label>
     </owl:Class>
@@ -1941,7 +1875,6 @@
             or risky experiences, often driving individuals to engage in activities that provide immediate gratification 
             or stimulation, regardless of potential consequences.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a desire for new, thrilling, or risky experiences.</rdfs:comment>
         <rdfs:label xml:lang="en">Excitement seeking</rdfs:label>
     </owl:Class>
@@ -1957,7 +1890,6 @@
             or recognition, often leading to behaviors aimed at drawing focus from others, typically through exaggerated actions, 
             statements, or displays.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait of attention seeking is the constant need for validation or recognition, often leading to behavior aimed at drawing focus from others.</rdfs:comment>
         <rdfs:label xml:lang="en">Attention seeking</rdfs:label>
     </owl:Class>
@@ -1973,7 +1905,6 @@
             a tendency to be emotionally cold or indifferent to others, often resulting in a disregard for the feelings 
             or well-being of others.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a lack of empathy and a tendency to be emotionally cold or indifferent to others.</rdfs:comment>
         <rdfs:label xml:lang="en">Callousness</rdfs:label>
     </owl:Class>
@@ -1988,7 +1919,6 @@
             Deceitfulness =def. an Antagonistic Externalizing which is characterized by a tendency to lie, cheat, 
             or deceive others, often for personal gain, manipulation, or to avoid negative consequences.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a tendency to lie, cheat, or deceive others.</rdfs:comment>
         <rdfs:label xml:lang="en">Deceitfulness</rdfs:label>
     </owl:Class>
@@ -2004,7 +1934,6 @@
             abilities, or achievements, often accompanied by a lack of consideration for others and a belief in one&apos;s superiority 
             or entitlement.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by an exaggerated sense of one&apos;s own importance, abilities, or achievements.</rdfs:comment>
         <rdfs:label xml:lang="en">Grandiosity</rdfs:label>
     </owl:Class>
@@ -2020,7 +1949,6 @@
             influence others for personal gain, often in a devious or underhanded manner, without regard for others&apos; well-being or 
             autonomy.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a tendency to control or influence others for personal gain, often in a devious manner.</rdfs:comment>
         <rdfs:label xml:lang="en">Manipulativeness</rdfs:label>
     </owl:Class>
@@ -2036,7 +1964,6 @@
             respect in social interactions, often involving offensive or inappropriate behaviors that disregard social norms 
             and conventions.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a lack of manners or respect in social interactions.</rdfs:comment>
         <rdfs:label xml:lang="en">Rudeness</rdfs:label>
     </owl:Class>
@@ -2052,7 +1979,6 @@
             and one’s own needs and desires, often leading to a lack of consideration for others and a diminished capacity 
             for empathy or understanding of different perspectives.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by an excessive focus on oneself and one&apos;s own needs and desires.</rdfs:comment>
         <rdfs:label xml:lang="en">Egocentricity</rdfs:label>
     </owl:Class>
@@ -2068,7 +1994,6 @@
             often displaying assertiveness, power, and a tendency to assert one&apos;s will over others in social or 
             organizational contexts.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a desire to control or lead others, often displaying assertiveness and power.</rdfs:comment>
         <rdfs:label xml:lang="en">Dominance</rdfs:label>
     </owl:Class>
@@ -2084,7 +2009,6 @@
             romantic or sexual interest from others through playful, suggestive, or provocative means, often involving charm 
             or manipulation.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by behavior that seeks to attract romantic or sexual interest from others through playful or provocative means.</rdfs:comment>
         <rdfs:label xml:lang="en">Flirtatiousness</rdfs:label>
     </owl:Class>
@@ -2098,7 +2022,6 @@
         <obo:iaoIAO_0000115 xml:lang="en">
             (low) Timorousness =def. an Antagonistic Externalizing trait characterized by a reduced tendency to be fearful or lacking in confidence, resulting in less hesitation and avoidance in social and achievement-related situations.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">A trait characterized by a low tendency to be fearful or lacking in confidence, often reflected in reduced shyness and hesitation.</rdfs:comment>
         <rdfs:label xml:lang="en">(low) Timorousness</rdfs:label>
     </owl:Class>
@@ -2112,7 +2035,6 @@
             Anhedonia =def. a Detachment which is conceptualized as a stable, enduring disposition toward diminished pleasure or 
             interest in typically rewarding experiences, leading to a reduced ability to experience joy or satisfaction from activities that are usually enjoyable.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">Anhedonia conceptualized as a Trait refers to a stable, enduring disposition toward diminished pleasure or interest in typically rewarding experiences.</rdfs:comment>
         <rdfs:label xml:lang="en">Anhedonia</rdfs:label>
     </owl:Class>
@@ -2127,7 +2049,6 @@
             Pain =def. a Somatoform which is characterized by the subjective experience of physical discomfort or distress, 
             which may vary in intensity, duration, and localization.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A component or trait characterized by the subjective experience of physical discomfort or distress, which may vary in intensity, duration, and localization.</rdfs:comment>
         <rdfs:label xml:lang="en">Pain</rdfs:label>
     </owl:Class>
@@ -2141,7 +2062,6 @@
             Fatigue =def. a Somatoform which is defined by a persistent or recurrent sense of tiredness, reduced energy, 
             or diminished capacity for sustained physical or mental activity.
         </obo:IAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A component or trait defined by a persistent or recurrent sense of tiredness, reduced energy, or diminished capacity for sustained physical or mental activity.</rdfs:comment>
         <rdfs:label xml:lang="en">Fatigue</rdfs:label>
     </owl:Class>
@@ -2156,7 +2076,6 @@
             Neurological =def. a Somatoform which is defined by functional disturbances or symptoms related to the nervous system, 
             including sensory, motor, or cognitive manifestations.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A component or trait reflecting functional disturbances or symptoms related to the nervous system, including sensory, motor, or cognitive manifestations.</rdfs:comment>
         <rdfs:label xml:lang="en">Neurological</rdfs:label>
     </owl:Class>
@@ -2171,7 +2090,6 @@
             Cardiopulmonary =def. a Somatoform which is defined by signs or symptoms involving the heart and lungs, 
             such as circulatory, respiratory, or exercise-related difficulties.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A component or trait associated with signs or symptoms involving the heart and lungs, such as circulatory, respiratory, or exercise-related difficulties.</rdfs:comment>
         <rdfs:label xml:lang="en">Cardiopulmonary</rdfs:label>
     </owl:Class>
@@ -2185,7 +2103,6 @@
             Negative emotionality =def. a Distress trait which is defined by a general tendency to experience frequent and 
             intense negative emotions such as sadness, anxiety, and guilt across diverse situations.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A trait reflecting a general tendency to experience frequent and intense negative emotions such as sadness, anxiety, and guilt across diverse situations.</rdfs:comment>
         <rdfs:label xml:lang="en">Negative emotionality</rdfs:label>
     </owl:Class>
@@ -2200,7 +2117,6 @@
             Anger/irritability =def. a Distress component or trait which is defined by a heightened propensity toward frustration, 
             hostility, or easily provoked emotional reactivity.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A component or trait characterized by a heightened propensity toward frustration, hostility, or easily provoked emotional reactivity.</rdfs:comment>
         <rdfs:label xml:lang="en">Anger/irritability</rdfs:label>
     </owl:Class>
@@ -2215,7 +2131,6 @@
             Behavioral avoidance =def. a Fear component or trait which is defined by the consistent tendency to withdraw from or 
             evade situations, thoughts, or stimuli perceived as threatening, distressing, or aversive.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A component or trait defined by the consistent tendency to withdraw from or evade situations, thoughts, or stimuli perceived as threatening, distressing, or aversive.</rdfs:comment>
         <rdfs:label xml:lang="en">Behavioral avoidance</rdfs:label>
     </owl:Class>
@@ -2230,7 +2145,6 @@
             Anxiety sensitivity =def. a Fear trait which is defined by the fear of anxiety-related sensations, based on beliefs 
             that these sensations have harmful physical, psychological, or social consequences.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A trait reflecting the fear of anxiety-related sensations, based on beliefs that these sensations have harmful physical, psychological, or social consequences.</rdfs:comment>
         <rdfs:label xml:lang="en">Anxiety sensitivity</rdfs:label>
     </owl:Class>
@@ -2245,7 +2159,6 @@
             BII phobia =def. a Fear component which is defined by marked fear or avoidance of situations involving blood, injury, 
             or invasive medical procedures, often accompanied by physiological reactions such as fainting.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A component characterized by marked fear or avoidance of situations involving blood, injury, or invasive medical procedures, often associated with physiological reactions such as fainting.</rdfs:comment>
         <rdfs:label xml:lang="en">BII phobia</rdfs:label>
     </owl:Class>
@@ -2260,7 +2173,6 @@
             Body dissatisfaction =def. an Eating pathology component or trait which is defined by persistent negative evaluations 
             of one’s own body shape, weight, or appearance, often linked to distress and maladaptive behaviors.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A component or trait defined by persistent negative evaluations of one’s own body shape, weight, or appearance, often linked to distress and maladaptive behaviors.</rdfs:comment>
         <rdfs:label xml:lang="en">Body dissatisfaction</rdfs:label>
     </owl:Class>
@@ -2275,7 +2187,6 @@
             Binge eating =def. an Eating pathology component which is defined by recurrent episodes of consuming unusually 
             large amounts of food, accompanied by a sense of loss of control during the episode.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A component characterized by recurrent episodes of consuming unusually large amounts of food accompanied by a sense of loss of control during the episode.</rdfs:comment>
         <rdfs:label xml:lang="en">Binge eating</rdfs:label>
     </owl:Class>
@@ -2290,7 +2201,6 @@
             Cognitive restraint =def. an Eating pathology trait which is defined by the deliberate control or restriction of 
             eating behavior based on cognitive rules or beliefs about food, body weight, or dieting.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A trait reflecting the deliberate control or restriction of eating behavior based on cognitive rules or beliefs about food, body weight, or dieting.</rdfs:comment>
         <rdfs:label xml:lang="en">Cognitive restraint</rdfs:label>
     </owl:Class>
@@ -2305,7 +2215,6 @@
             Purging =def. an Eating pathology component which is defined by recurrent compensatory behaviors such as self-induced 
             vomiting, misuse of laxatives, or diuretics aimed at preventing weight gain after eating.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A component involving recurrent compensatory behaviors such as self-induced vomiting, misuse of laxatives, or diuretics aimed at preventing weight gain after eating.</rdfs:comment>
         <rdfs:label xml:lang="en">Purging</rdfs:label>
     </owl:Class>
@@ -2320,7 +2229,6 @@
             Excessive exercise =def. an Eating pathology component defined by compulsive or disproportionate physical activity, 
             often performed to control weight, shape, or mood, despite potential health risks.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A component characterized by compulsive or disproportionate physical activity, often performed with the aim of controlling weight, shape, or mood, despite potential health risks.</rdfs:comment>
         <rdfs:label xml:lang="en">Excessive exercise</rdfs:label>
     </owl:Class>
@@ -2335,7 +2243,6 @@
             Restricting =def. an Eating pathology component defined by the deliberate limitation of food intake to influence 
             body weight or shape, typically associated with disordered eating patterns.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A component defined by the deliberate limitation of food intake in order to influence body weight or shape, typically associated with disordered eating patterns.</rdfs:comment>
         <rdfs:label xml:lang="en">Restricting</rdfs:label>
     </owl:Class>
@@ -2350,7 +2257,6 @@
             Muscle building =def. an Eating pathology component involving persistent efforts to increase muscularity through 
             exercise, diet, or supplementation, sometimes associated with body image concerns.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A component involving persistent efforts to increase muscularity through exercise, diet, or supplementation, sometimes associated with body image concerns.</rdfs:comment>
         <rdfs:label xml:lang="en">Muscle building</rdfs:label>
     </owl:Class>
@@ -2365,7 +2271,6 @@
             Negative attitudes toward obesity =def. an Eating pathology trait reflecting unfavorable beliefs, stereotypes, or 
             stigmatizing attitudes toward individuals with obesity, often linked to social or cultural biases.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A trait reflecting unfavorable beliefs, stereotypes, or stigmatizing attitudes toward individuals with obesity, often linked to social or cultural biases.</rdfs:comment>
         <rdfs:label xml:lang="en">Negative attitudes toward obesity</rdfs:label>
     </owl:Class>
@@ -2380,7 +2285,6 @@
             Low sexual desire =def. a Sexual problems component or trait characterized by a persistent or recurrent reduction 
             in interest, motivation, or fantasies related to sexual activity.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A component or trait characterized by a persistent or recurrent reduction in interest, motivation, or fantasies related to sexual activity.</rdfs:comment>
         <rdfs:label xml:lang="en">Low sexual desire</rdfs:label>
     </owl:Class>
@@ -2395,7 +2299,6 @@
             Difficulties with arousal =def. a Sexual problems component characterized by challenges in attaining or 
             maintaining adequate sexual excitement or physiological arousal during sexual activity.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A component defined by challenges in attaining or maintaining adequate sexual excitement or physiological arousal during sexual activity.</rdfs:comment>
         <rdfs:label xml:lang="en">Difficulties with arousal</rdfs:label>
     </owl:Class>
@@ -2410,7 +2313,6 @@
             Low orgasmic function =def. a Sexual problems component characterized by diminished ability, frequency, or 
             satisfaction in reaching orgasm, often associated with sexual dysfunction.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A component characterized by diminished ability, frequency, or satisfaction in reaching orgasm, often associated with sexual dysfunction.</rdfs:comment>
         <rdfs:label xml:lang="en">Low orgasmic function</rdfs:label>
     </owl:Class>
@@ -2425,7 +2327,6 @@
             Sex-related distress =def. a Sexual problems component defined by psychological discomfort, worry, or 
             negative emotional reactions specifically linked to sexual experiences, functioning, or difficulties.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A component defined by psychological discomfort, worry, or negative emotional reactions specifically linked to sexual experiences, functioning, or difficulties.</rdfs:comment>
         <rdfs:label xml:lang="en">Sex-related distress</rdfs:label>
     </owl:Class>
@@ -2440,7 +2341,6 @@
             Decreased need for sleep =def. a Mania component or trait marked by a reduced requirement for sleep without a 
             corresponding sense of fatigue, often associated with altered mood or energy states.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A component or trait marked by a reduced requirement for sleep without a corresponding sense of fatigue, often associated with altered mood or energy states.</rdfs:comment>
         <rdfs:label xml:lang="en">Decreased need for sleep</rdfs:label>
     </owl:Class>
@@ -2455,7 +2355,6 @@
             Physiological anxiety =def. a Somatoform and Distress component reflecting bodily manifestations of anxiety such 
             as rapid heartbeat, sweating, trembling, or gastrointestinal discomfort.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A component reflecting bodily manifestations of anxiety such as rapid heartbeat, sweating, trembling, or gastrointestinal discomfort.</rdfs:comment>
         <rdfs:label xml:lang="en">Physiological anxiety</rdfs:label>
     </owl:Class>
@@ -2470,7 +2369,6 @@
             Health/Illness anxiety =def. a Somatoform and Distress component characterized by excessive worry or preoccupation 
             with having, developing, or misinterpreting symptoms of a serious medical condition.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V106mv"/>
         <rdfs:comment xml:lang="en">A component characterized by excessive worry or preoccupation with having, developing, or misinterpreting symptoms of a serious medical condition.</rdfs:comment>
         <rdfs:label xml:lang="en">Health/Illness anxiety</rdfs:label>
     </owl:Class>
@@ -2485,7 +2383,6 @@
             Peculiarity =def. a Thought disorder trait characterized by unusual, unconventional, or idiosyncratic patterns of 
             thinking, perception, or behavior that deviate from social norms.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V10749"/>
         <rdfs:comment xml:lang="en">A trait characterized by unusual, unconventional, or idiosyncratic patterns of thinking, perception, or behavior that deviate from social norms.</rdfs:comment>
         <rdfs:label xml:lang="en">Peculiarity</rdfs:label>
     </owl:Class>
@@ -2500,7 +2397,6 @@
             Reality distortion =def. a Thought disorder component characterized by alterations in the perception or 
             interpretation of reality, such as delusions, hallucinations, or disorganized thinking.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V10749"/>
         <rdfs:comment xml:lang="en">A component characterized by alterations in the perception or interpretation of reality, such as delusions, hallucinations, or disorganized thinking.</rdfs:comment>
         <rdfs:label xml:lang="en">Reality distortion</rdfs:label>
     </owl:Class>
@@ -2515,7 +2411,6 @@
             Emotional detachment =def. a Detachment trait reflecting a persistent lack of emotional responsiveness, warmth, 
             or connection in interpersonal interactions.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V10749"/>
         <rdfs:comment xml:lang="en">A trait reflecting a persistent lack of emotional responsiveness, warmth, or connection in interpersonal interactions.</rdfs:comment>
         <rdfs:label xml:lang="en">Emotional detachment</rdfs:label>
     </owl:Class>
@@ -2530,7 +2425,6 @@
             Social withdrawal =def. a Detachment trait defined by the tendency to avoid or disengage from social interactions 
             and relationships, often leading to reduced social contact and support.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V10749"/>
         <rdfs:comment xml:lang="en">A trait defined by the tendency to avoid or disengage from social interactions and relationships, often leading to reduced social contact and support.</rdfs:comment>
         <rdfs:label xml:lang="en">Social withdrawal</rdfs:label>
     </owl:Class>
@@ -2545,7 +2439,6 @@
             Romantic disinterest =def. a Detachment trait marked by diminished or absent interest in forming or maintaining 
             romantic relationships, independent of sexual orientation or activity.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V10749"/>
         <rdfs:comment xml:lang="en">A trait marked by diminished or absent interest in forming or maintaining romantic relationships, independent of sexual orientation or activity.</rdfs:comment>
         <rdfs:label xml:lang="en">Romantic disinterest</rdfs:label>
     </owl:Class>
@@ -2560,7 +2453,6 @@
             Inattention =def. a Disinhibition component defined by difficulties sustaining focus, being easily distracted, 
             or failing to maintain attention during tasks or activities.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V108kx"/>
         <rdfs:comment xml:lang="en">A component defined by difficulties sustaining focus, being easily distracted, or failing to maintain attention during tasks or activities.</rdfs:comment>
         <rdfs:label xml:lang="en">Inattention</rdfs:label>
     </owl:Class>
@@ -2575,7 +2467,6 @@
             Destruction of property =def. an Antisocial behavior component involving deliberate or impulsive damage, vandalism, 
             or destruction of objects, possessions, or physical environments.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V108kx"/>
         <rdfs:comment xml:lang="en">A component involving deliberate or impulsive damage, vandalism, or destruction of objects, possessions, or physical environments.</rdfs:comment>
         <rdfs:label xml:lang="en">Destruction of property</rdfs:label>
     </owl:Class>
@@ -2590,7 +2481,6 @@
             Exhibitionism =def. an Antagonism trait characterized by a recurrent tendency or desire to draw attention to oneself 
             through the display of one’s body, sexuality, or behaviors in ways intended to provoke, shock, or gain validation.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V108kx"/>
         <rdfs:comment xml:lang="en">A trait characterized by a recurrent tendency or desire to draw attention to oneself through the display of one’s body, sexuality, or behaviors in ways intended to provoke, shock, or gain validation.</rdfs:comment>
         <rdfs:label xml:lang="en">Exhibitionism</rdfs:label>
     </owl:Class>
@@ -2605,7 +2495,6 @@
             Sexual Problems =def. an Internalizing which is characterized by difficulties and dysfunctions related
             to sexual health and behavior, reflecting internal psychological distress that manifests in sexual functioning.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">
             Sexual Problems encompass difficulties and dysfunctions related to sexual health and behavior.
         </rdfs:comment>
@@ -2628,7 +2517,6 @@
             maladaptive concerns related to body image, reflecting internal psychological distress expressed through eating 
             and self-perception.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">
             Eating Pathology includes disorders and maladaptive behaviors related to eating and body image.
         </rdfs:comment>
@@ -2650,7 +2538,6 @@
             Fear =def. an Internalizing which is characterized by emotional responses to perceived threats or danger, 
             typically involving heightened arousal, avoidance behaviors, and anticipatory anxiety.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">
             Fear refers to an emotional response to perceived threats or danger.
         </rdfs:comment>
@@ -2672,7 +2559,6 @@
             Distress =def. an Internalizing which is characterized by significant emotional suffering or discomfort, 
             often involving persistent negative affect such as sadness, hopelessness, or irritability.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">
             Distress involves significant emotional suffering or discomfort.
         </rdfs:comment>
@@ -2694,7 +2580,6 @@
             Mania =def. an Internalizing and Thought Disorder which is characterized by elevated mood, 
             increased activity levels, and impulsive behavior, reflecting dysregulation in affective and cognitive functioning.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">
             Mania is characterized by elevated mood, increased activity, and impulsive behavior.
         </rdfs:comment>
@@ -2716,7 +2601,6 @@
             Harmful Substance Abuse =def. a Disinhibited Externalizing which is characterized by excessive use of substances 
             that leads to significant harm or impairment in physical, psychological, or social functioning.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">
             Harmful Substance Abuse refers to the excessive use of substances that causes significant harm or impairment.
         </rdfs:comment>
@@ -2739,7 +2623,6 @@
             by actions that violate societal norms and the rights of others, reflecting a combination of poor impulse control 
             and interpersonal antagonism.
         </obo:iaoIAO_0000115>
-        <dcterms:isVersionOf rdf:resource="http://purl.org/hitop#V1052k"/>
         <rdfs:comment xml:lang="en">
             Antisocial Behavior involves actions that violate societal norms and the rights of others.
         </rdfs:comment>

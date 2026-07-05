@@ -73,9 +73,11 @@ HiTOP concepts.
 | [`ontology/hitop.rdf`](ontology/hitop.rdf) | Canonical RDF/XML ontology source |
 | [`src/data/hitop_base_vocabulary.csv`](src/data/hitop_base_vocabulary.csv) | Local lookup table for stable HiTOP base codes |
 | [`schema/manifestation-record.schema.json`](schema/manifestation-record.schema.json) | JSON Schema for manifestation record exports |
+| [`schema/factorization-manifest.schema.json`](schema/factorization-manifest.schema.json) | JSON Schema for factorization manifests under `factorizations/` |
 | [`docs/codesystem.md`](docs/codesystem.md) | HiTOP code-system explanation |
 | [`docs/modular-namespaced-suffix-schema.md`](docs/modular-namespaced-suffix-schema.md) | Modular namespaced manifestation suffix specification |
 | [`docs/mapping-und-harmonisierung.md`](docs/mapping-und-harmonisierung.md) | Mapping, review, and harmonization specification |
+| [`docs/factorizations.md`](docs/factorizations.md) | Factorization manifest structure, versioning, and governance |
 | [`docs/tooling_examples.md`](docs/tooling_examples.md) | Copyable CLI and Python API examples |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Review workflow, validation gates, and contribution expectations |
 
@@ -135,10 +137,11 @@ Relevant external guidance includes:
 | Path | Purpose |
 | --- | --- |
 | [`ontology`](ontology) | Canonical RDF source and generated ontology artifacts |
+| [`factorizations`](factorizations) | Versioned factorization manifests composing core concepts into specific HiTOP factor structures |
 | [`src/hitop/base`](src/hitop/base) | HiTOP base-code checksum and CSV generation tooling |
 | [`src/hitop/suffix`](src/hitop/suffix) | Manifestation suffix namespace, slug, code, metadata, and mapping tooling |
 | [`scripts`](scripts) | Setup, validation, ontology conversion, and generation entry points |
-| [`schema`](schema) | JSON Schema artifacts for manifestation record exports |
+| [`schema`](schema) | JSON Schema artifacts for manifestation record and factorization manifest exports |
 | [`validation`](validation) | Regression tests used by local and release gates |
 | [`docs`](docs) | Specifications, examples, release audit material, and operational documentation |
 

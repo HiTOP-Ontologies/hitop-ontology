@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://purl.org/hitop/schema/factorization-hierarchy.schema.json",
+  "title": "HiTOP Factorization Hierarchy",
+  "description": "Declares one versioned HiTOP factorization as a recursive tree of stable HiTOP base concepts. Every node names the hitop_base_code it plays and the Level (Factor, Superspectrum, Spectrum, Subfactor, Component, Trait) it occupies in this factorization; nesting under `children` is the factorization's concrete parent-child structure. A factorization file never redefines, copies, or duplicates class content; `code` values must already exist in ontology/hitop.ttl. See docs/factorizations.md for the governance model and for how `level` maps onto the core ontology's hitop:hasLevelType/hitop:hasTier vocabulary.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["meta", "hierarchy"],
+  "properties": {
+    "meta": { "$ref": "#/$defs/meta" },
+    "hierarchy": {
+      "description": "Root node of the factorization tree. May be null only while meta.status is \"draft\" and the tree has not been populated yet.",
+      "oneOf": [
+        { "$ref": "#/$defs/node" },
+        { "type": "null" }
+      ]
+    }
+  },
+  "$defs": {
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "factorization_id",
+        "version",
+        "label",
+        "status",
+        "based_on",
+        "provenance"
+      ],
+      "properties": {
+        "factorization_id": {
+          "type": "string",
+          "description": "Stable kebab-case identifier matching the factorizations/<factorization_id> directory name.",
+          "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$"
+        },
+        "version": {
+          "type": "string",
+          "description": "Version identifier matching the leading <version>_hierarchy.yaml filename segment and the v<N> directory, for example \"V1052k\" in v1/V1052k_hierarchy.yaml."
+        },
+        "label": {
+          "type": "string",
+          "description": "Human-readable factorization name."
+        },
+        "status": { "$ref": "#/$defs/status" },
+        "source": {
+          "type": "string",
+          "description": "Origin of the factor structure, for example a source image or dataset path."
+        },
+        "paper": {
+          "type": "string",
+          "description": "Citation for the publication this factorization is derived from."
+        },
+        "based_on": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["ontology_iri", "ontology_version"],
+          "properties": {
+            "ontology_iri": {
+              "type": "string",
+              "description": "IRI of the core ontology this factorization resolves codes against.",
+              "const": "http://purl.org/hitop"
+            },
+            "ontology_version": {
+              "type": "string",
+              "description": "owl:versionInfo value of the ontology release the codes were resolved against."
+            },
+            "commit": {
+              "type": "string",
+              "description": "Optional git commit hash pinning the exact ontology state the codes were resolved against.",
+              "pattern": "^[0-9a-f]{7,40}$"
+            }
+          }
+        },
+        "provenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["created_by", "created_at"],
+          "properties": {
+            "created_by": {
+              "type": "string",
+              "description": "Person or role who curated this factorization."
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date",
+              "description": "Date this factorization version was created."
+            },
+            "notes": {
+              "type": "string",
+              "description": "Optional free-text provenance notes, for example differences from a previous version."
+            }
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "active", "deprecated"]
+    },
+    "level": {
+      "type": "string",
+      "description": "Position on the fixed, shared Level ladder (hitop:hasLevel in the core ontology), from broadest to narrowest.",
+      "enum": [
+        "Factor",
+        "Superspectrum",
+        "Spectrum",
+        "Subfactor",
+        "Component",
+        "Trait"
+      ]
+    },
+    "node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "level", "code"],
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Human-readable name of the HiTOP concept at this node."
+        },
+        "level": { "$ref": "#/$defs/level" },
+        "code": {
+          "type": "string",
+          "description": "hitop_base_code from ontology/hitop.ttl that this node names.",
+          "pattern": "^[A-Za-z0-9]+$"
+        },
+        "bridge": {
+          "type": "array",
+          "description": "Documentation-only cross-loading note: other node labels this concept is also empirically associated with in the source paper. Does not create a second hitop:hasTier edge and is not validated against codes.",
+          "items": { "type": "string" },
+          "minItems": 1
+        },
+        "provisional": {
+          "type": "boolean",
+          "description": "Marks this node's placement as tentative, independent of the file-level meta.status."
+        },
+        "children": {
+          "type": "array",
+          "description": "Child nodes one Level step below this node, per hitop:hasTier.",
+          "items": { "$ref": "#/$defs/node" },
+          "minItems": 1
+        }
+      }
+    }
+  }
+}

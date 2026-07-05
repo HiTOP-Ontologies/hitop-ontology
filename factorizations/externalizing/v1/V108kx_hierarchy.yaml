@@ -1,0 +1,118 @@
+# V108kx — Externalizing Superspectrum
+
+meta:
+  factorization_id: externalizing
+  version: V108kx
+  label: Externalizing Superspectrum
+  source: data/hitop/images/Externalizing superspectrum.jpg
+  paper: "Kotov et al. (2021), World Psychiatry, doi:10.1002/wps.20844"
+  status: draft
+  based_on:
+    ontology_iri: "http://purl.org/hitop"
+    ontology_version: "0.1.0"
+  provenance:
+    created_by: "Dr. Rogério Blitz"
+    created_at: "2026-07-05"
+
+hierarchy:
+  label: Externalizing
+  level: Superspectrum
+  code: S0013h
+  children:
+
+    - label: Disinhibition
+      level: Spectrum
+      code: P005xY
+      children:
+        - label: Hyperactivity
+          level: Component
+          code: C00oKM
+        - label: Inattention
+          level: Component
+          code: C02BO8
+
+        - label: Substance abuse
+          level: Subfactor
+          code: U0061L
+          children:
+            - label: Substance use
+              level: Component
+              code: C01HGq
+            - label: Substance problems
+              level: Component
+              code: C01Ip4
+
+        - label: Antisocial behavior
+          level: Subfactor
+          code: U007EJ
+          bridge: [Disinhibition, Antagonism]
+          children:
+            - label: Physical aggression
+              level: Component
+              code: C01JH8
+            - label: Relational aggression
+              level: Component
+              code: C01LSp
+            - label: Destruction of property
+              level: Component
+              code: C02CiQ
+            - label: Fraud
+              level: Component
+              code: C01MjB
+            - label: Theft
+              level: Trait
+              code: T0177S
+
+        - label: Impulsivity
+          level: Trait
+          code: T015o8
+        - label: Irresponsibility
+          level: Trait
+          code: T016k0
+        - label: Disorganization
+          level: Trait
+          code: T01OY2
+        - label: Distractibility
+          level: Trait
+          code: T018ir
+        - label: Risk taking
+          level: Trait
+          code: T019Cj
+        - label: (Low) Perfectionism
+          level: Trait
+          code: T01A5i
+        - label: (Low) Workaholism
+          level: Trait
+          code: T01C1W
+
+    - label: Antagonism
+      level: Spectrum
+      code: P006gM
+      children:
+        - label: Manipulativeness
+          level: Trait
+          code: T01bz7
+        - label: Deceitfulness
+          level: Trait
+          code: T01Ziz
+        - label: Callousness
+          level: Trait
+          code: T01Y7w
+        - label: Exhibitionism
+          level: Trait
+          code: C02DSC
+        - label: Grandiosity
+          level: Trait
+          code: T01a7u
+        - label: Hostility
+          level: Trait
+          code: T0094I
+        - label: Domineering
+          level: Trait
+          code: T01eG6
+        - label: Suspiciousness
+          level: Trait
+          code: T010c6
+        - label: Rudeness
+          level: Trait
+          code: T01cX5

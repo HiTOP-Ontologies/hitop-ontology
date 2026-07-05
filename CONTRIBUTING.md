@@ -26,10 +26,12 @@ Keep pull requests focused on one concern:
 | Ontology artifacts | `ontology/` plus conversion evidence |
 | Schema/model | `schema/`, validators, generators, fixtures, and docs |
 | Clinical content | concept labels, definitions, hierarchy, mappings, and review evidence |
+| Factorizations | `factorizations/<id>/v<N>/`, one factorization version per change |
 | Documentation | public docs, examples, release notes, and audit updates |
 
 Do not mix clinical content changes with unrelated refactors. That makes review
-and release approval harder to audit.
+and release approval harder to audit. Factorization manifests must not modify
+`ontology/` — see [`docs/factorizations.md`](docs/factorizations.md).
 
 ## Local Validation
 
