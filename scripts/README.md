@@ -147,10 +147,12 @@ Common failure signals:
 
 Validates a `<version>_hierarchy.yaml` with the same rules as
 `validation/test_factorizations.py` (`hitop.factorization.validate`) and
-compiles it into an RDF factorization ontology: one `hitop:hasLevelType`
-triple per node and one `hitop:hasTier` triple per parent-child edge,
-referencing the stable classes in `ontology/hitop.ttl` by IRI. See
-`docs/factorizations.md` for the underlying vocabulary.
+compiles it into an RDF factorization ontology: one `hitop:hasLevel`
+literal triple and one `hitop:hasTier` triple per parent-child edge,
+referencing the stable classes in `ontology/hitop.ttl` by IRI (a
+`kind: collection` node instead gets `rdf:type skos:Collection` and an IRI
+local to the factorization). See `docs/factorizations.md` for the
+underlying vocabulary.
 
 Inputs:
 
@@ -171,8 +173,7 @@ Common failure signals:
 
 | Signal | Likely cause | Resolution |
 | --- | --- | --- |
-| `code '...' does not exist as a class in ontology/hitop.ttl` | A node references a code that was never added to the core ontology, or a typo | Fix the code in the hierarchy YAML or add the class to the core ontology first |
-| `level '...' must be strictly below parent level '...'` | A child node's `level` is not narrower than its parent's on the `hitop:hasLevel` ladder | Fix the `level` value or the tree position |
+| `code '...' does not exist as a class in ontology/hitop.ttl` | A node references a code that was never added to the core ontology, or a typo (does not apply to `kind: collection` nodes) | Fix the code in the hierarchy YAML or add the class to the core ontology first |
 | `code '...' appears more than once in this tree` | The same `code` is used twice within one hierarchy | Remove the duplicate or assign the correct distinct code |
 
 ## Generate CSV-Derived Records

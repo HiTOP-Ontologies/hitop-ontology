@@ -140,14 +140,7 @@ deckungsgleich bleibt.
 | `C01LSp` | Relational aggression | | |  | pending | | |
 | `C01MjB` | Fraud | | |  | pending | | |
 | `F001Hw` | General Psychopathology | | |  | pending | | |
-| `O001Ih` | Level | | | strukturelle Schema-Klasse (Level-/Tier-Vokabular aus `docs/factorizations.md`), kein domänenspezifisches HiTOP-Konzept | excluded | | |
-| `O004Hd` | Factor | | | strukturelle Schema-Klasse (Level-/Tier-Vokabular aus `docs/factorizations.md`), kein domänenspezifisches HiTOP-Konzept | excluded | | |
-| `O005pp` | Superspectrum | | | strukturelle Schema-Klasse (Level-/Tier-Vokabular aus `docs/factorizations.md`), kein domänenspezifisches HiTOP-Konzept | excluded | | |
-| `O006lN` | Spectrum | | | strukturelle Schema-Klasse (Level-/Tier-Vokabular aus `docs/factorizations.md`), kein domänenspezifisches HiTOP-Konzept | excluded | | |
-| `O007SH` | Subfactor | | | strukturelle Schema-Klasse (Level-/Tier-Vokabular aus `docs/factorizations.md`), kein domänenspezifisches HiTOP-Konzept | excluded | | |
-| `O008Ob` | Component | | | strukturelle Schema-Klasse (Level-/Tier-Vokabular aus `docs/factorizations.md`), kein domänenspezifisches HiTOP-Konzept | excluded | | |
-| `O009zM` | Trait | | | strukturelle Schema-Klasse (Level-/Tier-Vokabular aus `docs/factorizations.md`), kein domänenspezifisches HiTOP-Konzept | excluded | | |
-| `O002sP` | Tier | | | strukturelle Schema-Klasse (Level-/Tier-Vokabular aus `docs/factorizations.md`), kein domänenspezifisches HiTOP-Konzept | excluded | | |
+| `O002sP` | Tier | | | strukturelle Schema-Klasse (Tier-Vokabular aus `docs/factorizations.md`), kein domänenspezifisches HiTOP-Konzept | excluded | | |
 | `P001Y2` | Somatoform | | |  | pending | | |
 | `P002nf` | Internalizing | | |  | pending | | |
 | `P003SL` | Thought Disorder | | |  | pending | | |

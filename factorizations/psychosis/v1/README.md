@@ -10,7 +10,7 @@ a recursive hierarchy tree. This factorization tracks the Psychosis
 superspectrum structure from Kotov et al. (2020), World Psychiatry,
 doi:10.1002/wps.20730. See
 [`docs/factorizations.md`](../../../docs/factorizations.md) for the full
-governance model, the `hitop:hasLevel`/`hitop:hasLevelType`/`hitop:hasTier`
+governance model, the `hitop:hasTier`/`hitop:hasLevel`
 vocabulary, and how to add a new version.
 
 ## Contents

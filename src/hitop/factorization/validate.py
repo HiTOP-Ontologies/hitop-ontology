@@ -8,6 +8,19 @@ one place. See ``docs/factorizations.md`` for the governance model and
 this module enforces by hand (no ``jsonschema`` dependency is introduced;
 the checks below mirror the schema field by field, matching the existing
 project convention in the former manifest validator).
+
+Vertical ordering of a factorization tree comes entirely from
+``hitop:hasTier`` nesting: a child is always exactly one step narrower than
+its parent by construction, so no fixed, core-ontology-defined Level ladder
+is needed to keep a tree internally ordered. ``level`` is a free-text label
+(``hitop:hasLevel``) describing the role a node plays in *this* tree and is
+purely descriptive: it is intentionally **not** checked for depth
+consistency, because real HiTOP trees are irregular -- different branches
+skip intermediate levels (for example some Spectra go straight to
+Component, others via an intervening Subfactor), so the same label
+legitimately occurs at different depths within one tree, exactly as
+established taxonomic rank systems (e.g. NCBI Taxonomy) allow ranks to be
+skipped or left unassigned per lineage.
 """
 
 from __future__ import annotations
@@ -17,16 +30,15 @@ from pathlib import Path
 from typing import Any, Iterator
 
 import yaml
-from rdflib import OWL, RDF, RDFS, Graph, Namespace
+from rdflib import OWL, RDF, Graph, Namespace
 
 HITOP = Namespace("http://purl.org/hitop#")
-LEVEL_CLASS = HITOP.O001Ih
-HAS_LEVEL = HITOP.hasLevel
 CANONICAL_ONTOLOGY_IRI = "http://purl.org/hitop"
 
 FACTORIZATION_ID_RE = re.compile(r"^[a-z][a-z0-9]*(-[a-z0-9]+)*$")
 BASE_CODE_RE = re.compile(r"^[A-Za-z0-9]+$")
 STATUSES = {"draft", "active", "deprecated"}
+NODE_KINDS = {"concept", "collection"}
 
 REQUIRED_META_FIELDS = {
     "factorization_id",
@@ -40,7 +52,7 @@ OPTIONAL_META_FIELDS = {"source", "paper"}
 ALLOWED_META_FIELDS = REQUIRED_META_FIELDS | OPTIONAL_META_FIELDS
 
 REQUIRED_NODE_FIELDS = {"label", "level", "code"}
-OPTIONAL_NODE_FIELDS = {"bridge", "provisional", "children"}
+OPTIONAL_NODE_FIELDS = {"bridge", "provisional", "children", "kind"}
 ALLOWED_NODE_FIELDS = REQUIRED_NODE_FIELDS | OPTIONAL_NODE_FIELDS
 
 
@@ -71,88 +83,16 @@ def load_core_class_local_names(ontology_ttl: Path) -> set[str]:
     return names
 
 
-def _level_ladder(ontology_ttl: Path) -> list[tuple[str, str]]:
-    """Return ``(label, local_code)`` pairs for the six Level subclasses, in rank order."""
-
-    graph = Graph()
-    graph.parse(ontology_ttl, format="turtle")
-    prefix = str(HITOP)
-    subclasses = set(graph.subjects(RDFS.subClassOf, LEVEL_CLASS))
-    if not subclasses:
-        raise ValueError(f"No subclasses of hitop:O001Ih (Level) found in {ontology_ttl}.")
-
-    labels: dict[Any, str] = {}
-    codes: dict[Any, str] = {}
-    for subject in subclasses:
-        label = graph.value(subject, RDFS.label)
-        if label is None:
-            raise ValueError(f"Level subclass {subject} has no rdfs:label.")
-        labels[subject] = str(label)
-        subject_iri = str(subject)
-        codes[subject] = subject_iri[len(prefix):] if subject_iri.startswith(prefix) else subject_iri
-
-    edges: dict[Any, Any] = {}
-    targets: set[Any] = set()
-    for subject in subclasses:
-        target = graph.value(subject, HAS_LEVEL)
-        if target is not None:
-            edges[subject] = target
-            targets.add(target)
-
-    roots = [subject for subject in subclasses if subject not in targets]
-    if len(roots) != 1:
-        raise ValueError(
-            "Expected exactly one root Level subclass with no incoming "
-            f"hitop:hasLevel edge, found {len(roots)}."
-        )
-
-    ladder: list[tuple[str, str]] = []
-    current = roots[0]
-    visited: set[Any] = set()
-    while current is not None:
-        if current in visited:
-            raise ValueError("Cycle detected in the hitop:hasLevel ladder.")
-        visited.add(current)
-        ladder.append((labels[current], codes[current]))
-        current = edges.get(current)
-
-    if len(ladder) != len(subclasses):
-        missing = subclasses - visited
-        raise ValueError(
-            "hitop:hasLevel ladder does not cover all Level subclasses; missing: "
-            + ", ".join(sorted(labels[s] for s in missing))
-        )
-    return ladder
-
-
-def load_level_ranks(ontology_ttl: Path) -> dict[str, int]:
-    """Read the fixed ``hitop:hasLevel`` ladder from the core ontology.
-
-    Returns a mapping from Level subclass label (e.g. ``"Spectrum"``) to its
-    rank: 0 for the broadest Level (Factor) through 5 for the narrowest
-    (Trait). The ladder is derived from ``ontology/hitop.ttl`` itself rather
-    than hardcoded, so a future core change is picked up automatically.
-    """
-
-    return {label: rank for rank, (label, _code) in enumerate(_level_ladder(ontology_ttl))}
-
-
-def load_level_local_codes(ontology_ttl: Path) -> dict[str, str]:
-    """Read the fixed ``hitop:hasLevel`` ladder and return ``label -> hitop_base_code``.
-
-    For example ``{"Spectrum": "O006lN", ...}``. Used by
-    ``scripts/generate_factorization_ontology.py`` to resolve a node's
-    ``level`` string to the core ontology class it should be tagged with via
-    ``hitop:hasLevelType``.
-    """
-
-    return dict(_level_ladder(ontology_ttl))
-
-
 def iter_nodes(
     node: dict[str, Any],
 ) -> Iterator[tuple[dict[str, Any], dict[str, Any] | None]]:
-    """Yield every ``(node, parent_node)`` pair in a hierarchy tree, depth-first."""
+    """Yield every ``(node, parent_node)`` pair in a hierarchy tree, depth-first.
+
+    A child's position under its parent's ``children`` is what establishes
+    it as exactly one step narrower than its parent (``hitop:hasTier``);
+    that ordering is guaranteed by construction and needs no separate rank
+    lookup against the core ontology.
+    """
 
     def _walk(
         current: dict[str, Any], parent: dict[str, Any] | None
@@ -235,8 +175,13 @@ def validate_meta(meta: Any, *, path: Path) -> list[str]:
     return errors
 
 
-def validate_node_shape(node: Any, *, context: str, level_ranks: dict[str, int]) -> list[str]:
-    """Check the field-level shape of a single node (not its position in the tree)."""
+def validate_node_shape(node: Any, *, context: str) -> list[str]:
+    """Check the field-level shape of a single node (not its position in the tree).
+
+    ``level`` is free text (see module docstring): it is not checked against
+    a fixed vocabulary, since the set of level names is intentionally open
+    and varies per factorization.
+    """
 
     errors: list[str] = []
     if not isinstance(node, dict):
@@ -252,7 +197,7 @@ def validate_node_shape(node: Any, *, context: str, level_ranks: dict[str, int])
     _require(isinstance(label, str) and bool(label), errors, f"{context}: label must be a non-empty string.")
 
     level = node.get("level")
-    _require(level in level_ranks, errors, f"{context}: level {level!r} must be one of {sorted(level_ranks)}.")
+    _require(isinstance(level, str) and bool(level), errors, f"{context}: level must be a non-empty string.")
 
     code = node.get("code")
     _require(
@@ -260,6 +205,9 @@ def validate_node_shape(node: Any, *, context: str, level_ranks: dict[str, int])
         errors,
         f"{context}: code {code!r} is not a valid HiTOP base code.",
     )
+
+    kind = node.get("kind", "concept")
+    _require(kind in NODE_KINDS, errors, f"{context}: kind {kind!r} must be one of {sorted(NODE_KINDS)}.")
 
     if "bridge" in node:
         bridge = node["bridge"]
@@ -292,15 +240,20 @@ def validate_hierarchy_document(
     *,
     path: Path,
     core_class_names: set[str],
-    level_ranks: dict[str, int],
 ) -> list[str]:
     """Validate one loaded ``*_hierarchy.yaml`` document.
 
     Checks schema shape, that ``meta`` matches the file's directory/name,
-    referential integrity of every ``code`` against the core ontology,
-    level-consistency of every parent-child edge against the
-    ``hitop:hasLevel`` ladder, and that no ``code`` repeats within one tree.
-    Returns a list of human-readable error strings; empty means valid.
+    referential integrity of every concept ``code`` against the core
+    ontology (``kind: collection`` nodes are exempt, since they name a
+    factorization-local synthesis rather than a core Tier concept), and that
+    no ``code`` repeats within one tree. Vertical ordering needs no check: a
+    node's depth is defined by its position under ``children``, so a child
+    is always exactly one step below its parent by construction. ``level``
+    is not checked for consistency across the tree -- real HiTOP branches
+    legitimately skip levels (see the module docstring), so the same label
+    can occur at different depths. Returns a list of human-readable error
+    strings; empty means valid.
     """
 
     errors: list[str] = []
@@ -323,9 +276,9 @@ def validate_hierarchy_document(
         return errors
 
     seen_codes: dict[str, str] = {}
-    for node, parent in iter_nodes(hierarchy):
+    for node, _parent in iter_nodes(hierarchy):
         context = f"{path.name}:{node.get('label', '<unlabeled>') if isinstance(node, dict) else '<invalid>'}"
-        errors.extend(validate_node_shape(node, context=context, level_ranks=level_ranks))
+        errors.extend(validate_node_shape(node, context=context))
         if not isinstance(node, dict):
             continue
 
@@ -335,16 +288,8 @@ def validate_hierarchy_document(
                 errors.append(f"{context}: code {code!r} appears more than once in this tree.")
             else:
                 seen_codes[code] = node.get("label")
-            if code not in core_class_names:
+            if node.get("kind", "concept") != "collection" and code not in core_class_names:
                 errors.append(f"{context}: code {code!r} does not exist as a class in ontology/hitop.ttl.")
-
-        level = node.get("level")
-        if parent is not None and level in level_ranks and parent.get("level") in level_ranks:
-            _require(
-                level_ranks[level] > level_ranks[parent["level"]],
-                errors,
-                f"{context}: level {level!r} must be strictly below parent level {parent['level']!r}.",
-            )
 
     return errors
 

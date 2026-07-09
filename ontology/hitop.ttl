@@ -557,12 +557,6 @@ iao:IAO_0000115 a owl:AnnotationProperty .
     rdfs:subClassOf hitop:O002sP ;
     skos:changeNote "Indicates the potential for future inclusion of additional spectra and other related concepts as new developments and insights emerge in the field of general psychopathology. Allows for flexible expansion and refinement of the taxonomy to integrate new spectra , subfactors , and related elements to better capture evolving understanding and research findings." .
 
-    hitop:O004Hd a owl:Class ;
-    rdfs:label "Factor"@en ;
-    hitop:hasLevel hitop:O005pp ;
-    rdfs:comment "The topmost Level: the general factor of psychopathology (p-factor) at the root of a factorization."@en ;
-    rdfs:subClassOf hitop:O001Ih .
-
     hitop:P001Y2 a owl:Class ;
     rdfs:label "Somatoform"@en ;
  iao:IAO_0000115 "Somatoform =def. a General Psychopathology which is characterized by physical symptoms that cannot be fully explained by a medical condition and reflect psychological distress expressed through somatic complaints."@en ;
@@ -1039,56 +1033,20 @@ iao:IAO_0000115 a owl:AnnotationProperty .
     dcterms:issued "2024-08-30"^^xsd:date ;
     owl:versionInfo 1.0 .
 
-    hitop:hasLevel a owl:ObjectProperty ;
+    hitop:hasLevel a owl:DatatypeProperty ;
     rdfs:label "has Level"@en ;
-    rdfs:comment "Orders the fixed , shared set of Level subclasses (Factor , Superspectrum , Spectrum , Subfactor , Component , Trait) into the single vertical ladder used across all factorizations. Asserted once in the core ontology between the Level subclasses themselves ; never asserted on concept classes and never asserted inside a factorization."@en ;
-    rdfs:domain hitop:O001Ih ;
-    rdfs:range hitop:O001Ih ;
-    skos:changeNote "hasLevel is scoped to the six Level subclasses only. It is not used to relate a HiTOP concept class to its position in the taxonomy -- that is the role of hitop:hasLevelType."@en .
-
-    hitop:hasLevelType a owl:ObjectProperty ;
-    rdfs:label "has Level Type"@en ;
-    rdfs:comment "Tags a HiTOP concept (a Tier) with the Level subclass it plays -- Superspectrum , Spectrum , Subfactor , Component , or Trait -- within one specific factorization. The same concept can carry a different hasLevelType in a different factorization ; this property is declared in the core ontology but is only ever asserted inside a factorization's own hierarchy file , never in the core ontology itself."@en ;
+    rdfs:comment "Tags a HiTOP concept (a Tier) with a free-text level name (for example \"Spectrum\" or \"Component\") describing the role it plays in one specific factorization. The same concept can carry a different hasLevel value in a different factorization ; this property is declared in the core ontology but is only ever asserted inside a factorization's own hierarchy file , never in the core ontology itself. The value is purely descriptive: the actual vertical ordering of a factorization is established by hitop:hasTier alone , not by this property , so no fixed , enumerable set of level names is required in the core ontology."@en ;
     rdfs:domain hitop:O002sP ;
-    rdfs:range hitop:O001Ih ;
-    skos:changeNote "Introduced to let the same HiTOP concept class occupy different vertical positions in different factorizations without encoding a single , global level into the class itself."@en .
+    rdfs:range xsd:string ;
+    skos:changeNote "Previously an object property ordering a fixed set of six core Level subclasses (Factor , Superspectrum , Spectrum , Subfactor , Component , Trait). That fixed ladder required extending the core ontology for every new factorization-specific level combination , which conflicted with the principle that a factorization must not add classes to the shared core. Redeclared as a datatype property so any factorization can freely name a concept's level without touching the core."@en .
 
     skos:changeNote a owl:AnnotationProperty .
 
     foaf:name a owl:AnnotationProperty .
 
-    hitop:O005pp a owl:Class ;
-    rdfs:label "Superspectrum"@en ;
-    hitop:hasLevel hitop:O006lN ;
-    rdfs:comment "The Level below Factor: a broad grouping of related Spectra , for example Externalizing or Psychosis."@en ;
-    rdfs:subClassOf hitop:O001Ih .
-
-    hitop:O006lN a owl:Class ;
-    rdfs:label "Spectrum"@en ;
-    hitop:hasLevel hitop:O007SH ;
-    rdfs:comment "The Level below Superspectrum: a dimensional syndrome , for example Internalizing or Disinhibited Externalizing."@en ;
-    rdfs:subClassOf hitop:O001Ih .
-
-    hitop:O007SH a owl:Class ;
-    rdfs:label "Subfactor"@en ;
-    hitop:hasLevel hitop:O008Ob ;
-    rdfs:comment "The Level below Spectrum: a narrower grouping of related Components within one Spectrum , for example Fear or Distress."@en ;
-    rdfs:subClassOf hitop:O001Ih .
-
-    hitop:O008Ob a owl:Class ;
-    rdfs:label "Component"@en ;
-    hitop:hasLevel hitop:O009zM ;
-    rdfs:comment "The Level below Subfactor: a specific symptom or behavior grouping , for example Insomnia or Suicidality."@en ;
-    rdfs:subClassOf hitop:O001Ih .
-
-    hitop:O009zM a owl:Class ;
-    rdfs:label "Trait"@en ;
-    rdfs:comment "The bottom Level: an elementary personality trait , for example Anxiousness or Callousness."@en ;
-    rdfs:subClassOf hitop:O001Ih .
-
     hitop:hasTier a owl:ObjectProperty ;
     rdfs:label "has Tier"@en ;
-    rdfs:comment "Establishes the concrete parent-child relationship between two HiTOP concepts within one factorization , for example Internalizing hasTier Anxiousness. The child's hitop:hasLevelType is expected to be one Level step below the parent's , per the hitop:hasLevel ladder. Declared in the core ontology but only ever asserted inside a factorization's own hierarchy file , never in the core ontology itself."@en ;
+    rdfs:comment "Establishes the concrete parent-child relationship between two HiTOP concepts within one factorization , for example Internalizing hasTier Anxiousness. Declared in the core ontology but only ever asserted inside a factorization's own hierarchy file , never in the core ontology itself. This relationship alone determines the vertical ordering of a factorization tree: a child is always exactly one step narrower than its parent , so no separate rank or Level class hierarchy is required to keep a factorization internally ordered."@en ;
     rdfs:domain hitop:O002sP ;
     rdfs:range hitop:O002sP ;
     skos:changeNote "Indicates the potential for future inclusion of additional tiers or modification of existing ones to reflect new developments within specific levels of the hierarchy. Supports flexibility in expanding or refining the taxonomy based on emerging research and evolving understanding of horizontal relationships among psychological constructs."@en .
@@ -1099,10 +1057,6 @@ iao:IAO_0000115 a owl:AnnotationProperty .
     hitop:0004KV a owl:Class ;
     rdfs:label "Version"@en ;
     rdfs:comment "This class represents a version entity used to document the version number and descriptive information related to the evolution of HiTOP ontology elements."@en .
-
-    hitop:O001Ih a owl:Class ;
-    rdfs:label "Level"@en ;
-    rdfs:comment "A structural component of the HiTOP taxonomy used to define the fixed vertical hierarchy of level types. Level has exactly six subclasses -- Factor , Superspectrum , Spectrum , Subfactor , Component , and Trait -- ordered by hitop:hasLevel. A HiTOP concept class (a Tier) is tagged with one of these subclasses via hitop:hasLevelType , scoped to a specific factorization."@en .
 
     hitop:O002sP a owl:Class ;
     rdfs:label "Tier"@en ;

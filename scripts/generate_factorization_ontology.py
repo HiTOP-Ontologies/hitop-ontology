@@ -6,9 +6,15 @@ The script implements the generation half of the process described in
 
 * load and validate a ``<version>_hierarchy.yaml`` with the same rules used
   by ``validation/test_factorizations.py`` (``hitop.factorization.validate``)
-* for every node, assert ``hitop:hasLevelType`` against the matching core
-  Level subclass
-* for every parent-child edge, assert ``hitop:hasTier``
+* for every node, assert ``hitop:hasLevel`` as a free-text literal naming
+  the role the node plays in this factorization
+* for every parent-child edge, assert ``hitop:hasTier`` -- this alone
+  determines the tree's vertical ordering, so no core Level lookup is
+  needed to resolve a node's level
+* for a ``kind: collection`` node (a factorization-local synthesis of
+  several existing concepts, never a core Tier concept), assert
+  ``rdf:type skos:Collection`` and mint its IRI inside this factorization's
+  own namespace instead of the shared core namespace
 * record ``provisional``/``bridge`` as ``skos:changeNote`` annotations
   (documentation only, never a structural edge)
 * write an ``owl:Ontology`` header derived from the file's ``meta`` block
@@ -30,8 +36,6 @@ from rdflib.namespace import DCTERMS, OWL, SKOS, XSD
 from hitop.factorization import (
     load_core_class_local_names,
     load_hierarchy_document,
-    load_level_local_codes,
-    load_level_ranks,
     validate_hierarchy_document,
 )
 
@@ -103,7 +107,15 @@ def _add_meta_header(graph: Graph, *, factorization_iri: URIRef, meta: dict) -> 
         graph.add((factorization_iri, DCTERMS.bibliographicCitation, Literal(meta["paper"])))
 
 
-def build_factorization_graph(record: dict, *, level_codes: dict[str, str]) -> Graph:
+def _subject_iri(node: dict, *, factorization_iri: URIRef) -> URIRef:
+    """Return the IRI for a node: the core namespace for a concept, else local."""
+
+    if node.get("kind", "concept") == "collection":
+        return URIRef(f"{factorization_iri}#{node['code']}")
+    return HITOP[node["code"]]
+
+
+def build_factorization_graph(record: dict) -> Graph:
     """Walk a validated hierarchy document and build its RDF factorization graph."""
 
     graph = Graph()
@@ -122,9 +134,14 @@ def build_factorization_graph(record: dict, *, level_codes: dict[str, str]) -> G
         return graph
 
     def _walk(node: dict, parent: dict | None) -> None:
-        subject = HITOP[node["code"]]
-        level_class = HITOP[level_codes[node["level"]]]
-        graph.add((subject, HITOP.hasLevelType, level_class))
+        subject = _subject_iri(node, factorization_iri=factorization_iri)
+        graph.add((subject, HITOP.hasLevel, Literal(node["level"])))
+
+        if node.get("kind", "concept") == "collection":
+            # A factorization-local synthesis of several existing concepts,
+            # never a core Tier concept -- see docs/factorizations.md section 4.
+            graph.add((subject, RDF.type, SKOS.Collection))
+            graph.add((subject, RDFS.label, Literal(node["label"], lang="en")))
 
         if node.get("provisional"):
             graph.add(
@@ -136,7 +153,7 @@ def build_factorization_graph(record: dict, *, level_codes: dict[str, str]) -> G
             graph.add((subject, SKOS.changeNote, Literal(note, lang="en")))
 
         if parent is not None:
-            parent_subject = HITOP[parent["code"]]
+            parent_subject = _subject_iri(parent, factorization_iri=factorization_iri)
             graph.add((parent_subject, HITOP.hasTier, subject))
 
         for child in node.get("children") or []:
@@ -155,18 +172,15 @@ def generate(input_yaml: Path, *, ontology_ttl: Path, output: Path | None) -> Pa
 
     record = load_hierarchy_document(input_yaml)
     core_class_names = load_core_class_local_names(ontology_ttl)
-    level_ranks = load_level_ranks(ontology_ttl)
     errors = validate_hierarchy_document(
         record,
         path=input_yaml,
         core_class_names=core_class_names,
-        level_ranks=level_ranks,
     )
     if errors:
         raise GenerationError("; ".join(errors))
 
-    level_codes = load_level_local_codes(ontology_ttl)
-    graph = build_factorization_graph(record, level_codes=level_codes)
+    graph = build_factorization_graph(record)
 
     output_path = output or _default_output_path(input_yaml, record["meta"])
     output_path.parent.mkdir(parents=True, exist_ok=True)

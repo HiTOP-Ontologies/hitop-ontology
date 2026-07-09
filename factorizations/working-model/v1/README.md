@@ -9,7 +9,7 @@ concepts from the shared core ontology (`ontology/hitop.rdf`), expressed as
 a recursive hierarchy tree. This factorization tracks the HiTOP Working
 Model factor structure. See
 [`docs/factorizations.md`](../../../docs/factorizations.md) for the full
-governance model, the `hitop:hasLevel`/`hitop:hasLevelType`/`hitop:hasTier`
+governance model, the `hitop:hasTier`/`hitop:hasLevel`
 vocabulary, and how to add a new version.
 
 ## Contents

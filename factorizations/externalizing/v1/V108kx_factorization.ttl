@@ -5,7 +5,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-hitop:S0013h hitop:hasLevelType hitop:O005pp ;
+hitop:S0013h hitop:hasLevel "Superspectrum" ;
     hitop:hasTier hitop:P005xY,
         hitop:P006gM .
 
@@ -20,25 +20,25 @@ hitop:S0013h hitop:hasLevelType hitop:O005pp ;
     owl:versionInfo "V108kx" ;
     skos:changeNote "status: draft"@en .
 
-hitop:C00oKM hitop:hasLevelType hitop:O008Ob .
+hitop:C00oKM hitop:hasLevel "Component" .
 
-hitop:C01HGq hitop:hasLevelType hitop:O008Ob .
+hitop:C01HGq hitop:hasLevel "Component" .
 
-hitop:C01Ip4 hitop:hasLevelType hitop:O008Ob .
+hitop:C01Ip4 hitop:hasLevel "Component" .
 
-hitop:C01JH8 hitop:hasLevelType hitop:O008Ob .
+hitop:C01JH8 hitop:hasLevel "Component" .
 
-hitop:C01LSp hitop:hasLevelType hitop:O008Ob .
+hitop:C01LSp hitop:hasLevel "Component" .
 
-hitop:C01MjB hitop:hasLevelType hitop:O008Ob .
+hitop:C01MjB hitop:hasLevel "Component" .
 
-hitop:C02BO8 hitop:hasLevelType hitop:O008Ob .
+hitop:C02BO8 hitop:hasLevel "Component" .
 
-hitop:C02CiQ hitop:hasLevelType hitop:O008Ob .
+hitop:C02CiQ hitop:hasLevel "Component" .
 
-hitop:C02DSC hitop:hasLevelType hitop:O009zM .
+hitop:C02DSC hitop:hasLevel "Trait" .
 
-hitop:P005xY hitop:hasLevelType hitop:O006lN ;
+hitop:P005xY hitop:hasLevel "Spectrum" ;
     hitop:hasTier hitop:C00oKM,
         hitop:C02BO8,
         hitop:T015o8,
@@ -51,7 +51,7 @@ hitop:P005xY hitop:hasLevelType hitop:O006lN ;
         hitop:U0061L,
         hitop:U007EJ .
 
-hitop:P006gM hitop:hasLevelType hitop:O006lN ;
+hitop:P006gM hitop:hasLevel "Spectrum" ;
     hitop:hasTier hitop:C02DSC,
         hitop:T0094I,
         hitop:T010c6,
@@ -62,43 +62,43 @@ hitop:P006gM hitop:hasLevelType hitop:O006lN ;
         hitop:T01cX5,
         hitop:T01eG6 .
 
-hitop:T0094I hitop:hasLevelType hitop:O009zM .
+hitop:T0094I hitop:hasLevel "Trait" .
 
-hitop:T010c6 hitop:hasLevelType hitop:O009zM .
+hitop:T010c6 hitop:hasLevel "Trait" .
 
-hitop:T015o8 hitop:hasLevelType hitop:O009zM .
+hitop:T015o8 hitop:hasLevel "Trait" .
 
-hitop:T016k0 hitop:hasLevelType hitop:O009zM .
+hitop:T016k0 hitop:hasLevel "Trait" .
 
-hitop:T0177S hitop:hasLevelType hitop:O009zM .
+hitop:T0177S hitop:hasLevel "Trait" .
 
-hitop:T018ir hitop:hasLevelType hitop:O009zM .
+hitop:T018ir hitop:hasLevel "Trait" .
 
-hitop:T019Cj hitop:hasLevelType hitop:O009zM .
+hitop:T019Cj hitop:hasLevel "Trait" .
 
-hitop:T01A5i hitop:hasLevelType hitop:O009zM .
+hitop:T01A5i hitop:hasLevel "Trait" .
 
-hitop:T01C1W hitop:hasLevelType hitop:O009zM .
+hitop:T01C1W hitop:hasLevel "Trait" .
 
-hitop:T01OY2 hitop:hasLevelType hitop:O009zM .
+hitop:T01OY2 hitop:hasLevel "Trait" .
 
-hitop:T01Y7w hitop:hasLevelType hitop:O009zM .
+hitop:T01Y7w hitop:hasLevel "Trait" .
 
-hitop:T01Ziz hitop:hasLevelType hitop:O009zM .
+hitop:T01Ziz hitop:hasLevel "Trait" .
 
-hitop:T01a7u hitop:hasLevelType hitop:O009zM .
+hitop:T01a7u hitop:hasLevel "Trait" .
 
-hitop:T01bz7 hitop:hasLevelType hitop:O009zM .
+hitop:T01bz7 hitop:hasLevel "Trait" .
 
-hitop:T01cX5 hitop:hasLevelType hitop:O009zM .
+hitop:T01cX5 hitop:hasLevel "Trait" .
 
-hitop:T01eG6 hitop:hasLevelType hitop:O009zM .
+hitop:T01eG6 hitop:hasLevel "Trait" .
 
-hitop:U0061L hitop:hasLevelType hitop:O007SH ;
+hitop:U0061L hitop:hasLevel "Subfactor" ;
     hitop:hasTier hitop:C01HGq,
         hitop:C01Ip4 .
 
-hitop:U007EJ hitop:hasLevelType hitop:O007SH ;
+hitop:U007EJ hitop:hasLevel "Subfactor" ;
     hitop:hasTier hitop:C01JH8,
         hitop:C01LSp,
         hitop:C01MjB,

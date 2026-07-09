@@ -5,7 +5,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-hitop:S003TB hitop:hasLevelType hitop:O005pp ;
+hitop:S003TB hitop:hasLevel "Superspectrum" ;
     hitop:hasTier hitop:P003SL,
         hitop:P004R1 .
 
@@ -20,15 +20,15 @@ hitop:S003TB hitop:hasLevelType hitop:O005pp ;
     owl:versionInfo "V10749" ;
     skos:changeNote "status: draft"@en .
 
-hitop:C00kEN hitop:hasLevelType hitop:O008Ob .
+hitop:C00kEN hitop:hasLevel "Component" .
 
-hitop:C00sWr hitop:hasLevelType hitop:O008Ob .
+hitop:C00sWr hitop:hasLevel "Component" .
 
-hitop:C00tUQ hitop:hasLevelType hitop:O008Ob .
+hitop:C00tUQ hitop:hasLevel "Component" .
 
-hitop:C0277d hitop:hasLevelType hitop:O008Ob .
+hitop:C0277d hitop:hasLevel "Component" .
 
-hitop:P003SL hitop:hasLevelType hitop:O006lN ;
+hitop:P003SL hitop:hasLevel "Spectrum" ;
     hitop:hasTier hitop:C00kEN,
         hitop:C0277d,
         hitop:T00wk6,
@@ -37,7 +37,7 @@ hitop:P003SL hitop:hasLevelType hitop:O006lN ;
         hitop:T026cQ,
         hitop:U0050q .
 
-hitop:P004R1 hitop:hasLevelType hitop:O006lN ;
+hitop:P004R1 hitop:hasLevel "Spectrum" ;
     hitop:hasTier hitop:C00sWr,
         hitop:C00tUQ,
         hitop:T01hQc,
@@ -45,22 +45,22 @@ hitop:P004R1 hitop:hasLevelType hitop:O006lN ;
         hitop:T029jr,
         hitop:T02A06 .
 
-hitop:T00wk6 hitop:hasLevelType hitop:O009zM .
+hitop:T00wk6 hitop:hasLevel "Trait" .
 
-hitop:T00xLn hitop:hasLevelType hitop:O009zM .
+hitop:T00xLn hitop:hasLevel "Trait" .
 
-hitop:T01OY2 hitop:hasLevelType hitop:O008Ob .
+hitop:T01OY2 hitop:hasLevel "Component" .
 
-hitop:T01hQc hitop:hasLevelType hitop:O009zM .
+hitop:T01hQc hitop:hasLevel "Trait" .
 
-hitop:T026cQ hitop:hasLevelType hitop:O009zM .
+hitop:T026cQ hitop:hasLevel "Trait" .
 
-hitop:T028jy hitop:hasLevelType hitop:O009zM .
+hitop:T028jy hitop:hasLevel "Trait" .
 
-hitop:T029jr hitop:hasLevelType hitop:O009zM .
+hitop:T029jr hitop:hasLevel "Trait" .
 
-hitop:T02A06 hitop:hasLevelType hitop:O009zM .
+hitop:T02A06 hitop:hasLevel "Trait" .
 
-hitop:U0050q hitop:hasLevelType hitop:O008Ob ;
+hitop:U0050q hitop:hasLevel "Component" ;
     skos:changeNote "provisional: true"@en .
 

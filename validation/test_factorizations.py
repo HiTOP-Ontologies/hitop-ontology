@@ -15,7 +15,6 @@ from hitop.factorization import (
     discover_hierarchy_files,
     load_core_class_local_names,
     load_hierarchy_document,
-    load_level_ranks,
     validate_hierarchy_document,
 )
 
@@ -30,7 +29,6 @@ class FactorizationHierarchyTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.core_class_names = load_core_class_local_names(ONTOLOGY_TTL)
-        cls.level_ranks = load_level_ranks(ONTOLOGY_TTL)
         cls.hierarchy_paths = discover_hierarchy_files(FACTORIZATIONS_DIR)
         cls.documents = [(path, load_hierarchy_document(path)) for path in cls.hierarchy_paths]
 
@@ -52,7 +50,6 @@ class FactorizationHierarchyTests(unittest.TestCase):
                     record,
                     path=path,
                     core_class_names=self.core_class_names,
-                    level_ranks=self.level_ranks,
                 )
                 self.assertFalse(errors, "; ".join(errors))
 
