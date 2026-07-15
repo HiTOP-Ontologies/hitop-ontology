@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:hitop="http://purl.org/hitop#"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>
+  <rdf:Description rdf:about="http://purl.org/hitop/factorizations/working-model/vV1052k">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label xml:lang="en">HiTOP Working Model</rdfs:label>
+    <owl:versionInfo>V1052k</owl:versionInfo>
+    <owl:imports rdf:resource="http://purl.org/hitop"/>
+    <dcterms:isVersionOf>0.1.0</dcterms:isVersionOf>
+    <dcterms:creator>Dr. Rogério Blitz</dcterms:creator>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-07</dcterms:created>
+    <skos:changeNote xml:lang="en">status: draft</skos:changeNote>
+    <dcterms:source>https://www.hitop-system.org/current-model</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#F001Hw">
+    <hitop:hasLevel>Factor</hitop:hasLevel>
+    <rdfs:label xml:lang="en">General Psychopathology</rdfs:label>
+    <rdfs:comment xml:lang="en">General Psychopathology refers to the broad, overarching category of mental disorders and psychological symptoms that can manifest across different mental health conditions. It encompasses a wide range of psychological phenomena that are not specific to any single disorder but may contribute to or exacerbate multiple types of mental health issues. This category includes general symptoms and traits that are commonly observed in various psychiatric conditions, such as mood disturbances, anxiety, cognitive dysfunctions, and behavioral problems.</rdfs:comment>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#S0013h"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#P001Y2"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#P002nf"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#P003SL"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#P004R1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#S0013h">
+    <hitop:hasLevel>Superspectrum</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Externalizing</rdfs:label>
+    <rdfs:comment xml:lang="en">Represents a broad HiTOP dimension characterized by outwardly directed behaviors and dysregulation.</rdfs:comment>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#P005xY"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#P006gM"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#P005xY">
+    <hitop:hasLevel>Spectrum</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Disinhibited Externalizing</rdfs:label>
+    <rdfs:comment xml:lang="en">Disinhibited Externalizing involves behaviors that are impulsive and lacking in social restraint or inhibition.</rdfs:comment>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#U0061L"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#U007EJ"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T015o8"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T016k0"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T0177S"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T018ir"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T019Cj"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01A5i"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01BfQ"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01C1W"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#U0061L">
+    <hitop:hasLevel>Subfactor</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Harmful Substance Abuse</rdfs:label>
+    <rdfs:comment xml:lang="en">Harmful Substance Abuse refers to the excessive use of substances that causes significant harm or impairment.</rdfs:comment>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C01DAb"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C01Elz"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C01FDy"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C01GEY"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C01HGq"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C01Ip4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C01DAb">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Alcohol use</rdfs:label>
+    <rdfs:comment xml:lang="en">The consumption of alcoholic beverages, which may lead to problematic use.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C01Elz">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Alcohol problems</rdfs:label>
+    <rdfs:comment xml:lang="en">Issues related to the use of alcohol, including dependence and abuse.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C01FDy">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Marijuana use</rdfs:label>
+    <rdfs:comment xml:lang="en">The consumption of marijuana, which may lead to problematic use.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C01GEY">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Marijuana problems</rdfs:label>
+    <rdfs:comment xml:lang="en">Issues related to the use of marijuana, including dependence and abuse.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C01HGq">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Drug use</rdfs:label>
+    <rdfs:comment xml:lang="en">The consumption of illicit or prescription drugs, which may lead to problematic use.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C01Ip4">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Drug problems</rdfs:label>
+    <rdfs:comment xml:lang="en">Issues related to the use of drugs, including dependence and abuse.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#U007EJ">
+    <hitop:hasLevel>Subfactor</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Antisocial Behavior</rdfs:label>
+    <rdfs:comment xml:lang="en">Antisocial Behavior involves actions that violate societal norms and the rights of others.</rdfs:comment>
+    <skos:changeNote xml:lang="en">Bridges: Disinhibited Externalizing, Antagonistic Externalizing</skos:changeNote>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C01JH8"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C01KXo"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C01LSp"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C01MjB"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01Neb"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01OY2"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01PMW"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01QNN"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01RYG"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01SYW"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01T3u"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01UGN"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01VXq"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01W1E"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C01JH8">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Physical aggression</rdfs:label>
+    <rdfs:comment xml:lang="en">Aggression involving physical acts of violence towards others.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C01KXo">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Destructive aggression</rdfs:label>
+    <rdfs:comment xml:lang="en">Aggression that results in damage to property or the environment.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C01LSp">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Relational aggression</rdfs:label>
+    <rdfs:comment xml:lang="en">Aggression that harms others through manipulation of social relationships.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C01MjB">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Fraud</rdfs:label>
+    <rdfs:comment xml:lang="en">Deceptive behavior intended to secure unfair or unlawful gain.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01Neb">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Impatient urgency</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a lack of patience and a tendency to act impulsively in urgent situations.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01OY2">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">(low) Planful control</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait indicating poor ability to plan and execute tasks effectively.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01PMW">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">(low) Dependability</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a lack of reliability and consistency in fulfilling obligations.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01QNN">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Alienation</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait reflecting a sense of estrangement or detachment from others.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01RYG">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Boredom proneness</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait indicating a tendency to experience boredom frequently and easily.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01SYW">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Blame externalization</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a tendency to attribute failures or problems to external factors rather than internal ones.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01T3u">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">(low) Honesty</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait marked by a tendency to be deceitful or untruthful.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01UGN">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Rebelliousness</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by resistance to authority and norms.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01VXq">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">(low) Empathy</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait indicating a reduced ability to understand and share the feelings of others.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01W1E">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Excitement seeking</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a desire for new, thrilling, or risky experiences.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T015o8">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Problematic impulsivity</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by difficulty in controlling impulsive behaviors, often leading to negative consequences.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T016k0">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Irresponsibility</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a lack of regard for the consequences of one's actions, often leading to reckless behavior.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T0177S">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Theft</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a tendency to steal or engage in dishonest acquisition of property.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T018ir">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Distractibility</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by an inability to maintain focus, leading to frequent shifts in attention.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T019Cj">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Risk taking</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by engaging in behaviors that involve significant risk, often without regard for potential negative outcomes.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01A5i">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">(low) Rigid perfectionism</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a low tendency toward excessive and inflexible striving for perfection and high standards.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01BfQ">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">(low) Ruminative deliberation</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a low tendency toward excessive and repetitive thinking about potential decisions and their outcomes.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01C1W">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">(low) Workaholism</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by reduced levels of excessive and compulsive commitment to work, with less impact on personal well-being and relationships.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#P006gM">
+    <hitop:hasLevel>Spectrum</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Antagonistic Externalizing</rdfs:label>
+    <rdfs:comment xml:lang="en">Antagonistic Externalizing describes behaviors that involve hostility and aggression towards others.</rdfs:comment>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01XQi"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01Y7w"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01Ziz"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01a7u"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01bz7"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01cX5"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01d9I"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01eG6"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01fc8"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01gKP"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01XQi">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Attention seeking</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait of attention seeking is the constant need for validation or recognition, often leading to behavior aimed at drawing focus from others.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01Y7w">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Callousness</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a lack of empathy and a tendency to be emotionally cold or indifferent to others.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01Ziz">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Deceitfulness</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a tendency to lie, cheat, or deceive others.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01a7u">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Grandiosity</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by an exaggerated sense of one's own importance, abilities, or achievements.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01bz7">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Manipulativeness</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a tendency to control or influence others for personal gain, often in a devious manner.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01cX5">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Rudeness</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a lack of manners or respect in social interactions.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01d9I">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Egocentricity</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by an excessive focus on oneself and one's own needs and desires.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01eG6">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Dominance</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a desire to control or lead others, often displaying assertiveness and power.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01fc8">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Flirtatiousness</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by behavior that seeks to attract romantic or sexual interest from others through playful or provocative means.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01gKP">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">(low) Timorousness</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a low tendency to be fearful or lacking in confidence, often reflected in reduced shyness and hesitation.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#P001Y2">
+    <hitop:hasLevel>Spectrum</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Somatoform</rdfs:label>
+    <rdfs:comment xml:lang="en">The Somatoform label refers to a category of mental health disorders characterized by physical symptoms that cannot be fully explained by any underlying medical condition, highlighting the complex interaction between mind and body in mental health.</rdfs:comment>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C001qy"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00217"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C0033z"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00416"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C005Sv"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C006MD"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C001qy">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Conversion</rdfs:label>
+    <rdfs:comment xml:lang="en">A component related to conversion disorders where psychological distress is expressed as physical symptoms.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00217">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Somatization</rdfs:label>
+    <rdfs:comment xml:lang="en">A component involving the expression of psychological distress through physical symptoms.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C0033z">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Malaise</rdfs:label>
+    <rdfs:comment xml:lang="en">A component related to general discomfort or unease.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00416">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Head Pain</rdfs:label>
+    <rdfs:comment xml:lang="en">A component related to headaches or other types of head pain.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C005Sv">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Gastrointestinal</rdfs:label>
+    <rdfs:comment xml:lang="en">A component related to gastrointestinal symptoms and disorders.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C006MD">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Cognitive</rdfs:label>
+    <rdfs:comment xml:lang="en">A component related to cognitive symptoms and dysfunctions.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#P002nf">
+    <hitop:hasLevel>Spectrum</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Internalizing</rdfs:label>
+    <rdfs:comment xml:lang="en">The Internalizing label refers to a category of mental health disorders characterized by inward-focused symptoms such as anxiety, depression, and withdrawal, reflecting emotional and cognitive distress.</rdfs:comment>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T007eM"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T008mD"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T0094I"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T00A0Z"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T00BXK"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T00Cgy"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T00D42"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T00Eht"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T00Fe0"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T00G3d"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T00HCy"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T00IAT"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#U0012Y"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#U002SC"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#U0036N"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#U004dm"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#U0050q"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T007eM">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Anxiousness</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a tendency to experience anxiety or nervousness.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T008mD">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Emotional lability</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by rapid and intense emotional changes.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T0094I">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Hostility</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a tendency toward aggression or antagonism.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T00A0Z">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Perseveration</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by the repetition of a particular response despite the absence or cessation of a stimulus.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T00BXK">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">(low) Restricted affectivity</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by limited or constricted emotional expression.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T00Cgy">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Separation insecurity</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by anxiety and insecurity in response to separation from significant others.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T00D42">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Submissiveness</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a tendency to submit to others and avoid asserting oneself.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T00Eht">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Identity problems</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by difficulties in forming or maintaining a stable sense of self.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T00Fe0">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Negative relationships</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait of negative relationships is that they contribute to stress, conflict, or emotional harm, often undermining well-being and personal growth.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T00G3d">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Fragility</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a lack of resilience and a tendency to be easily hurt or affected by stress.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T00HCy">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Ineptitude</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a lack of skill or competence.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T00IAT">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">(low) Invulnerability</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a perception of being immune to harm or negative effects.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#U0012Y">
+    <hitop:hasLevel>Subfactor</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Sexual Problems</rdfs:label>
+    <rdfs:comment xml:lang="en">Sexual Problems encompass difficulties and dysfunctions related to sexual health and behavior.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#U002SC">
+    <hitop:hasLevel>Subfactor</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Eating Pathology</rdfs:label>
+    <rdfs:comment xml:lang="en">Eating Pathology includes disorders and maladaptive behaviors related to eating and body image.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#U0036N">
+    <hitop:hasLevel>Subfactor</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Fear</rdfs:label>
+    <rdfs:comment xml:lang="en">Fear refers to an emotional response to perceived threats or danger.</rdfs:comment>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00JTU"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00KL0"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00LqY"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00Mpl"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00N4I"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00OuR"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00Pjp"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00Q1t"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00RGy"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00S9m"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00TgL"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00Urw"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00JTU">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Interactive anxiety</rdfs:label>
+    <rdfs:comment xml:lang="en">Anxiety experienced in social interactions and group settings.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00KL0">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Performance anxiety</rdfs:label>
+    <rdfs:comment xml:lang="en">Anxiety related to performing tasks or activities, often in public or under observation.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00LqY">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Public places</rdfs:label>
+    <rdfs:comment xml:lang="en">Fear or anxiety associated with being in public spaces.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00Mpl">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Enclosed spaces</rdfs:label>
+    <rdfs:comment xml:lang="en">Fear or anxiety related to confined or small spaces.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00N4I">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Animal phobia</rdfs:label>
+    <rdfs:comment xml:lang="en">Fear or anxiety related to animals.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00OuR">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Situational phobia</rdfs:label>
+    <rdfs:comment xml:lang="en">Fear or anxiety related to specific situations or environments.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00Pjp">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Blood-injection-injury</rdfs:label>
+    <rdfs:comment xml:lang="en">Fear or anxiety related to blood, injections, or injuries.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00Q1t">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Physiological panic</rdfs:label>
+    <rdfs:comment xml:lang="en">Panic attacks characterized by physiological symptoms such as rapid heartbeat and sweating.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00RGy">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Psychological panic</rdfs:label>
+    <rdfs:comment xml:lang="en">A component of psychological panic is an intense, overwhelming fear that triggers physical symptoms and a sense of losing control.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00S9m">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Cleaning</rdfs:label>
+    <rdfs:comment xml:lang="en">Compulsive behaviors related to cleaning or hygiene.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00TgL">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Rituals</rdfs:label>
+    <rdfs:comment xml:lang="en">Compulsive rituals or behaviors performed in a specific manner.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00Urw">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Checking</rdfs:label>
+    <rdfs:comment xml:lang="en">Compulsive checking behaviors, such as repeatedly checking locks or appliances.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#U004dm">
+    <hitop:hasLevel>Subfactor</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Distress</rdfs:label>
+    <rdfs:comment xml:lang="en">Distress involves significant emotional suffering or discomfort.</rdfs:comment>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00VHv"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00WJc"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00XyI"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00Y8j"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00ZyP"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00aMF"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00bEx"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00cSn"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00dc1"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00e0L"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00fKQ"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00gvD"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00hPJ"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00iAh"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00jw5"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00kEN"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00l5y"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00mpe"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00VHv">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Dysphoria</rdfs:label>
+    <rdfs:comment xml:lang="en">A state of generalized unhappiness or dissatisfaction.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00WJc">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Lassitude</rdfs:label>
+    <rdfs:comment xml:lang="en">A state of physical or mental weariness and lack of energy.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00XyI">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Anhedonia</rdfs:label>
+    <rdfs:comment xml:lang="en">Anhedonia conceptualized as a Component refers to a transient reduction in the capacity to experience pleasure, often emerging in response to acute stress or mood states.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00Y8j">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Insomnia</rdfs:label>
+    <rdfs:comment xml:lang="en">Difficulty falling asleep or staying asleep, or waking up too early and not being able to go back to sleep.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00ZyP">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Suicidality</rdfs:label>
+    <rdfs:comment xml:lang="en">The presence of thoughts or behaviors related to suicide.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00aMF">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Agitation</rdfs:label>
+    <rdfs:comment xml:lang="en">State of being overly excited or disturbed, often resulting in restlessness or erratic behavior.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00bEx">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Retardation</rdfs:label>
+    <rdfs:comment xml:lang="en">Slowed cognitive and physical processes, including thinking, speaking, and moving.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00cSn">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Appetite loss</rdfs:label>
+    <rdfs:comment xml:lang="en">Reduction or loss of desire to eat, which can lead to weight loss.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00dc1">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Appetite gain</rdfs:label>
+    <rdfs:comment xml:lang="en">Increased desire to eat, which can lead to weight gain.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00e0L">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">(low) Wellbeing</rdfs:label>
+    <rdfs:comment xml:lang="en">A low level of mental and physical wellbeing, characterized by reduced feelings of happiness, contentment, and overall health.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00fKQ">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Generalized anxiety disorder symptoms</rdfs:label>
+    <rdfs:comment xml:lang="en">A component of generalized anxiety disorder symptoms is excessive, persistent worry that interferes with daily life and is often accompanied by physical symptoms like restlessness and fatigue.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00gvD">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Re-experiencing</rdfs:label>
+    <rdfs:comment xml:lang="en">Re-experiencing traumatic events through flashbacks, intrusive memories, or nightmares.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00hPJ">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Avoidance</rdfs:label>
+    <rdfs:comment xml:lang="en">Efforts to avoid reminders or situations that are associated with traumatic experiences or stress.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00iAh">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Hyperarousal</rdfs:label>
+    <rdfs:comment xml:lang="en">Increased physiological arousal, including symptoms such as hypervigilance, irritability, and difficulty sleeping.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00jw5">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Numbing</rdfs:label>
+    <rdfs:comment xml:lang="en">Emotional numbness or detachment from feelings as a response to overwhelming stress or trauma.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00kEN">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Dissociation</rdfs:label>
+    <rdfs:comment xml:lang="en">A mental process used to cope with stress or trauma, leading to a sense of detachment from one's surroundings or self.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00l5y">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Irritability</rdfs:label>
+    <rdfs:comment xml:lang="en">State of being easily annoyed or angered, often with a low tolerance for frustration.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00mpe">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Pure obsessions</rdfs:label>
+    <rdfs:comment xml:lang="en">Recurrent and persistent intrusive thoughts that cause significant distress, without accompanying compulsive behaviors.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#U0050q">
+    <hitop:hasLevel>Subfactor</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Mania</rdfs:label>
+    <rdfs:comment xml:lang="en">Mania is characterized by elevated mood, increased activity, and impulsive behavior.</rdfs:comment>
+    <skos:changeNote xml:lang="en">Bridges: Internalizing, Thought Disorder</skos:changeNote>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00nyb"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00oKM"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00pnZ"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00nyb">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Euphoric activation</rdfs:label>
+    <rdfs:comment xml:lang="en">A state of heightened mood and increased energy, often associated with mania or hypomania.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00oKM">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Hyperactive cognition</rdfs:label>
+    <rdfs:comment xml:lang="en">Increased cognitive activity, often characterized by racing thoughts and distractibility.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00pnZ">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Reckless overconfidence</rdfs:label>
+    <rdfs:comment xml:lang="en">Excessive self-confidence leading to risky or impulsive behavior, often seen in manic episodes.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#P003SL">
+    <hitop:hasLevel>Spectrum</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Thought Disorder</rdfs:label>
+    <rdfs:comment xml:lang="en">Thought Disorder refers to a category of mental health conditions characterized by disorganized thinking, impaired reality testing, and disturbances in the form or content of thought.</rdfs:comment>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00qSD"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00rnS"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00sWr"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00tUQ"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T00ua9"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T00vjR"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T00wk6"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T00xLn"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00qSD">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Psychotic</rdfs:label>
+    <rdfs:comment xml:lang="en">A component characterized by symptoms of psychosis.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00rnS">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Disorganized</rdfs:label>
+    <rdfs:comment xml:lang="en">A component characterized by disorganized thinking and behavior.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00sWr">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Inexpressivity</rdfs:label>
+    <rdfs:comment xml:lang="en">A component characterized by a lack of emotional expression.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00tUQ">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Avolition</rdfs:label>
+    <rdfs:comment xml:lang="en">A component characterized by a lack of motivation to initiate and sustain purposeful activities.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T00ua9">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Eccentricity</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by unconventional or peculiar behavior.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T00vjR">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Cognitive perceptual dysregulation</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by disturbances in cognition and perception.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T00wk6">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Unusual beliefs and experiences</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by the presence of atypical beliefs and experiences.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T00xLn">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Fantasy proneness</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a tendency to engage in vivid and complex fantasies.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#P004R1">
+    <hitop:hasLevel>Spectrum</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Detachment</rdfs:label>
+    <rdfs:comment xml:lang="en">Detachment refers to a psychological state characterized by emotional distance and disengagement from social interactions.</rdfs:comment>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T01hQc"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T00yfU"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T00zDk"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T010c6"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T011K6"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T012QL"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T013F1"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T014BA"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01hQc">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Anhedonia</rdfs:label>
+    <rdfs:comment xml:lang="en">Anhedonia conceptualized as a Trait refers to a stable, enduring disposition toward diminished pleasure or interest in typically rewarding experiences.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T00yfU">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Depressivity</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by feelings of sadness and hopelessness.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T00zDk">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Intimacy avoidance</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a tendency to avoid close relationships and emotional intimacy.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T010c6">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Suspiciousness</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a tendency to be distrustful and suspicious of others.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T011K6">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Withdrawal</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a tendency to retreat from social interactions and avoid engagement with others.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T012QL">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Interpersonal passivity</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a lack of initiative or assertiveness in social interactions.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T013F1">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Disaffiliativeness</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a lack of interest in forming or maintaining social bonds.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T014BA">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">(low) Attention seeking</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by limited motivation to attract, maintain, or enhance the attention of others, often manifested as reduced social display, self-promotion, or efforts to gain recognition.</rdfs:comment>
+  </rdf:Description>
+</rdf:RDF>

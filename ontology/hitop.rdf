@@ -2401,7 +2401,37 @@
         <rdfs:comment xml:lang="en">A trait characterized by a recurrent tendency or desire to draw attention to oneself through the display of one’s body, sexuality, or behaviors in ways intended to provoke, shock, or gain validation.</rdfs:comment>
         <rdfs:label xml:lang="en">Exhibitionism</rdfs:label>
     </owl:Class>
-    
+
+
+
+    <!-- http://purl.org/hitop#C02EBv -->
+
+    <owl:Class rdf:about="http://purl.org/hitop#C02EBv">
+        <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
+        <obo:iaoIAO_0000115 xml:lang="en">
+            Substance Use =def. a Substance Abuse component which is characterized by the general consumption of alcohol,
+            drugs, or other psychoactive substances, without reference to a single substance category, as distinguished
+            from substance-specific components such as drug use or alcohol use.
+        </obo:iaoIAO_0000115>
+        <rdfs:comment xml:lang="en">The general consumption of alcohol, drugs, or other psychoactive substances, considered broadly rather than for one specific substance.</rdfs:comment>
+        <rdfs:label xml:lang="en">Substance use</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://purl.org/hitop#C02FZY -->
+
+    <owl:Class rdf:about="http://purl.org/hitop#C02FZY">
+        <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
+        <obo:iaoIAO_0000115 xml:lang="en">
+            Substance Problems =def. a Substance Abuse component which is characterized by dependence, abuse, or negative
+            physical, psychological, or social consequences resulting from substance use in general, without reference
+            to a single substance category.
+        </obo:iaoIAO_0000115>
+        <rdfs:comment xml:lang="en">Dependence, abuse, or negative consequences resulting from substance use, considered broadly rather than for one specific substance.</rdfs:comment>
+        <rdfs:label xml:lang="en">Substance problems</rdfs:label>
+    </owl:Class>
+
 
 
     <!-- http://purl.org/hitop#U0012Y -->

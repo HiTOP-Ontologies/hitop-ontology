@@ -19,7 +19,6 @@ hierarchy:
   level: Superspectrum
   code: S003TB
   children:
-
     - label: Thought disorder (Psychoticism)
       level: Spectrum
       code: P003SL
@@ -45,8 +44,7 @@ hierarchy:
           code: C0277d
         - label: Disorganization
           level: Component
-          code: T01OY2
-
+          code: C00rnS
     - label: Detachment
       level: Spectrum
       code: P004R1

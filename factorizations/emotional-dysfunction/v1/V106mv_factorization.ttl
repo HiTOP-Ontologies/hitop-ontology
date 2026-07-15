@@ -1,13 +1,20 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
+
 @prefix hitop: <http://purl.org/hitop#> .
+
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-hitop:S002SE hitop:hasLevel "Superspectrum" ;
-    hitop:hasTier hitop:P001Y2,
-        hitop:P002nf .
+    hitop:S002SE rdfs:label "Emotional dysfunction"@en ;
+    hitop:hasLevel "Superspectrum" ;
+    hitop:hasTier hitop:P001Y2 ,
+    hitop:P002nf ;
+    rdfs:comment "A superspectrum encompassing a broad range of disturbances in emotional experience and regulation, including heightened negative affect, diminished positive affect, and difficulties in managing or expressing emotions."@en .
 
 <http://purl.org/hitop/factorizations/emotional-dysfunction/vV106mv> a owl:Ontology ;
     rdfs:label "Emotional Dysfunction Superspectrum"@en ;
@@ -20,172 +27,283 @@ hitop:S002SE hitop:hasLevel "Superspectrum" ;
     owl:versionInfo "V106mv" ;
     skos:changeNote "status: active"@en .
 
-hitop:C0033z hitop:hasLevel "Component" .
+    hitop:C0033z rdfs:label "Malaise"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component related to general discomfort or unease."@en .
 
-hitop:C005Sv hitop:hasLevel "Component" .
+    hitop:C005Sv rdfs:label "Gastrointestinal"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component related to gastrointestinal symptoms and disorders."@en .
 
-hitop:C00JTU hitop:hasLevel "Component" .
+    hitop:C00JTU rdfs:label "Interactive anxiety"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Anxiety experienced in social interactions and group settings."@en .
 
-hitop:C00KL0 hitop:hasLevel "Component" .
+    hitop:C00KL0 rdfs:label "Performance anxiety"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Anxiety related to performing tasks or activities, often in public or under observation."@en .
 
-hitop:C00LqY hitop:hasLevel "Component" .
+    hitop:C00LqY rdfs:label "Public places"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Fear or anxiety associated with being in public spaces."@en .
 
-hitop:C00Mpl hitop:hasLevel "Component" .
+    hitop:C00Mpl rdfs:label "Enclosed spaces"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Fear or anxiety related to confined or small spaces."@en .
 
-hitop:C00N4I hitop:hasLevel "Component" .
+    hitop:C00N4I rdfs:label "Animal phobia"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Fear or anxiety related to animals."@en .
 
-hitop:C00OuR hitop:hasLevel "Component" .
+    hitop:C00OuR rdfs:label "Situational phobia"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Fear or anxiety related to specific situations or environments."@en .
 
-hitop:C00Q1t hitop:hasLevel "Component" .
+    hitop:C00Q1t rdfs:label "Physiological panic"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Panic attacks characterized by physiological symptoms such as rapid heartbeat and sweating."@en .
 
-hitop:C00RGy hitop:hasLevel "Component" .
+    hitop:C00RGy rdfs:label "Psychological panic"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component of psychological panic is an intense, overwhelming fear that triggers physical symptoms and a sense of losing control."@en .
 
-hitop:C00S9m hitop:hasLevel "Component" .
+    hitop:C00S9m rdfs:label "Cleaning"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Compulsive behaviors related to cleaning or hygiene."@en .
 
-hitop:C00TgL hitop:hasLevel "Component" .
+    hitop:C00TgL rdfs:label "Rituals"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Compulsive rituals or behaviors performed in a specific manner."@en .
 
-hitop:C00Urw hitop:hasLevel "Component" .
+    hitop:C00Urw rdfs:label "Checking"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Compulsive checking behaviors, such as repeatedly checking locks or appliances."@en .
 
-hitop:C00VHv hitop:hasLevel "Component" .
+    hitop:C00VHv rdfs:label "Dysphoria"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A state of generalized unhappiness or dissatisfaction."@en .
 
-hitop:C00Y8j hitop:hasLevel "Component" .
+    hitop:C00Y8j rdfs:label "Insomnia"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Difficulty falling asleep or staying asleep, or waking up too early and not being able to go back to sleep."@en .
 
-hitop:C00ZyP hitop:hasLevel "Component" .
+    hitop:C00ZyP rdfs:label "Suicidality"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "The presence of thoughts or behaviors related to suicide."@en .
 
-hitop:C00mpe hitop:hasLevel "Component" .
+    hitop:C00mpe rdfs:label "Pure obsessions"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Recurrent and persistent intrusive thoughts that cause significant distress, without accompanying compulsive behaviors."@en .
 
-hitop:C00nyb hitop:hasLevel "Component" .
+    hitop:C00nyb rdfs:label "Euphoric activation"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A state of heightened mood and increased energy, often associated with mania or hypomania."@en .
 
-hitop:C00oKM hitop:hasLevel "Component" .
+    hitop:C00oKM rdfs:label "Hyperactive cognition"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Increased cognitive activity, often characterized by racing thoughts and distractibility."@en .
 
-hitop:C00pnZ hitop:hasLevel "Component" .
+    hitop:C00pnZ rdfs:label "Reckless overconfidence"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Excessive self-confidence leading to risky or impulsive behavior, often seen in manic episodes."@en .
 
-hitop:C01i7x hitop:hasLevel "Component" .
+    hitop:C01i7x rdfs:label "Pain"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component or trait characterized by the subjective experience of physical discomfort or distress, which may vary in intensity, duration, and localization."@en .
 
-hitop:C01jKN hitop:hasLevel "Component" .
+    hitop:C01jKN rdfs:label "Fatigue"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component or trait defined by a persistent or recurrent sense of tiredness, reduced energy, or diminished capacity for sustained physical or mental activity."@en .
 
-hitop:C01kKJ hitop:hasLevel "Component" .
+    hitop:C01kKJ rdfs:label "Neurological"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component or trait reflecting functional disturbances or symptoms related to the nervous system, including sensory, motor, or cognitive manifestations."@en .
 
-hitop:C01l9M hitop:hasLevel "Component" .
+    hitop:C01l9M rdfs:label "Cardiopulmonary"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component or trait associated with signs or symptoms involving the heart and lungs, such as circulatory, respiratory, or exercise-related difficulties."@en .
 
-hitop:C01mPz hitop:hasLevel "Component" .
+    hitop:C01mPz rdfs:label "Negative emotionality"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A trait reflecting a general tendency to experience frequent and intense negative emotions such as sadness, anxiety, and guilt across diverse situations."@en .
 
-hitop:C01nVp hitop:hasLevel "Component" .
+    hitop:C01nVp rdfs:label "Anger/irritability"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component or trait characterized by a heightened propensity toward frustration, hostility, or easily provoked emotional reactivity."@en .
 
-hitop:C01oMk hitop:hasLevel "Component" .
+    hitop:C01oMk rdfs:label "Behavioral avoidance"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component or trait defined by the consistent tendency to withdraw from or evade situations, thoughts, or stimuli perceived as threatening, distressing, or aversive."@en .
 
-hitop:C01pc6 hitop:hasLevel "Component" .
+    hitop:C01pc6 rdfs:label "Anxiety sensitivity"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A trait reflecting the fear of anxiety-related sensations, based on beliefs that these sensations have harmful physical, psychological, or social consequences."@en .
 
-hitop:C01qTa hitop:hasLevel "Component" .
+    hitop:C01qTa rdfs:label "BII phobia"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component characterized by marked fear or avoidance of situations involving blood, injury, or invasive medical procedures, often associated with physiological reactions such as fainting."@en .
 
-hitop:C01rfi hitop:hasLevel "Component" .
+    hitop:C01rfi rdfs:label "Body dissatisfaction"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component or trait defined by persistent negative evaluations of one’s own body shape, weight, or appearance, often linked to distress and maladaptive behaviors."@en .
 
-hitop:C01s9T hitop:hasLevel "Component" .
+    hitop:C01s9T rdfs:label "Binge eating"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component characterized by recurrent episodes of consuming unusually large amounts of food accompanied by a sense of loss of control during the episode."@en .
 
-hitop:C01tAk hitop:hasLevel "Component" .
+    hitop:C01tAk rdfs:label "Cognitive restraint"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A trait reflecting the deliberate control or restriction of eating behavior based on cognitive rules or beliefs about food, body weight, or dieting."@en .
 
-hitop:C01ueZ hitop:hasLevel "Component" .
+    hitop:C01ueZ rdfs:label "Purging"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component involving recurrent compensatory behaviors such as self-induced vomiting, misuse of laxatives, or diuretics aimed at preventing weight gain after eating."@en .
 
-hitop:C01vT5 hitop:hasLevel "Component" .
+    hitop:C01vT5 rdfs:label "Excessive exercise"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component characterized by compulsive or disproportionate physical activity, often performed with the aim of controlling weight, shape, or mood, despite potential health risks."@en .
 
-hitop:C01wSl hitop:hasLevel "Component" .
+    hitop:C01wSl rdfs:label "Restricting"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component defined by the deliberate limitation of food intake in order to influence body weight or shape, typically associated with disordered eating patterns."@en .
 
-hitop:C01xzj hitop:hasLevel "Component" .
+    hitop:C01xzj rdfs:label "Muscle building"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component involving persistent efforts to increase muscularity through exercise, diet, or supplementation, sometimes associated with body image concerns."@en .
 
-hitop:C01yno hitop:hasLevel "Component" .
+    hitop:C01yno rdfs:label "Negative attitudes toward obesity"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A trait reflecting unfavorable beliefs, stereotypes, or stigmatizing attitudes toward individuals with obesity, often linked to social or cultural biases."@en .
 
-hitop:C01zXz hitop:hasLevel "Component" .
+    hitop:C01zXz rdfs:label "Low sexual desire"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component or trait characterized by a persistent or recurrent reduction in interest, motivation, or fantasies related to sexual activity."@en .
 
-hitop:C020XA hitop:hasLevel "Component" .
+    hitop:C020XA rdfs:label "Difficulties with arousal"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component defined by challenges in attaining or maintaining adequate sexual excitement or physiological arousal during sexual activity."@en .
 
-hitop:C021Q0 hitop:hasLevel "Component" .
+    hitop:C021Q0 rdfs:label "Low orgasmic function"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component characterized by diminished ability, frequency, or satisfaction in reaching orgasm, often associated with sexual dysfunction."@en .
 
-hitop:C022PW hitop:hasLevel "Component" .
+    hitop:C022PW rdfs:label "Sex-related distress"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component defined by psychological discomfort, worry, or negative emotional reactions specifically linked to sexual experiences, functioning, or difficulties."@en .
 
-hitop:C0237W hitop:hasLevel "Component" .
+    hitop:C0237W rdfs:label "Decreased need for sleep"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component or trait marked by a reduced requirement for sleep without a corresponding sense of fatigue, often associated with altered mood or energy states."@en .
 
-hitop:C024WG hitop:hasLevel "Component" ;
+    hitop:C024WG rdfs:label "Physiological anxiety"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component reflecting bodily manifestations of anxiety such as rapid heartbeat, sweating, trembling, or gastrointestinal discomfort."@en ;
     skos:changeNote "Bridges: Somatoform, Distress"@en .
 
-hitop:C025ex hitop:hasLevel "Component" ;
+    hitop:C025ex rdfs:label "Health/Illness anxiety"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component characterized by excessive worry or preoccupation with having, developing, or misinterpreting symptoms of a serious medical condition."@en ;
     skos:changeNote "Bridges: Somatoform, Distress"@en .
 
-hitop:P001Y2 hitop:hasLevel "Spectrum" ;
-    hitop:hasTier hitop:C0033z,
-        hitop:C005Sv,
-        hitop:C01i7x,
-        hitop:C01jKN,
-        hitop:C01kKJ,
-        hitop:C01l9M,
-        hitop:C024WG,
-        hitop:C025ex .
+    hitop:P001Y2 rdfs:label "Somatoform"@en ;
+    hitop:hasLevel "Spectrum" ;
+    hitop:hasTier hitop:C0033z ,
+    hitop:C005Sv ,
+    hitop:C01i7x ,
+    hitop:C01jKN ,
+    hitop:C01kKJ ,
+    hitop:C01l9M ,
+    hitop:C024WG ,
+    hitop:C025ex ;
+    rdfs:comment "The Somatoform label refers to a category of mental health disorders characterized by physical symptoms that cannot be fully explained by any underlying medical condition, highlighting the complex interaction between mind and body in mental health."@en .
 
-hitop:P002nf hitop:hasLevel "Spectrum" ;
-    hitop:hasTier hitop:C00S9m,
-        hitop:C00TgL,
-        hitop:C00Urw,
-        hitop:C00mpe,
-        hitop:T00Cgy,
-        hitop:T00D42,
-        hitop:U0012Y,
-        hitop:U002SC,
-        hitop:U0036N,
-        hitop:U004dm,
-        hitop:U0050q .
+    hitop:P002nf rdfs:label "Internalizing"@en ;
+    hitop:hasLevel "Spectrum" ;
+    hitop:hasTier hitop:C00S9m ,
+    hitop:C00TgL ,
+    hitop:C00Urw ,
+    hitop:C00mpe ,
+    hitop:T00Cgy ,
+    hitop:T00D42 ,
+    hitop:U0012Y ,
+    hitop:U002SC ,
+    hitop:U0036N ,
+    hitop:U004dm ,
+    hitop:U0050q ;
+    rdfs:comment "The Internalizing label refers to a category of mental health disorders characterized by inward-focused symptoms such as anxiety, depression, and withdrawal, reflecting emotional and cognitive distress."@en .
 
-hitop:T007eM hitop:hasLevel "Trait" .
+    hitop:T007eM rdfs:label "Anxiousness"@en ;
+    hitop:hasLevel "Trait" ;
+    rdfs:comment "A trait characterized by a tendency to experience anxiety or nervousness."@en .
 
-hitop:T008mD hitop:hasLevel "Trait" .
+    hitop:T008mD rdfs:label "Emotional lability"@en ;
+    hitop:hasLevel "Trait" ;
+    rdfs:comment "A trait characterized by rapid and intense emotional changes."@en .
 
-hitop:T00Cgy hitop:hasLevel "Trait" .
+    hitop:T00Cgy rdfs:label "Separation insecurity"@en ;
+    hitop:hasLevel "Trait" ;
+    rdfs:comment "A trait characterized by anxiety and insecurity in response to separation from significant others."@en .
 
-hitop:T00D42 hitop:hasLevel "Trait" .
+    hitop:T00D42 rdfs:label "Submissiveness"@en ;
+    hitop:hasLevel "Trait" ;
+    rdfs:comment "A trait characterized by a tendency to submit to others and avoid asserting oneself."@en .
 
-hitop:T00yfU hitop:hasLevel "Trait" .
+    hitop:T00yfU rdfs:label "Depressivity"@en ;
+    hitop:hasLevel "Trait" ;
+    rdfs:comment "A trait characterized by feelings of sadness and hopelessness."@en .
 
-hitop:U0012Y hitop:hasLevel "Subfactor" ;
-    hitop:hasTier hitop:C01zXz,
-        hitop:C020XA,
-        hitop:C021Q0,
-        hitop:C022PW .
+    hitop:U0012Y rdfs:label "Sexual Problems"@en ;
+    hitop:hasLevel "Subfactor" ;
+    hitop:hasTier hitop:C01zXz ,
+    hitop:C020XA ,
+    hitop:C021Q0 ,
+    hitop:C022PW ;
+    rdfs:comment "Sexual Problems encompass difficulties and dysfunctions related to sexual health and behavior."@en .
 
-hitop:U002SC hitop:hasLevel "Subfactor" ;
-    hitop:hasTier hitop:C01rfi,
-        hitop:C01s9T,
-        hitop:C01tAk,
-        hitop:C01ueZ,
-        hitop:C01vT5,
-        hitop:C01wSl,
-        hitop:C01xzj,
-        hitop:C01yno .
+    hitop:U002SC rdfs:label "Eating Pathology"@en ;
+    hitop:hasLevel "Subfactor" ;
+    hitop:hasTier hitop:C01rfi ,
+    hitop:C01s9T ,
+    hitop:C01tAk ,
+    hitop:C01ueZ ,
+    hitop:C01vT5 ,
+    hitop:C01wSl ,
+    hitop:C01xzj ,
+    hitop:C01yno ;
+    rdfs:comment "Eating Pathology includes disorders and maladaptive behaviors related to eating and body image."@en .
 
-hitop:U0036N hitop:hasLevel "Subfactor" ;
-    hitop:hasTier hitop:C00JTU,
-        hitop:C00KL0,
-        hitop:C00LqY,
-        hitop:C00Mpl,
-        hitop:C00N4I,
-        hitop:C00OuR,
-        hitop:C00Q1t,
-        hitop:C00RGy,
-        hitop:C01oMk,
-        hitop:C01pc6,
-        hitop:C01qTa .
+    hitop:U0036N rdfs:label "Fear"@en ;
+    hitop:hasLevel "Subfactor" ;
+    hitop:hasTier hitop:C00JTU ,
+    hitop:C00KL0 ,
+    hitop:C00LqY ,
+    hitop:C00Mpl ,
+    hitop:C00N4I ,
+    hitop:C00OuR ,
+    hitop:C00Q1t ,
+    hitop:C00RGy ,
+    hitop:C01oMk ,
+    hitop:C01pc6 ,
+    hitop:C01qTa ;
+    rdfs:comment "Fear refers to an emotional response to perceived threats or danger."@en .
 
-hitop:U004dm hitop:hasLevel "Subfactor" ;
-    hitop:hasTier hitop:C00VHv,
-        hitop:C00Y8j,
-        hitop:C00ZyP,
-        hitop:C00oKM,
-        hitop:C01mPz,
-        hitop:C01nVp,
-        hitop:T007eM,
-        hitop:T008mD,
-        hitop:T00yfU .
+    hitop:U004dm rdfs:label "Distress"@en ;
+    hitop:hasLevel "Subfactor" ;
+    hitop:hasTier hitop:C00VHv ,
+    hitop:C00Y8j ,
+    hitop:C00ZyP ,
+    hitop:C00oKM ,
+    hitop:C01mPz ,
+    hitop:C01nVp ,
+    hitop:T007eM ,
+    hitop:T008mD ,
+    hitop:T00yfU ;
+    rdfs:comment "Distress involves significant emotional suffering or discomfort."@en .
 
-hitop:U0050q hitop:hasLevel "Subfactor" ;
-    hitop:hasTier hitop:C00nyb,
-        hitop:C00pnZ,
-        hitop:C0237W ;
+    hitop:U0050q rdfs:label "Mania"@en ;
+    hitop:hasLevel "Subfactor" ;
+    hitop:hasTier hitop:C00nyb ,
+    hitop:C00pnZ ,
+    hitop:C0237W ;
+    rdfs:comment "Mania is characterized by elevated mood, increased activity, and impulsive behavior."@en ;
     skos:changeNote "provisional: true"@en .
-

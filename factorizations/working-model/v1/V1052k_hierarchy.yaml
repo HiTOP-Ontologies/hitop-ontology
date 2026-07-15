@@ -1,29 +1,26 @@
-# V1052k — HiTOP Working Model (Kernontologie)
-
 meta:
   factorization_id: working-model
   version: V1052k
   label: HiTOP Working Model
-  source: data/hitop/images/hitop_working_model.png
   status: draft
+  source: https://www.hitop-system.org/current-model
   based_on:
     ontology_iri: "http://purl.org/hitop"
     ontology_version: "0.1.0"
   provenance:
     created_by: "Dr. Rogério Blitz"
-    created_at: "2026-07-05"
+    created_at: "2026-07-07"
+    notes: "Derived from hitop_working_model.png; manually validated against V1052k audit."
 
 hierarchy:
   label: General Factor of Psychopathology (p-factor)
   level: Factor
   code: F001Hw
   children:
-
     - label: Externalizing
       level: Superspectrum
       code: S0013h
       children:
-
         - label: Disinhibited Externalizing
           level: Spectrum
           code: P005xY
@@ -50,11 +47,12 @@ hierarchy:
                 - label: Drug problems
                   level: Component
                   code: C01Ip4
-
             - label: Antisocial Behavior
               level: Subfactor
               code: U007EJ
-              bridge: [Disinhibited Externalizing, Antagonistic Externalizing]
+              bridge:
+                - Disinhibited Externalizing
+                - Antagonistic Externalizing
               children:
                 - label: Physical aggression
                   level: Component
@@ -98,7 +96,6 @@ hierarchy:
                 - label: Excitement seeking
                   level: Trait
                   code: T01W1E
-
             - label: Problematic impulsivity
               level: Trait
               code: T015o8
@@ -123,7 +120,6 @@ hierarchy:
             - label: (low) Workaholism
               level: Trait
               code: T01C1W
-
         - label: Antagonistic Externalizing
           level: Spectrum
           code: P006gM
@@ -180,7 +176,6 @@ hierarchy:
         - label: Cognitive
           level: Component
           code: C006MD
-
     - label: Internalizing
       level: Spectrum
       code: P002nf
@@ -221,15 +216,12 @@ hierarchy:
         - label: (low) Invulnerability
           level: Trait
           code: T00IAT
-
         - label: Sexual Problems
           level: Subfactor
           code: U0012Y
-
         - label: Eating Pathology
           level: Subfactor
           code: U002SC
-
         - label: Fear
           level: Subfactor
           code: U0036N
@@ -270,7 +262,6 @@ hierarchy:
             - label: Checking
               level: Component
               code: C00Urw
-
         - label: Distress
           level: Subfactor
           code: U004dm
@@ -329,11 +320,12 @@ hierarchy:
             - label: Pure obsessions
               level: Component
               code: C00mpe
-
         - label: Mania
           level: Subfactor
           code: U0050q
-          bridge: [Internalizing, Thought Disorder]
+          bridge:
+            - Internalizing
+            - Thought Disorder
           children:
             - label: Euphoric activation
               level: Component
@@ -344,7 +336,6 @@ hierarchy:
             - label: Reckless overconfidence
               level: Component
               code: C00pnZ
-
     - label: Thought Disorder
       level: Spectrum
       code: P003SL
@@ -373,7 +364,6 @@ hierarchy:
         - label: Fantasy proneness
           level: Trait
           code: T00xLn
-
     - label: Detachment
       level: Spectrum
       code: P004R1

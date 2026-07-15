@@ -136,6 +136,8 @@ Code;Label;Segment;Segment Level;CheckDigit;HiTOP
 2B;Inattention;C;0;O8;C02BO8
 2C;Destruction of property;C;0;iQ;C02CiQ
 2D;Exhibitionism;C;0;SC;C02DSC
+2E;Substance use;C;0;Bv;C02EBv
+2F;Substance problems;C;0;ZY;C02FZY
 01;General Factor of Psychopathology;F;0;Hw;F001Hw
 01;Externalizing;S;0;3h;S0013h
 02;Emotional dysfunction;S;0;SE;S002SE
@@ -153,9 +155,7 @@ Code;Label;Segment;Segment Level;CheckDigit;HiTOP
 05;Mania;U;0;0q;U0050q
 06;Harmful Substance Abuse;U;0;1L;U0061L
 07;Antisocial Behavior;U;0;EJ;U007EJ
-01;Level;O;0;Ih;O001Ih
 02;Tier;O;0;sP;O002sP
-03;Factor;O;0;0W;O0030W
 04;Version;0;0;KV;0004KV
 05;HiTOP Version 1.0;V;1;2k;V1052k
 06;HiTOP Emotional dysfunction superspectrum Version 1.0;V;1;mv;V106mv

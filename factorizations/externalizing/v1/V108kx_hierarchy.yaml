@@ -19,7 +19,6 @@ hierarchy:
   level: Superspectrum
   code: S0013h
   children:
-
     - label: Disinhibition
       level: Spectrum
       code: P005xY
@@ -30,18 +29,16 @@ hierarchy:
         - label: Inattention
           level: Component
           code: C02BO8
-
         - label: Substance abuse
           level: Subfactor
           code: U0061L
           children:
             - label: Substance use
               level: Component
-              code: C01HGq
+              code: C02EBv
             - label: Substance problems
               level: Component
-              code: C01Ip4
-
+              code: C02FZY
         - label: Antisocial behavior
           level: Subfactor
           code: U007EJ
@@ -62,7 +59,6 @@ hierarchy:
             - label: Theft
               level: Trait
               code: T0177S
-
         - label: Impulsivity
           level: Trait
           code: T015o8
@@ -71,7 +67,7 @@ hierarchy:
           code: T016k0
         - label: Disorganization
           level: Trait
-          code: T01OY2
+          code: C00rnS
         - label: Distractibility
           level: Trait
           code: T018ir
@@ -84,7 +80,6 @@ hierarchy:
         - label: (Low) Workaholism
           level: Trait
           code: T01C1W
-
     - label: Antagonism
       level: Spectrum
       code: P006gM

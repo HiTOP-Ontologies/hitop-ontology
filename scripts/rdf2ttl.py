@@ -115,6 +115,30 @@ def normalize_literal_whitespace(graph: Graph) -> int:
     return changed
 
 
+_LITERAL_TOKEN_RE = re.compile(r'"""(?:[^"\\]|\\.|"(?!""))*"""|"(?:[^"\\]|\\.)*"')
+
+
+def _sub_outside_literals(pattern: re.Pattern[str], repl: str, line: str) -> str:
+    """Apply ``pattern.sub(repl, ...)`` only to the parts of *line* outside quoted literals.
+
+    Turtle punctuation-spacing cleanup must never touch the inside of a
+    string literal -- otherwise prose commas/periods in an ``rdfs:comment``
+    or definition get a spurious space inserted before them. This walks the
+    line, leaving each quoted token (short ``"..."`` or long ``\"\"\"...\"\"\"``)
+    untouched and only rewriting the Turtle syntax between them.
+    """
+
+    parts: list[str] = []
+    last_end = 0
+    for match in _LITERAL_TOKEN_RE.finditer(line):
+        start, end = match.span()
+        parts.append(pattern.sub(repl, line[last_end:start]))
+        parts.append(line[start:end])
+        last_end = end
+    parts.append(pattern.sub(repl, line[last_end:]))
+    return "".join(parts)
+
+
 def format_turtle(turtle_data: str) -> str:
     """Apply conservative formatting cleanup to rdflib Turtle output."""
 
@@ -127,12 +151,13 @@ def format_turtle(turtle_data: str) -> str:
     formatted_lines: list[str] = []
     for line in turtle_data.splitlines():
         # rdflib serialization is valid but not review-friendly; this pass keeps
-        # diffs stable without changing triples.
+        # diffs stable without changing triples. Each substitution skips over
+        # quoted literal content so prose punctuation is never rewritten.
         line = line.replace("\t", " ")
-        line = re.sub(r"\s*;\s*", " ; ", line)
-        line = re.sub(r"\s*,\s*", " , ", line)
-        line = re.sub(r"\s*\.\s*$", " .", line)
-        line = re.sub(r"\s{2,}", " ", line)
+        line = _sub_outside_literals(re.compile(r"\s*;\s*"), " ; ", line)
+        line = _sub_outside_literals(re.compile(r"\s*,\s*"), " , ", line)
+        line = _sub_outside_literals(re.compile(r"\s*\.\s*$"), " .", line)
+        line = _sub_outside_literals(re.compile(r"\s{2,}"), " ", line)
 
         if re.match(r"^\s*(rdfs:|owl:|hitop:|obo:|xsd:|skos:|dc:|dcterms:|foaf:)", line):
             line = "    " + line.strip()

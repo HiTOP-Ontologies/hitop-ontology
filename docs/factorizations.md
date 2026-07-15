@@ -213,13 +213,22 @@ Jeder Knoten im `hierarchy`-Baum hat:
 
 `scripts/generate_factorization_ontology.py` liest eine `<version>_hierarchy.yaml`,
 validiert sie mit derselben Prüflogik wie die Pytest-Suite
-(`src/hitop/factorization/validate.py`) und erzeugt
-`<version>_factorization.ttl` im selben Ordner: für jeden Knoten ein
-`hitop:hasLevel`-Literal-Tripel, für jede Eltern-Kind-Kante ein
-`hitop:hasTier`-Tripel, für `kind: collection`-Knoten zusätzlich
-`rdf:type skos:Collection` mit lokaler IRI, sowie einen Ontology-Header aus
-`meta`. Diese generierte Datei wird nicht von Hand gepflegt — bei einer
-Änderung des YAML wird sie neu erzeugt und die alte Fassung ersetzt.
+(`src/hitop/factorization/validate.py`) und erzeugt standardmäßig
+`<version>_factorization.rdf` (RDF/XML) im selben Ordner — die Übergabeform
+für `scripts/rdf2ttl.py` und `scripts/rdf2owl.py`, die daraus die Turtle-
+bzw. OWL/RDF-XML-Geschwisterdateien ableiten; `--format ttl`/`--format both`
+erzeugen Turtle direkt. Für jeden Knoten wird ein `hitop:hasLevel`-Literal-
+Tripel gesetzt, für jede Eltern-Kind-Kante ein `hitop:hasTier`-Tripel, für
+`kind: collection`-Knoten zusätzlich `rdf:type skos:Collection` mit lokaler
+IRI, sowie ein Ontology-Header aus `meta`. Zusätzlich kopiert der Generator
+für jeden regulären Konzeptknoten dessen `rdfs:label` (und, sofern
+vorhanden, `rdfs:comment`) aus der Core-Ontologie in die generierte Datei —
+ausschließlich zur Lesbarkeit, damit eine Faktorisierungsdatei für sich
+verständlich ist, ohne die IRI im Core nachschlagen zu müssen. `rdf:type`
+und `rdfs:subClassOf` eines Konzepts werden dabei nie dupliziert; die
+Core-Ontologie bleibt alleinige Quelle der Wahrheit für Label/Comment.
+Diese generierten Dateien werden nicht von Hand gepflegt — bei einer
+Änderung des YAML werden sie neu erzeugt und die alten Fassungen ersetzt.
 
 ## 7. Eine neue Faktorisierung oder Version anlegen
 

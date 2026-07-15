@@ -19,7 +19,6 @@ hierarchy:
   level: Superspectrum
   code: S002SE
   children:
-
     - label: Somatoform
       level: Spectrum
       code: P001Y2
@@ -50,7 +49,6 @@ hierarchy:
           level: Component
           code: C025ex
           bridge: [Somatoform, Distress]
-
     - label: Internalizing
       level: Spectrum
       code: P002nf
@@ -86,7 +84,6 @@ hierarchy:
             - label: Hyperactive cognition
               level: Component
               code: C00oKM
-
         - label: Mania
           level: Subfactor
           provisional: true
@@ -101,7 +98,6 @@ hierarchy:
             - label: Decreased need for sleep
               level: Component
               code: C0237W
-
         - label: Fear
           level: Subfactor
           code: U0036N
@@ -139,8 +135,6 @@ hierarchy:
             - label: Fear of enclosed spaces
               level: Component
               code: C00Mpl
-
-        # Zwang/Attachment-Gruppe: direkt unter Internalizing, nicht unter Fear
         - label: Pure obsessions
           level: Component
           code: C00mpe
@@ -159,7 +153,6 @@ hierarchy:
         - label: Submissiveness
           level: Trait
           code: T00D42
-
         - label: Eating pathology
           level: Subfactor
           code: U002SC
@@ -188,7 +181,6 @@ hierarchy:
             - label: Negative attitudes toward obesity
               level: Component
               code: C01yno
-
         - label: Sexual problems
           level: Subfactor
           code: U0012Y

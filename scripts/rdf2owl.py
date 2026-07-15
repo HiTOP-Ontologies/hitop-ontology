@@ -268,7 +268,15 @@ def restore_is_defined_by(output_path: Path, class_iris: set[str]) -> int:
 
 
 def convert_rdf_to_owl(input_path: Path, output_path: Path) -> int:
-    """Convert ``input_path`` RDF/XML to cleaned OWL/RDF XML at ``output_path``."""
+    """Convert ``input_path`` RDF/XML to cleaned OWL/RDF XML at ``output_path``.
+
+    ``ensure_ontology_metadata`` and ``force_canonical_ontology_declaration``
+    hardcode the core HiTOP ontology's own title, description, and IRI, so
+    they only run when ``input_path`` actually declares that canonical
+    ontology. A factorization file (or any other RDF/XML with its own,
+    different ``owl:Ontology`` IRI) is converted without those two steps, so
+    its own header is preserved instead of being overwritten with the core's.
+    """
 
     _suppress_rdflib_bnode_warning()
     graph = parse_rdf_xml(input_path)
@@ -277,8 +285,10 @@ def convert_rdf_to_owl(input_path: Path, output_path: Path) -> int:
     primary = select_primary_ontology_node(graph)
     merged = merge_duplicate_ontology_nodes(graph, primary)
     classes_with_is_defined_by = collect_and_remove_is_defined_by(graph)
-    ensure_ontology_metadata(graph, primary)
-    force_canonical_ontology_declaration(graph)
+    is_core_ontology = str(primary).rstrip("#/") == str(CANONICAL_ONTOLOGY_IRI)
+    if is_core_ontology:
+        ensure_ontology_metadata(graph, primary)
+        force_canonical_ontology_declaration(graph)
     cleaned_literals = clean_annotation_literals(graph)
 
     output_path.parent.mkdir(parents=True, exist_ok=True)

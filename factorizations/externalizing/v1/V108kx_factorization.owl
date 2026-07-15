@@ -1,0 +1,201 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rdf:RDF xmlns:hitop="http://purl.org/hitop#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+  <owl:Ontology rdf:about="http://purl.org/hitop/factorizations/externalizing/vV108kx">
+    <rdfs:label xml:lang="en">Externalizing Superspectrum</rdfs:label>
+    <owl:versionInfo>V108kx</owl:versionInfo>
+    <owl:imports rdf:resource="http://purl.org/hitop"/>
+    <dcterms:isVersionOf>0.1.0</dcterms:isVersionOf>
+    <dcterms:creator>Dr. Rogério Blitz</dcterms:creator>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-05</dcterms:created>
+    <skos:changeNote xml:lang="en">status: draft</skos:changeNote>
+    <dcterms:source>data/hitop/images/Externalizing superspectrum.jpg</dcterms:source>
+    <dcterms:bibliographicCitation>Kotov et al. (2021), World Psychiatry, doi:10.1002/wps.20844</dcterms:bibliographicCitation>
+  </owl:Ontology>
+  <rdf:Description rdf:about="http://purl.org/hitop#S0013h">
+    <hitop:hasLevel>Superspectrum</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Externalizing</rdfs:label>
+    <rdfs:comment xml:lang="en">Represents a broad HiTOP dimension characterized by outwardly directed behaviors and dysregulation.</rdfs:comment>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#P005xY">
+        <hitop:hasLevel>Spectrum</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Disinhibited Externalizing</rdfs:label>
+        <rdfs:comment xml:lang="en">Disinhibited Externalizing involves behaviors that are impulsive and lacking in social restraint or inhibition.</rdfs:comment>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#C00oKM"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#C02BO8"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#U0061L"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#U007EJ"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#T015o8"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#T016k0"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#C00rnS"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#T018ir"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#T019Cj"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#T01A5i"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#T01C1W"/>
+      </rdf:Description>
+    </hitop:hasTier>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#P006gM">
+        <hitop:hasLevel>Spectrum</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Antagonistic Externalizing</rdfs:label>
+        <rdfs:comment xml:lang="en">Antagonistic Externalizing describes behaviors that involve hostility and aggression towards others.</rdfs:comment>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#T01bz7"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#T01Ziz"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#T01Y7w"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#C02DSC"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#T01a7u"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#T0094I"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#T01eG6"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#T010c6"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#T01cX5"/>
+      </rdf:Description>
+    </hitop:hasTier>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#U0061L">
+    <hitop:hasLevel>Subfactor</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Harmful Substance Abuse</rdfs:label>
+    <rdfs:comment xml:lang="en">Harmful Substance Abuse refers to the excessive use of substances that causes significant harm or impairment.</rdfs:comment>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#C02EBv">
+        <hitop:hasLevel>Component</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Substance use</rdfs:label>
+        <rdfs:comment xml:lang="en">The general consumption of alcohol, drugs, or other psychoactive substances, considered broadly rather than for one specific substance.</rdfs:comment>
+      </rdf:Description>
+    </hitop:hasTier>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#C02FZY">
+        <hitop:hasLevel>Component</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Substance problems</rdfs:label>
+        <rdfs:comment xml:lang="en">Dependence, abuse, or negative consequences resulting from substance use, considered broadly rather than for one specific substance.</rdfs:comment>
+      </rdf:Description>
+    </hitop:hasTier>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T018ir">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Distractibility</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by an inability to maintain focus, leading to frequent shifts in attention.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00rnS">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Disorganized</rdfs:label>
+    <rdfs:comment xml:lang="en">A component characterized by disorganized thinking and behavior.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01Ziz">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Deceitfulness</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a tendency to lie, cheat, or deceive others.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01a7u">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Grandiosity</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by an exaggerated sense of one's own importance, abilities, or achievements.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01bz7">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Manipulativeness</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a tendency to control or influence others for personal gain, often in a devious manner.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C01LSp">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Relational aggression</rdfs:label>
+    <rdfs:comment xml:lang="en">Aggression that harms others through manipulation of social relationships.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T0177S">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Theft</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a tendency to steal or engage in dishonest acquisition of property.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#U007EJ">
+    <hitop:hasLevel>Subfactor</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Antisocial Behavior</rdfs:label>
+    <rdfs:comment xml:lang="en">Antisocial Behavior involves actions that violate societal norms and the rights of others.</rdfs:comment>
+    <skos:changeNote xml:lang="en">Bridges: Disinhibition, Antagonism</skos:changeNote>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#C01JH8">
+        <hitop:hasLevel>Component</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Physical aggression</rdfs:label>
+        <rdfs:comment xml:lang="en">Aggression involving physical acts of violence towards others.</rdfs:comment>
+      </rdf:Description>
+    </hitop:hasTier>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C01LSp"/>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#C02CiQ">
+        <hitop:hasLevel>Component</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Destruction of property</rdfs:label>
+        <rdfs:comment xml:lang="en">A component involving deliberate or impulsive damage, vandalism, or destruction of objects, possessions, or physical environments.</rdfs:comment>
+      </rdf:Description>
+    </hitop:hasTier>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#C01MjB">
+        <hitop:hasLevel>Component</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Fraud</rdfs:label>
+        <rdfs:comment xml:lang="en">Deceptive behavior intended to secure unfair or unlawful gain.</rdfs:comment>
+      </rdf:Description>
+    </hitop:hasTier>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T0177S"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01Y7w">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Callousness</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a lack of empathy and a tendency to be emotionally cold or indifferent to others.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T019Cj">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Risk taking</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by engaging in behaviors that involve significant risk, often without regard for potential negative outcomes.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01C1W">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">(low) Workaholism</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by reduced levels of excessive and compulsive commitment to work, with less impact on personal well-being and relationships.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T015o8">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Problematic impulsivity</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by difficulty in controlling impulsive behaviors, often leading to negative consequences.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C02DSC">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Exhibitionism</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a recurrent tendency or desire to draw attention to oneself through the display of one’s body, sexuality, or behaviors in ways intended to provoke, shock, or gain validation.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C02BO8">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Inattention</rdfs:label>
+    <rdfs:comment xml:lang="en">A component defined by difficulties sustaining focus, being easily distracted, or failing to maintain attention during tasks or activities.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00oKM">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Hyperactive cognition</rdfs:label>
+    <rdfs:comment xml:lang="en">Increased cognitive activity, often characterized by racing thoughts and distractibility.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01A5i">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">(low) Rigid perfectionism</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a low tendency toward excessive and inflexible striving for perfection and high standards.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01eG6">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Dominance</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a desire to control or lead others, often displaying assertiveness and power.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T016k0">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Irresponsibility</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a lack of regard for the consequences of one's actions, often leading to reckless behavior.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T010c6">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Suspiciousness</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a tendency to be distrustful and suspicious of others.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01cX5">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Rudeness</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a lack of manners or respect in social interactions.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T0094I">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Hostility</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a tendency toward aggression or antagonism.</rdfs:comment>
+  </rdf:Description>
+</rdf:RDF>
