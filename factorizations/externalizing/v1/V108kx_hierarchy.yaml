@@ -4,7 +4,7 @@ meta:
   factorization_id: externalizing
   version: V108kx
   label: Externalizing Superspectrum
-  source: data/hitop/images/Externalizing superspectrum.jpg
+  source: https://onlinelibrary.wiley.com/doi/10.1002/wps.20844
   paper: "Kotov et al. (2021), World Psychiatry, doi:10.1002/wps.20844"
   status: draft
   based_on:

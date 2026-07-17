@@ -4,7 +4,7 @@ meta:
   factorization_id: emotional-dysfunction
   version: V106mv
   label: Emotional Dysfunction Superspectrum
-  source: data/hitop/images/Emotional dysfunction superspectrum.jpg
+  source: https://onlinelibrary.wiley.com/doi/10.1002/wps.20943
   paper: "Kotov et al. (2021), World Psychiatry, doi:10.1002/wps.20943"
   status: active
   based_on:

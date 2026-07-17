@@ -4,7 +4,7 @@ meta:
   factorization_id: psychosis
   version: V10749
   label: Psychosis Superspectrum
-  source: data/hitop/images/Psychosis superspectrum.jpg
+  source: https://onlinelibrary.wiley.com/doi/10.1002/wps.20730
   paper: "Kotov et al. (2020), World Psychiatry, doi:10.1002/wps.20730"
   status: draft
   based_on:
