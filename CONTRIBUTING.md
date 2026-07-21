@@ -83,3 +83,14 @@ for updated artifacts and the generated diff has been reviewed.
 Add or change dependencies in `pyproject.toml` first. If the change is intended
 for release verification, refresh `requirements-lock.txt`, run the full release
 gates, and document the reason for the dependency change.
+
+## Versioning and Releases
+
+Tags follow `vMAJOR.MINOR.PATCH` (SemVer) and match the version in
+`pyproject.toml` and `owl:versionInfo` in `ontology/hitop.rdf`. Record every
+notable change under the `[Unreleased]` section of
+[`CHANGELOG.md`](CHANGELOG.md) as part of the same pull request. Before
+tagging a release, work through
+[`docs/release_checklist.md`](docs/release_checklist.md), which also tracks
+the current version table across package, ontology, schema, and
+specification documents.

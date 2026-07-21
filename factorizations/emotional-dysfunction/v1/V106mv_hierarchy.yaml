@@ -6,7 +6,7 @@ meta:
   label: Emotional Dysfunction Superspectrum
   source: https://onlinelibrary.wiley.com/doi/10.1002/wps.20943
   paper: "Kotov et al. (2021), World Psychiatry, doi:10.1002/wps.20943"
-  status: active
+  status: draft
   based_on:
     ontology_iri: "http://purl.org/hitop"
     ontology_version: "0.1.0"

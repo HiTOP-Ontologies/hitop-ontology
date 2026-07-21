@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software or ontology, please cite it as below.
+  A DOI-backed citation will replace this entry once
+  TECH-T1-04 (Zenodo DOI) is completed — see docs/release_checklist.md.
+title: HiTOP Ontology
+type: software
+version: 0.1.0
+# date-released and doi are intentionally omitted until TECH-T1-03 / TECH-T1-04
+# are executed (see docs/release_checklist.md, section 3 and 4).
+url: "https://github.com/HiTOP-Ontologies/hitop-ontology"
+repository-code: "https://github.com/HiTOP-Ontologies/hitop-ontology"
+license: MIT
+authors:
+  - given-names: Rogério
+    family-names: Blitz
+    orcid: "https://orcid.org/0000-0002-4505-4593"
+  - given-names: Margaux
+    family-names: Gatrio
+  - given-names: Marcel
+    family-names: Jentsch
+  - given-names: André
+    family-names: Kerber
+  - given-names: Nils
+    family-names: Opel
+  - given-names: Lisa Rebecca
+    family-names: Otto
+  - given-names: Maike
+    family-names: Richter
+  - given-names: Yannik
+    family-names: Terhorst
+  - given-names: Mira
+    family-names: Tschorn
+  - given-names: Falk Gerrik
+    family-names: Verhees
+  - given-names: Julius
+    family-names: Weise

@@ -226,12 +226,16 @@
   <owl:Ontology rdf:about="http://purl.org/hitop">
     <iao:IAO_0000115 rdf:resource="http://purl.obolibrary.org/obo/iao.owl"/>
     <dcterms:contributor>Dr. Rogério Blitz</dcterms:contributor>
+    <dcterms:contributor>Margaux Gatrio</dcterms:contributor>
     <dcterms:contributor>Dr. Marcel Jentsch</dcterms:contributor>
     <dcterms:contributor>Dr. André Kerber</dcterms:contributor>
     <dcterms:contributor>Prof. Dr. Nils Opel</dcterms:contributor>
+    <dcterms:contributor>Dr. Lisa Rebecca Otto</dcterms:contributor>
     <dcterms:contributor>Dr. Maike Richter</dcterms:contributor>
     <dcterms:contributor>Dr. Yannik Terhorst</dcterms:contributor>
     <dcterms:contributor>Dr. Mira Tschorn</dcterms:contributor>
+    <dcterms:contributor>Falk Gerrik Verhees</dcterms:contributor>
+    <dcterms:contributor>Dr. Julius Weise</dcterms:contributor>
     <dcterms:creator>
       <foaf:Person rdf:about="https://orcid.org/0000-0002-4505-4593">
         <foaf:name>Dr. Rogério Blitz</foaf:name>

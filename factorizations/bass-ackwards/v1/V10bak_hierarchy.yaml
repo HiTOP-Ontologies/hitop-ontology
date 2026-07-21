@@ -1,13 +1,11 @@
-# V10bak — HiTOP Bass-Ackwards Structure (Platzhalter)
-
+# V10bak — HiTOP Bass-Ackwards Structure
 meta:
   factorization_id: bass-ackwards
   version: V10bak
   label: "HiTOP Bass-Ackwards Structure"
-  status: draft
   source: https://www.nature.com/articles/s41398-024-03046-z
   paper: "Kerber et al. (2024), Translational Psychiatry, doi:10.1038/s41398-024-03046-z"
-  status: active
+  status: draft
   based_on:
     ontology_iri: "http://purl.org/hitop"
     ontology_version: "0.1.0"
@@ -17,11 +15,12 @@ meta:
 
 hierarchy:
   label: General Psychopathology
-  level: Superspectrum
+  level: Factor
   code: F001Hw
   children:
+
     - label: Internalizing
-      level: Spectrum
+      level: Superspectrum
       code: P002nf
       children:
         - label: Distress
@@ -29,72 +28,175 @@ hierarchy:
           code: U004dm
           children:
             - label: Depression & Detachment
-              level: Sub-Subfactor
-              code: T00yfU,P004R1
+              level: Component
+              kind: collection
+              code: COLLDepression
+              provisional: true
+              bridge: [Detachment]
               children:
                 - label: Somatic Depression
                   level: Component
-                  code: P001Y2
+                  kind: collection
+                  code: COLLSomDep
+                  provisional: true
+                  children:
+                    - label: Lassitude
+                      level: Component
+                      code: C00WJc
+                    - label: Insomnia
+                      level: Component
+                      code: C00Y8j
                 - label: Cognitive Depression
                   level: Component
-                  code: C006MD
+                  kind: collection
+                  code: COLLCogDep
+                  provisional: true
+                  children:
+                    - label: Dysphoria
+                      level: Component
+                      code: C00VHv
+                    - label: Anhedonia
+                      level: Component
+                      code: C00XyI
             - label: GAD & PF
-              level: Sub-Subfactor
-              code: C00fKQ,C00OuR
+              level: Component
+              kind: collection
+              code: COLLGadPf
+              provisional: true
+              bridge: [PF Problems]
               children:
                 - label: GAD & OCD
                   level: Component
-                  code: C00fKQ,C00mpe
+                  kind: collection
+                  code: COLLGadOcd
+                  bridge: [Thought Disorder]
+                  children:
+                    - label: GAD Symptoms
+                      level: Component
+                      code: C00fKQ
+                    - label: Pure obsessions
+                      level: Component
+                      code: C00mpe
         - label: Fear
           level: Subfactor
           code: U0036N
           children:
             - label: Social Anxiety & Agoraphobia
               level: Component
-              code: C00N4I
+              kind: collection
+              code: COLLSocAgora
+              children:
+                - label: Interactive anxiety
+                  level: Component
+                  code: C00JTU
+                - label: Performance anxiety
+                  level: Component
+                  code: C00KL0
+                - label: Public places
+                  level: Component
+                  code: C00LqY
+                - label: Enclosed spaces
+                  level: Component
+                  code: C00Mpl
             - label: Panic Disorder & Somatoform
               level: Component
-              code: C00RGy,P001Y2
+              kind: collection
+              code: COLLPanicSom
+              children:
+                - label: Physiological panic
+                  level: Component
+                  code: C00Q1t
+                - label: Psychological panic
+                  level: Component
+                  code: C00RGy
+                - label: Somatoform
+                  level: Component
+                  code: P001Y2
             - label: Specific Phobia
               level: Component
               code: C00OuR
-    - label: Binge eating
+              provisional: true
+
+    - label: Eating Disorder
       level: Spectrum
-      code: C01s9T
+      kind: collection
+      code: COLLEatDis
       children:
         - label: ED Thoughts
           level: Component
-          code: xxx
+          code: C01rfi
+          provisional: true
         - label: ED Bulimic
           level: Component
-          code: xxx
+          code: C01ueZ
+          provisional: true
         - label: ED Anorectic
           level: Component
-          code: xxx
+          code: C01wSl
+          provisional: true
+
     - label: Externalizing & Thought Disorder & Detachment
-      level: Spectrum
-      code: S0013h,P003SL,P004R1
+      level: Superspectrum
+      kind: collection
+      code: COLLExtDetTd
       children:
         - label: Thought Disorder & Mania
-          level: Component
-          code: P003SL,U0050q
-        - label: Externalizing & Detachment
-          level: Subfactor
-          code: S0013h,P004R1  
+          level: Spectrum
+          kind: collection
+          code: COLLTdMania
           children:
+            - label: Thought Disorder
+              level: Component
+              code: P003SL
+            - label: Mania
+              level: Component
+              code: U0050q
+        - label: Externalizing & Detachment
+          level: Spectrum
+          kind: collection
+          code: COLLExtDet
+          children:
+            - label: Antagonistic PD
+              level: Component
+              kind: collection
+              code: COLLAntPf
+              children:
+                - label: Antagonism
+                  level: Component
+                  code: P006gM
+                - label: PF Problems
+                  level: Trait
+                  kind: collection
+                  code: COLLPF
+                  provisional: true
+                  children:
+                    - label: Identity problems
+                      level: Trait
+                      code: T00Eht
+                    - label: Negative relationships
+                      level: Trait
+                      code: T00Fe0
+                    - label: Fragility
+                      level: Trait
+                      code: T00G3d
+                    - label: Ineptitude
+                      level: Trait
+                      code: T00HCy
+                    - label: (low) Invulnerability
+                      level: Trait
+                      code: T00IAT
             - label: Detachment
               level: Component
               code: P004R1
-            - label: Disinhibition & Substance
+              bridge: [Depression & Detachment]
+            - label: Disinhibition & Substance Use
               level: Component
-              code: P005xY,C02EBv
-            - label: Antagonistic PD
-              level: Sub-Subfactor
-              code: P006gM
+              kind: collection
+              code: COLLDisinhibSub
               children:
-                - label: PF Problems
+                - label: Disinhibited Externalizing
                   level: Component
-                  code: xxx
-                - label: Antagonism
+                  code: P005xY
+                - label: Substance use
                   level: Component
-                  code: xxx
+                  code: C02EBv

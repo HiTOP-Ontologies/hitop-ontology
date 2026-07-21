@@ -43,11 +43,15 @@ iao:IAO_0000115 a owl:AnnotationProperty .
 <http://purl.org/hitop> a owl:Ontology ;
     rdfs:label "Hierarchical Taxonomy of Psychopathology (HiTOP) Ontology" ;
     dcterms:contributor "Dr. André Kerber" ,
+ "Dr. Julius Weise" ,
+ "Dr. Lisa Rebecca Otto" ,
  "Dr. Maike Richter" ,
  "Dr. Marcel Jentsch" ,
  "Dr. Mira Tschorn" ,
  "Dr. Rogério Blitz" ,
  "Dr. Yannik Terhorst" ,
+ "Falk Gerrik Verhees" ,
+ "Margaux Gatrio" ,
  "Prof. Dr. Nils Opel" ;
     dcterms:created "2024-07-29" ;
     dcterms:creator <https://orcid.org/0000-0002-4505-4593> ;
