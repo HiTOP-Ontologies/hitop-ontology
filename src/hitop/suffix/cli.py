@@ -171,9 +171,7 @@ def build_parser() -> argparse.ArgumentParser:
     validate_code_parser.add_argument("code")
     validate_code_parser.set_defaults(func=_cmd_validate_code)
 
-    metadata = subparsers.add_parser(
-        "validate-metadata", help="Validate a YAML metadata record."
-    )
+    metadata = subparsers.add_parser("validate-metadata", help="Validate a YAML metadata record.")
     metadata.add_argument("path", type=Path)
     metadata.set_defaults(func=_cmd_validate_metadata)
 

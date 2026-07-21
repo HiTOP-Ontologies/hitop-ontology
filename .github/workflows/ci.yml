@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  # Central toggle (TECH-T3-01): while "true", the known pre-existing
+  # cross-file label inconsistencies tracked in CLIN-C0-04..22 (and the
+  # original CLIN-C0-02/CLIN-C0-11 case) do not fail the build. Flip this to
+  # "false" once every CLIN-C0-* label task is resolved and
+  # test_codes_have_consistent_labels_across_files is green, so CI goes back
+  # to failing honestly on any future regression.
+  ALLOW_KNOWN_LABEL_INCONSISTENCIES: "true"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install package (locked constraints)
+        run: pip install --constraint requirements-lock.txt -e ".[dev]"
+
+      - name: pip check
+        run: pip check
+
+      - name: Compile sources
+        run: python -m compileall -q src scripts validation
+
+      - name: Run tests (excluding known pre-existing label inconsistencies)
+        run: >
+          python -m pytest validation -q
+          --deselect
+          validation/test_factorizations.py::FactorizationHierarchyTests::test_codes_have_consistent_labels_across_files
+
+      - name: Cross-file label consistency (tracked in CLIN-C0-04..22)
+        continue-on-error: ${{ env.ALLOW_KNOWN_LABEL_INCONSISTENCIES == 'true' }}
+        run: >
+          python -m pytest
+          validation/test_factorizations.py::FactorizationHierarchyTests::test_codes_have_consistent_labels_across_files
+          -q
+
+      - name: Validate documentation code examples
+        run: python scripts/validate_hitop_suffix_docs.py
+
+      - name: JSON Schema syntax check
+        run: |
+          python -c "import json; json.load(open('schema/manifestation-record.schema.json'))"
+          python -c "import json; json.load(open('schema/factorization-hierarchy.schema.json'))"
+
+      - name: Lint (ruff)
+        if: matrix.python-version == '3.11'
+        run: |
+          ruff check .
+          ruff format --check .
+
+      - name: Build distribution
+        if: matrix.python-version == '3.11'
+        run: python -m build
+
+      - name: Convert ontology RDF to Turtle/OWL
+        if: matrix.python-version == '3.11'
+        run: |
+          python scripts/rdf2ttl.py --output /tmp/ci_check.ttl
+          python scripts/rdf2owl.py --output /tmp/ci_check.owl

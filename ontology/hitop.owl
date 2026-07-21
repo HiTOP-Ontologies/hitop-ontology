@@ -655,11 +655,11 @@
   <owl:Class rdf:about="http://purl.org/hitop#U0061L">
     <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
     <iao:IAO_0000115 xml:lang="en">
-            Harmful Substance Abuse =def. a Disinhibited Externalizing which is characterized by excessive use of substances 
+            Harmful Substance Use =def. a Disinhibited Externalizing which is characterized by excessive use of substances 
             that leads to significant harm or impairment in physical, psychological, or social functioning.
         </iao:IAO_0000115>
-    <rdfs:comment xml:lang="en">Harmful Substance Abuse refers to the excessive use of substances that causes significant harm or impairment.</rdfs:comment>
-    <rdfs:label xml:lang="en">Harmful Substance Abuse</rdfs:label>
+    <rdfs:comment xml:lang="en">Harmful Substance Use refers to the excessive use of substances that causes significant harm or impairment.</rdfs:comment>
+    <rdfs:label xml:lang="en">Harmful Substance Use</rdfs:label>
     <skos:changeNote xml:lang="en">
             This subfactor is designed to be adaptable to future updates and expansions. 
             It allows for the incorporation of new elements or modifications to existing components as research advances and 
@@ -688,7 +688,7 @@
   <owl:Class rdf:about="http://purl.org/hitop#C01Elz">
     <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
     <iao:IAO_0000115 xml:lang="en">
-            Alcohol Problems =def. a Harmful Substance Abuse which is characterized by issues related to the use of alcohol, 
+            Alcohol Problems =def. a Harmful Substance Use which is characterized by issues related to the use of alcohol, 
             including dependence, abuse, and the negative physical, psychological, and social consequences resulting from 
             excessive consumption.
         </iao:IAO_0000115>
@@ -718,7 +718,7 @@
   <owl:Class rdf:about="http://purl.org/hitop#C01DAb">
     <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
     <iao:IAO_0000115 xml:lang="en">
-            Alcohol Use =def. a Harmful Substance Abuse which is characterized by the consumption of alcoholic beverages, 
+            Alcohol Use =def. a Harmful Substance Use which is characterized by the consumption of alcoholic beverages, 
             which may lead to problematic use, dependence, or negative physical, psychological, or social consequences.
         </iao:IAO_0000115>
     <rdfs:comment xml:lang="en">The consumption of alcoholic beverages, which may lead to problematic use.</rdfs:comment>
@@ -827,7 +827,7 @@
   <owl:Class rdf:about="http://purl.org/hitop#C01HGq">
     <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
     <iao:IAO_0000115 xml:lang="en">
-            Drug Use =def. a Harmful Substance Abuse which is characterized by the consumption of illicit or prescription drugs, 
+            Drug Use =def. a Harmful Substance Use which is characterized by the consumption of illicit or prescription drugs, 
             which may lead to problematic use, dependence, or negative physical, psychological, or social consequences.
         </iao:IAO_0000115>
     <rdfs:comment xml:lang="en">The consumption of illicit or prescription drugs, which may lead to problematic use.</rdfs:comment>
@@ -903,7 +903,7 @@
   <owl:Class rdf:about="http://purl.org/hitop#C01GEY">
     <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
     <iao:IAO_0000115 xml:lang="en">
-            Marijuana Problems =def. a Harmful Substance Abuse which is characterized by issues related to the use of marijuana, 
+            Marijuana Problems =def. a Harmful Substance Use which is characterized by issues related to the use of marijuana, 
             including dependence, abuse, and the negative physical, psychological, and social consequences resulting from 
             excessive consumption.
         </iao:IAO_0000115>
@@ -1297,7 +1297,7 @@
   <owl:Class rdf:about="http://purl.org/hitop#C01FDy">
     <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
     <iao:IAO_0000115 xml:lang="en">
-            Marijuana Use =def. a Harmful Substance Abuse which is characterized by the consumption of marijuana, 
+            Marijuana Use =def. a Harmful Substance Use which is characterized by the consumption of marijuana, 
             which may lead to problematic use, dependence, or negative physical, psychological, or social consequences.
         </iao:IAO_0000115>
     <rdfs:comment xml:lang="en">The consumption of marijuana, which may lead to problematic use.</rdfs:comment>
@@ -1581,7 +1581,7 @@
   <owl:Class rdf:about="http://purl.org/hitop#C01Ip4">
     <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
     <iao:IAO_0000115 xml:lang="en">
-            Drug Problems =def. a Harmful Substance Abuse which is characterized by issues related to the use of drugs, 
+            Drug Problems =def. a Harmful Substance Use which is characterized by issues related to the use of drugs, 
             including dependence, abuse, and the negative physical, psychological, and social consequences resulting from 
             excessive or harmful consumption.
         </iao:IAO_0000115>

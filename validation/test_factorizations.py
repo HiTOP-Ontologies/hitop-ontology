@@ -59,6 +59,65 @@ class FactorizationHierarchyTests(unittest.TestCase):
         errors = check_cross_file_label_consistency(self.documents)
         self.assertFalse(errors, "; ".join(errors))
 
+    def _fake_hierarchy_path(self) -> Path:
+        """Return a synthetic path matching the meta shape used by the tests below."""
+
+        return FACTORIZATIONS_DIR / "fake" / "v1" / "V1fake_hierarchy.yaml"
+
+    def _fake_meta(self) -> dict:
+        return {
+            "factorization_id": "fake",
+            "version": "V1fake",
+            "label": "Fake factorization for negative testing",
+            "status": "draft",
+            "based_on": {
+                "ontology_iri": "http://purl.org/hitop",
+                "ontology_version": "0.1.0",
+            },
+            "provenance": {"created_by": "test", "created_at": "2026-01-01"},
+        }
+
+    def test_duplicate_code_in_tree_is_rejected(self) -> None:
+        """Reject a hierarchy where the same code appears twice in one tree."""
+
+        record = {
+            "meta": self._fake_meta(),
+            "hierarchy": {
+                "label": "General Psychopathology",
+                "level": "Factor",
+                "code": "F001Hw",
+                "children": [
+                    {"label": "Internalizing", "level": "Superspectrum", "code": "P002nf"},
+                    {"label": "Internalizing again", "level": "Superspectrum", "code": "P002nf"},
+                ],
+            },
+        }
+        errors = validate_hierarchy_document(
+            record, path=self._fake_hierarchy_path(), core_class_names=self.core_class_names
+        )
+        self.assertTrue(
+            any("appears more than once in this tree" in error for error in errors), errors
+        )
+
+    def test_unknown_core_code_is_rejected(self) -> None:
+        """Reject a concept node whose code does not exist in the core ontology."""
+
+        record = {
+            "meta": self._fake_meta(),
+            "hierarchy": {
+                "label": "General Psychopathology",
+                "level": "Factor",
+                "code": "F001Hw",
+                "children": [
+                    {"label": "Not a real concept", "level": "Component", "code": "ZZZZZZ"},
+                ],
+            },
+        }
+        errors = validate_hierarchy_document(
+            record, path=self._fake_hierarchy_path(), core_class_names=self.core_class_names
+        )
+        self.assertTrue(any("does not exist as a class" in error for error in errors), errors)
+
 
 if __name__ == "__main__":
     unittest.main()

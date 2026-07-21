@@ -153,7 +153,7 @@ Code;Label;Segment;Segment Level;CheckDigit;HiTOP
 03;Fear;U;0;6N;U0036N
 04;Distress;U;0;dm;U004dm
 05;Mania;U;0;0q;U0050q
-06;Harmful Substance Abuse;U;0;1L;U0061L
+06;Harmful Substance Use;U;0;1L;U0061L
 07;Antisocial Behavior;U;0;EJ;U007EJ
 02;Tier;O;0;sP;O002sP
 04;Version;0;0;KV;0004KV

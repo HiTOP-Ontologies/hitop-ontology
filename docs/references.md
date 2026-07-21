@@ -239,7 +239,7 @@ deckungsgleich bleibt.
 | `U0036N` | Fear | | |  | pending | | |
 | `U004dm` | Distress | | |  | pending | | |
 | `U0050q` | Mania | | |  | pending | | |
-| `U0061L` | Harmful Substance Abuse | | |  | pending | | |
+| `U0061L` | Harmful Substance Use | | |  | pending | | |
 | `U007EJ` | Antisocial Behavior | | |  | pending | | |
 | `0004KV` | Version | | |  | pending | | |
 

@@ -11,9 +11,10 @@ from __future__ import annotations
 
 import csv
 import re
+from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 import yaml
 
@@ -24,7 +25,6 @@ from .exceptions import HiTOPSuffixError
 from .metadata import validate_metadata
 from .namespace import generate_namespace_token
 from .slug import slugify
-
 
 MANIFESTATION_TYPE_LABELS: dict[str, str] = {
     "General symptom": "GS",
@@ -205,7 +205,10 @@ def generate_records(
     """Generate validated metadata records from CSV rows."""
 
     namespace_token = generate_namespace_token(config.namespace_kind, config.namespace_identifier)
-    if namespace_token != DEFAULT_DZPG_NAMESPACE_TOKEN and config.namespace_identifier == DEFAULT_DZPG_ROR_IDENTIFIER:
+    if (
+        namespace_token != DEFAULT_DZPG_NAMESPACE_TOKEN
+        and config.namespace_identifier == DEFAULT_DZPG_ROR_IDENTIFIER
+    ):
         raise HiTOPSuffixError("Unexpected DZPG namespace token calculation.")
 
     item_text_column = detect_item_text_column(rows[0].keys()) if rows else None
@@ -302,7 +305,8 @@ def generate_records(
                 # Preserve the source export's verbose column names verbatim so
                 # reviewers can trace generated values back to the original CSV.
                 "response_scale": row.get(
-                    "(1) Trifft gar nicht zu, (2) Trifft eher nicht zu, (3) teils/teils, (4) Trifft eher zu, (5) Trifft sehr zu        ",
+                    # Exact source column header; must match verbatim, cannot be shortened.
+                    "(1) Trifft gar nicht zu, (2) Trifft eher nicht zu, (3) teils/teils, (4) Trifft eher zu, (5) Trifft sehr zu        ",  # noqa: E501
                     "",
                 ).strip(),
                 "scale_type": row.get("Likert", "").strip(),
@@ -339,7 +343,9 @@ def generate_records(
                 "created_at": config.created,
                 "reviewed_by": [],
                 "review_status": "draft",
-                "decision_note": "Generated from source CSV using the documented DZPG ROR namespace.",
+                "decision_note": (
+                    "Generated from source CSV using the documented DZPG ROR namespace."
+                ),
             },
         }
         if disambiguator and disambiguation_basis:

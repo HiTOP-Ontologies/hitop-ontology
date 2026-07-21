@@ -25,8 +25,8 @@ from __future__ import annotations
 import argparse
 import csv
 import sys
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Iterable
 
 try:
     from .HITOPChecksum import (
@@ -34,7 +34,9 @@ try:
         DEFAULT_PREFIX,
         HITOPChecksum,
         HITOPChecksumError,
-        base62_encode,
+        base62_encode,  # noqa: F401 -- re-exported as hitop.base62_encode
+    )
+    from .HITOPChecksum import (
         calculate_check_digit as _calculate_check_digit,
     )
 except ImportError:  # pragma: no cover - direct script execution fallback
@@ -43,7 +45,8 @@ except ImportError:  # pragma: no cover - direct script execution fallback
         DEFAULT_PREFIX,
         HITOPChecksum,
         HITOPChecksumError,
-        base62_encode,
+    )
+    from HITOPChecksum import (
         calculate_check_digit as _calculate_check_digit,
     )
 
@@ -77,9 +80,7 @@ def _ensure_required_columns(fieldnames: Iterable[str] | None) -> list[str]:
         raise HiTOPCSVError("Input CSV has no header row.")
 
     normalized = [field.strip() for field in fieldnames]
-    duplicates = sorted(
-        {field for field in normalized if normalized.count(field) > 1}
-    )
+    duplicates = sorted({field for field in normalized if normalized.count(field) > 1})
     if duplicates:
         raise HiTOPCSVError(
             "Input CSV contains duplicate column(s) after trimming whitespace: "
@@ -88,20 +89,14 @@ def _ensure_required_columns(fieldnames: Iterable[str] | None) -> list[str]:
 
     missing = [column for column in REQUIRED_COLUMNS if column not in normalized]
     if missing:
-        raise HiTOPCSVError(
-            "Input CSV is missing required column(s): " + ", ".join(missing)
-        )
+        raise HiTOPCSVError("Input CSV is missing required column(s): " + ", ".join(missing))
     return normalized
 
 
 def _output_fieldnames(fieldnames: list[str]) -> list[str]:
     """Append generated columns once, replacing stale generated values."""
 
-    preserved = [
-        field
-        for field in fieldnames
-        if field not in {CHECK_DIGIT_COLUMN, CODE_COLUMN}
-    ]
+    preserved = [field for field in fieldnames if field not in {CHECK_DIGIT_COLUMN, CODE_COLUMN}]
     return [*preserved, CHECK_DIGIT_COLUMN, CODE_COLUMN]
 
 
@@ -117,9 +112,7 @@ def _row_value(row: dict[str, str], column: str, row_number: int) -> str:
 def build_hitop_code(row: dict[str, str], *, prefix: str, row_number: int) -> tuple[str, str]:
     """Build ``(check_digit, local_code)`` for one CSV row."""
 
-    segment = _row_value(row, "Segment", row_number) + _row_value(
-        row, "Segment Level", row_number
-    )
+    segment = _row_value(row, "Segment", row_number) + _row_value(row, "Segment Level", row_number)
     concept_code = _row_value(row, "Code", row_number)
     checksum = HITOPChecksum.from_parts(
         prefix=prefix,

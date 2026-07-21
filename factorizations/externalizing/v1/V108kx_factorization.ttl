@@ -155,11 +155,11 @@
     hitop:hasLevel "Trait" ;
     rdfs:comment "A trait characterized by a desire to control or lead others, often displaying assertiveness and power."@en .
 
-    hitop:U0061L rdfs:label "Harmful Substance Abuse"@en ;
+    hitop:U0061L rdfs:label "Harmful Substance Use"@en ;
     hitop:hasLevel "Subfactor" ;
     hitop:hasTier hitop:C02EBv ,
     hitop:C02FZY ;
-    rdfs:comment "Harmful Substance Abuse refers to the excessive use of substances that causes significant harm or impairment."@en .
+    rdfs:comment "Harmful Substance Use refers to the excessive use of substances that causes significant harm or impairment."@en .
 
     hitop:U007EJ rdfs:label "Antisocial Behavior"@en ;
     hitop:hasLevel "Subfactor" ;

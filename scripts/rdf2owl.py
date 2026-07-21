@@ -191,7 +191,9 @@ def force_canonical_ontology_declaration(graph: Graph) -> None:
             ),
         )
     )
-    graph.set((CANONICAL_ONTOLOGY_IRI, DC["license"], URIRef("https://opensource.org/licenses/MIT")))
+    graph.set(
+        (CANONICAL_ONTOLOGY_IRI, DC["license"], URIRef("https://opensource.org/licenses/MIT"))
+    )
     graph.set(
         (
             CANONICAL_ONTOLOGY_IRI,

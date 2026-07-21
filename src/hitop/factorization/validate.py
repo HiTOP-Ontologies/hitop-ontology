@@ -26,8 +26,9 @@ skipped or left unassigned per lineage.
 from __future__ import annotations
 
 import re
+from collections.abc import Iterator
 from pathlib import Path
-from typing import Any, Iterator
+from typing import Any
 
 import yaml
 from rdflib import OWL, RDF, Graph, Namespace
@@ -79,7 +80,7 @@ def load_core_class_local_names(ontology_ttl: Path) -> set[str]:
     for subject in graph.subjects(RDF.type, OWL.Class):
         subject_iri = str(subject)
         if subject_iri.startswith(prefix):
-            names.add(subject_iri[len(prefix):])
+            names.add(subject_iri[len(prefix) :])
     return names
 
 
@@ -128,10 +129,12 @@ def validate_meta(meta: Any, *, path: Path) -> list[str]:
     _require(
         factorization_id == factorization_dir,
         errors,
-        f"meta.factorization_id {factorization_id!r} does not match directory name {factorization_dir!r}.",
+        f"meta.factorization_id {factorization_id!r} does not match "
+        f"directory name {factorization_dir!r}.",
     )
     _require(
-        isinstance(factorization_id, str) and bool(FACTORIZATION_ID_RE.match(factorization_id or "")),
+        isinstance(factorization_id, str)
+        and bool(FACTORIZATION_ID_RE.match(factorization_id or "")),
         errors,
         f"meta.factorization_id {factorization_id!r} is not kebab-case.",
     )
@@ -144,7 +147,9 @@ def validate_meta(meta: Any, *, path: Path) -> list[str]:
     )
 
     status = meta.get("status")
-    _require(status in STATUSES, errors, f"meta.status {status!r} must be one of {sorted(STATUSES)}.")
+    _require(
+        status in STATUSES, errors, f"meta.status {status!r} must be one of {sorted(STATUSES)}."
+    )
 
     based_on = meta.get("based_on")
     if isinstance(based_on, dict):
@@ -194,10 +199,18 @@ def validate_node_shape(node: Any, *, context: str) -> list[str]:
     _require(not missing, errors, f"{context}: missing required field(s): {sorted(missing)}")
 
     label = node.get("label")
-    _require(isinstance(label, str) and bool(label), errors, f"{context}: label must be a non-empty string.")
+    _require(
+        isinstance(label, str) and bool(label),
+        errors,
+        f"{context}: label must be a non-empty string.",
+    )
 
     level = node.get("level")
-    _require(isinstance(level, str) and bool(level), errors, f"{context}: level must be a non-empty string.")
+    _require(
+        isinstance(level, str) and bool(level),
+        errors,
+        f"{context}: level must be a non-empty string.",
+    )
 
     code = node.get("code")
     _require(
@@ -207,12 +220,16 @@ def validate_node_shape(node: Any, *, context: str) -> list[str]:
     )
 
     kind = node.get("kind", "concept")
-    _require(kind in NODE_KINDS, errors, f"{context}: kind {kind!r} must be one of {sorted(NODE_KINDS)}.")
+    _require(
+        kind in NODE_KINDS, errors, f"{context}: kind {kind!r} must be one of {sorted(NODE_KINDS)}."
+    )
 
     if "bridge" in node:
         bridge = node["bridge"]
         _require(
-            isinstance(bridge, list) and bool(bridge) and all(isinstance(item, str) for item in bridge),
+            isinstance(bridge, list)
+            and bool(bridge)
+            and all(isinstance(item, str) for item in bridge),
             errors,
             f"{context}: bridge must be a non-empty list of strings.",
         )
@@ -277,7 +294,8 @@ def validate_hierarchy_document(
 
     seen_codes: dict[str, str] = {}
     for node, _parent in iter_nodes(hierarchy):
-        context = f"{path.name}:{node.get('label', '<unlabeled>') if isinstance(node, dict) else '<invalid>'}"
+        node_label = node.get("label", "<unlabeled>") if isinstance(node, dict) else "<invalid>"
+        context = f"{path.name}:{node_label}"
         errors.extend(validate_node_shape(node, context=context))
         if not isinstance(node, dict):
             continue
@@ -289,7 +307,9 @@ def validate_hierarchy_document(
             else:
                 seen_codes[code] = node.get("label")
             if node.get("kind", "concept") != "collection" and code not in core_class_names:
-                errors.append(f"{context}: code {code!r} does not exist as a class in ontology/hitop.ttl.")
+                errors.append(
+                    f"{context}: code {code!r} does not exist as a class in ontology/hitop.ttl."
+                )
 
     return errors
 

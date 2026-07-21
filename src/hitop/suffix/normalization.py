@@ -63,4 +63,3 @@ def slug_text(value: str) -> str:
     text = NON_AZ09_RE.sub("_", text)
     text = re.sub(r"_+", "_", text)
     return text.strip("_")
-

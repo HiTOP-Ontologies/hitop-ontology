@@ -7,14 +7,14 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from hitop.base import hitop
+from hitop.base.hitop import HiTOPCSVError, process_csv
 from hitop.base.HITOPChecksum import (
     HITOPChecksum,
     HITOPChecksumError,
     base62_encode,
     calculate_check_digit,
 )
-from hitop.base import hitop
-from hitop.base.hitop import HiTOPCSVError, process_csv
 
 
 class HITOPChecksumTests(unittest.TestCase):
@@ -79,9 +79,7 @@ class HiTOPCSVGenerationTests(unittest.TestCase):
             input_path = Path(tmp) / "input.csv"
             output_path = Path(tmp) / "output.csv"
             input_path.write_text(
-                "Code;Label;Segment;Segment Level\n"
-                "01;Conversion;C;0\n"
-                "02;Somatization;C;0\n",
+                "Code;Label;Segment;Segment Level\n01;Conversion;C;0\n02;Somatization;C;0\n",
                 encoding="utf-8",
             )
 

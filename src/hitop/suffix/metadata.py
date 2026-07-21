@@ -151,9 +151,7 @@ def validate_metadata(record: dict[str, Any]) -> ValidationReport:
             if not data.get("disambiguator"):
                 warnings.append("Disambiguated slug should include disambiguator metadata.")
             if not data.get("disambiguation_basis"):
-                warnings.append(
-                    "Disambiguated slug should include disambiguation_basis metadata."
-                )
+                warnings.append("Disambiguated slug should include disambiguation_basis metadata.")
 
     if "mappings" in data and not isinstance(data["mappings"], list):
         errors.append("mappings must be a list.")

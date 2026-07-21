@@ -174,7 +174,7 @@ def load_core_class_annotations(ontology_ttl: Path) -> dict[str, dict[str, Liter
         if comment is not None:
             entry["comment"] = comment
         if entry:
-            annotations[iri[len(prefix):]] = entry
+            annotations[iri[len(prefix) :]] = entry
     return annotations
 
 
@@ -197,9 +197,7 @@ def build_factorization_graph(
 
     core_annotations = core_annotations or {}
     meta = record["meta"]
-    factorization_iri = URIRef(
-        f"{FACTORIZATION_NS}{meta['factorization_id']}/v{meta['version']}"
-    )
+    factorization_iri = URIRef(f"{FACTORIZATION_NS}{meta['factorization_id']}/v{meta['version']}")
     _add_meta_header(graph, factorization_iri=factorization_iri, meta=meta)
     subject_order = [factorization_iri]
 
@@ -225,9 +223,7 @@ def build_factorization_graph(
                 graph.add((subject, RDFS.comment, annotation["comment"]))
 
         if node.get("provisional"):
-            graph.add(
-                (subject, SKOS.changeNote, Literal("provisional: true", lang="en"))
-            )
+            graph.add((subject, SKOS.changeNote, Literal("provisional: true", lang="en")))
         bridge = node.get("bridge")
         if bridge:
             note = "Bridges: " + ", ".join(bridge)

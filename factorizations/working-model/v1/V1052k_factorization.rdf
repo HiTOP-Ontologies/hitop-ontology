@@ -52,8 +52,8 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/hitop#U0061L">
     <hitop:hasLevel>Subfactor</hitop:hasLevel>
-    <rdfs:label xml:lang="en">Harmful Substance Abuse</rdfs:label>
-    <rdfs:comment xml:lang="en">Harmful Substance Abuse refers to the excessive use of substances that causes significant harm or impairment.</rdfs:comment>
+    <rdfs:label xml:lang="en">Harmful Substance Use</rdfs:label>
+    <rdfs:comment xml:lang="en">Harmful Substance Use refers to the excessive use of substances that causes significant harm or impairment.</rdfs:comment>
     <hitop:hasTier rdf:resource="http://purl.org/hitop#C01DAb"/>
     <hitop:hasTier rdf:resource="http://purl.org/hitop#C01Elz"/>
     <hitop:hasTier rdf:resource="http://purl.org/hitop#C01FDy"/>

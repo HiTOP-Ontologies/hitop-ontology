@@ -592,7 +592,7 @@
     rdfs:comment "Mania is characterized by elevated mood, increased activity, and impulsive behavior."@en ;
     skos:changeNote "Bridges: Internalizing, Thought Disorder"@en .
 
-    hitop:U0061L rdfs:label "Harmful Substance Abuse"@en ;
+    hitop:U0061L rdfs:label "Harmful Substance Use"@en ;
     hitop:hasLevel "Subfactor" ;
     hitop:hasTier hitop:C01DAb ,
     hitop:C01Elz ,
@@ -600,7 +600,7 @@
     hitop:C01GEY ,
     hitop:C01HGq ,
     hitop:C01Ip4 ;
-    rdfs:comment "Harmful Substance Abuse refers to the excessive use of substances that causes significant harm or impairment."@en .
+    rdfs:comment "Harmful Substance Use refers to the excessive use of substances that causes significant harm or impairment."@en .
 
     hitop:U007EJ rdfs:label "Antisocial Behavior"@en ;
     hitop:hasLevel "Subfactor" ;

@@ -10,11 +10,13 @@ from hitop.suffix.disambiguator import (
     build_disambiguation_basis,
     generate_disambiguator,
 )
+from hitop.suffix.exceptions import InvalidCodeError, InvalidNamespaceError, InvalidSlugError
 from hitop.suffix.mapping import compute_features, propose_relation, score_band
 from hitop.suffix.metadata import validate_metadata
 from hitop.suffix.namespace import (
     canonicalize_namespace_identifier,
     generate_namespace_token,
+    validate_namespace_kind,
 )
 from hitop.suffix.slug import slugify, split_disambiguated_slug, validate_slug
 
@@ -55,6 +57,18 @@ class NamespaceTests(unittest.TestCase):
             "https://ror.org/00tkfw097",
         )
 
+    def test_unsupported_namespace_kind_is_rejected(self) -> None:
+        """Reject a namespace kind outside the controlled SUPPORTED_NAMESPACE_KINDS set."""
+
+        with self.assertRaises(InvalidNamespaceError):
+            validate_namespace_kind("XYZ")
+
+    def test_malformed_ror_identifier_is_rejected(self) -> None:
+        """Reject a ROR identifier that does not match the expected 9-character ROR ID form."""
+
+        with self.assertRaises(InvalidNamespaceError):
+            canonicalize_namespace_identifier("ROR", "not-a-ror-id")
+
 
 class SlugTests(unittest.TestCase):
     """Slug and disambiguator behavior."""
@@ -65,6 +79,19 @@ class SlugTests(unittest.TestCase):
         self.assertEqual(slugify("Chronic worry"), "CHRONIC_WORRY")
         self.assertEqual(slugify("Resting palpitations"), "RESTING_PALPITATIONS")
         self.assertTrue(validate_slug("REJECTION_SENSITIVITY"))
+
+    def test_invalid_slug_is_rejected(self) -> None:
+        """Reject slugs with leading/trailing underscores or disallowed characters."""
+
+        self.assertFalse(validate_slug("_LEADING_UNDERSCORE"))
+        self.assertFalse(validate_slug("TRAILING_UNDERSCORE_"))
+        self.assertFalse(validate_slug("has lowercase and spaces"))
+
+    def test_slugify_rejects_labels_with_no_usable_characters(self) -> None:
+        """Raise InvalidSlugError when a label normalizes to an empty slug."""
+
+        with self.assertRaises(InvalidSlugError):
+            slugify("!!!")
 
     def test_disambiguator(self) -> None:
         """Verify deterministic collision disambiguation from stable metadata."""
@@ -112,6 +139,28 @@ class CodeTests(unittest.TestCase):
 
         errors = validate_code("HiTOPU0aB2X.M-AF-CHRONIC_WORRY")
         self.assertTrue(errors)
+
+    def test_invalid_manifestation_type_is_rejected(self) -> None:
+        """Reject a manifestation type outside the controlled MANIFESTATION_TYPES set."""
+
+        with self.assertRaises(InvalidCodeError):
+            build_code(
+                hitop_base_code="HiTOPU0aB2X",
+                manifestation_type="ZZ",
+                namespace_token="ROR3FG46LQKYZLLX",
+                slug="CHRONIC_WORRY",
+            )
+
+    def test_invalid_namespace_token_in_code_is_rejected(self) -> None:
+        """Reject a namespace token that does not match the fixed-length pattern."""
+
+        with self.assertRaises(InvalidCodeError):
+            build_code(
+                hitop_base_code="HiTOPU0aB2X",
+                manifestation_type="AF",
+                namespace_token="TOO_SHORT",
+                slug="CHRONIC_WORRY",
+            )
 
 
 class MetadataTests(unittest.TestCase):
@@ -168,6 +217,64 @@ class MetadataTests(unittest.TestCase):
                     "study_id": "study-a",
                     "instrument": "instrument-x",
                     "item_id": "item-17",
+                },
+                "status": "active",
+                "created": "2026-05-31",
+                "version": "1",
+                "mappings": [],
+            }
+        )
+        self.assertFalse(report.valid)
+
+    def test_missing_required_field_is_invalid(self) -> None:
+        """Reject a record missing a required top-level field such as preferred_label."""
+
+        report = validate_metadata(
+            {
+                "code": "HiTOPU0aB2X.M-AF-ROR3FG46LQKYZLLX-CHRONIC_WORRY",
+                "hitop_base_code": "HiTOPU0aB2X",
+                "suffix_block": "M",
+                "manifestation_type": "AF",
+                "namespace": {
+                    "token": "ROR3FG46LQKYZLLX",
+                    "kind": "ROR",
+                    "identifier": "https://ror.org/03yrm5c26",
+                },
+                "slug": "CHRONIC_WORRY",
+                "definition": "Persistent or recurrent worry.",
+                "source": {
+                    "study_id": "study-a",
+                    "instrument": "instrument-x",
+                    "item_id": "item-17",
+                },
+                "status": "active",
+                "created": "2026-05-31",
+                "version": "1",
+                "mappings": [],
+            }
+        )
+        self.assertFalse(report.valid)
+
+    def test_missing_source_item_reference_is_invalid(self) -> None:
+        """Reject a record whose source has neither item_id nor local_concept_id."""
+
+        report = validate_metadata(
+            {
+                "code": "HiTOPU0aB2X.M-AF-ROR3FG46LQKYZLLX-CHRONIC_WORRY",
+                "hitop_base_code": "HiTOPU0aB2X",
+                "suffix_block": "M",
+                "manifestation_type": "AF",
+                "namespace": {
+                    "token": "ROR3FG46LQKYZLLX",
+                    "kind": "ROR",
+                    "identifier": "https://ror.org/03yrm5c26",
+                },
+                "slug": "CHRONIC_WORRY",
+                "preferred_label": "Chronic worry",
+                "definition": "Persistent or recurrent worry.",
+                "source": {
+                    "study_id": "study-a",
+                    "instrument": "instrument-x",
                 },
                 "status": "active",
                 "created": "2026-05-31",

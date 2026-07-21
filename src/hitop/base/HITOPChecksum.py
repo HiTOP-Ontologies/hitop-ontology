@@ -47,8 +47,7 @@ def _normalize_segment(segment: str) -> str:
     value = str(segment).strip()
     if not SEGMENT_RE.fullmatch(value):
         raise HITOPChecksumError(
-            "Segment must match one ASCII letter or digit followed by one or "
-            "more digits."
+            "Segment must match one ASCII letter or digit followed by one or more digits."
         )
     return value
 
@@ -59,8 +58,7 @@ def _normalize_concept_code(concept_code: str) -> str:
     value = str(concept_code).strip()
     if not CONCEPT_CODE_RE.fullmatch(value):
         raise HITOPChecksumError(
-            "Concept code must contain one or more Base62 characters "
-            "(0-9, A-Z, a-z)."
+            "Concept code must contain one or more Base62 characters (0-9, A-Z, a-z)."
         )
     return value
 
@@ -174,9 +172,7 @@ class HITOPChecksum:
             return
 
         if segment is None or concept_code is None:
-            raise HITOPChecksumError(
-                "segment and concept_code must be provided together."
-            )
+            raise HITOPChecksumError("segment and concept_code must be provided together.")
 
         self.segment = _normalize_segment(segment)
         self.concept_code = _normalize_concept_code(concept_code)
@@ -196,7 +192,7 @@ class HITOPChecksum:
         prefix: str = DEFAULT_PREFIX,
         segment: str,
         concept_code: str,
-    ) -> "HITOPChecksum":
+    ) -> HITOPChecksum:
         """Create a checksum helper from explicit checksum components."""
 
         return cls(

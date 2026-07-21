@@ -55,9 +55,7 @@ def canonicalize_namespace_identifier(kind: str, source_identifier: str) -> str:
     if normalized_kind == "ROR":
         match = ROR_RE.match(value)
         if not match:
-            raise InvalidNamespaceError(
-                "ROR identifiers must be a ROR ID or https://ror.org/<id>."
-            )
+            raise InvalidNamespaceError("ROR identifiers must be a ROR ID or https://ror.org/<id>.")
         return f"https://ror.org/{match.group('id').lower()}"
 
     if normalized_kind == "ORC":
@@ -69,9 +67,7 @@ def canonicalize_namespace_identifier(kind: str, source_identifier: str) -> str:
         compact = match.group("id").replace("-", "").upper()
         if len(compact) != 16:
             raise InvalidNamespaceError("ORCID identifiers must contain 16 characters.")
-        hyphenated = "-".join(
-            compact[index : index + 4] for index in range(0, len(compact), 4)
-        )
+        hyphenated = "-".join(compact[index : index + 4] for index in range(0, len(compact), 4))
         return f"https://orcid.org/{hyphenated}"
 
     if normalized_kind == "DOI":
