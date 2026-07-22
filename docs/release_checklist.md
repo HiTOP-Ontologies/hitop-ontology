@@ -23,7 +23,7 @@ eigene, unabhängige Versionierung.
 - [x] `git status` sauber (`TECH-T1-01`)
 - [x] Versionstabelle aktuell (`TECH-T1-02`, Abschnitt 1)
 - [ ] CI grün: Tests, Build, Schema-Parse, RDF-Konvertierung (`TECH-T3-01`/`02`)
-- [ ] ROBOT-Validierung dokumentiert (`TECH-T4-03`)
+- [x] ROBOT-Validierung dokumentiert (`TECH-T4-03`) — 0 ERROR; Bericht nicht im Repo (regenerierbar, siehe `CONTRIBUTING.md`), aktueller Stand als `robot-report`-Artefakt im letzten CI-Lauf
 - [x] `CHANGELOG.md` aktuell für die anstehende Version (`TECH-T1-06`)
 - [x] `CITATION.cff` vorhanden, DOI-Feld noch offen (`TECH-T1-07`)
 - [ ] **Clinical Lab Go/No-Go-Freigabe liegt vor (`CLIN-C5-02`) — Blocker für Abschnitt 3 und 4**

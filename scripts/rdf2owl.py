@@ -26,6 +26,7 @@ DEFAULT_OUTPUT = ROOT_DIR / "ontology" / "hitop.owl"
 CANONICAL_ONTOLOGY_IRI = URIRef("http://purl.org/hitop")
 
 OBO = Namespace("http://purl.obolibrary.org/obo/")
+SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 DC = Namespace("http://purl.org/dc/elements/1.1/")
 DCTERMS = Namespace("http://purl.org/dc/terms/")
 XML_NS = {
@@ -215,6 +216,7 @@ def clean_annotation_literals(graph: Graph) -> int:
         OBO["IAO_0000111"],
         OBO["IAO_0000115"],
         OBO["IAO_0000602"],
+        SKOS.changeNote,
     ]
     for property_iri in properties:
         for subject, predicate, literal in list(graph.triples((None, property_iri, None))):
@@ -269,6 +271,67 @@ def restore_is_defined_by(output_path: Path, class_iris: set[str]) -> int:
     return added
 
 
+def make_deterministic(output_path: Path) -> None:
+    """Rewrite the serialized OWL/RDF XML so repeated runs are byte-identical.
+
+    ``graph.serialize(format="pretty-xml")`` orders both the root element's
+    namespace declarations and the top-level entities however rdflib's
+    internal graph storage happens to iterate them (subject to Python's
+    per-process hash randomization), and assigns a fresh, effectively random
+    ``rdf:nodeID`` to every blank node on each run. None of that changes the
+    triples encoded, but it makes a plain byte or hash diff between two
+    builds from the same input useless. This rewrites the file with:
+    namespace declarations sorted by prefix, top-level elements sorted by
+    tag and then by ``rdf:about``/``rdf:nodeID``, and every ``rdf:nodeID``
+    renumbered sequentially in that resulting document order.
+    """
+
+    parser = etree.XMLParser(remove_blank_text=False)
+    tree = etree.parse(str(output_path), parser)
+    old_root = tree.getroot()
+
+    sorted_nsmap = dict(
+        sorted(old_root.nsmap.items(), key=lambda item: (item[0] is None, item[0] or ""))
+    )
+    new_root = etree.Element(old_root.tag, nsmap=sorted_nsmap)
+    for key, value in old_root.attrib.items():
+        new_root.set(key, value)
+
+    about_attr = f"{{{XML_NS['rdf']}}}about"
+    node_id_attr = f"{{{XML_NS['rdf']}}}nodeID"
+
+    def sort_key(element: etree._Element) -> tuple[str, str, str]:
+        return (element.tag, element.get(about_attr, ""), element.get(node_id_attr, ""))
+
+    for child in sorted(old_root, key=sort_key):
+        new_root.append(child)
+
+    # Moved elements carry over their original whitespace-only .text/.tail,
+    # which biases lxml's pretty-printer inconsistently depending on each
+    # element's old position. Strip it so indentation is recomputed uniformly
+    # from scratch for every element, regardless of where it came from.
+    for element in new_root.iter():
+        if element.text is not None and not element.text.strip():
+            element.text = None
+        if element.tail is not None and not element.tail.strip():
+            element.tail = None
+
+    counter = 0
+    renumbered: dict[str, str] = {}
+    for element in new_root.iter():
+        old_id = element.get(node_id_attr)
+        if old_id is None:
+            continue
+        if old_id not in renumbered:
+            renumbered[old_id] = f"genid{counter}"
+            counter += 1
+        element.set(node_id_attr, renumbered[old_id])
+
+    etree.ElementTree(new_root).write(
+        str(output_path), encoding="utf-8", xml_declaration=True, pretty_print=True
+    )
+
+
 def convert_rdf_to_owl(input_path: Path, output_path: Path) -> int:
     """Convert ``input_path`` RDF/XML to cleaned OWL/RDF XML at ``output_path``.
 
@@ -298,13 +361,14 @@ def convert_rdf_to_owl(input_path: Path, output_path: Path) -> int:
     # XML post-processing is intentionally last because rdflib owns graph
     # semantics while lxml gives deterministic control over selected elements.
     restored = restore_is_defined_by(output_path, classes_with_is_defined_by)
+    make_deterministic(output_path)
 
     print(f"Loaded {len(graph)} RDF/XML triples from {input_path}")
     print(f"Normalized {invalid_decimals} invalid decimal literal(s)")
     print(f"Merged {merged} duplicate ontology node(s)")
     print(f"Cleaned {cleaned_literals} annotation literal(s)")
     print(f"Restored {restored} rdfs:isDefinedBy reference(s)")
-    print(f"Wrote {output_path}")
+    print(f"Wrote {output_path} (deterministic ordering applied)")
     return len(graph)
 
 

@@ -95,3 +95,35 @@ In der Base-62-Codierung repräsentiert eine Zeichenreihe die Werte von 0 bis 61
 **Mehrfachzuweisung**
 
 Um den Sachverhalt zu adressieren, dass unterschiedliche Level-Items mit unterschiedlichen Gewichtungen dem gleichen Item zugeordnet sind, werden im Rahmen der Meta-Ontologie und der FHIR-Spezifikationen Mehrfachzuordnungen adressiert. Dieses Vorgehen wird bereits auch bei SNOMED CT oder UMLS angewendet, wo ein Item mehrere Codes beinhalten kann.
+
+### RDF/OWL-Namespace-Präfixe (TECH-T4-04)
+
+`ontology/hitop.rdf` (und die daraus generierten `ontology/hitop.ttl`/`.owl`)
+verwenden eine feste, stabile Präfixliste. Neue Präfixe werden nur ergänzt,
+wenn ein Konzept eine externe Ontologie/ein externes Vokabular tatsächlich
+referenziert — nicht auf Vorrat.
+
+| Präfix | Namespace-IRI | Verwendung |
+| --- | --- | --- |
+| (default) | `http://purl.org/hitop#` | HiTOP-Basiscodes und -Konzeptklassen |
+| `hitop` | `http://purl.org/hitop#` | expliziter Alias auf denselben Namespace, z. B. in Faktorisierungs-Vokabular (`hitop:hasTier`) |
+| `owl` | `http://www.w3.org/2002/07/owl#` | OWL-Kernvokabular |
+| `rdf` | `http://www.w3.org/1999/02/22-rdf-syntax-ns#` | RDF-Kernvokabular |
+| `rdfs` | `http://www.w3.org/2000/01/rdf-schema#` | RDFS-Kernvokabular (`label`, `comment`, `subClassOf`, `isDefinedBy`) |
+| `xsd` | `http://www.w3.org/2001/XMLSchema#` | Literal-Datentypen |
+| `xml` | `http://www.w3.org/XML/1998/namespace` | XML-Sprachattribute (`xml:lang`) |
+| `dc` | `http://purl.org/dc/elements/1.1/` | Dublin Core (einfach), z. B. Ontologie-Titel/-Beschreibung |
+| `dcterms` | `http://purl.org/dc/terms/` | Dublin Core Terms, z. B. `contributor`, `creator`, `license` |
+| `foaf` | `http://xmlns.com/foaf/0.1/` | Personenangaben (`foaf:Person`, `foaf:name`) |
+| `skos` | `http://www.w3.org/2004/02/skos/core#` | `skos:changeNote` |
+| `obo` | `http://purl.obolibrary.org/obo/` | OBO-Foundry-Vokabular, aktuell nur `obo:IAO_0000115` (Definition) |
+
+**Bereinigt (TECH-T4-04):** Ein zusätzlicher `iao:`-Präfix
+(`http://purl.obolibrary.org/obo/iao`) war deklariert, aber nirgends
+tatsächlich verwendet — die Definitions-Annotation nutzte stattdessen
+fälschlich `obo:iaoIAO_0000115` (eine falsche, nicht standardkonforme IRI,
+die den `iao`-Präfixnamen versehentlich in den Lokalnamen unter `obo:`
+hineinkopierte, statt den `iao:`-Namespace zu nutzen). Beides wurde
+korrigiert: die Definitions-Annotation heißt jetzt korrekt `obo:IAO_0000115`
+(die echte OBO-IAO-"definition"-Property), der ungenutzte `iao:`-Präfix
+wurde entfernt.

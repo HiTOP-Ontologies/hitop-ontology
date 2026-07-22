@@ -4,8 +4,6 @@
 
 @prefix hitop: <http://purl.org/hitop#> .
 
-@prefix iao: <http://purl.obolibrary.org/obo/iao> .
-
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -16,7 +14,7 @@
 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-iao:IAO_0000115 a owl:AnnotationProperty .
+    obo:IAO_0000115 a owl:AnnotationProperty .
 
     dcterms:contributor a owl:AnnotationProperty .
 
@@ -65,330 +63,330 @@ iao:IAO_0000115 a owl:AnnotationProperty .
     dcterms:rightsHolder "Dr. Rogério Blitz" ;
     rdfs:comment "This ontology implements a structured representation of the Hierarchical Taxonomy of Psychopathology (HiTOP) and is designed to support an open, extensible framework for modeling mental health dimensions. It allows for the representation of an unlimited number of factor structures and variants, enabling flexible integration of empirical findings and theoretical refinements." ;
     rdfs:seeAlso <https://www.hitop-system.org/> ;
-    owl:versionInfo "0.1.0" ;
+    owl:versionInfo "0.1.0"^^xsd:string ;
     skos:changeNote <https://www.w3.org/2009/08/skos-reference/skos.html> .
 
     hitop:C001qy a owl:Class ;
     rdfs:label "Conversion"@en ;
- iao:IAO_0000115 "Conversion =def. a Somatoform which is characterized by the expression of psychological distress as neurological or physical symptoms that are inconsistent with medical findings, reflecting unconscious processes underlying the symptom presentation."@en ;
+    obo:IAO_0000115 "Conversion =def. a Somatoform which is characterized by the expression of psychological distress as neurological or physical symptoms that are inconsistent with medical findings, reflecting unconscious processes underlying the symptom presentation."@en ;
     rdfs:comment "A component related to conversion disorders where psychological distress is expressed as physical symptoms."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00217 a owl:Class ;
     rdfs:label "Somatization"@en ;
- iao:IAO_0000115 "Somatization =def. a Somatoform which is characterized by the expression of psychological distress through multiple, recurrent physical symptoms that cannot be fully explained by medical conditions."@en ;
+    obo:IAO_0000115 "Somatization =def. a Somatoform which is characterized by the expression of psychological distress through multiple, recurrent physical symptoms that cannot be fully explained by medical conditions."@en ;
     rdfs:comment "A component involving the expression of psychological distress through physical symptoms."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C0033z a owl:Class ;
     rdfs:label "Malaise"@en ;
- iao:IAO_0000115 "Malaise =def. a Somatoform which is characterized by a general feeling of discomfort, unease, or lack of well-being, reflecting psychological distress manifesting as nonspecific physical symptoms."@en ;
+    obo:IAO_0000115 "Malaise =def. a Somatoform which is characterized by a general feeling of discomfort, unease, or lack of well-being, reflecting psychological distress manifesting as nonspecific physical symptoms."@en ;
     rdfs:comment "A component related to general discomfort or unease."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00416 a owl:Class ;
     rdfs:label "Head Pain"@en ;
- iao:IAO_0000115 "Head Pain =def. a Somatoform which is characterized by headaches or other forms of head pain that are not fully attributable to identifiable medical causes, reflecting the expression of psychological distress through somatic symptoms."@en ;
+    obo:IAO_0000115 "Head Pain =def. a Somatoform which is characterized by headaches or other forms of head pain that are not fully attributable to identifiable medical causes, reflecting the expression of psychological distress through somatic symptoms."@en ;
     rdfs:comment "A component related to headaches or other types of head pain."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C005Sv a owl:Class ;
     rdfs:label "Gastrointestinal"@en ;
- iao:IAO_0000115 "Gastrointestinal =def. a Somatoform which is characterized by gastrointestinal symptoms such as abdominal pain, bloating, nausea, or altered bowel habits that cannot be fully explained by medical findings, reflecting psychological distress expressed through digestive complaints."@en ;
+    obo:IAO_0000115 "Gastrointestinal =def. a Somatoform which is characterized by gastrointestinal symptoms such as abdominal pain, bloating, nausea, or altered bowel habits that cannot be fully explained by medical findings, reflecting psychological distress expressed through digestive complaints."@en ;
     rdfs:comment "A component related to gastrointestinal symptoms and disorders."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C006MD a owl:Class ;
     rdfs:label "Cognitive"@en ;
- iao:IAO_0000115 "Cognitive =def. a Somatoform which is characterized by cognitive symptoms or dysfunctions such as difficulties with memory, attention, or concentration, that are not fully explained by medical or neurological conditions, reflecting psychological distress manifesting in cognitive domains."@en ;
+    obo:IAO_0000115 "Cognitive =def. a Somatoform which is characterized by cognitive symptoms or dysfunctions such as difficulties with memory, attention, or concentration, that are not fully explained by medical or neurological conditions, reflecting psychological distress manifesting in cognitive domains."@en ;
     rdfs:comment "A component related to cognitive symptoms and dysfunctions."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00JTU a owl:Class ;
     rdfs:label "Interactive anxiety"@en ;
- iao:IAO_0000115 "Interactive Anxiety =def. a Fear which is characterized by anxiety experienced in social interactions and group settings, often involving concerns about being judged, embarrassed, or negatively evaluated by others."@en ;
+    obo:IAO_0000115 "Interactive Anxiety =def. a Fear which is characterized by anxiety experienced in social interactions and group settings, often involving concerns about being judged, embarrassed, or negatively evaluated by others."@en ;
     rdfs:comment "Anxiety experienced in social interactions and group settings."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00KL0 a owl:Class ;
     rdfs:label "Performance anxiety"@en ;
- iao:IAO_0000115 "Performance Anxiety =def. a Fear which is characterized by anxiety related to performing tasks or activities, particularly in public or under observation, often driven by fear of failure, embarrassment, or negative evaluation."@en ;
+    obo:IAO_0000115 "Performance Anxiety =def. a Fear which is characterized by anxiety related to performing tasks or activities, particularly in public or under observation, often driven by fear of failure, embarrassment, or negative evaluation."@en ;
     rdfs:comment "Anxiety related to performing tasks or activities, often in public or under observation."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00LqY a owl:Class ;
     rdfs:label "Public places"@en ;
- iao:IAO_0000115 "Public Places =def. a Fear which is characterized by fear or anxiety associated with being in public spaces, often involving concern about escape or access to help in case of distress."@en ;
+    obo:IAO_0000115 "Public Places =def. a Fear which is characterized by fear or anxiety associated with being in public spaces, often involving concern about escape or access to help in case of distress."@en ;
     rdfs:comment "Fear or anxiety associated with being in public spaces."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00Mpl a owl:Class ;
     rdfs:label "Enclosed spaces"@en ;
- iao:IAO_0000115 "Enclosed Spaces =def. a Fear which is characterized by fear or anxiety related to confined or small spaces, often involving concerns about restriction, suffocation, or inability to escape."@en ;
+    obo:IAO_0000115 "Enclosed Spaces =def. a Fear which is characterized by fear or anxiety related to confined or small spaces, often involving concerns about restriction, suffocation, or inability to escape."@en ;
     rdfs:comment "Fear or anxiety related to confined or small spaces."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00N4I a owl:Class ;
     rdfs:label "Animal phobia"@en ;
- iao:IAO_0000115 "Animal Phobia =def. a Fear which is characterized by fear or anxiety related to animals, often involving specific triggers such as dogs, insects, or snakes, and resulting in avoidance behavior or intense distress upon exposure."@en ;
+    obo:IAO_0000115 "Animal Phobia =def. a Fear which is characterized by fear or anxiety related to animals, often involving specific triggers such as dogs, insects, or snakes, and resulting in avoidance behavior or intense distress upon exposure."@en ;
     rdfs:comment "Fear or anxiety related to animals."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00OuR a owl:Class ;
     rdfs:label "Situational phobia"@en ;
- iao:IAO_0000115 "Situational Phobia =def. a Fear which is characterized by fear or anxiety related to specific situations or environments, such as flying, driving, tunnels, or elevators, typically leading to avoidance or marked distress."@en ;
+    obo:IAO_0000115 "Situational Phobia =def. a Fear which is characterized by fear or anxiety related to specific situations or environments, such as flying, driving, tunnels, or elevators, typically leading to avoidance or marked distress."@en ;
     rdfs:comment "Fear or anxiety related to specific situations or environments."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00Pjp a owl:Class ;
     rdfs:label "Blood-injection-injury"@en ;
- iao:IAO_0000115 "Blood-Injection-Injury =def. a Fear which is characterized by fear or anxiety related to blood, injections, or injuries, often accompanied by physiological responses such as fainting or nausea and resulting in avoidance of medical procedures or traumatic stimuli."@en ;
+    obo:IAO_0000115 "Blood-Injection-Injury =def. a Fear which is characterized by fear or anxiety related to blood, injections, or injuries, often accompanied by physiological responses such as fainting or nausea and resulting in avoidance of medical procedures or traumatic stimuli."@en ;
     rdfs:comment "Fear or anxiety related to blood, injections, or injuries."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00Q1t a owl:Class ;
     rdfs:label "Physiological panic"@en ;
- iao:IAO_0000115 "Physiological Panic =def. a Fear which is characterized by sudden episodes of intense anxiety accompanied by physiological symptoms such as rapid heartbeat, sweating, shortness of breath, or dizziness, reflecting acute autonomic arousal."@en ;
+    obo:IAO_0000115 "Physiological Panic =def. a Fear which is characterized by sudden episodes of intense anxiety accompanied by physiological symptoms such as rapid heartbeat, sweating, shortness of breath, or dizziness, reflecting acute autonomic arousal."@en ;
     rdfs:comment "Panic attacks characterized by physiological symptoms such as rapid heartbeat and sweating."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00RGy a owl:Class ;
     rdfs:label "Psychological panic"@en ;
- iao:IAO_0000115 "Psychological Panic =def. a Fear which is characterized by an intense and overwhelming sense of fear accompanied by cognitive symptoms such as a perceived loss of control, fear of going crazy, or impending doom, often triggering physical reactions."@en ;
+    obo:IAO_0000115 "Psychological Panic =def. a Fear which is characterized by an intense and overwhelming sense of fear accompanied by cognitive symptoms such as a perceived loss of control, fear of going crazy, or impending doom, often triggering physical reactions."@en ;
     rdfs:comment "A component of psychological panic is an intense, overwhelming fear that triggers physical symptoms and a sense of losing control."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00S9m a owl:Class ;
     rdfs:label "Cleaning"@en ;
- iao:IAO_0000115 "Cleaning =def. a Fear which is characterized by compulsive behaviors related to cleaning or hygiene, typically performed to reduce anxiety about contamination or illness."@en ;
+    obo:IAO_0000115 "Cleaning =def. a Fear which is characterized by compulsive behaviors related to cleaning or hygiene, typically performed to reduce anxiety about contamination or illness."@en ;
     rdfs:comment "Compulsive behaviors related to cleaning or hygiene."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00TgL a owl:Class ;
     rdfs:label "Rituals"@en ;
- iao:IAO_0000115 "Rituals =def. a Fear which is characterized by compulsive behaviors or mental acts performed in a specific and repetitive manner, typically intended to prevent feared outcomes or reduce anxiety."@en ;
+    obo:IAO_0000115 "Rituals =def. a Fear which is characterized by compulsive behaviors or mental acts performed in a specific and repetitive manner, typically intended to prevent feared outcomes or reduce anxiety."@en ;
     rdfs:comment "Compulsive rituals or behaviors performed in a specific manner."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00Urw a owl:Class ;
     rdfs:label "Checking"@en ;
- iao:IAO_0000115 "Checking =def. a Fear which is characterized by compulsive behaviors involving repeated checking of objects or situations—such as locks, appliances, or personal belongings—typically performed to reduce anxiety about potential harm or danger."@en ;
+    obo:IAO_0000115 "Checking =def. a Fear which is characterized by compulsive behaviors involving repeated checking of objects or situations—such as locks, appliances, or personal belongings—typically performed to reduce anxiety about potential harm or danger."@en ;
     rdfs:comment "Compulsive checking behaviors, such as repeatedly checking locks or appliances."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00VHv a owl:Class ;
     rdfs:label "Dysphoria"@en ;
- iao:IAO_0000115 "Dysphoria =def. a Distress which is characterized by a generalized state of unhappiness, dissatisfaction, or emotional discomfort, often involving irritability, restlessness, or low mood without a specific cause."@en ;
+    obo:IAO_0000115 "Dysphoria =def. a Distress which is characterized by a generalized state of unhappiness, dissatisfaction, or emotional discomfort, often involving irritability, restlessness, or low mood without a specific cause."@en ;
     rdfs:comment "A state of generalized unhappiness or dissatisfaction."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00WJc a owl:Class ;
     rdfs:label "Lassitude"@en ;
- iao:IAO_0000115 "Lassitude =def. a Distress which is characterized by physical or mental weariness and a lack of energy, often accompanied by reduced motivation, sluggishness, or difficulty initiating tasks."@en ;
+    obo:IAO_0000115 "Lassitude =def. a Distress which is characterized by physical or mental weariness and a lack of energy, often accompanied by reduced motivation, sluggishness, or difficulty initiating tasks."@en ;
     rdfs:comment "A state of physical or mental weariness and lack of energy."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00XyI a owl:Class ;
     rdfs:label "Anhedonia"@en ;
- iao:IAO_0000115 "Anhedonia =def. a Distress which is conceptualized as a transient reduction in the capacity to experience pleasure, often emerging in response to acute stress or mood states, leading to a temporary inability to enjoy previously pleasurable activities."@en ;
+    obo:IAO_0000115 "Anhedonia =def. a Distress which is conceptualized as a transient reduction in the capacity to experience pleasure, often emerging in response to acute stress or mood states, leading to a temporary inability to enjoy previously pleasurable activities."@en ;
     rdfs:comment "Anhedonia conceptualized as a Component refers to a transient reduction in the capacity to experience pleasure, often emerging in response to acute stress or mood states."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00Y8j a owl:Class ;
     rdfs:label "Insomnia"@en ;
- iao:IAO_0000115 "Insomnia =def. a Distress which is characterized by difficulty falling asleep, staying asleep, or waking too early and being unable to return to sleep, often resulting in daytime fatigue, irritability, or impaired functioning."@en ;
+    obo:IAO_0000115 "Insomnia =def. a Distress which is characterized by difficulty falling asleep, staying asleep, or waking too early and being unable to return to sleep, often resulting in daytime fatigue, irritability, or impaired functioning."@en ;
     rdfs:comment "Difficulty falling asleep or staying asleep, or waking up too early and not being able to go back to sleep."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00ZyP a owl:Class ;
     rdfs:label "Suicidality"@en ;
- iao:IAO_0000115 "Suicidality =def. a Distress which is characterized by the presence of thoughts, intentions, or behaviors related to ending one’s own life, often associated with severe emotional suffering and hopelessness."@en ;
+    obo:IAO_0000115 "Suicidality =def. a Distress which is characterized by the presence of thoughts, intentions, or behaviors related to ending one’s own life, often associated with severe emotional suffering and hopelessness."@en ;
     rdfs:comment "The presence of thoughts or behaviors related to suicide."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00aMF a owl:Class ;
     rdfs:label "Agitation"@en ;
- iao:IAO_0000115 "Agitation =def. a Distress which is characterized by a state of heightened emotional or physiological arousal, often resulting in restlessness, irritability, or erratic behavior."@en ;
+    obo:IAO_0000115 "Agitation =def. a Distress which is characterized by a state of heightened emotional or physiological arousal, often resulting in restlessness, irritability, or erratic behavior."@en ;
     rdfs:comment "State of being overly excited or disturbed, often resulting in restlessness or erratic behavior."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00bEx a owl:Class ;
     rdfs:label "Retardation"@en ;
- iao:IAO_0000115 "Retardation =def. a Distress which is characterized by slowed cognitive and physical processes, including delays in thinking, speaking, and moving, often observed in depressive states."@en ;
+    obo:IAO_0000115 "Retardation =def. a Distress which is characterized by slowed cognitive and physical processes, including delays in thinking, speaking, and moving, often observed in depressive states."@en ;
     rdfs:comment "Slowed cognitive and physical processes, including thinking, speaking, and moving."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00cSn a owl:Class ;
     rdfs:label "Appetite loss"@en ;
- iao:IAO_0000115 "Appetite Loss =def. a Distress which is characterized by a reduction or loss of desire to eat, often resulting in decreased food intake and potential weight loss, commonly associated with depressive or anxious states."@en ;
+    obo:IAO_0000115 "Appetite Loss =def. a Distress which is characterized by a reduction or loss of desire to eat, often resulting in decreased food intake and potential weight loss, commonly associated with depressive or anxious states."@en ;
     rdfs:comment "Reduction or loss of desire to eat, which can lead to weight loss."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00dc1 a owl:Class ;
     rdfs:label "Appetite gain"@en ;
- iao:IAO_0000115 "Appetite Gain =def. a Distress which is characterized by an increased desire to eat, often resulting in elevated food intake and potential weight gain, commonly observed in atypical depressive states or in response to emotional distress."@en ;
+    obo:IAO_0000115 "Appetite Gain =def. a Distress which is characterized by an increased desire to eat, often resulting in elevated food intake and potential weight gain, commonly observed in atypical depressive states or in response to emotional distress."@en ;
     rdfs:comment "Increased desire to eat, which can lead to weight gain."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00e0L a owl:Class ;
     rdfs:label "(low) Wellbeing"@en ;
- iao:IAO_0000115 "(low) Wellbeing =def. a Distress which is characterized by a diminished state of mental and physical health, reflected in reduced happiness, life satisfaction, or emotional balance."@en ;
+    obo:IAO_0000115 "(low) Wellbeing =def. a Distress which is characterized by a diminished state of mental and physical health, reflected in reduced happiness, life satisfaction, or emotional balance."@en ;
     rdfs:comment "A low level of mental and physical wellbeing, characterized by reduced feelings of happiness, contentment, and overall health."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00fKQ a owl:Class ;
     rdfs:label "Generalized anxiety disorder symptoms"@en ;
- iao:IAO_0000115 "Generalized Anxiety Disorder Symptoms =def. a Distress which is characterized by excessive and persistent worry that interferes with daily functioning, often accompanied by physical symptoms such as restlessness, fatigue, and muscle tension."@en ;
+    obo:IAO_0000115 "Generalized Anxiety Disorder Symptoms =def. a Distress which is characterized by excessive and persistent worry that interferes with daily functioning, often accompanied by physical symptoms such as restlessness, fatigue, and muscle tension."@en ;
     rdfs:comment "A component of generalized anxiety disorder symptoms is excessive, persistent worry that interferes with daily life and is often accompanied by physical symptoms like restlessness and fatigue."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00gvD a owl:Class ;
     rdfs:label "Re-experiencing"@en ;
- iao:IAO_0000115 "Re-experiencing =def. a Distress which is characterized by the involuntary re-experiencing of traumatic events through flashbacks, intrusive memories, or nightmares, often accompanied by intense emotional or physiological reactions."@en ;
+    obo:IAO_0000115 "Re-experiencing =def. a Distress which is characterized by the involuntary re-experiencing of traumatic events through flashbacks, intrusive memories, or nightmares, often accompanied by intense emotional or physiological reactions."@en ;
     rdfs:comment "Re-experiencing traumatic events through flashbacks, intrusive memories, or nightmares."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00hPJ a owl:Class ;
     rdfs:label "Avoidance"@en ;
- iao:IAO_0000115 "Avoidance =def. a Distress which is characterized by efforts to avoid thoughts, feelings, people, places, or situations that are associated with traumatic experiences or stress, often as a means of reducing emotional discomfort or fear."@en ;
+    obo:IAO_0000115 "Avoidance =def. a Distress which is characterized by efforts to avoid thoughts, feelings, people, places, or situations that are associated with traumatic experiences or stress, often as a means of reducing emotional discomfort or fear."@en ;
     rdfs:comment "Efforts to avoid reminders or situations that are associated with traumatic experiences or stress."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00iAh a owl:Class ;
     rdfs:label "Hyperarousal"@en ;
- iao:IAO_0000115 "Hyperarousal =def. a Distress which is characterized by increased physiological arousal, including symptoms such as hypervigilance, irritability, exaggerated startle response, and difficulty sleeping, often associated with trauma-related or anxiety disorders."@en ;
+    obo:IAO_0000115 "Hyperarousal =def. a Distress which is characterized by increased physiological arousal, including symptoms such as hypervigilance, irritability, exaggerated startle response, and difficulty sleeping, often associated with trauma-related or anxiety disorders."@en ;
     rdfs:comment "Increased physiological arousal, including symptoms such as hypervigilance, irritability, and difficulty sleeping."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00jw5 a owl:Class ;
     rdfs:label "Numbing"@en ;
- iao:IAO_0000115 "Numbing =def. a Distress which is characterized by emotional numbness or detachment from feelings, typically as a psychological response to overwhelming stress or trauma, and often accompanied by a diminished capacity to experience positive emotions."@en ;
+    obo:IAO_0000115 "Numbing =def. a Distress which is characterized by emotional numbness or detachment from feelings, typically as a psychological response to overwhelming stress or trauma, and often accompanied by a diminished capacity to experience positive emotions."@en ;
     rdfs:comment "Emotional numbness or detachment from feelings as a response to overwhelming stress or trauma."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00kEN a owl:Class ;
     rdfs:label "Dissociation"@en ;
- iao:IAO_0000115 "Dissociation =def. a Distress which is characterized by a mental process used to cope with stress or trauma, leading to a sense of detachment from one’s surroundings, identity, or sense of self, and often resulting in altered perception or memory."@en ;
+    obo:IAO_0000115 "Dissociation =def. a Distress which is characterized by a mental process used to cope with stress or trauma, leading to a sense of detachment from one’s surroundings, identity, or sense of self, and often resulting in altered perception or memory."@en ;
     rdfs:comment "A mental process used to cope with stress or trauma, leading to a sense of detachment from one's surroundings or self."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00l5y a owl:Class ;
     rdfs:label "Irritability"@en ;
- iao:IAO_0000115 "Irritability =def. a Distress which is characterized by a heightened tendency to become easily annoyed or angered, often involving a low tolerance for frustration and frequent mood outbursts."@en ;
+    obo:IAO_0000115 "Irritability =def. a Distress which is characterized by a heightened tendency to become easily annoyed or angered, often involving a low tolerance for frustration and frequent mood outbursts."@en ;
     rdfs:comment "State of being easily annoyed or angered, often with a low tolerance for frustration."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00mpe a owl:Class ;
     rdfs:label "Pure obsessions"@en ;
- iao:IAO_0000115 "Pure Obsessions =def. a Distress which is characterized by recurrent and persistent intrusive thoughts, images, or impulses that cause significant distress, without being accompanied by observable compulsive behaviors intended to neutralize them."@en ;
+    obo:IAO_0000115 "Pure Obsessions =def. a Distress which is characterized by recurrent and persistent intrusive thoughts, images, or impulses that cause significant distress, without being accompanied by observable compulsive behaviors intended to neutralize them."@en ;
     rdfs:comment "Recurrent and persistent intrusive thoughts that cause significant distress, without accompanying compulsive behaviors."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00nyb a owl:Class ;
     rdfs:label "Euphoric activation"@en ;
- iao:IAO_0000115 "Euphoric Activation =def. a Mania which is characterized by heightened mood, increased energy, and elevated self-confidence, often associated with euphoric or expansive affect seen in manic or hypomanic episodes."@en ;
+    obo:IAO_0000115 "Euphoric Activation =def. a Mania which is characterized by heightened mood, increased energy, and elevated self-confidence, often associated with euphoric or expansive affect seen in manic or hypomanic episodes."@en ;
     rdfs:comment "A state of heightened mood and increased energy, often associated with mania or hypomania."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00oKM a owl:Class ;
     rdfs:label "Hyperactive cognition"@en ;
- iao:IAO_0000115 "Hyperactive Cognition =def. a Mania which is characterized by increased cognitive activity, including racing thoughts, distractibility, and accelerated ideation, often leading to difficulties in concentration and goal-directed thinking."@en ;
+    obo:IAO_0000115 "Hyperactive Cognition =def. a Mania which is characterized by increased cognitive activity, including racing thoughts, distractibility, and accelerated ideation, often leading to difficulties in concentration and goal-directed thinking."@en ;
     rdfs:comment "Increased cognitive activity, often characterized by racing thoughts and distractibility."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00pnZ a owl:Class ;
     rdfs:label "Reckless overconfidence"@en ;
- iao:IAO_0000115 "Reckless Overconfidence =def. a Mania which is characterized by excessive self-confidence that leads to risky, impulsive, or poorly judged behaviors, often without regard for potential negative consequences, as commonly observed in manic episodes."@en ;
+    obo:IAO_0000115 "Reckless Overconfidence =def. a Mania which is characterized by excessive self-confidence that leads to risky, impulsive, or poorly judged behaviors, often without regard for potential negative consequences, as commonly observed in manic episodes."@en ;
     rdfs:comment "Excessive self-confidence leading to risky or impulsive behavior, often seen in manic episodes."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00qSD a owl:Class ;
     rdfs:label "Psychotic"@en ;
- iao:IAO_0000115 "Psychotic =def. a Thought Disorder which is characterized by symptoms of psychosis, such as delusions, hallucinations, disorganized thinking, or impaired reality testing."@en ;
+    obo:IAO_0000115 "Psychotic =def. a Thought Disorder which is characterized by symptoms of psychosis, such as delusions, hallucinations, disorganized thinking, or impaired reality testing."@en ;
     rdfs:comment "A component characterized by symptoms of psychosis."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00rnS a owl:Class ;
     rdfs:label "Disorganized"@en ;
- iao:IAO_0000115 "Disorganized =def. a Thought Disorder which is characterized by disorganized thinking and behavior, including incoherent speech, erratic actions, and difficulties maintaining goal-directed activity."@en ;
+    obo:IAO_0000115 "Disorganized =def. a Thought Disorder which is characterized by disorganized thinking and behavior, including incoherent speech, erratic actions, and difficulties maintaining goal-directed activity."@en ;
     rdfs:comment "A component characterized by disorganized thinking and behavior."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00sWr a owl:Class ;
     rdfs:label "Inexpressivity"@en ;
- iao:IAO_0000115 "Inexpressivity =def. a Thought Disorder which is characterized by a lack of emotional expression, including reduced facial expressions, vocal inflection, and gestures, often observed as a negative symptom in psychotic disorders."@en ;
+    obo:IAO_0000115 "Inexpressivity =def. a Thought Disorder which is characterized by a lack of emotional expression, including reduced facial expressions, vocal inflection, and gestures, often observed as a negative symptom in psychotic disorders."@en ;
     rdfs:comment "A component characterized by a lack of emotional expression."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00tUQ a owl:Class ;
     rdfs:label "Avolition"@en ;
- iao:IAO_0000115 "Avolition =def. a Thought Disorder which is characterized by a lack of motivation to initiate and sustain purposeful activities, often resulting in reduced goal-directed behavior and functional impairment in daily life."@en ;
+    obo:IAO_0000115 "Avolition =def. a Thought Disorder which is characterized by a lack of motivation to initiate and sustain purposeful activities, often resulting in reduced goal-directed behavior and functional impairment in daily life."@en ;
     rdfs:comment "A component characterized by a lack of motivation to initiate and sustain purposeful activities."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01DAb a owl:Class ;
     rdfs:label "Alcohol use"@en ;
- iao:IAO_0000115 "Alcohol Use =def. a Harmful Substance Use which is characterized by the consumption of alcoholic beverages, which may lead to problematic use, dependence, or negative physical, psychological, or social consequences."@en ;
+    obo:IAO_0000115 "Alcohol Use =def. a Harmful Substance Use which is characterized by the consumption of alcoholic beverages, which may lead to problematic use, dependence, or negative physical, psychological, or social consequences."@en ;
     rdfs:comment "The consumption of alcoholic beverages, which may lead to problematic use."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01Elz a owl:Class ;
     rdfs:label "Alcohol problems"@en ;
- iao:IAO_0000115 "Alcohol Problems =def. a Harmful Substance Use which is characterized by issues related to the use of alcohol, including dependence, abuse, and the negative physical, psychological, and social consequences resulting from excessive consumption."@en ;
+    obo:IAO_0000115 "Alcohol Problems =def. a Harmful Substance Use which is characterized by issues related to the use of alcohol, including dependence, abuse, and the negative physical, psychological, and social consequences resulting from excessive consumption."@en ;
     rdfs:comment "Issues related to the use of alcohol, including dependence and abuse."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01FDy a owl:Class ;
     rdfs:label "Marijuana use"@en ;
- iao:IAO_0000115 "Marijuana Use =def. a Harmful Substance Use which is characterized by the consumption of marijuana, which may lead to problematic use, dependence, or negative physical, psychological, or social consequences."@en ;
+    obo:IAO_0000115 "Marijuana Use =def. a Harmful Substance Use which is characterized by the consumption of marijuana, which may lead to problematic use, dependence, or negative physical, psychological, or social consequences."@en ;
     rdfs:comment "The consumption of marijuana, which may lead to problematic use."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01GEY a owl:Class ;
     rdfs:label "Marijuana problems"@en ;
- iao:IAO_0000115 "Marijuana Problems =def. a Harmful Substance Use which is characterized by issues related to the use of marijuana, including dependence, abuse, and the negative physical, psychological, and social consequences resulting from excessive consumption."@en ;
+    obo:IAO_0000115 "Marijuana Problems =def. a Harmful Substance Use which is characterized by issues related to the use of marijuana, including dependence, abuse, and the negative physical, psychological, and social consequences resulting from excessive consumption."@en ;
     rdfs:comment "Issues related to the use of marijuana, including dependence and abuse."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01HGq a owl:Class ;
     rdfs:label "Drug use"@en ;
- iao:IAO_0000115 "Drug Use =def. a Harmful Substance Use which is characterized by the consumption of illicit or prescription drugs, which may lead to problematic use, dependence, or negative physical, psychological, or social consequences."@en ;
+    obo:IAO_0000115 "Drug Use =def. a Harmful Substance Use which is characterized by the consumption of illicit or prescription drugs, which may lead to problematic use, dependence, or negative physical, psychological, or social consequences."@en ;
     rdfs:comment "The consumption of illicit or prescription drugs, which may lead to problematic use."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01Ip4 a owl:Class ;
     rdfs:label "Drug problems"@en ;
- iao:IAO_0000115 "Drug Problems =def. a Harmful Substance Use which is characterized by issues related to the use of drugs, including dependence, abuse, and the negative physical, psychological, and social consequences resulting from excessive or harmful consumption."@en ;
+    obo:IAO_0000115 "Drug Problems =def. a Harmful Substance Use which is characterized by issues related to the use of drugs, including dependence, abuse, and the negative physical, psychological, and social consequences resulting from excessive or harmful consumption."@en ;
     rdfs:comment "Issues related to the use of drugs, including dependence and abuse."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01JH8 a owl:Class ;
     rdfs:label "Physical aggression"@en ;
- iao:IAO_0000115 "Physical Aggression =def. an Antisocial Behavior which is characterized by the use of physical acts of violence towards others, often involving harm or the threat of harm, and typically reflecting a disregard for social norms and the rights of others."@en ;
+    obo:IAO_0000115 "Physical Aggression =def. an Antisocial Behavior which is characterized by the use of physical acts of violence towards others, often involving harm or the threat of harm, and typically reflecting a disregard for social norms and the rights of others."@en ;
     rdfs:comment "Aggression involving physical acts of violence towards others."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01KXo a owl:Class ;
     rdfs:label "Destructive aggression"@en ;
- iao:IAO_0000115 "Destructive Aggression =def. an Antisocial Behavior which is characterized by aggression that results in damage to property or the environment, often reflecting a disregard for social norms, authority, or the consequences of one’s actions."@en ;
+    obo:IAO_0000115 "Destructive Aggression =def. an Antisocial Behavior which is characterized by aggression that results in damage to property or the environment, often reflecting a disregard for social norms, authority, or the consequences of one’s actions."@en ;
     rdfs:comment "Aggression that results in damage to property or the environment."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01LSp a owl:Class ;
     rdfs:label "Relational aggression"@en ;
- iao:IAO_0000115 "Relational Aggression =def. an Antisocial Behavior which is characterized by aggression that harms others through manipulation of social relationships, such as spreading rumors, social exclusion, or undermining someone's reputation."@en ;
+    obo:IAO_0000115 "Relational Aggression =def. an Antisocial Behavior which is characterized by aggression that harms others through manipulation of social relationships, such as spreading rumors, social exclusion, or undermining someone's reputation."@en ;
     rdfs:comment "Aggression that harms others through manipulation of social relationships."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01MjB a owl:Class ;
     rdfs:label "Fraud"@en ;
- iao:IAO_0000115 "Fraud =def. an Antisocial Behavior which is characterized by deceptive behavior intended to secure unfair or unlawful gain, often involving manipulation, dishonesty, or the misrepresentation of information to deceive others."@en ;
+    obo:IAO_0000115 "Fraud =def. an Antisocial Behavior which is characterized by deceptive behavior intended to secure unfair or unlawful gain, often involving manipulation, dishonesty, or the misrepresentation of information to deceive others."@en ;
     rdfs:comment "Deceptive behavior intended to secure unfair or unlawful gain."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01i7x a owl:Class ;
     rdfs:label "Pain"@en ;
- iao:IAO_0000115 "Pain =def. a Somatoform which is characterized by the subjective experience of physical discomfort or distress, which may vary in intensity, duration, and localization."@en ;
+    obo:IAO_0000115 "Pain =def. a Somatoform which is characterized by the subjective experience of physical discomfort or distress, which may vary in intensity, duration, and localization."@en ;
     rdfs:comment "A component or trait characterized by the subjective experience of physical discomfort or distress, which may vary in intensity, duration, and localization."@en ;
     rdfs:subClassOf hitop:O002sP .
 
@@ -400,623 +398,623 @@ iao:IAO_0000115 a owl:AnnotationProperty .
 
     hitop:C01kKJ a owl:Class ;
     rdfs:label "Neurological"@en ;
- iao:IAO_0000115 "Neurological =def. a Somatoform which is defined by functional disturbances or symptoms related to the nervous system, including sensory, motor, or cognitive manifestations."@en ;
+    obo:IAO_0000115 "Neurological =def. a Somatoform which is defined by functional disturbances or symptoms related to the nervous system, including sensory, motor, or cognitive manifestations."@en ;
     rdfs:comment "A component or trait reflecting functional disturbances or symptoms related to the nervous system, including sensory, motor, or cognitive manifestations."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01l9M a owl:Class ;
     rdfs:label "Cardiopulmonary"@en ;
- iao:IAO_0000115 "Cardiopulmonary =def. a Somatoform which is defined by signs or symptoms involving the heart and lungs, such as circulatory, respiratory, or exercise-related difficulties."@en ;
+    obo:IAO_0000115 "Cardiopulmonary =def. a Somatoform which is defined by signs or symptoms involving the heart and lungs, such as circulatory, respiratory, or exercise-related difficulties."@en ;
     rdfs:comment "A component or trait associated with signs or symptoms involving the heart and lungs, such as circulatory, respiratory, or exercise-related difficulties."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01mPz a owl:Class ;
     rdfs:label "Negative emotionality"@en ;
- iao:IAO_0000115 "Negative emotionality =def. a Distress trait which is defined by a general tendency to experience frequent and intense negative emotions such as sadness, anxiety, and guilt across diverse situations."@en ;
+    obo:IAO_0000115 "Negative emotionality =def. a Distress trait which is defined by a general tendency to experience frequent and intense negative emotions such as sadness, anxiety, and guilt across diverse situations."@en ;
     rdfs:comment "A trait reflecting a general tendency to experience frequent and intense negative emotions such as sadness, anxiety, and guilt across diverse situations."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01nVp a owl:Class ;
     rdfs:label "Anger/irritability"@en ;
- iao:IAO_0000115 "Anger/irritability =def. a Distress component or trait which is defined by a heightened propensity toward frustration, hostility, or easily provoked emotional reactivity."@en ;
+    obo:IAO_0000115 "Anger/irritability =def. a Distress component or trait which is defined by a heightened propensity toward frustration, hostility, or easily provoked emotional reactivity."@en ;
     rdfs:comment "A component or trait characterized by a heightened propensity toward frustration, hostility, or easily provoked emotional reactivity."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01oMk a owl:Class ;
     rdfs:label "Behavioral avoidance"@en ;
- iao:IAO_0000115 "Behavioral avoidance =def. a Fear component or trait which is defined by the consistent tendency to withdraw from or evade situations, thoughts, or stimuli perceived as threatening, distressing, or aversive."@en ;
+    obo:IAO_0000115 "Behavioral avoidance =def. a Fear component or trait which is defined by the consistent tendency to withdraw from or evade situations, thoughts, or stimuli perceived as threatening, distressing, or aversive."@en ;
     rdfs:comment "A component or trait defined by the consistent tendency to withdraw from or evade situations, thoughts, or stimuli perceived as threatening, distressing, or aversive."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01pc6 a owl:Class ;
     rdfs:label "Anxiety sensitivity"@en ;
- iao:IAO_0000115 "Anxiety sensitivity =def. a Fear trait which is defined by the fear of anxiety-related sensations, based on beliefs that these sensations have harmful physical, psychological, or social consequences."@en ;
+    obo:IAO_0000115 "Anxiety sensitivity =def. a Fear trait which is defined by the fear of anxiety-related sensations, based on beliefs that these sensations have harmful physical, psychological, or social consequences."@en ;
     rdfs:comment "A trait reflecting the fear of anxiety-related sensations, based on beliefs that these sensations have harmful physical, psychological, or social consequences."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01qTa a owl:Class ;
     rdfs:label "BII phobia"@en ;
- iao:IAO_0000115 "BII phobia =def. a Fear component which is defined by marked fear or avoidance of situations involving blood, injury, or invasive medical procedures, often accompanied by physiological reactions such as fainting."@en ;
+    obo:IAO_0000115 "BII phobia =def. a Fear component which is defined by marked fear or avoidance of situations involving blood, injury, or invasive medical procedures, often accompanied by physiological reactions such as fainting."@en ;
     rdfs:comment "A component characterized by marked fear or avoidance of situations involving blood, injury, or invasive medical procedures, often associated with physiological reactions such as fainting."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01rfi a owl:Class ;
     rdfs:label "Body dissatisfaction"@en ;
- iao:IAO_0000115 "Body dissatisfaction =def. an Eating pathology component or trait which is defined by persistent negative evaluations of one’s own body shape, weight, or appearance, often linked to distress and maladaptive behaviors."@en ;
+    obo:IAO_0000115 "Body dissatisfaction =def. an Eating pathology component or trait which is defined by persistent negative evaluations of one’s own body shape, weight, or appearance, often linked to distress and maladaptive behaviors."@en ;
     rdfs:comment "A component or trait defined by persistent negative evaluations of one’s own body shape, weight, or appearance, often linked to distress and maladaptive behaviors."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01s9T a owl:Class ;
     rdfs:label "Binge eating"@en ;
- iao:IAO_0000115 "Binge eating =def. an Eating pathology component which is defined by recurrent episodes of consuming unusually large amounts of food, accompanied by a sense of loss of control during the episode."@en ;
+    obo:IAO_0000115 "Binge eating =def. an Eating pathology component which is defined by recurrent episodes of consuming unusually large amounts of food, accompanied by a sense of loss of control during the episode."@en ;
     rdfs:comment "A component characterized by recurrent episodes of consuming unusually large amounts of food accompanied by a sense of loss of control during the episode."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01tAk a owl:Class ;
     rdfs:label "Cognitive restraint"@en ;
- iao:IAO_0000115 "Cognitive restraint =def. an Eating pathology trait which is defined by the deliberate control or restriction of eating behavior based on cognitive rules or beliefs about food, body weight, or dieting."@en ;
+    obo:IAO_0000115 "Cognitive restraint =def. an Eating pathology trait which is defined by the deliberate control or restriction of eating behavior based on cognitive rules or beliefs about food, body weight, or dieting."@en ;
     rdfs:comment "A trait reflecting the deliberate control or restriction of eating behavior based on cognitive rules or beliefs about food, body weight, or dieting."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01ueZ a owl:Class ;
     rdfs:label "Purging"@en ;
- iao:IAO_0000115 "Purging =def. an Eating pathology component which is defined by recurrent compensatory behaviors such as self-induced vomiting, misuse of laxatives, or diuretics aimed at preventing weight gain after eating."@en ;
+    obo:IAO_0000115 "Purging =def. an Eating pathology component which is defined by recurrent compensatory behaviors such as self-induced vomiting, misuse of laxatives, or diuretics aimed at preventing weight gain after eating."@en ;
     rdfs:comment "A component involving recurrent compensatory behaviors such as self-induced vomiting, misuse of laxatives, or diuretics aimed at preventing weight gain after eating."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01vT5 a owl:Class ;
     rdfs:label "Excessive exercise"@en ;
- iao:IAO_0000115 "Excessive exercise =def. an Eating pathology component defined by compulsive or disproportionate physical activity, often performed to control weight, shape, or mood, despite potential health risks."@en ;
+    obo:IAO_0000115 "Excessive exercise =def. an Eating pathology component defined by compulsive or disproportionate physical activity, often performed to control weight, shape, or mood, despite potential health risks."@en ;
     rdfs:comment "A component characterized by compulsive or disproportionate physical activity, often performed with the aim of controlling weight, shape, or mood, despite potential health risks."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01wSl a owl:Class ;
     rdfs:label "Restricting"@en ;
- iao:IAO_0000115 "Restricting =def. an Eating pathology component defined by the deliberate limitation of food intake to influence body weight or shape, typically associated with disordered eating patterns."@en ;
+    obo:IAO_0000115 "Restricting =def. an Eating pathology component defined by the deliberate limitation of food intake to influence body weight or shape, typically associated with disordered eating patterns."@en ;
     rdfs:comment "A component defined by the deliberate limitation of food intake in order to influence body weight or shape, typically associated with disordered eating patterns."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01xzj a owl:Class ;
     rdfs:label "Muscle building"@en ;
- iao:IAO_0000115 "Muscle building =def. an Eating pathology component involving persistent efforts to increase muscularity through exercise, diet, or supplementation, sometimes associated with body image concerns."@en ;
+    obo:IAO_0000115 "Muscle building =def. an Eating pathology component involving persistent efforts to increase muscularity through exercise, diet, or supplementation, sometimes associated with body image concerns."@en ;
     rdfs:comment "A component involving persistent efforts to increase muscularity through exercise, diet, or supplementation, sometimes associated with body image concerns."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01yno a owl:Class ;
     rdfs:label "Negative attitudes toward obesity"@en ;
- iao:IAO_0000115 "Negative attitudes toward obesity =def. an Eating pathology trait reflecting unfavorable beliefs, stereotypes, or stigmatizing attitudes toward individuals with obesity, often linked to social or cultural biases."@en ;
+    obo:IAO_0000115 "Negative attitudes toward obesity =def. an Eating pathology trait reflecting unfavorable beliefs, stereotypes, or stigmatizing attitudes toward individuals with obesity, often linked to social or cultural biases."@en ;
     rdfs:comment "A trait reflecting unfavorable beliefs, stereotypes, or stigmatizing attitudes toward individuals with obesity, often linked to social or cultural biases."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01zXz a owl:Class ;
     rdfs:label "Low sexual desire"@en ;
- iao:IAO_0000115 "Low sexual desire =def. a Sexual problems component or trait characterized by a persistent or recurrent reduction in interest, motivation, or fantasies related to sexual activity."@en ;
+    obo:IAO_0000115 "Low sexual desire =def. a Sexual problems component or trait characterized by a persistent or recurrent reduction in interest, motivation, or fantasies related to sexual activity."@en ;
     rdfs:comment "A component or trait characterized by a persistent or recurrent reduction in interest, motivation, or fantasies related to sexual activity."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C020XA a owl:Class ;
     rdfs:label "Difficulties with arousal"@en ;
- iao:IAO_0000115 "Difficulties with arousal =def. a Sexual problems component characterized by challenges in attaining or maintaining adequate sexual excitement or physiological arousal during sexual activity."@en ;
+    obo:IAO_0000115 "Difficulties with arousal =def. a Sexual problems component characterized by challenges in attaining or maintaining adequate sexual excitement or physiological arousal during sexual activity."@en ;
     rdfs:comment "A component defined by challenges in attaining or maintaining adequate sexual excitement or physiological arousal during sexual activity."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C021Q0 a owl:Class ;
     rdfs:label "Low orgasmic function"@en ;
- iao:IAO_0000115 "Low orgasmic function =def. a Sexual problems component characterized by diminished ability, frequency, or satisfaction in reaching orgasm, often associated with sexual dysfunction."@en ;
+    obo:IAO_0000115 "Low orgasmic function =def. a Sexual problems component characterized by diminished ability, frequency, or satisfaction in reaching orgasm, often associated with sexual dysfunction."@en ;
     rdfs:comment "A component characterized by diminished ability, frequency, or satisfaction in reaching orgasm, often associated with sexual dysfunction."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C022PW a owl:Class ;
     rdfs:label "Sex-related distress"@en ;
- iao:IAO_0000115 "Sex-related distress =def. a Sexual problems component defined by psychological discomfort, worry, or negative emotional reactions specifically linked to sexual experiences, functioning, or difficulties."@en ;
+    obo:IAO_0000115 "Sex-related distress =def. a Sexual problems component defined by psychological discomfort, worry, or negative emotional reactions specifically linked to sexual experiences, functioning, or difficulties."@en ;
     rdfs:comment "A component defined by psychological discomfort, worry, or negative emotional reactions specifically linked to sexual experiences, functioning, or difficulties."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C0237W a owl:Class ;
     rdfs:label "Decreased need for sleep"@en ;
- iao:IAO_0000115 "Decreased need for sleep =def. a Mania component or trait marked by a reduced requirement for sleep without a corresponding sense of fatigue, often associated with altered mood or energy states."@en ;
+    obo:IAO_0000115 "Decreased need for sleep =def. a Mania component or trait marked by a reduced requirement for sleep without a corresponding sense of fatigue, often associated with altered mood or energy states."@en ;
     rdfs:comment "A component or trait marked by a reduced requirement for sleep without a corresponding sense of fatigue, often associated with altered mood or energy states."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C024WG a owl:Class ;
     rdfs:label "Physiological anxiety"@en ;
- iao:IAO_0000115 "Physiological anxiety =def. a Somatoform and Distress component reflecting bodily manifestations of anxiety such as rapid heartbeat, sweating, trembling, or gastrointestinal discomfort."@en ;
+    obo:IAO_0000115 "Physiological anxiety =def. a Somatoform and Distress component reflecting bodily manifestations of anxiety such as rapid heartbeat, sweating, trembling, or gastrointestinal discomfort."@en ;
     rdfs:comment "A component reflecting bodily manifestations of anxiety such as rapid heartbeat, sweating, trembling, or gastrointestinal discomfort."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C025ex a owl:Class ;
     rdfs:label "Health/Illness anxiety"@en ;
- iao:IAO_0000115 "Health/Illness anxiety =def. a Somatoform and Distress component characterized by excessive worry or preoccupation with having, developing, or misinterpreting symptoms of a serious medical condition."@en ;
+    obo:IAO_0000115 "Health/Illness anxiety =def. a Somatoform and Distress component characterized by excessive worry or preoccupation with having, developing, or misinterpreting symptoms of a serious medical condition."@en ;
     rdfs:comment "A component characterized by excessive worry or preoccupation with having, developing, or misinterpreting symptoms of a serious medical condition."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C0277d a owl:Class ;
     rdfs:label "Reality distortion"@en ;
- iao:IAO_0000115 "Reality distortion =def. a Thought disorder component characterized by alterations in the perception or interpretation of reality, such as delusions, hallucinations, or disorganized thinking."@en ;
+    obo:IAO_0000115 "Reality distortion =def. a Thought disorder component characterized by alterations in the perception or interpretation of reality, such as delusions, hallucinations, or disorganized thinking."@en ;
     rdfs:comment "A component characterized by alterations in the perception or interpretation of reality, such as delusions, hallucinations, or disorganized thinking."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C02BO8 a owl:Class ;
     rdfs:label "Inattention"@en ;
- iao:IAO_0000115 "Inattention =def. a Disinhibition component defined by difficulties sustaining focus, being easily distracted, or failing to maintain attention during tasks or activities."@en ;
+    obo:IAO_0000115 "Inattention =def. a Disinhibition component defined by difficulties sustaining focus, being easily distracted, or failing to maintain attention during tasks or activities."@en ;
     rdfs:comment "A component defined by difficulties sustaining focus, being easily distracted, or failing to maintain attention during tasks or activities."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C02CiQ a owl:Class ;
     rdfs:label "Destruction of property"@en ;
- iao:IAO_0000115 "Destruction of property =def. an Antisocial behavior component involving deliberate or impulsive damage, vandalism, or destruction of objects, possessions, or physical environments."@en ;
+    obo:IAO_0000115 "Destruction of property =def. an Antisocial behavior component involving deliberate or impulsive damage, vandalism, or destruction of objects, possessions, or physical environments."@en ;
     rdfs:comment "A component involving deliberate or impulsive damage, vandalism, or destruction of objects, possessions, or physical environments."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C02DSC a owl:Class ;
     rdfs:label "Exhibitionism"@en ;
- iao:IAO_0000115 "Exhibitionism =def. an Antagonism trait characterized by a recurrent tendency or desire to draw attention to oneself through the display of one’s body, sexuality, or behaviors in ways intended to provoke, shock, or gain validation."@en ;
+    obo:IAO_0000115 "Exhibitionism =def. an Antagonism trait characterized by a recurrent tendency or desire to draw attention to oneself through the display of one’s body, sexuality, or behaviors in ways intended to provoke, shock, or gain validation."@en ;
     rdfs:comment "A trait characterized by a recurrent tendency or desire to draw attention to oneself through the display of one’s body, sexuality, or behaviors in ways intended to provoke, shock, or gain validation."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C02EBv a owl:Class ;
     rdfs:label "Substance use"@en ;
- iao:IAO_0000115 "Substance Use =def. a Substance Abuse component which is characterized by the general consumption of alcohol, drugs, or other psychoactive substances, without reference to a single substance category, as distinguished from substance-specific components such as drug use or alcohol use."@en ;
+    obo:IAO_0000115 "Substance Use =def. a Substance Abuse component which is characterized by the general consumption of alcohol, drugs, or other psychoactive substances, without reference to a single substance category, as distinguished from substance-specific components such as drug use or alcohol use."@en ;
     rdfs:comment "The general consumption of alcohol, drugs, or other psychoactive substances, considered broadly rather than for one specific substance."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C02FZY a owl:Class ;
     rdfs:label "Substance problems"@en ;
- iao:IAO_0000115 "Substance Problems =def. a Substance Abuse component which is characterized by dependence, abuse, or negative physical, psychological, or social consequences resulting from substance use in general, without reference to a single substance category."@en ;
+    obo:IAO_0000115 "Substance Problems =def. a Substance Abuse component which is characterized by dependence, abuse, or negative physical, psychological, or social consequences resulting from substance use in general, without reference to a single substance category."@en ;
     rdfs:comment "Dependence, abuse, or negative consequences resulting from substance use, considered broadly rather than for one specific substance."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:F001Hw a owl:Class ;
     rdfs:label "General Psychopathology"@en ;
- iao:IAO_0000115 "General Psychopathology = Def. a Psychological Condition which manifests across multiple mental health disorders and includes broad symptoms such as mood disturbances, anxiety, cognitive dysfunctions, and behavioral problems."@en ;
+    obo:IAO_0000115 "General Psychopathology = Def. a Psychological Condition which manifests across multiple mental health disorders and includes broad symptoms such as mood disturbances, anxiety, cognitive dysfunctions, and behavioral problems."@en ;
     rdfs:comment "General Psychopathology refers to the broad, overarching category of mental disorders and psychological symptoms that can manifest across different mental health conditions. It encompasses a wide range of psychological phenomena that are not specific to any single disorder but may contribute to or exacerbate multiple types of mental health issues. This category includes general symptoms and traits that are commonly observed in various psychiatric conditions, such as mood disturbances, anxiety, cognitive dysfunctions, and behavioral problems."@en ;
     rdfs:subClassOf hitop:O002sP ;
     skos:changeNote "Indicates the potential for future inclusion of additional spectra and other related concepts as new developments and insights emerge in the field of general psychopathology. Allows for flexible expansion and refinement of the taxonomy to integrate new spectra, subfactors, and related elements to better capture evolving understanding and research findings." .
 
     hitop:P001Y2 a owl:Class ;
     rdfs:label "Somatoform"@en ;
- iao:IAO_0000115 "Somatoform =def. a General Psychopathology which is characterized by physical symptoms that cannot be fully explained by a medical condition and reflect psychological distress expressed through somatic complaints."@en ;
+    obo:IAO_0000115 "Somatoform =def. a General Psychopathology which is characterized by physical symptoms that cannot be fully explained by a medical condition and reflect psychological distress expressed through somatic complaints."@en ;
     rdfs:comment "The Somatoform label refers to a category of mental health disorders characterized by physical symptoms that cannot be fully explained by any underlying medical condition, highlighting the complex interaction between mind and body in mental health."@en ;
     rdfs:subClassOf hitop:O002sP ;
     skos:changeNote "This spectrum may include future expansions or modifications based on emerging research or changes in the understanding of somatoform disorders. It is designed to adapt to new developments by allowing the addition of new related spectra or concepts as needed."@en .
 
     hitop:P002nf a owl:Class ;
     rdfs:label "Internalizing"@en ;
- iao:IAO_0000115 "Internalizing =def. a General Psychopathology which is characterized by inward-directed symptoms such as anxiety, depression, and social withdrawal, indicating emotional and cognitive distress that is primarily internal in nature."@en ;
+    obo:IAO_0000115 "Internalizing =def. a General Psychopathology which is characterized by inward-directed symptoms such as anxiety, depression, and social withdrawal, indicating emotional and cognitive distress that is primarily internal in nature."@en ;
     rdfs:comment "The Internalizing label refers to a category of mental health disorders characterized by inward-focused symptoms such as anxiety, depression, and withdrawal, reflecting emotional and cognitive distress."@en ;
     rdfs:subClassOf hitop:O002sP ;
     skos:changeNote "This spectrum can accommodate future additions or modifications based on emerging research or evolving understanding of internalizing disorders. It is designed to integrate new related spectra or concepts as needed, reflecting the ongoing developments in the field."@en .
 
     hitop:P003SL a owl:Class ;
     rdfs:label "Thought Disorder"@en ;
- iao:IAO_0000115 "Thought Disorder =def. a General Psychopathology which is characterized by disorganized thinking, impaired reality testing, and disturbances in the form or content of thought, reflecting severe cognitive and perceptual disruptions."@en ;
+    obo:IAO_0000115 "Thought Disorder =def. a General Psychopathology which is characterized by disorganized thinking, impaired reality testing, and disturbances in the form or content of thought, reflecting severe cognitive and perceptual disruptions."@en ;
     rdfs:comment "Thought Disorder refers to a category of mental health conditions characterized by disorganized thinking, impaired reality testing, and disturbances in the form or content of thought."@en ;
     rdfs:subClassOf hitop:O002sP ;
     skos:changeNote "This spectrum allows for the integration of additional related spectra or concepts as new insights into thought disorders emerge. It is structured to adapt to evolving understandings and classifications within the domain of cognitive and thought-related disturbances."@en .
 
     hitop:P004R1 a owl:Class ;
     rdfs:label "Detachment"@en ;
- iao:IAO_0000115 "Detachment =def. a General Psychopathology which is characterized by emotional distance and disengagement from social interactions, reflecting a reduced capacity for affective connection and interpersonal involvement."@en ;
+    obo:IAO_0000115 "Detachment =def. a General Psychopathology which is characterized by emotional distance and disengagement from social interactions, reflecting a reduced capacity for affective connection and interpersonal involvement."@en ;
     rdfs:comment "Detachment refers to a psychological state characterized by emotional distance and disengagement from social interactions."@en ;
     rdfs:subClassOf hitop:O002sP ;
     skos:changeNote "This spectrum is designed to accommodate the inclusion of new related spectra or additional concepts as understanding of detachment and related psychological phenomena evolves. It supports updates and extensions to reflect advances in research and shifts in diagnostic criteria."@en .
 
     hitop:P005xY a owl:Class ;
     rdfs:label "Disinhibited Externalizing"@en ;
- iao:IAO_0000115 "Disinhibited Externalizing =def. an Externalizing which is characterized by impulsive behaviors and a lack of social restraint or inhibition, reflecting difficulties in self-regulation and behavioral control."@en ;
+    obo:IAO_0000115 "Disinhibited Externalizing =def. an Externalizing which is characterized by impulsive behaviors and a lack of social restraint or inhibition, reflecting difficulties in self-regulation and behavioral control."@en ;
     rdfs:comment "Disinhibited Externalizing involves behaviors that are impulsive and lacking in social restraint or inhibition."@en ;
     rdfs:subClassOf hitop:O002sP ;
     skos:changeNote "This spectrum is designed to be adaptable to the addition of new spectra or related concepts as research on disinhibited externalizing behaviors evolves. It allows for updates and expansions to incorporate emerging findings and shifts in diagnostic frameworks."@en .
 
     hitop:P006gM a owl:Class ;
     rdfs:label "Antagonistic Externalizing"@en ;
- iao:IAO_0000115 "Antagonistic Externalizing =def. an Externalizing which is characterized by hostile and aggressive behaviors directed toward others, reflecting interpersonal antagonism and a tendency to violate social norms or the rights of others."@en ;
+    obo:IAO_0000115 "Antagonistic Externalizing =def. an Externalizing which is characterized by hostile and aggressive behaviors directed toward others, reflecting interpersonal antagonism and a tendency to violate social norms or the rights of others."@en ;
     rdfs:comment "Antagonistic Externalizing describes behaviors that involve hostility and aggression towards others."@en ;
     rdfs:subClassOf hitop:O002sP ;
     skos:changeNote "This spectrum is designed to accommodate potential future modifications and expansions. It supports the integration of new spectra or related concepts to reflect advancements in understanding antagonistic externalizing behaviors and their classification."@en .
 
     hitop:S0013h a owl:Class ;
     rdfs:label "Externalizing"@en ;
- iao:IAO_0000115 "Externalizing =def. a General Psychopathology which is characterized by outwardly directed behaviors and dysregulation, including impulsivity, aggression, and rule-breaking actions that disrupt external environments."@en ;
+    obo:IAO_0000115 "Externalizing =def. a General Psychopathology which is characterized by outwardly directed behaviors and dysregulation, including impulsivity, aggression, and rule-breaking actions that disrupt external environments."@en ;
     rdfs:comment "Represents a broad HiTOP dimension characterized by outwardly directed behaviors and dysregulation."@en ;
     rdfs:subClassOf hitop:O002sP ;
     skos:changeNote "This superspectrum is structured to support future refinements and extensions. It allows for the incorporation of additional spectra or subdimensions to reflect ongoing developments in the conceptualization and classification of externalizing behaviors and dysregulation."@en .
 
     hitop:S002SE a owl:Class ;
     rdfs:label "Emotional dysfunction"@en ;
- iao:IAO_0000115 "Emotional dysfunction =def. a General Psychopathology superspectrum encompassing a broad range of disturbances in emotional experience and regulation, including heightened negative affect, diminished positive affect, and difficulties in managing or expressing emotions."@en ;
+    obo:IAO_0000115 "Emotional dysfunction =def. a General Psychopathology superspectrum encompassing a broad range of disturbances in emotional experience and regulation, including heightened negative affect, diminished positive affect, and difficulties in managing or expressing emotions."@en ;
     rdfs:comment "A superspectrum encompassing a broad range of disturbances in emotional experience and regulation, including heightened negative affect, diminished positive affect, and difficulties in managing or expressing emotions."@en ;
     rdfs:subClassOf hitop:O002sP ;
     skos:changeNote "This superspectrum is structured to support ongoing refinements and extensions. It allows for incorporation of additional components or subdimensions to reflect advances in the conceptualization and classification of emotional experience and regulatory difficulties."@en .
 
     hitop:S003TB a owl:Class ;
     rdfs:label "Psychosis"@en ;
- iao:IAO_0000115 "Psychosis =def. a General Psychopathology superspectrum encompassing disturbances in reality testing and self-experience, including abnormalities of perception, belief, and thought such as hallucinations, delusions, disorganization, and related negative symptoms (e.g., avolition, blunted affect)."@en ;
+    obo:IAO_0000115 "Psychosis =def. a General Psychopathology superspectrum encompassing disturbances in reality testing and self-experience, including abnormalities of perception, belief, and thought such as hallucinations, delusions, disorganization, and related negative symptoms (e.g., avolition, blunted affect)."@en ;
     rdfs:comment "A superspectrum encompassing disturbances in reality testing and self-experience, including abnormalities of perception, belief, and thought such as hallucinations, delusions, disorganization, and related negative symptoms (e.g., avolition, blunted affect)."@en ;
     rdfs:subClassOf hitop:O002sP ;
     skos:changeNote "This superspectrum is designed to accommodate future refinements and extensions. It enables the addition of further components or subdimensions to capture evolving understanding of disturbances in reality testing, perception, belief, and related negative symptoms."@en .
 
     hitop:T007eM a owl:Class ;
     rdfs:label "Anxiousness"@en ;
- iao:IAO_0000115 "Anxiousness =def. an Internalizing which is characterized by a tendency to experience anxiety, nervousness, or unease, often in response to stress or uncertainty, leading to heightened arousal or worry about future events."@en ;
+    obo:IAO_0000115 "Anxiousness =def. an Internalizing which is characterized by a tendency to experience anxiety, nervousness, or unease, often in response to stress or uncertainty, leading to heightened arousal or worry about future events."@en ;
     rdfs:comment "A trait characterized by a tendency to experience anxiety or nervousness."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T008mD a owl:Class ;
     rdfs:label "Emotional lability"@en ;
- iao:IAO_0000115 "Emotional Lability =def. an Internalizing which is characterized by rapid and intense emotional changes, often leading to unpredictable shifts in mood, ranging from euphoria to sadness, with difficulty in regulating emotional responses."@en ;
+    obo:IAO_0000115 "Emotional Lability =def. an Internalizing which is characterized by rapid and intense emotional changes, often leading to unpredictable shifts in mood, ranging from euphoria to sadness, with difficulty in regulating emotional responses."@en ;
     rdfs:comment "A trait characterized by rapid and intense emotional changes."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T0094I a owl:Class ;
     rdfs:label "Hostility"@en ;
- iao:IAO_0000115 "Hostility =def. an Internalizing which is characterized by a tendency toward aggression, antagonism, or ill will towards others, often accompanied by a deep-seated mistrust or negative attitudes, leading to interpersonal conflict."@en ;
+    obo:IAO_0000115 "Hostility =def. an Internalizing which is characterized by a tendency toward aggression, antagonism, or ill will towards others, often accompanied by a deep-seated mistrust or negative attitudes, leading to interpersonal conflict."@en ;
     rdfs:comment "A trait characterized by a tendency toward aggression or antagonism."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T00A0Z a owl:Class ;
     rdfs:label "Perseveration"@en ;
- iao:IAO_0000115 "Perseveration =def. an Internalizing which is characterized by the repetition of a particular response or behavior despite the absence or cessation of a stimulus, often resulting in difficulty shifting attention or adapting to changing situations."@en ;
+    obo:IAO_0000115 "Perseveration =def. an Internalizing which is characterized by the repetition of a particular response or behavior despite the absence or cessation of a stimulus, often resulting in difficulty shifting attention or adapting to changing situations."@en ;
     rdfs:comment "A trait characterized by the repetition of a particular response despite the absence or cessation of a stimulus."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T00BXK a owl:Class ;
     rdfs:label "(low) Restricted affectivity"@en ;
- iao:IAO_0000115 "(low) Restricted Affectivity =def. an Internalizing which is characterized by limited or constricted emotional expression, often leading to a diminished range of emotional experiences or difficulty in expressing emotions in social or interpersonal contexts."@en ;
+    obo:IAO_0000115 "(low) Restricted Affectivity =def. an Internalizing which is characterized by limited or constricted emotional expression, often leading to a diminished range of emotional experiences or difficulty in expressing emotions in social or interpersonal contexts."@en ;
     rdfs:comment "A trait characterized by limited or constricted emotional expression."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T00Cgy a owl:Class ;
     rdfs:label "Separation insecurity"@en ;
- iao:IAO_0000115 "Separation Insecurity =def. an Internalizing which is characterized by anxiety and insecurity in response to separation from significant others, often leading to clinginess, fear of abandonment, and difficulty coping with distance or changes in relationships."@en ;
+    obo:IAO_0000115 "Separation Insecurity =def. an Internalizing which is characterized by anxiety and insecurity in response to separation from significant others, often leading to clinginess, fear of abandonment, and difficulty coping with distance or changes in relationships."@en ;
     rdfs:comment "A trait characterized by anxiety and insecurity in response to separation from significant others."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T00D42 a owl:Class ;
     rdfs:label "Submissiveness"@en ;
- iao:IAO_0000115 "Submissiveness =def. an Internalizing which is characterized by a tendency to submit to others and avoid asserting oneself, often resulting in passive behavior, difficulty in standing up for oneself, and a tendency to defer to the wishes or authority of others."@en ;
+    obo:IAO_0000115 "Submissiveness =def. an Internalizing which is characterized by a tendency to submit to others and avoid asserting oneself, often resulting in passive behavior, difficulty in standing up for oneself, and a tendency to defer to the wishes or authority of others."@en ;
     rdfs:comment "A trait characterized by a tendency to submit to others and avoid asserting oneself."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T00Eht a owl:Class ;
     rdfs:label "Identity problems"@en ;
- iao:IAO_0000115 "Identity Problems =def. an Internalizing which is characterized by difficulties in forming or maintaining a stable sense of self, often resulting in confusion about one's values, goals, or role in life, and leading to instability in personal identity or self-concept."@en ;
+    obo:IAO_0000115 "Identity Problems =def. an Internalizing which is characterized by difficulties in forming or maintaining a stable sense of self, often resulting in confusion about one's values, goals, or role in life, and leading to instability in personal identity or self-concept."@en ;
     rdfs:comment "A trait characterized by difficulties in forming or maintaining a stable sense of self."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T00Fe0 a owl:Class ;
     rdfs:label "Negative relationships"@en ;
- iao:IAO_0000115 "Negative Relationships =def. an Internalizing which is characterized by relationships that contribute to stress, conflict, or emotional harm, often undermining well-being, personal growth, and the ability to form positive, supportive connections with others."@en ;
+    obo:IAO_0000115 "Negative Relationships =def. an Internalizing which is characterized by relationships that contribute to stress, conflict, or emotional harm, often undermining well-being, personal growth, and the ability to form positive, supportive connections with others."@en ;
     rdfs:comment "A trait of negative relationships is that they contribute to stress, conflict, or emotional harm, often undermining well-being and personal growth."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T00G3d a owl:Class ;
     rdfs:label "Fragility"@en ;
- iao:IAO_0000115 "Fragility =def. an Internalizing which is characterized by a lack of resilience and a tendency to be easily hurt or affected by stress, often leading to emotional instability or difficulty coping with adversity."@en ;
+    obo:IAO_0000115 "Fragility =def. an Internalizing which is characterized by a lack of resilience and a tendency to be easily hurt or affected by stress, often leading to emotional instability or difficulty coping with adversity."@en ;
     rdfs:comment "A trait characterized by a lack of resilience and a tendency to be easily hurt or affected by stress."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T00HCy a owl:Class ;
     rdfs:label "Ineptitude"@en ;
- iao:IAO_0000115 "Ineptitude =def. an Internalizing which is characterized by a lack of skill, competence, or ability in performing tasks or handling situations, often resulting in difficulties in achieving goals or completing responsibilities."@en ;
+    obo:IAO_0000115 "Ineptitude =def. an Internalizing which is characterized by a lack of skill, competence, or ability in performing tasks or handling situations, often resulting in difficulties in achieving goals or completing responsibilities."@en ;
     rdfs:comment "A trait characterized by a lack of skill or competence."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T00IAT a owl:Class ;
     rdfs:label "(low) Invulnerability"@en ;
- iao:IAO_0000115 "(low) Invulnerability =def. an Internalizing which is characterized by a perception of being immune to harm or negative effects, often leading to risky behavior, overconfidence, or a lack of consideration for potential consequences."@en ;
+    obo:IAO_0000115 "(low) Invulnerability =def. an Internalizing which is characterized by a perception of being immune to harm or negative effects, often leading to risky behavior, overconfidence, or a lack of consideration for potential consequences."@en ;
     rdfs:comment "A trait characterized by a perception of being immune to harm or negative effects."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T00ua9 a owl:Class ;
     rdfs:label "Eccentricity"@en ;
- iao:IAO_0000115 "Eccentricity =def. a Thought Disorder which is characterized by unconventional or peculiar behavior, including odd mannerisms, unusual beliefs, or idiosyncratic ways of interacting with others."@en ;
+    obo:IAO_0000115 "Eccentricity =def. a Thought Disorder which is characterized by unconventional or peculiar behavior, including odd mannerisms, unusual beliefs, or idiosyncratic ways of interacting with others."@en ;
     rdfs:comment "A trait characterized by unconventional or peculiar behavior."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T00vjR a owl:Class ;
     rdfs:label "Cognitive perceptual dysregulation"@en ;
- iao:IAO_0000115 "Cognitive Perceptual Dysregulation =def. a Thought Disorder which is characterized by disturbances in cognition and perception, including unusual beliefs, perceptual aberrations, and difficulties distinguishing internal thoughts from external reality."@en ;
+    obo:IAO_0000115 "Cognitive Perceptual Dysregulation =def. a Thought Disorder which is characterized by disturbances in cognition and perception, including unusual beliefs, perceptual aberrations, and difficulties distinguishing internal thoughts from external reality."@en ;
     rdfs:comment "A trait characterized by disturbances in cognition and perception."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T00wk6 a owl:Class ;
     rdfs:label "Unusual beliefs and experiences"@en ;
- iao:IAO_0000115 "Unusual Beliefs and Experiences =def. a Thought Disorder which is characterized by the presence of atypical beliefs and perceptual experiences, such as magical thinking, perceptual distortions, or ideas of reference, that deviate from cultural norms."@en ;
+    obo:IAO_0000115 "Unusual Beliefs and Experiences =def. a Thought Disorder which is characterized by the presence of atypical beliefs and perceptual experiences, such as magical thinking, perceptual distortions, or ideas of reference, that deviate from cultural norms."@en ;
     rdfs:comment "A trait characterized by the presence of atypical beliefs and experiences."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T00xLn a owl:Class ;
     rdfs:label "Fantasy proneness"@en ;
- iao:IAO_0000115 "Fantasy Proneness =def. a Thought Disorder which is characterized by a tendency to engage in vivid and complex fantasies, often involving imaginative immersion, daydreaming, or blurred boundaries between imagination and reality."@en ;
+    obo:IAO_0000115 "Fantasy Proneness =def. a Thought Disorder which is characterized by a tendency to engage in vivid and complex fantasies, often involving imaginative immersion, daydreaming, or blurred boundaries between imagination and reality."@en ;
     rdfs:comment "A trait characterized by a tendency to engage in vivid and complex fantasies."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T00yfU a owl:Class ;
     rdfs:label "Depressivity"@en ;
- iao:IAO_0000115 "Depressivity =def. a Detachment which is characterized by persistent feelings of sadness, hopelessness, and emotional pain, often accompanied by a diminished interest in life and a negative view of the self."@en ;
+    obo:IAO_0000115 "Depressivity =def. a Detachment which is characterized by persistent feelings of sadness, hopelessness, and emotional pain, often accompanied by a diminished interest in life and a negative view of the self."@en ;
     rdfs:comment "A trait characterized by feelings of sadness and hopelessness."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T00zDk a owl:Class ;
     rdfs:label "Intimacy avoidance"@en ;
- iao:IAO_0000115 "Intimacy Avoidance =def. a Detachment which is characterized by a tendency to avoid close relationships and emotional intimacy, often due to discomfort with closeness, fear of vulnerability, or preference for emotional distance."@en ;
+    obo:IAO_0000115 "Intimacy Avoidance =def. a Detachment which is characterized by a tendency to avoid close relationships and emotional intimacy, often due to discomfort with closeness, fear of vulnerability, or preference for emotional distance."@en ;
     rdfs:comment "A trait characterized by a tendency to avoid close relationships and emotional intimacy."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T010c6 a owl:Class ;
     rdfs:label "Suspiciousness"@en ;
- iao:IAO_0000115 "Suspiciousness =def. a Detachment which is characterized by a tendency to be distrustful and suspicious of others, often involving beliefs that others have harmful intentions or cannot be relied upon."@en ;
+    obo:IAO_0000115 "Suspiciousness =def. a Detachment which is characterized by a tendency to be distrustful and suspicious of others, often involving beliefs that others have harmful intentions or cannot be relied upon."@en ;
     rdfs:comment "A trait characterized by a tendency to be distrustful and suspicious of others."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T011K6 a owl:Class ;
     rdfs:label "Withdrawal"@en ;
- iao:IAO_0000115 "Withdrawal =def. a Detachment which is characterized by a tendency to retreat from social interactions and avoid engagement with others, often reflecting discomfort with social closeness or reduced motivation for interpersonal connection."@en ;
+    obo:IAO_0000115 "Withdrawal =def. a Detachment which is characterized by a tendency to retreat from social interactions and avoid engagement with others, often reflecting discomfort with social closeness or reduced motivation for interpersonal connection."@en ;
     rdfs:comment "A trait characterized by a tendency to retreat from social interactions and avoid engagement with others."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T012QL a owl:Class ;
     rdfs:label "Interpersonal passivity"@en ;
- iao:IAO_0000115 "Interpersonal Passivity =def. a Detachment which is characterized by a lack of initiative or assertiveness in social interactions, often manifesting as submissiveness, indecision, or reluctance to express personal needs or preferences."@en ;
+    obo:IAO_0000115 "Interpersonal Passivity =def. a Detachment which is characterized by a lack of initiative or assertiveness in social interactions, often manifesting as submissiveness, indecision, or reluctance to express personal needs or preferences."@en ;
     rdfs:comment "A trait characterized by a lack of initiative or assertiveness in social interactions."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T013F1 a owl:Class ;
     rdfs:label "Disaffiliativeness"@en ;
- iao:IAO_0000115 "Disaffiliativeness =def. a Detachment which is characterized by a lack of interest in forming or maintaining social bonds, often reflecting indifference toward closeness, companionship, or interpersonal connection."@en ;
+    obo:IAO_0000115 "Disaffiliativeness =def. a Detachment which is characterized by a lack of interest in forming or maintaining social bonds, often reflecting indifference toward closeness, companionship, or interpersonal connection."@en ;
     rdfs:comment "A trait characterized by a lack of interest in forming or maintaining social bonds."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T014BA a owl:Class ;
     rdfs:label "(low) Attention seeking"@en ;
- iao:IAO_0000115 "(low) Attention Seeking =def. a Detachment which is characterized by a reduced or absent desire to attract and hold the attention of others, often reflecting low social expressiveness or a preference for remaining unnoticed in social settings."@en ;
+    obo:IAO_0000115 "(low) Attention Seeking =def. a Detachment which is characterized by a reduced or absent desire to attract and hold the attention of others, often reflecting low social expressiveness or a preference for remaining unnoticed in social settings."@en ;
     rdfs:comment "A trait characterized by limited motivation to attract, maintain, or enhance the attention of others, often manifested as reduced social display, self-promotion, or efforts to gain recognition."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T015o8 a owl:Class ;
     rdfs:label "Problematic impulsivity"@en ;
- iao:IAO_0000115 "Problematic Impulsivity =def. a Disinhibited Externalizing which is characterized by difficulty in controlling impulsive behaviors, often resulting in actions that lead to negative consequences for oneself or others."@en ;
+    obo:IAO_0000115 "Problematic Impulsivity =def. a Disinhibited Externalizing which is characterized by difficulty in controlling impulsive behaviors, often resulting in actions that lead to negative consequences for oneself or others."@en ;
     rdfs:comment "A trait characterized by difficulty in controlling impulsive behaviors, often leading to negative consequences."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T016k0 a owl:Class ;
     rdfs:label "Irresponsibility"@en ;
- iao:IAO_0000115 "Irresponsibility =def. a Disinhibited Externalizing which is characterized by a lack of regard for the consequences of one’s actions, often leading to reckless, careless, or socially inappropriate behaviors."@en ;
+    obo:IAO_0000115 "Irresponsibility =def. a Disinhibited Externalizing which is characterized by a lack of regard for the consequences of one’s actions, often leading to reckless, careless, or socially inappropriate behaviors."@en ;
     rdfs:comment "A trait characterized by a lack of regard for the consequences of one's actions, often leading to reckless behavior."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T0177S a owl:Class ;
     rdfs:label "Theft"@en ;
- iao:IAO_0000115 "Theft =def. a Disinhibited Externalizing which is characterized by a tendency to steal or engage in dishonest acquisition of property, often driven by impulsivity, disregard for social norms, or a lack of remorse."@en ;
+    obo:IAO_0000115 "Theft =def. a Disinhibited Externalizing which is characterized by a tendency to steal or engage in dishonest acquisition of property, often driven by impulsivity, disregard for social norms, or a lack of remorse."@en ;
     rdfs:comment "A trait characterized by a tendency to steal or engage in dishonest acquisition of property."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T018ir a owl:Class ;
     rdfs:label "Distractibility"@en ;
- iao:IAO_0000115 "Distractibility =def. a Disinhibited Externalizing which is characterized by an inability to maintain focus, leading to frequent shifts in attention, impulsive responses to external stimuli, and difficulty completing tasks."@en ;
+    obo:IAO_0000115 "Distractibility =def. a Disinhibited Externalizing which is characterized by an inability to maintain focus, leading to frequent shifts in attention, impulsive responses to external stimuli, and difficulty completing tasks."@en ;
     rdfs:comment "A trait characterized by an inability to maintain focus, leading to frequent shifts in attention."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T019Cj a owl:Class ;
     rdfs:label "Risk taking"@en ;
- iao:IAO_0000115 "Risk Taking =def. a Disinhibited Externalizing which is characterized by engaging in behaviors that involve significant risk, often without regard for potential negative outcomes or consequences, driven by a desire for stimulation or thrill-seeking."@en ;
+    obo:IAO_0000115 "Risk Taking =def. a Disinhibited Externalizing which is characterized by engaging in behaviors that involve significant risk, often without regard for potential negative outcomes or consequences, driven by a desire for stimulation or thrill-seeking."@en ;
     rdfs:comment "A trait characterized by engaging in behaviors that involve significant risk, often without regard for potential negative outcomes."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01A5i a owl:Class ;
     rdfs:label "(low) Rigid perfectionism"@en ;
- iao:IAO_0000115 "(low) Rigid Perfectionism =def. a Disinhibited Externalizing trait characterized by a reduced tendency to strive for perfection and inflexible high standards, often associated with greater tolerance of imperfections and increased adaptability to mistakes or setbacks."@en ;
+    obo:IAO_0000115 "(low) Rigid Perfectionism =def. a Disinhibited Externalizing trait characterized by a reduced tendency to strive for perfection and inflexible high standards, often associated with greater tolerance of imperfections and increased adaptability to mistakes or setbacks."@en ;
     rdfs:comment "A trait characterized by a low tendency toward excessive and inflexible striving for perfection and high standards."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01BfQ a owl:Class ;
     rdfs:label "(low) Ruminative deliberation"@en ;
- iao:IAO_0000115 "(low) Ruminative Deliberation =def. a Disinhibited Externalizing trait characterized by a reduced tendency to engage in prolonged and repetitive deliberation about potential decisions and their outcomes."@en ;
+    obo:IAO_0000115 "(low) Ruminative Deliberation =def. a Disinhibited Externalizing trait characterized by a reduced tendency to engage in prolonged and repetitive deliberation about potential decisions and their outcomes."@en ;
     rdfs:comment "A trait characterized by a low tendency toward excessive and repetitive thinking about potential decisions and their outcomes."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01C1W a owl:Class ;
     rdfs:label "(low) Workaholism"@en ;
- iao:IAO_0000115 "(low) Workaholism =def. a Disinhibited Externalizing trait characterized by a reduced tendency toward excessive and compulsive involvement in work, resulting in less interference with personal wellbeing, relationships, and leisure time."@en ;
+    obo:IAO_0000115 "(low) Workaholism =def. a Disinhibited Externalizing trait characterized by a reduced tendency toward excessive and compulsive involvement in work, resulting in less interference with personal wellbeing, relationships, and leisure time."@en ;
     rdfs:comment "A trait characterized by reduced levels of excessive and compulsive commitment to work, with less impact on personal well-being and relationships."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01Neb a owl:Class ;
     rdfs:label "Impatient urgency"@en ;
- iao:IAO_0000115 "Impatient Urgency =def. an Antisocial Behavior which is characterized by a lack of patience and a tendency to act impulsively in urgent situations, often leading to rash decisions and behaviors without consideration for the consequences."@en ;
+    obo:IAO_0000115 "Impatient Urgency =def. an Antisocial Behavior which is characterized by a lack of patience and a tendency to act impulsively in urgent situations, often leading to rash decisions and behaviors without consideration for the consequences."@en ;
     rdfs:comment "A trait characterized by a lack of patience and a tendency to act impulsively in urgent situations."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01OY2 a owl:Class ;
     rdfs:label "(low) Planful control"@en ;
- iao:IAO_0000115 "(low) Planful Control =def. an Antisocial Behavior which is characterized by a poor ability to plan and execute tasks effectively, often resulting in impulsive actions, disorganization, and an inability to meet goals or manage responsibilities."@en ;
+    obo:IAO_0000115 "(low) Planful Control =def. an Antisocial Behavior which is characterized by a poor ability to plan and execute tasks effectively, often resulting in impulsive actions, disorganization, and an inability to meet goals or manage responsibilities."@en ;
     rdfs:comment "A trait indicating poor ability to plan and execute tasks effectively."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01PMW a owl:Class ;
     rdfs:label "(low) Dependability"@en ;
- iao:IAO_0000115 "(low) Dependability =def. an Antisocial Behavior which is characterized by a lack of reliability and consistency in fulfilling obligations, often resulting in failure to meet commitments or responsibilities, and causing disruptions in personal or professional relationships."@en ;
+    obo:IAO_0000115 "(low) Dependability =def. an Antisocial Behavior which is characterized by a lack of reliability and consistency in fulfilling obligations, often resulting in failure to meet commitments or responsibilities, and causing disruptions in personal or professional relationships."@en ;
     rdfs:comment "A trait characterized by a lack of reliability and consistency in fulfilling obligations."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01QNN a owl:Class ;
     rdfs:label "Alienation"@en ;
- iao:IAO_0000115 "Alienation =def. an Antisocial Behavior which is characterized by a sense of estrangement or detachment from others, often leading to feelings of social isolation, loneliness, and a lack of connection to social groups or society at large."@en ;
+    obo:IAO_0000115 "Alienation =def. an Antisocial Behavior which is characterized by a sense of estrangement or detachment from others, often leading to feelings of social isolation, loneliness, and a lack of connection to social groups or society at large."@en ;
     rdfs:comment "A trait reflecting a sense of estrangement or detachment from others."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01RYG a owl:Class ;
     rdfs:label "Boredom proneness"@en ;
- iao:IAO_0000115 "Boredom Proneness =def. an Antisocial Behavior which is characterized by a tendency to experience boredom frequently and easily, often leading to restlessness, dissatisfaction, and a search for novel or stimulating experiences."@en ;
+    obo:IAO_0000115 "Boredom Proneness =def. an Antisocial Behavior which is characterized by a tendency to experience boredom frequently and easily, often leading to restlessness, dissatisfaction, and a search for novel or stimulating experiences."@en ;
     rdfs:comment "A trait indicating a tendency to experience boredom frequently and easily."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01SYW a owl:Class ;
     rdfs:label "Blame externalization"@en ;
- iao:IAO_0000115 "Blame Externalization =def. an Antisocial Behavior which is characterized by a tendency to attribute failures or problems to external factors, such as other people, circumstances, or societal influences, rather than recognizing internal causes or personal responsibility."@en ;
+    obo:IAO_0000115 "Blame Externalization =def. an Antisocial Behavior which is characterized by a tendency to attribute failures or problems to external factors, such as other people, circumstances, or societal influences, rather than recognizing internal causes or personal responsibility."@en ;
     rdfs:comment "A trait characterized by a tendency to attribute failures or problems to external factors rather than internal ones."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01T3u a owl:Class ;
     rdfs:label "(low) Honesty"@en ;
- iao:IAO_0000115 "(low) Honesty =def. an Antisocial Behavior which is characterized by a tendency to be deceitful or untruthful, often involving the manipulation of others or a disregard for truthfulness in social interactions."@en ;
+    obo:IAO_0000115 "(low) Honesty =def. an Antisocial Behavior which is characterized by a tendency to be deceitful or untruthful, often involving the manipulation of others or a disregard for truthfulness in social interactions."@en ;
     rdfs:comment "A trait marked by a tendency to be deceitful or untruthful."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01UGN a owl:Class ;
     rdfs:label "Rebelliousness"@en ;
- iao:IAO_0000115 "Rebelliousness =def. an Antisocial Behavior which is characterized by resistance to authority, rules, and societal norms, often manifested through defiance, disobedience, or challenging established systems or conventions."@en ;
+    obo:IAO_0000115 "Rebelliousness =def. an Antisocial Behavior which is characterized by resistance to authority, rules, and societal norms, often manifested through defiance, disobedience, or challenging established systems or conventions."@en ;
     rdfs:comment "A trait characterized by resistance to authority and norms."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01VXq a owl:Class ;
     rdfs:label "(low) Empathy"@en ;
- iao:IAO_0000115 "(low) Empathy =def. an Antisocial Behavior which is characterized by a reduced ability to understand and share the feelings of others, often leading to emotional detachment, indifference, or difficulty in forming meaningful interpersonal connections."@en ;
+    obo:IAO_0000115 "(low) Empathy =def. an Antisocial Behavior which is characterized by a reduced ability to understand and share the feelings of others, often leading to emotional detachment, indifference, or difficulty in forming meaningful interpersonal connections."@en ;
     rdfs:comment "A trait indicating a reduced ability to understand and share the feelings of others."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01W1E a owl:Class ;
     rdfs:label "Excitement seeking"@en ;
- iao:IAO_0000115 "Excitement Seeking =def. an Antisocial Behavior which is characterized by a desire for new, thrilling, or risky experiences, often driving individuals to engage in activities that provide immediate gratification or stimulation, regardless of potential consequences."@en ;
+    obo:IAO_0000115 "Excitement Seeking =def. an Antisocial Behavior which is characterized by a desire for new, thrilling, or risky experiences, often driving individuals to engage in activities that provide immediate gratification or stimulation, regardless of potential consequences."@en ;
     rdfs:comment "A trait characterized by a desire for new, thrilling, or risky experiences."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01XQi a owl:Class ;
     rdfs:label "Attention seeking"@en ;
- iao:IAO_0000115 "Attention Seeking =def. an Antagonistic Externalizing which is characterized by a constant need for validation or recognition, often leading to behaviors aimed at drawing focus from others, typically through exaggerated actions, statements, or displays."@en ;
+    obo:IAO_0000115 "Attention Seeking =def. an Antagonistic Externalizing which is characterized by a constant need for validation or recognition, often leading to behaviors aimed at drawing focus from others, typically through exaggerated actions, statements, or displays."@en ;
     rdfs:comment "A trait of attention seeking is the constant need for validation or recognition, often leading to behavior aimed at drawing focus from others."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01Y7w a owl:Class ;
     rdfs:label "Callousness"@en ;
- iao:IAO_0000115 "Callousness =def. an Antagonistic Externalizing which is characterized by a lack of empathy and a tendency to be emotionally cold or indifferent to others, often resulting in a disregard for the feelings or well-being of others."@en ;
+    obo:IAO_0000115 "Callousness =def. an Antagonistic Externalizing which is characterized by a lack of empathy and a tendency to be emotionally cold or indifferent to others, often resulting in a disregard for the feelings or well-being of others."@en ;
     rdfs:comment "A trait characterized by a lack of empathy and a tendency to be emotionally cold or indifferent to others."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01Ziz a owl:Class ;
     rdfs:label "Deceitfulness"@en ;
- iao:IAO_0000115 "Deceitfulness =def. an Antagonistic Externalizing which is characterized by a tendency to lie, cheat, or deceive others, often for personal gain, manipulation, or to avoid negative consequences."@en ;
+    obo:IAO_0000115 "Deceitfulness =def. an Antagonistic Externalizing which is characterized by a tendency to lie, cheat, or deceive others, often for personal gain, manipulation, or to avoid negative consequences."@en ;
     rdfs:comment "A trait characterized by a tendency to lie, cheat, or deceive others."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01a7u a owl:Class ;
     rdfs:label "Grandiosity"@en ;
- iao:IAO_0000115 "Grandiosity =def. an Antagonistic Externalizing which is characterized by an exaggerated sense of one’s own importance, abilities, or achievements, often accompanied by a lack of consideration for others and a belief in one's superiority or entitlement."@en ;
+    obo:IAO_0000115 "Grandiosity =def. an Antagonistic Externalizing which is characterized by an exaggerated sense of one’s own importance, abilities, or achievements, often accompanied by a lack of consideration for others and a belief in one's superiority or entitlement."@en ;
     rdfs:comment "A trait characterized by an exaggerated sense of one's own importance, abilities, or achievements."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01bz7 a owl:Class ;
     rdfs:label "Manipulativeness"@en ;
- iao:IAO_0000115 "Manipulativeness =def. an Antagonistic Externalizing which is characterized by a tendency to control or influence others for personal gain, often in a devious or underhanded manner, without regard for others' well-being or autonomy."@en ;
+    obo:IAO_0000115 "Manipulativeness =def. an Antagonistic Externalizing which is characterized by a tendency to control or influence others for personal gain, often in a devious or underhanded manner, without regard for others' well-being or autonomy."@en ;
     rdfs:comment "A trait characterized by a tendency to control or influence others for personal gain, often in a devious manner."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01cX5 a owl:Class ;
     rdfs:label "Rudeness"@en ;
- iao:IAO_0000115 "Rudeness =def. an Antagonistic Externalizing which is characterized by a lack of manners or respect in social interactions, often involving offensive or inappropriate behaviors that disregard social norms and conventions."@en ;
+    obo:IAO_0000115 "Rudeness =def. an Antagonistic Externalizing which is characterized by a lack of manners or respect in social interactions, often involving offensive or inappropriate behaviors that disregard social norms and conventions."@en ;
     rdfs:comment "A trait characterized by a lack of manners or respect in social interactions."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01d9I a owl:Class ;
     rdfs:label "Egocentricity"@en ;
- iao:IAO_0000115 "Egocentricity =def. an Antagonistic Externalizing which is characterized by an excessive focus on oneself and one’s own needs and desires, often leading to a lack of consideration for others and a diminished capacity for empathy or understanding of different perspectives."@en ;
+    obo:IAO_0000115 "Egocentricity =def. an Antagonistic Externalizing which is characterized by an excessive focus on oneself and one’s own needs and desires, often leading to a lack of consideration for others and a diminished capacity for empathy or understanding of different perspectives."@en ;
     rdfs:comment "A trait characterized by an excessive focus on oneself and one's own needs and desires."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01eG6 a owl:Class ;
     rdfs:label "Dominance"@en ;
- iao:IAO_0000115 "Dominance =def. an Antagonistic Externalizing which is characterized by a desire to control or lead others, often displaying assertiveness, power, and a tendency to assert one's will over others in social or organizational contexts."@en ;
+    obo:IAO_0000115 "Dominance =def. an Antagonistic Externalizing which is characterized by a desire to control or lead others, often displaying assertiveness, power, and a tendency to assert one's will over others in social or organizational contexts."@en ;
     rdfs:comment "A trait characterized by a desire to control or lead others, often displaying assertiveness and power."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01fc8 a owl:Class ;
     rdfs:label "Flirtatiousness"@en ;
- iao:IAO_0000115 "Flirtatiousness =def. an Antagonistic Externalizing which is characterized by behavior that seeks to attract romantic or sexual interest from others through playful, suggestive, or provocative means, often involving charm or manipulation."@en ;
+    obo:IAO_0000115 "Flirtatiousness =def. an Antagonistic Externalizing which is characterized by behavior that seeks to attract romantic or sexual interest from others through playful, suggestive, or provocative means, often involving charm or manipulation."@en ;
     rdfs:comment "A trait characterized by behavior that seeks to attract romantic or sexual interest from others through playful or provocative means."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01gKP a owl:Class ;
     rdfs:label "(low) Timorousness"@en ;
- iao:IAO_0000115 "(low) Timorousness =def. an Antagonistic Externalizing trait characterized by a reduced tendency to be fearful or lacking in confidence, resulting in less hesitation and avoidance in social and achievement-related situations."@en ;
+    obo:IAO_0000115 "(low) Timorousness =def. an Antagonistic Externalizing trait characterized by a reduced tendency to be fearful or lacking in confidence, resulting in less hesitation and avoidance in social and achievement-related situations."@en ;
     rdfs:comment "A trait characterized by a low tendency to be fearful or lacking in confidence, often reflected in reduced shyness and hesitation."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01hQc a owl:Class ;
     rdfs:label "Anhedonia"@en ;
- iao:IAO_0000115 "Anhedonia =def. a Detachment which is conceptualized as a stable, enduring disposition toward diminished pleasure or interest in typically rewarding experiences, leading to a reduced ability to experience joy or satisfaction from activities that are usually enjoyable."@en ;
+    obo:IAO_0000115 "Anhedonia =def. a Detachment which is conceptualized as a stable, enduring disposition toward diminished pleasure or interest in typically rewarding experiences, leading to a reduced ability to experience joy or satisfaction from activities that are usually enjoyable."@en ;
     rdfs:comment "Anhedonia conceptualized as a Trait refers to a stable, enduring disposition toward diminished pleasure or interest in typically rewarding experiences."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T026cQ a owl:Class ;
     rdfs:label "Peculiarity"@en ;
- iao:IAO_0000115 "Peculiarity =def. a Thought disorder trait characterized by unusual, unconventional, or idiosyncratic patterns of thinking, perception, or behavior that deviate from social norms."@en ;
+    obo:IAO_0000115 "Peculiarity =def. a Thought disorder trait characterized by unusual, unconventional, or idiosyncratic patterns of thinking, perception, or behavior that deviate from social norms."@en ;
     rdfs:comment "A trait characterized by unusual, unconventional, or idiosyncratic patterns of thinking, perception, or behavior that deviate from social norms."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T028jy a owl:Class ;
     rdfs:label "Emotional detachment"@en ;
- iao:IAO_0000115 "Emotional detachment =def. a Detachment trait reflecting a persistent lack of emotional responsiveness, warmth, or connection in interpersonal interactions."@en ;
+    obo:IAO_0000115 "Emotional detachment =def. a Detachment trait reflecting a persistent lack of emotional responsiveness, warmth, or connection in interpersonal interactions."@en ;
     rdfs:comment "A trait reflecting a persistent lack of emotional responsiveness, warmth, or connection in interpersonal interactions."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T029jr a owl:Class ;
     rdfs:label "Social withdrawal"@en ;
- iao:IAO_0000115 "Social withdrawal =def. a Detachment trait defined by the tendency to avoid or disengage from social interactions and relationships, often leading to reduced social contact and support."@en ;
+    obo:IAO_0000115 "Social withdrawal =def. a Detachment trait defined by the tendency to avoid or disengage from social interactions and relationships, often leading to reduced social contact and support."@en ;
     rdfs:comment "A trait defined by the tendency to avoid or disengage from social interactions and relationships, often leading to reduced social contact and support."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T02A06 a owl:Class ;
     rdfs:label "Romantic disinterest"@en ;
- iao:IAO_0000115 "Romantic disinterest =def. a Detachment trait marked by diminished or absent interest in forming or maintaining romantic relationships, independent of sexual orientation or activity."@en ;
+    obo:IAO_0000115 "Romantic disinterest =def. a Detachment trait marked by diminished or absent interest in forming or maintaining romantic relationships, independent of sexual orientation or activity."@en ;
     rdfs:comment "A trait marked by diminished or absent interest in forming or maintaining romantic relationships, independent of sexual orientation or activity."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:U0012Y a owl:Class ;
     rdfs:label "Sexual Problems"@en ;
- iao:IAO_0000115 "Sexual Problems =def. an Internalizing which is characterized by difficulties and dysfunctions related to sexual health and behavior, reflecting internal psychological distress that manifests in sexual functioning."@en ;
+    obo:IAO_0000115 "Sexual Problems =def. an Internalizing which is characterized by difficulties and dysfunctions related to sexual health and behavior, reflecting internal psychological distress that manifests in sexual functioning."@en ;
     rdfs:comment "Sexual Problems encompass difficulties and dysfunctions related to sexual health and behavior."@en ;
     rdfs:subClassOf hitop:O002sP ;
     skos:changeNote "This subfactor is designed to be adaptable to future updates and expansions. It allows for the incorporation of new elements or modifications to existing components as research advances and our understanding of psychological phenomena evolves."@en .
 
     hitop:U002SC a owl:Class ;
     rdfs:label "Eating Pathology"@en ;
- iao:IAO_0000115 "Eating Pathology =def. an Internalizing which is characterized by disordered eating behaviors and maladaptive concerns related to body image, reflecting internal psychological distress expressed through eating and self-perception."@en ;
+    obo:IAO_0000115 "Eating Pathology =def. an Internalizing which is characterized by disordered eating behaviors and maladaptive concerns related to body image, reflecting internal psychological distress expressed through eating and self-perception."@en ;
     rdfs:comment "Eating Pathology includes disorders and maladaptive behaviors related to eating and body image."@en ;
     rdfs:subClassOf hitop:O002sP ;
     skos:changeNote "This subfactor is designed to be adaptable to future updates and expansions. It allows for the incorporation of new elements or modifications to existing components as research advances and our understanding of psychological phenomena evolves."@en .
 
     hitop:U0036N a owl:Class ;
     rdfs:label "Fear"@en ;
- iao:IAO_0000115 "Fear =def. an Internalizing which is characterized by emotional responses to perceived threats or danger, typically involving heightened arousal, avoidance behaviors, and anticipatory anxiety."@en ;
+    obo:IAO_0000115 "Fear =def. an Internalizing which is characterized by emotional responses to perceived threats or danger, typically involving heightened arousal, avoidance behaviors, and anticipatory anxiety."@en ;
     rdfs:comment "Fear refers to an emotional response to perceived threats or danger."@en ;
     rdfs:subClassOf hitop:O002sP ;
     skos:changeNote "This subfactor is designed to be adaptable to future updates and expansions. It allows for the incorporation of new elements or modifications to existing components as research advances and our understanding of psychological phenomena evolves."@en .
 
     hitop:U004dm a owl:Class ;
     rdfs:label "Distress"@en ;
- iao:IAO_0000115 "Distress =def. an Internalizing which is characterized by significant emotional suffering or discomfort, often involving persistent negative affect such as sadness, hopelessness, or irritability."@en ;
+    obo:IAO_0000115 "Distress =def. an Internalizing which is characterized by significant emotional suffering or discomfort, often involving persistent negative affect such as sadness, hopelessness, or irritability."@en ;
     rdfs:comment "Distress involves significant emotional suffering or discomfort."@en ;
     rdfs:subClassOf hitop:O002sP ;
     skos:changeNote "This subfactor is designed to be adaptable to future updates and expansions. It allows for the incorporation of new elements or modifications to existing components as research advances and our understanding of psychological phenomena evolves."@en .
 
     hitop:U0050q a owl:Class ;
     rdfs:label "Mania"@en ;
- iao:IAO_0000115 "Mania =def. an Internalizing and Thought Disorder which is characterized by elevated mood, increased activity levels, and impulsive behavior, reflecting dysregulation in affective and cognitive functioning."@en ;
+    obo:IAO_0000115 "Mania =def. an Internalizing and Thought Disorder which is characterized by elevated mood, increased activity levels, and impulsive behavior, reflecting dysregulation in affective and cognitive functioning."@en ;
     rdfs:comment "Mania is characterized by elevated mood, increased activity, and impulsive behavior."@en ;
     rdfs:subClassOf hitop:O002sP ;
     skos:changeNote "This subfactor is designed to be adaptable to future updates and expansions. It allows for the incorporation of new elements or modifications to existing components as research advances and our understanding of psychological phenomena evolves."@en .
 
     hitop:U0061L a owl:Class ;
     rdfs:label "Harmful Substance Use"@en ;
- iao:IAO_0000115 "Harmful Substance Use =def. a Disinhibited Externalizing which is characterized by excessive use of substances that leads to significant harm or impairment in physical, psychological, or social functioning."@en ;
+    obo:IAO_0000115 "Harmful Substance Use =def. a Disinhibited Externalizing which is characterized by excessive use of substances that leads to significant harm or impairment in physical, psychological, or social functioning."@en ;
     rdfs:comment "Harmful Substance Use refers to the excessive use of substances that causes significant harm or impairment."@en ;
     rdfs:subClassOf hitop:O002sP ;
     skos:changeNote "This subfactor is designed to be adaptable to future updates and expansions. It allows for the incorporation of new elements or modifications to existing components as research advances and our understanding of psychological phenomena evolves."@en .
 
     hitop:U007EJ a owl:Class ;
     rdfs:label "Antisocial Behavior"@en ;
- iao:IAO_0000115 "Antisocial Behavior =def. a Disinhibited Externalizing and Antagonistic Externalizing which is characterized by actions that violate societal norms and the rights of others, reflecting a combination of poor impulse control and interpersonal antagonism."@en ;
+    obo:IAO_0000115 "Antisocial Behavior =def. a Disinhibited Externalizing and Antagonistic Externalizing which is characterized by actions that violate societal norms and the rights of others, reflecting a combination of poor impulse control and interpersonal antagonism."@en ;
     rdfs:comment "Antisocial Behavior involves actions that violate societal norms and the rights of others."@en ;
     rdfs:subClassOf hitop:O002sP ;
     skos:changeNote "This subfactor is designed to be adaptable to future updates and expansions. It allows for the incorporation of new elements or modifications to existing components as research advances and our understanding of psychological phenomena evolves."@en .
@@ -1026,31 +1024,32 @@ iao:IAO_0000115 a owl:AnnotationProperty .
     rdfs:label "HiTOP Core Ontology Version 1.0"@en ;
     dcterms:description "The HiTOP ontology version 1.0 represents the foundational structure of the Hierarchical Taxonomy of Psychopathology. It encodes empirically-derived components, syndromes, and spectra to address limitations of traditional classifications such as DSM-5 and ICD-11. This version supports dimensional, hierarchical representation of psychopathology, reduces diagnostic overlap and heterogeneity, and is intended for both clinical and research use."@en ;
     dcterms:issued "2024-08-30"^^xsd:date ;
-    owl:versionInfo 1.0 .
+    owl:versionInfo "1.0"^^xsd:string .
 
     hitop:V106mv a hitop:0004KV ,
     owl:NamedIndividual ;
     rdfs:label "HiTOP Emotional dysfunction Ontology Version 1.0"@en ;
     dcterms:description "The HiTOP Emotional Dysfunction Ontology version 1.0 formalizes the superspectrum of emotional experience and regulation. It encodes components, traits, and subdimensions related to heightened negative affect, diminished positive affect, and difficulties in managing or expressing emotions, supporting dimensional and hierarchical representation for research and clinical applications."@en ;
     dcterms:issued "2024-08-30"^^xsd:date ;
-    owl:versionInfo 1.0 .
+    owl:versionInfo "1.0"^^xsd:string .
 
     hitop:V10749 a hitop:0004KV ,
     owl:NamedIndividual ;
     rdfs:label "HiTOP Psychosis Ontology Version 1.0"@en ;
     dcterms:description "The HiTOP Psychosis Ontology version 1.0 formalizes the superspectrum encompassing disturbances in reality testing, perception, belief, and thought. It encodes components, traits, and related negative symptoms, enabling dimensional and hierarchical representation of psychotic experiences for clinical and research purposes."@en ;
     dcterms:issued "2024-08-30"^^xsd:date ;
-    owl:versionInfo 1.0 .
+    owl:versionInfo "1.0"^^xsd:string .
 
     hitop:V108kx a hitop:0004KV ,
     owl:NamedIndividual ;
     rdfs:label "HiTOP Externalizing Ontology Version 1.0"@en ;
     dcterms:description "The HiTOP Externalizing Ontology version 1.0 formalizes the superspectrum of outwardly directed behaviors and dysregulation. It encodes components, traits, and subdimensions related to aggression, impulsivity, and rule-breaking, supporting dimensional and hierarchical representation for research and clinical applications."@en ;
     dcterms:issued "2024-08-30"^^xsd:date ;
-    owl:versionInfo 1.0 .
+    owl:versionInfo "1.0"^^xsd:string .
 
     hitop:hasLevel a owl:DatatypeProperty ;
     rdfs:label "has Level"@en ;
+    obo:IAO_0000115 "hasLevel =def. a datatype property which relates a Tier instance to a free-text label naming the hierarchical role (for example \"Spectrum\" or \"Component\") that concept plays within one specific factorization, without affecting that factorization's actual parent-child ordering."@en ;
     rdfs:comment "Tags a HiTOP concept (a Tier) with a free-text level name (for example \"Spectrum\" or \"Component\") describing the role it plays in one specific factorization. The same concept can carry a different hasLevel value in a different factorization; this property is declared in the core ontology but is only ever asserted inside a factorization's own hierarchy file, never in the core ontology itself. The value is purely descriptive: the actual vertical ordering of a factorization is established by hitop:hasTier alone, not by this property, so no fixed, enumerable set of level names is required in the core ontology."@en ;
     rdfs:domain hitop:O002sP ;
     rdfs:range xsd:string ;
@@ -1062,20 +1061,25 @@ iao:IAO_0000115 a owl:AnnotationProperty .
 
     hitop:hasTier a owl:ObjectProperty ;
     rdfs:label "has Tier"@en ;
+    obo:IAO_0000115 "hasTier =def. an object property which relates a Tier instance to another Tier instance that is its direct child, exactly one level narrower, within one specific factorization's hierarchy."@en ;
     rdfs:comment "Establishes the concrete parent-child relationship between two HiTOP concepts within one factorization, for example Internalizing hasTier Anxiousness. Declared in the core ontology but only ever asserted inside a factorization's own hierarchy file, never in the core ontology itself. This relationship alone determines the vertical ordering of a factorization tree: a child is always exactly one step narrower than its parent, so no separate rank or Level class hierarchy is required to keep a factorization internally ordered."@en ;
     rdfs:domain hitop:O002sP ;
     rdfs:range hitop:O002sP ;
     skos:changeNote "Indicates the potential for future inclusion of additional tiers or modification of existing ones to reflect new developments within specific levels of the hierarchy. Supports flexibility in expanding or refining the taxonomy based on emerging research and evolving understanding of horizontal relationships among psychological constructs."@en .
 
 <https://orcid.org/0000-0002-4505-4593> a foaf:Person ;
+    rdfs:label "Dr. Rogério Blitz"@en ;
     foaf:name "Dr. Rogério Blitz" .
 
     hitop:0004KV a owl:Class ;
     rdfs:label "Version"@en ;
-    rdfs:comment "This class represents a version entity used to document the version number and descriptive information related to the evolution of HiTOP ontology elements."@en .
+    obo:IAO_0000115 "Version =def. an entity which is characterized by identifying and describing one specific, dated state of the HiTOP ontology or one of its factorizations, recorded via properties such as dcterms:issued and dcterms:description."@en ;
+    rdfs:comment "This class represents a version entity used to document the version number and descriptive information related to the evolution of HiTOP ontology elements."@en ;
+    rdfs:subClassOf owl:Thing .
 
     hitop:O002sP a owl:Class ;
     rdfs:label "Tier"@en ;
+    obo:IAO_0000115 "Tier =def. a structural class which is characterized by representing any concrete HiTOP concept (for example a Superspectrum, Spectrum, Subfactor, Component, or Trait) that can participate in a factorization's parent-child structure via the hitop:hasTier relation."@en ;
     rdfs:comment "A structural component of the HiTOP taxonomy used to define horizontal relationships within a specific level of the hierarchy. Each instance of Tier represents a distinct grouping or division within a given Level, encompassing constructs such as clusters, categories, or subcategories. The restriction ensures that all instances of this class must have at least one tier (via the property hitop:hasTier) that is also an instance of this class."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
     owl:onProperty hitop:hasTier ;

@@ -73,3 +73,23 @@ jobs:
         run: |
           python scripts/rdf2ttl.py --output /tmp/ci_check.ttl
           python scripts/rdf2owl.py --output /tmp/ci_check.owl
+
+      - name: ROBOT ontology quality report
+        if: matrix.python-version == '3.11'
+        run: |
+          curl -sL -o /tmp/robot.jar https://github.com/ontodev/robot/releases/download/v1.9.6/robot.jar
+          java -jar /tmp/robot.jar report \
+            --input /tmp/ci_check.owl \
+            --profile scripts/robot_report_profile.txt \
+            --output robot_report.tsv
+        # scripts/robot_report_profile.txt downgrades duplicate_label to WARN
+        # for a deliberate HiTOP modeling case (see CONTRIBUTING.md, TECH-T4-03).
+        # Any other ERROR-level violation still fails this step.
+
+      - name: Upload ROBOT report
+        if: matrix.python-version == '3.11'
+        uses: actions/upload-artifact@v4
+        with:
+          name: robot-report
+          path: robot_report.tsv
+          retention-days: 90

@@ -66,17 +66,47 @@ gate because manifestation-code examples are parsed automatically.
 
 ## Ontology Artifacts
 
-Use `ontology/hitop.rdf` as the canonical RDF/XML input unless a release task
-explicitly changes that policy. During review, write generated artifacts to
-`/tmp` first:
+Use `ontology/hitop.rdf` as the canonical RDF/XML input; `ontology/hitop.ttl`
+and `ontology/hitop.owl` are generated from it. While drafting a change, write
+generated artifacts to `/tmp` first so a work-in-progress `hitop.rdf` edit
+never lands as a stale, out-of-sync `.ttl`/`.owl` pair:
 
 ```bash
 .venv/bin/python scripts/rdf2ttl.py --output /tmp/hitop_review.ttl
 .venv/bin/python scripts/rdf2owl.py --output /tmp/hitop_review.owl
 ```
 
-Commit generated ontology artifacts only when the release plan explicitly calls
-for updated artifacts and the generated diff has been reviewed.
+Once a change to `ontology/hitop.rdf` is ready to commit, regenerate
+`ontology/hitop.ttl` and `ontology/hitop.owl` in place (same commands, without
+`--output`) and commit all three files together. Both converters produce
+byte-deterministic output for the same input (see `TECH-T4-05`), so the
+regenerated files are safe to diff and review like any other change.
+
+### ROBOT Quality Gate
+
+Run [ROBOT](http://robot.obolibrary.org/) against the generated OWL artifact
+before a release:
+
+```bash
+robot report --input ontology/hitop.owl \
+  --profile scripts/robot_report_profile.txt \
+  --output /tmp/robot_report.tsv
+```
+
+The report is not checked into the repository (it is trivially regenerable
+from `ontology/hitop.owl`, so keeping a copy in version control would just go
+stale and add diff noise). CI runs this same report on every push/PR and
+uploads it as the `robot-report` workflow artifact; regenerate it locally
+with the command above whenever you need to inspect the current state.
+
+`scripts/robot_report_profile.txt` is ROBOT's default report profile with one
+deliberate override: `duplicate_label` is downgraded from `ERROR` to `WARN`.
+HiTOP intentionally reuses the same clinical term at two different levels for
+some constructs (for example "Anhedonia" as both a state-like Component,
+`C00XyI`, and a stable trait, `T01hQc`, each with its own distinct
+definition) — that is a modeling decision, not a data error, so it should not
+fail the gate. Do not silence any other rule this way without the same kind
+of documented, deliberate reasoning.
 
 ## Dependency Changes
 
