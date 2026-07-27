@@ -1,8 +1,9 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://purl.org/hitop/schema/manifestation-record.schema.json",
+  "$id": "https://purl.org/hitop/schema/v1/manifestation-record.schema.json",
+  "version": "1.0.0",
   "title": "HiTOP Manifestation Record",
-  "description": "Generic flat record schema for HiTOP manifestation exports. It is intentionally not bound to a specific institution, study, module, instrument, or namespace authority.",
+  "description": "Canonical, nested record schema for HiTOP manifestation metadata. Matches the YAML structure documented in docs/modular-namespaced-suffix-schema.md (section 9) and validated at runtime by hitop.suffix.metadata.validate_metadata. It is intentionally not bound to a specific institution, study, module, instrument, or namespace authority.",
   "type": "object",
   "additionalProperties": false,
   "patternProperties": {
@@ -13,12 +14,15 @@
   "required": [
     "code",
     "hitop_base_code",
-    "suffix",
+    "suffix_block",
     "manifestation_type",
-    "namespace_token",
+    "namespace",
     "slug",
     "preferred_label",
+    "definition",
+    "source",
     "status",
+    "created",
     "version"
   ],
   "properties": {
@@ -32,166 +36,194 @@
       "description": "Stable atomic HiTOP base code without a manifestation suffix.",
       "pattern": "^[A-Za-z0-9]+$"
     },
-    "suffix": {
-      "type": "string",
-      "description": "Manifestation suffix without the HiTOP base code.",
-      "pattern": "^M-(GS|CS|SY|AF|CG|PC|BH|SS|SL|SU|IR|IM)-[A-Z]{3}[A-Z2-7]{13}-[A-Z0-9](?:[A-Z0-9_]{1,38}[A-Z0-9])$"
+    "suffix_block": {
+      "const": "M",
+      "description": "Literal manifestation suffix block marker; always 'M'."
     },
     "manifestation_type": {
-      "$ref": "#/$defs/manifestation_type",
-      "description": "Two-character controlled manifestation type code."
+      "$ref": "#/$defs/manifestation_type"
     },
-    "manifestation_type_label": {
-      "type": "string",
-      "description": "Human-readable manifestation type label."
+    "namespace": {
+      "type": "object",
+      "description": "Local authority namespace this manifestation was minted under.",
+      "additionalProperties": false,
+      "required": ["token", "kind", "identifier"],
+      "properties": {
+        "token": { "$ref": "#/$defs/namespace_token" },
+        "kind": {
+          "type": "string",
+          "description": "Three-letter source kind (ROR, DOI, DNS, SRC, ORC, ARK, or HTP).",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "identifier": {
+          "type": "string",
+          "description": "Canonical authority identifier used to derive the namespace token."
+        },
+        "label": {
+          "type": "string",
+          "description": "Human-readable authority label."
+        },
+        "acronym": {
+          "type": "string",
+          "description": "Short authority acronym or abbreviation."
+        }
+      }
     },
-    "namespace_token": {
-      "$ref": "#/$defs/namespace_token",
-      "description": "Fixed-length token identifying the local authority namespace."
-    },
-    "namespace_kind": {
-      "type": "string",
-      "description": "Three-letter source kind used for namespace generation, for example ROR, DOI, DNS, SRC, ORC, ARK, or HTP.",
-      "pattern": "^[A-Z]{3}$"
-    },
-    "namespace_identifier": {
-      "type": "string",
-      "description": "Canonical authority identifier used to derive the namespace token."
-    },
-    "namespace_label": {
-      "type": "string",
-      "description": "Human-readable authority label."
-    },
-    "namespace_acronym": {
-      "type": "string",
-      "description": "Short authority acronym or abbreviation."
-    },
-    "slug": {
-      "$ref": "#/$defs/slug",
-      "description": "Normalized local manifestation slug."
-    },
+    "slug": { "$ref": "#/$defs/slug" },
     "base_slug": {
       "$ref": "#/$defs/slug",
-      "description": "Slug before optional disambiguation."
+      "description": "Slug before optional disambiguation; required when slug is disambiguated."
+    },
+    "disambiguator": {
+      "type": "string",
+      "pattern": "^[A-Z2-7]{6}$",
+      "description": "Six-character disambiguator, present only for disambiguated slugs."
+    },
+    "disambiguation_basis": {
+      "type": "string",
+      "description": "Canonical basis string the disambiguator was derived from."
     },
     "preferred_label": {
       "type": "string",
       "description": "Preferred local label or source identifier for the manifestation."
     },
-    "description": {
-      "type": "string",
-      "description": "Human-readable record description."
+    "alt_labels": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Synonyms, local labels, or translations."
     },
-    "hitop_concept_label": {
+    "definition": {
       "type": "string",
-      "description": "Label of the mapped HiTOP target concept, when available."
+      "description": "Human-readable definition of the manifestation as operationalized in its source context."
     },
-    "hitop_concept_url": {
-      "type": "string",
-      "description": "Source URL for the mapped HiTOP target concept, when available."
+    "operationalization": {
+      "type": "object",
+      "description": "Instrument, item, and scoring details for the manifestation.",
+      "additionalProperties": false,
+      "properties": {
+        "instrument": { "type": "string" },
+        "item_id": { "type": "string" },
+        "item_text": { "type": "string" },
+        "response_scale": { "type": "string" },
+        "time_window": { "type": "string" },
+        "threshold": { "type": "string" },
+        "scoring_rule": { "type": "string" },
+        "scale_type": {
+          "type": "string",
+          "description": "Scale type, for example Likert, ordinal, nominal, continuous, or binary."
+        },
+        "value_range": {
+          "type": "string",
+          "description": "Permitted value range or value set summary."
+        },
+        "selection_type": {
+          "type": "string",
+          "description": "Selection behavior, for example single choice or multiple choice."
+        },
+        "data_type": {
+          "type": "string",
+          "description": "Data type of the recorded response."
+        }
+      }
     },
-    "hitop_factor_concepts": {
-      "type": "string",
-      "description": "Higher-level HiTOP factor, spectrum, or hierarchy context from the source."
+    "population": {
+      "type": "object",
+      "description": "Target population or sampling context.",
+      "additionalProperties": false,
+      "properties": {
+        "description": { "type": "string" },
+        "age_range": { "type": "string" },
+        "setting": { "type": "string" }
+      }
     },
-    "hitop_spectrum": {
-      "type": "string",
-      "description": "HiTOP spectrum context from the source."
-    },
-    "source_segment": {
-      "type": "string",
-      "description": "Source-specific segment, category, or grouping value."
-    },
-    "local_property": {
-      "type": "string",
-      "description": "Source-specific local property or grouping."
-    },
-    "instruction_text": {
-      "type": "string",
-      "description": "Instruction or stem text shown with the manifestation item."
-    },
-    "item_text": {
-      "type": "string",
-      "description": "Observed item, symptom, sign, manifestation, or local operationalization text."
-    },
-    "inclusion_condition": {
-      "type": "string",
-      "description": "Inclusion, skip, filter, or applicability condition."
-    },
-    "response_scale": {
-      "type": "string",
-      "description": "Response scale text or coded scale description."
-    },
-    "selection_type": {
-      "type": "string",
-      "description": "Selection behavior, for example single choice or multiple choice."
-    },
-    "response_format": {
-      "type": "string",
-      "description": "Response format, for example closed, open, numeric, or structured."
-    },
-    "data_type": {
-      "type": "string",
-      "description": "Data type of the recorded response."
-    },
-    "scale_type": {
-      "type": "string",
-      "description": "Scale type, for example Likert, ordinal, nominal, continuous, or binary."
-    },
-    "value_range": {
-      "type": "string",
-      "description": "Permitted value range or value set summary."
-    },
-    "instrument_short": {
-      "type": "string",
-      "description": "Short instrument, source, module, or dataset label."
-    },
-    "instrument_name": {
-      "type": "string",
-      "description": "Full instrument, source, module, or dataset name."
-    },
-    "citation": {
-      "type": "string",
-      "description": "Citation, provenance note, or source reference."
-    },
-    "population_description": {
-      "type": "string",
-      "description": "Population for which the manifestation record was created or observed."
-    },
-    "population_setting": {
-      "type": "string",
-      "description": "Setting, context, or environment for the population or source data."
-    },
-    "source_row_number": {
-      "type": "integer",
-      "description": "One-based row number in the source table, when applicable.",
-      "minimum": 1
-    },
-    "hitop_base_code_resolution": {
-      "type": "string",
-      "description": "Method or source used to resolve the HiTOP base code."
-    },
-    "mapping_review_status": {
-      "type": "string",
-      "description": "Review status of semantic mapping decisions."
+    "source": {
+      "type": "object",
+      "description": "Provenance of the manifestation within its originating study or instrument. Requires item_id or local_concept_id, matching hitop.suffix.metadata.validate_metadata.",
+      "additionalProperties": false,
+      "required": ["study_id", "instrument"],
+      "anyOf": [
+        { "required": ["item_id"] },
+        { "required": ["local_concept_id"] }
+      ],
+      "properties": {
+        "study_id": { "type": "string" },
+        "instrument": { "type": "string" },
+        "item_id": { "type": "string" },
+        "local_concept_id": { "type": "string" },
+        "citation": { "type": "string" },
+        "source_url": { "type": "string" },
+        "input_row_number": { "type": "integer", "minimum": 1 },
+        "input_hitop_concept_label": { "type": "string" },
+        "input_hitop_concept_url": { "type": "string" },
+        "hitop_base_code_resolution": { "type": "string" }
+      }
     },
     "status": {
       "type": "string",
-      "description": "Lifecycle status of the record."
+      "description": "Lifecycle status of the record, for example active, deprecated, replaced, or draft."
+    },
+    "created": {
+      "type": "string",
+      "format": "date",
+      "description": "Creation date."
+    },
+    "modified": {
+      "type": "string",
+      "format": "date",
+      "description": "Last modification date."
     },
     "version": {
       "type": "string",
       "description": "Record version."
     },
-    "created": {
-      "type": "string",
-      "description": "Creation date or timestamp.",
-      "format": "date"
+    "replaces": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Previous code(s) this record replaces."
     },
-    "modified": {
+    "replaced_by": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Successor code(s), if this record is deprecated."
+    },
+    "mapping_review_status": {
       "type": "string",
-      "description": "Last modification date or timestamp.",
-      "format": "date"
+      "description": "Review status of semantic mapping decisions, for example unreviewed, automatic, or curated."
+    },
+    "mappings": {
+      "type": "array",
+      "description": "Mapping relations to other manifestation codes.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["target_code", "relation"],
+        "properties": {
+          "target_code": { "type": "string" },
+          "relation": {
+            "type": "string",
+            "description": "SKOS mapping relation, for example skos:exactMatch or skos:closeMatch."
+          },
+          "mapping_artifact": {
+            "type": "string",
+            "description": "Reference to the mapping specification or curated artifact this relation was decided under."
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "description": "Who created and reviewed this record, and why.",
+      "additionalProperties": false,
+      "properties": {
+        "created_by": { "type": "string" },
+        "created_at": { "type": "string", "format": "date" },
+        "reviewed_by": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "review_status": { "type": "string" },
+        "decision_note": { "type": "string" }
+      }
     }
   },
   "$defs": {

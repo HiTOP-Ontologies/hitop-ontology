@@ -230,7 +230,43 @@ Core-Ontologie bleibt alleinige Quelle der Wahrheit für Label/Comment.
 Diese generierten Dateien werden nicht von Hand gepflegt — bei einer
 Änderung des YAML werden sie neu erzeugt und die alten Fassungen ersetzt.
 
-## 7. Eine neue Faktorisierung oder Version anlegen
+## 7. Diagramm-Daten und zentrale Farbregel
+
+`scripts/generate_factorization_diagram_data.py` liest eine
+`<version>_hierarchy.yaml`, validiert sie mit derselben Prüflogik wie die
+Pytest-Suite und erzeugt standardmäßig `<version>_diagram.json` im selben
+Ordner — ein minimaler Baum (`label`/`level`/`code`/`kind`/`branch`/`color`/
+`children`), direkt geeignet als Input für `d3.hierarchy()` +
+`d3.partition()` (Icicle-Diagramm).
+
+Die Farbvergabe folgt einer einzigen, faktorisierungsübergreifenden Regel
+(`src/hitop/factorization/colors.py`), damit alle Diagramme visuell
+konsistent sind:
+
+- Eine feste 24-Farben-Palette (von dunklem Blau bis hellem Rosa) wird auf
+  jeden Knoten mit `level` in `{Factor, Superspectrum, Spectrum, Subfactor}`
+  verteilt — jeder dieser Knoten bekommt eine eigene, unmittelbar aus der
+  Palette entnommene Farbe.
+- Die Verteilung erfolgt in der Baum-Reihenfolge (Tiefensuche, so wie der
+  Baum im YAML geschrieben ist), gleichmäßig über die gesamte Palette
+  gestreckt — unabhängig davon, wie viele solcher Knoten eine konkrete
+  Faktorisierung hat. Das ergibt einen durchgehenden Farbverlauf entlang der
+  Baumstruktur, analog dazu, wie die originalen HiTOP-Abbildungen einen
+  ganzen Zweig konsistent einfärben.
+- `Component`- und `Trait`-Knoten sind nicht Teil der Palette. Jeder solche
+  Knoten bekommt stattdessen eine aufgehellte, leicht entsättigte Variante
+  der Farbe seines direkten Elternknotens (HSL: Lightness je Tiefenstufe
+  unterhalb des nächsten Paletten-Knotens erhöht, Saturation leicht
+  reduziert) — verschachtelte Component/Trait-Knoten werden mit jeder Stufe
+  weiter aufgehellt.
+
+Diese Regel ist bewusst in einem eigenen Modul (`hitop.factorization.colors`)
+gekapselt, das sowohl vom Diagramm-Generator als auch von künftigen
+Renderern importiert werden kann, statt die Farblogik in einem Renderer zu
+duplizieren. `<version>_diagram.json` wird wie die anderen generierten
+Dateien nicht von Hand gepflegt.
+
+## 8. Eine neue Faktorisierung oder Version anlegen
 
 1. Ordner `factorizations/<factorization-id>/v<N>/` anlegen.
 2. `<version>_hierarchy.yaml` nach obigem Schema befüllen; `meta.status: draft`,
@@ -239,5 +275,8 @@ Diese generierten Dateien werden nicht von Hand gepflegt — bei einer
 4. `.venv/bin/python -m pytest validation/test_factorizations.py` ausführen.
 5. `scripts/generate_factorization_ontology.py` ausführen, um
    `<version>_factorization.ttl` zu erzeugen.
-6. `meta.status` erst auf `active` setzen, wenn der Baum vollständig und
+6. `scripts/generate_factorization_diagram_data.py` ausführen, um
+   `<version>_diagram.json` (inkl. Farben nach der zentralen Regel aus
+   Abschnitt 7) zu erzeugen.
+7. `meta.status` erst auf `active` setzen, wenn der Baum vollständig und
    fachlich geprüft ist.

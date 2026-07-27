@@ -1,0 +1,489 @@
+{
+  "meta": {
+    "factorization_id": "emotional-dysfunction",
+    "version": "V106mv",
+    "label": "Emotional Dysfunction Superspectrum",
+    "status": "draft"
+  },
+  "hierarchy": {
+    "label": "Emotional dysfunction",
+    "level": "Superspectrum",
+    "code": "S002SE",
+    "kind": "concept",
+    "branch": null,
+    "color": "#1E3A5F",
+    "children": [
+      {
+        "label": "Somatoform",
+        "level": "Spectrum",
+        "code": "P001Y2",
+        "kind": "concept",
+        "branch": 0,
+        "color": "#3F7EB8",
+        "children": [
+          {
+            "label": "Malaise",
+            "level": "Component",
+            "code": "C0033z",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#6095C4"
+          },
+          {
+            "label": "Pain",
+            "level": "Component",
+            "code": "C01i7x",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#6095C4"
+          },
+          {
+            "label": "Fatigue",
+            "level": "Component",
+            "code": "C01jKN",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#6095C4"
+          },
+          {
+            "label": "Neurological",
+            "level": "Component",
+            "code": "C01kKJ",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#6095C4"
+          },
+          {
+            "label": "Gastrointestinal",
+            "level": "Component",
+            "code": "C005Sv",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#6095C4"
+          },
+          {
+            "label": "Cardiopulmonary",
+            "level": "Component",
+            "code": "C01l9M",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#6095C4"
+          },
+          {
+            "label": "Physiological anxiety",
+            "level": "Component",
+            "code": "C024WG",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#6095C4",
+            "bridge": [
+              "Somatoform",
+              "Distress"
+            ]
+          },
+          {
+            "label": "Health/illness anxiety",
+            "level": "Component",
+            "code": "C025ex",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#6095C4",
+            "bridge": [
+              "Somatoform",
+              "Distress"
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Internalizing",
+        "level": "Spectrum",
+        "code": "P002nf",
+        "kind": "concept",
+        "branch": 1,
+        "color": "#6AAFE0",
+        "children": [
+          {
+            "label": "Distress",
+            "level": "Subfactor",
+            "code": "U004dm",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#9EDAED",
+            "children": [
+              {
+                "label": "Negative emotionality",
+                "level": "Component",
+                "code": "C01mPz",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#C6E8F3"
+              },
+              {
+                "label": "Anxiousness",
+                "level": "Trait",
+                "code": "T007eM",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#C6E8F3"
+              },
+              {
+                "label": "Depressivity",
+                "level": "Trait",
+                "code": "T00yfU",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#C6E8F3"
+              },
+              {
+                "label": "Dysphoria",
+                "level": "Component",
+                "code": "C00VHv",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#C6E8F3"
+              },
+              {
+                "label": "Suicidality",
+                "level": "Component",
+                "code": "C00ZyP",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#C6E8F3"
+              },
+              {
+                "label": "Insomnia",
+                "level": "Component",
+                "code": "C00Y8j",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#C6E8F3"
+              },
+              {
+                "label": "Anger/irritability",
+                "level": "Component",
+                "code": "C01nVp",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#C6E8F3"
+              },
+              {
+                "label": "Emotional lability",
+                "level": "Trait",
+                "code": "T008mD",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#C6E8F3"
+              },
+              {
+                "label": "Hyperactive cognition",
+                "level": "Component",
+                "code": "C00oKM",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#C6E8F3"
+              }
+            ]
+          },
+          {
+            "label": "Mania",
+            "level": "Subfactor",
+            "code": "U0050q",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#AEB8E3",
+            "provisional": true,
+            "children": [
+              {
+                "label": "Euphoric activation",
+                "level": "Component",
+                "code": "C00nyb",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#D1D6EE"
+              },
+              {
+                "label": "Reckless overconfidence",
+                "level": "Component",
+                "code": "C00pnZ",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#D1D6EE"
+              },
+              {
+                "label": "Decreased need for sleep",
+                "level": "Component",
+                "code": "C0237W",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#D1D6EE"
+              }
+            ]
+          },
+          {
+            "label": "Fear",
+            "level": "Subfactor",
+            "code": "U0036N",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#DDA5DD",
+            "children": [
+              {
+                "label": "Behavioral avoidance",
+                "level": "Component",
+                "code": "C01oMk",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#E9C7E9"
+              },
+              {
+                "label": "Anxiety sensitivity",
+                "level": "Component",
+                "code": "C01pc6",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#E9C7E9"
+              },
+              {
+                "label": "Situational phobia",
+                "level": "Component",
+                "code": "C00OuR",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#E9C7E9"
+              },
+              {
+                "label": "Animal phobia",
+                "level": "Component",
+                "code": "C00N4I",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#E9C7E9"
+              },
+              {
+                "label": "BII phobia",
+                "level": "Component",
+                "code": "C01qTa",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#E9C7E9"
+              },
+              {
+                "label": "Physiological panic",
+                "level": "Component",
+                "code": "C00Q1t",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#E9C7E9"
+              },
+              {
+                "label": "Psychological panic",
+                "level": "Component",
+                "code": "C00RGy",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#E9C7E9"
+              },
+              {
+                "label": "Performance anxiety",
+                "level": "Component",
+                "code": "C00KL0",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#E9C7E9"
+              },
+              {
+                "label": "Interactive anxiety",
+                "level": "Component",
+                "code": "C00JTU",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#E9C7E9"
+              },
+              {
+                "label": "Fear of public places",
+                "level": "Component",
+                "code": "C00LqY",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#E9C7E9"
+              },
+              {
+                "label": "Fear of enclosed spaces",
+                "level": "Component",
+                "code": "C00Mpl",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#E9C7E9"
+              }
+            ]
+          },
+          {
+            "label": "Pure obsessions",
+            "level": "Component",
+            "code": "C00mpe",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#93C3E5"
+          },
+          {
+            "label": "Compulsive checking",
+            "level": "Component",
+            "code": "C00Urw",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#93C3E5"
+          },
+          {
+            "label": "Compulsive rituals",
+            "level": "Component",
+            "code": "C00TgL",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#93C3E5"
+          },
+          {
+            "label": "Compulsive cleaning",
+            "level": "Component",
+            "code": "C00S9m",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#93C3E5"
+          },
+          {
+            "label": "Separation insecurity",
+            "level": "Trait",
+            "code": "T00Cgy",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#93C3E5"
+          },
+          {
+            "label": "Submissiveness",
+            "level": "Trait",
+            "code": "T00D42",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#93C3E5"
+          },
+          {
+            "label": "Eating pathology",
+            "level": "Subfactor",
+            "code": "U002SC",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#FF8FA4",
+            "children": [
+              {
+                "label": "Body dissatisfaction",
+                "level": "Component",
+                "code": "C01rfi",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#FDBFCB"
+              },
+              {
+                "label": "Binge eating",
+                "level": "Component",
+                "code": "C01s9T",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#FDBFCB"
+              },
+              {
+                "label": "Cognitive restraint",
+                "level": "Component",
+                "code": "C01tAk",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#FDBFCB"
+              },
+              {
+                "label": "Purging",
+                "level": "Component",
+                "code": "C01ueZ",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#FDBFCB"
+              },
+              {
+                "label": "Excessive exercise",
+                "level": "Component",
+                "code": "C01vT5",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#FDBFCB"
+              },
+              {
+                "label": "Restricting",
+                "level": "Component",
+                "code": "C01wSl",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#FDBFCB"
+              },
+              {
+                "label": "Muscle building",
+                "level": "Component",
+                "code": "C01xzj",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#FDBFCB"
+              },
+              {
+                "label": "Negative attitudes toward obesity",
+                "level": "Component",
+                "code": "C01yno",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#FDBFCB"
+              }
+            ]
+          },
+          {
+            "label": "Sexual problems",
+            "level": "Subfactor",
+            "code": "U0012Y",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#FFCCD6",
+            "children": [
+              {
+                "label": "Low sexual desire",
+                "level": "Component",
+                "code": "C01zXz",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#FEDCE3"
+              },
+              {
+                "label": "Difficulties with arousal",
+                "level": "Component",
+                "code": "C020XA",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#FEDCE3"
+              },
+              {
+                "label": "Low orgasmic function",
+                "level": "Component",
+                "code": "C021Q0",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#FEDCE3"
+              },
+              {
+                "label": "Sex-related distress",
+                "level": "Component",
+                "code": "C022PW",
+                "kind": "concept",
+                "branch": 1,
+                "color": "#FEDCE3"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

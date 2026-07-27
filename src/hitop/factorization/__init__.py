@@ -5,6 +5,7 @@ See ``docs/factorizations.md`` for the governance model.
 
 from __future__ import annotations
 
+from .colors import PALETTE, PALETTE_LEVELS, annotate_colors
 from .validate import (
     ALLOWED_META_FIELDS,
     ALLOWED_NODE_FIELDS,
@@ -27,7 +28,10 @@ __all__ = [
     "ALLOWED_NODE_FIELDS",
     "CANONICAL_ONTOLOGY_IRI",
     "NODE_KINDS",
+    "PALETTE",
+    "PALETTE_LEVELS",
     "STATUSES",
+    "annotate_colors",
     "check_cross_file_label_consistency",
     "collect_codes_with_labels",
     "discover_hierarchy_files",

@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "factorization_id": "psychosis",
+    "version": "V10749",
+    "label": "Psychosis Superspectrum",
+    "status": "draft"
+  },
+  "hierarchy": {
+    "label": "Psychosis",
+    "level": "Superspectrum",
+    "code": "S003TB",
+    "kind": "concept",
+    "branch": null,
+    "color": "#1E3A5F",
+    "children": [
+      {
+        "label": "Thought disorder (Psychoticism)",
+        "level": "Spectrum",
+        "code": "P003SL",
+        "kind": "concept",
+        "branch": 0,
+        "color": "#9FC0E9",
+        "children": [
+          {
+            "label": "Fantasy proneness",
+            "level": "Trait",
+            "code": "T00xLn",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#C6D9F0"
+          },
+          {
+            "label": "Unusual Beliefs and Experiences",
+            "level": "Trait",
+            "code": "T00wk6",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#C6D9F0"
+          },
+          {
+            "label": "Peculiarity",
+            "level": "Trait",
+            "code": "T026cQ",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#C6D9F0"
+          },
+          {
+            "label": "Mania",
+            "level": "Component",
+            "code": "U0050q",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#C6D9F0",
+            "provisional": true
+          },
+          {
+            "label": "Dissociation",
+            "level": "Component",
+            "code": "C00kEN",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#C6D9F0"
+          },
+          {
+            "label": "Reality distortion",
+            "level": "Component",
+            "code": "C0277d",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#C6D9F0"
+          },
+          {
+            "label": "Disorganization",
+            "level": "Component",
+            "code": "C00rnS",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#C6D9F0"
+          }
+        ]
+      },
+      {
+        "label": "Detachment",
+        "level": "Spectrum",
+        "code": "P004R1",
+        "kind": "concept",
+        "branch": 1,
+        "color": "#FFCCD6",
+        "children": [
+          {
+            "label": "Emotional detachment",
+            "level": "Trait",
+            "code": "T028jy",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#FEDCE3"
+          },
+          {
+            "label": "Anhedonia",
+            "level": "Trait",
+            "code": "T01hQc",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#FEDCE3"
+          },
+          {
+            "label": "Social withdrawal",
+            "level": "Trait",
+            "code": "T029jr",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#FEDCE3"
+          },
+          {
+            "label": "Romantic disinterest",
+            "level": "Trait",
+            "code": "T02A06",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#FEDCE3"
+          },
+          {
+            "label": "Inexpressivity",
+            "level": "Component",
+            "code": "C00sWr",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#FEDCE3"
+          },
+          {
+            "label": "Avolition",
+            "level": "Component",
+            "code": "C00tUQ",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#FEDCE3"
+          }
+        ]
+      }
+    ]
+  }
+}

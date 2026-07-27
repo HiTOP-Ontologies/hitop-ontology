@@ -402,7 +402,7 @@ Empfohlene optionale Felder:
 | Feld | Zweck |
 | --- | --- |
 | `alt_labels` | Synonyme, lokale Labels, Uebersetzungen |
-| `operationalization` | Instrument, Schwellenwert, Zeitfenster, Scoring-Regel |
+| `operationalization` | Instrument, Item, Schwellenwert, Zeitfenster, Scoring-Regel, Skalentyp (`scale_type`), Wertebereich (`value_range`), Auswahlverhalten (`selection_type`), Datentyp (`data_type`) |
 | `population` | Zielpopulation oder Stichprobenkontext |
 | `disambiguator` | sechsstelliger Disambiguator, falls verwendet |
 | `disambiguation_basis` | kanonische Basis zur Ableitung des Disambiguators |
@@ -441,6 +441,10 @@ operationalization:
   time_window: "past 2 weeks"
   threshold: "source-specific threshold or scoring rule"
   scoring_rule: "source-specific scoring description"
+  scale_type: "Likert"
+  value_range: "1 to 5"
+  selection_type: "single choice"
+  data_type: "numeric"
 population:
   description: "target population or sampling context"
   age_range: "adult"
@@ -470,6 +474,21 @@ provenance:
   review_status: "draft"
   decision_note: "Initial namespace and slug assignment."
 ```
+
+### 9.1 Extension-Felder (`x_*`)
+
+`schema/manifestation-record.schema.json` erlaubt zusaetzliche Top-Level-Felder,
+deren Name auf `x_` folgt von `[A-Za-z0-9_]+` matcht (Muster
+`^x_[A-Za-z0-9_]+$`), mit beliebigem JSON-Wert.
+
+`x_*`-Felder SHOULD nur fuer Producer-spezifische Zusatzdaten verwendet
+werden, fuer die es kein Kernfeld in diesem Dokument gibt. Der Praefix
+verhindert Namenskollisionen mit kuenftigen Kernfeldern. `x_*`-Felder
+SHOULD NOT fuer Daten verwendet werden, fuer die bereits ein Kernfeld
+existiert (z. B. nicht `x_instrument`, wenn `operationalization.instrument`
+gemeint ist) -- das wuerde dieselbe Information an zwei Stellen
+inkonsistent haltbar machen. Consumer MUST unbekannte `x_*`-Felder
+tolerieren, statt den Datensatz deswegen abzulehnen.
 
 ## 10. Validierung
 

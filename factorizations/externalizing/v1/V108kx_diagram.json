@@ -1,0 +1,262 @@
+{
+  "meta": {
+    "factorization_id": "externalizing",
+    "version": "V108kx",
+    "label": "Externalizing Superspectrum",
+    "status": "draft"
+  },
+  "hierarchy": {
+    "label": "Externalizing",
+    "level": "Superspectrum",
+    "code": "S0013h",
+    "kind": "concept",
+    "branch": null,
+    "color": "#1E3A5F",
+    "children": [
+      {
+        "label": "Disinhibition",
+        "level": "Spectrum",
+        "code": "P005xY",
+        "kind": "concept",
+        "branch": 0,
+        "color": "#5A9ED4",
+        "children": [
+          {
+            "label": "Hyperactivity",
+            "level": "Component",
+            "code": "C00oKM",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#81B3DB"
+          },
+          {
+            "label": "Inattention",
+            "level": "Component",
+            "code": "C02BO8",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#81B3DB"
+          },
+          {
+            "label": "Substance abuse",
+            "level": "Subfactor",
+            "code": "U0061L",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#9FC0E9",
+            "children": [
+              {
+                "label": "Substance use",
+                "level": "Component",
+                "code": "C02EBv",
+                "kind": "concept",
+                "branch": 0,
+                "color": "#C6D9F0"
+              },
+              {
+                "label": "Substance problems",
+                "level": "Component",
+                "code": "C02FZY",
+                "kind": "concept",
+                "branch": 0,
+                "color": "#C6D9F0"
+              }
+            ]
+          },
+          {
+            "label": "Antisocial behavior",
+            "level": "Subfactor",
+            "code": "U007EJ",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#E7B9DF",
+            "bridge": [
+              "Disinhibition",
+              "Antagonism"
+            ],
+            "children": [
+              {
+                "label": "Physical aggression",
+                "level": "Component",
+                "code": "C01JH8",
+                "kind": "concept",
+                "branch": 0,
+                "color": "#F2DCEE"
+              },
+              {
+                "label": "Relational aggression",
+                "level": "Component",
+                "code": "C01LSp",
+                "kind": "concept",
+                "branch": 0,
+                "color": "#F2DCEE"
+              },
+              {
+                "label": "Destruction of property",
+                "level": "Component",
+                "code": "C02CiQ",
+                "kind": "concept",
+                "branch": 0,
+                "color": "#F2DCEE"
+              },
+              {
+                "label": "Fraud",
+                "level": "Component",
+                "code": "C01MjB",
+                "kind": "concept",
+                "branch": 0,
+                "color": "#F2DCEE"
+              },
+              {
+                "label": "Theft",
+                "level": "Trait",
+                "code": "T0177S",
+                "kind": "concept",
+                "branch": 0,
+                "color": "#F2DCEE"
+              }
+            ]
+          },
+          {
+            "label": "Impulsivity",
+            "level": "Trait",
+            "code": "T015o8",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#81B3DB"
+          },
+          {
+            "label": "Irresponsibility",
+            "level": "Trait",
+            "code": "T016k0",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#81B3DB"
+          },
+          {
+            "label": "Disorganization",
+            "level": "Trait",
+            "code": "C00rnS",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#81B3DB"
+          },
+          {
+            "label": "Distractibility",
+            "level": "Trait",
+            "code": "T018ir",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#81B3DB"
+          },
+          {
+            "label": "Risk taking",
+            "level": "Trait",
+            "code": "T019Cj",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#81B3DB"
+          },
+          {
+            "label": "(Low) Perfectionism",
+            "level": "Trait",
+            "code": "T01A5i",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#81B3DB"
+          },
+          {
+            "label": "(Low) Workaholism",
+            "level": "Trait",
+            "code": "T01C1W",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#81B3DB"
+          }
+        ]
+      },
+      {
+        "label": "Antagonism",
+        "level": "Spectrum",
+        "code": "P006gM",
+        "kind": "concept",
+        "branch": 1,
+        "color": "#FFCCD6",
+        "children": [
+          {
+            "label": "Manipulativeness",
+            "level": "Trait",
+            "code": "T01bz7",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#FEDCE3"
+          },
+          {
+            "label": "Deceitfulness",
+            "level": "Trait",
+            "code": "T01Ziz",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#FEDCE3"
+          },
+          {
+            "label": "Callousness",
+            "level": "Trait",
+            "code": "T01Y7w",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#FEDCE3"
+          },
+          {
+            "label": "Exhibitionism",
+            "level": "Trait",
+            "code": "C02DSC",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#FEDCE3"
+          },
+          {
+            "label": "Grandiosity",
+            "level": "Trait",
+            "code": "T01a7u",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#FEDCE3"
+          },
+          {
+            "label": "Hostility",
+            "level": "Trait",
+            "code": "T0094I",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#FEDCE3"
+          },
+          {
+            "label": "Domineering",
+            "level": "Trait",
+            "code": "T01eG6",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#FEDCE3"
+          },
+          {
+            "label": "Suspiciousness",
+            "level": "Trait",
+            "code": "T010c6",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#FEDCE3"
+          },
+          {
+            "label": "Rudeness",
+            "level": "Trait",
+            "code": "T01cX5",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#FEDCE3"
+          }
+        ]
+      }
+    ]
+  }
+}

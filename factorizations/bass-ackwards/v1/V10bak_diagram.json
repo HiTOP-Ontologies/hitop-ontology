@@ -1,0 +1,433 @@
+{
+  "meta": {
+    "factorization_id": "bass-ackwards",
+    "version": "V10bak",
+    "label": "HiTOP Bass-Ackwards Structure",
+    "status": "draft"
+  },
+  "hierarchy": {
+    "label": "General Psychopathology",
+    "level": "Factor",
+    "code": "F001Hw",
+    "kind": "concept",
+    "branch": null,
+    "color": "#1E3A5F",
+    "children": [
+      {
+        "label": "Internalizing",
+        "level": "Superspectrum",
+        "code": "P002nf",
+        "kind": "concept",
+        "branch": 0,
+        "color": "#3F7EB8",
+        "children": [
+          {
+            "label": "Distress",
+            "level": "Subfactor",
+            "code": "U004dm",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#6AAFE0",
+            "children": [
+              {
+                "label": "Depression & Detachment",
+                "level": "Component",
+                "code": "COLLDepression",
+                "kind": "collection",
+                "branch": 0,
+                "color": "#93C3E5",
+                "bridge": [
+                  "Detachment"
+                ],
+                "provisional": true,
+                "children": [
+                  {
+                    "label": "Somatic Depression",
+                    "level": "Component",
+                    "code": "COLLSomDep",
+                    "kind": "collection",
+                    "branch": 0,
+                    "color": "#DEECF5",
+                    "provisional": true,
+                    "children": [
+                      {
+                        "label": "Lassitude",
+                        "level": "Component",
+                        "code": "C00WJc",
+                        "kind": "concept",
+                        "branch": 0,
+                        "color": "#E5EFF5"
+                      },
+                      {
+                        "label": "Insomnia",
+                        "level": "Component",
+                        "code": "C00Y8j",
+                        "kind": "concept",
+                        "branch": 0,
+                        "color": "#E5EFF5"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Cognitive Depression",
+                    "level": "Component",
+                    "code": "COLLCogDep",
+                    "kind": "collection",
+                    "branch": 0,
+                    "color": "#DEECF5",
+                    "provisional": true,
+                    "children": [
+                      {
+                        "label": "Dysphoria",
+                        "level": "Component",
+                        "code": "C00VHv",
+                        "kind": "concept",
+                        "branch": 0,
+                        "color": "#E5EFF5"
+                      },
+                      {
+                        "label": "Anhedonia",
+                        "level": "Component",
+                        "code": "C00XyI",
+                        "kind": "concept",
+                        "branch": 0,
+                        "color": "#E5EFF5"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "label": "GAD & PF",
+                "level": "Component",
+                "code": "COLLGadPf",
+                "kind": "collection",
+                "branch": 0,
+                "color": "#93C3E5",
+                "bridge": [
+                  "PF Problems"
+                ],
+                "provisional": true,
+                "children": [
+                  {
+                    "label": "GAD & OCD",
+                    "level": "Component",
+                    "code": "COLLGadOcd",
+                    "kind": "collection",
+                    "branch": 0,
+                    "color": "#DEECF5",
+                    "bridge": [
+                      "Thought Disorder"
+                    ],
+                    "children": [
+                      {
+                        "label": "GAD Symptoms",
+                        "level": "Component",
+                        "code": "C00fKQ",
+                        "kind": "concept",
+                        "branch": 0,
+                        "color": "#E5EFF5"
+                      },
+                      {
+                        "label": "Pure obsessions",
+                        "level": "Component",
+                        "code": "C00mpe",
+                        "kind": "concept",
+                        "branch": 0,
+                        "color": "#E5EFF5"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Fear",
+            "level": "Subfactor",
+            "code": "U0036N",
+            "kind": "concept",
+            "branch": 0,
+            "color": "#9EDAED",
+            "children": [
+              {
+                "label": "Social Anxiety & Agoraphobia",
+                "level": "Component",
+                "code": "COLLSocAgora",
+                "kind": "collection",
+                "branch": 0,
+                "color": "#C6E8F3",
+                "children": [
+                  {
+                    "label": "Interactive anxiety",
+                    "level": "Component",
+                    "code": "C00JTU",
+                    "kind": "concept",
+                    "branch": 0,
+                    "color": "#E3F2F7"
+                  },
+                  {
+                    "label": "Performance anxiety",
+                    "level": "Component",
+                    "code": "C00KL0",
+                    "kind": "concept",
+                    "branch": 0,
+                    "color": "#E3F2F7"
+                  },
+                  {
+                    "label": "Public places",
+                    "level": "Component",
+                    "code": "C00LqY",
+                    "kind": "concept",
+                    "branch": 0,
+                    "color": "#E3F2F7"
+                  },
+                  {
+                    "label": "Enclosed spaces",
+                    "level": "Component",
+                    "code": "C00Mpl",
+                    "kind": "concept",
+                    "branch": 0,
+                    "color": "#E3F2F7"
+                  }
+                ]
+              },
+              {
+                "label": "Panic Disorder & Somatoform",
+                "level": "Component",
+                "code": "COLLPanicSom",
+                "kind": "collection",
+                "branch": 0,
+                "color": "#C6E8F3",
+                "children": [
+                  {
+                    "label": "Physiological panic",
+                    "level": "Component",
+                    "code": "C00Q1t",
+                    "kind": "concept",
+                    "branch": 0,
+                    "color": "#E3F2F7"
+                  },
+                  {
+                    "label": "Psychological panic",
+                    "level": "Component",
+                    "code": "C00RGy",
+                    "kind": "concept",
+                    "branch": 0,
+                    "color": "#E3F2F7"
+                  },
+                  {
+                    "label": "Somatoform",
+                    "level": "Component",
+                    "code": "P001Y2",
+                    "kind": "concept",
+                    "branch": 0,
+                    "color": "#E3F2F7"
+                  }
+                ]
+              },
+              {
+                "label": "Specific Phobia",
+                "level": "Component",
+                "code": "C00OuR",
+                "kind": "concept",
+                "branch": 0,
+                "color": "#C6E8F3",
+                "provisional": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Eating Disorder",
+        "level": "Spectrum",
+        "code": "COLLEatDis",
+        "kind": "collection",
+        "branch": 1,
+        "color": "#AEB8E3",
+        "children": [
+          {
+            "label": "ED Thoughts",
+            "level": "Component",
+            "code": "C01rfi",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#D1D6EE",
+            "provisional": true
+          },
+          {
+            "label": "ED Bulimic",
+            "level": "Component",
+            "code": "C01ueZ",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#D1D6EE",
+            "provisional": true
+          },
+          {
+            "label": "ED Anorectic",
+            "level": "Component",
+            "code": "C01wSl",
+            "kind": "concept",
+            "branch": 1,
+            "color": "#D1D6EE",
+            "provisional": true
+          }
+        ]
+      },
+      {
+        "label": "Externalizing & Thought Disorder & Detachment",
+        "level": "Superspectrum",
+        "code": "COLLExtDetTd",
+        "kind": "collection",
+        "branch": 2,
+        "color": "#DDA5DD",
+        "children": [
+          {
+            "label": "Thought Disorder & Mania",
+            "level": "Spectrum",
+            "code": "COLLTdMania",
+            "kind": "collection",
+            "branch": 2,
+            "color": "#FF8FA4",
+            "children": [
+              {
+                "label": "Thought Disorder",
+                "level": "Component",
+                "code": "P003SL",
+                "kind": "concept",
+                "branch": 2,
+                "color": "#FDBFCB"
+              },
+              {
+                "label": "Mania",
+                "level": "Component",
+                "code": "U0050q",
+                "kind": "concept",
+                "branch": 2,
+                "color": "#FDBFCB"
+              }
+            ]
+          },
+          {
+            "label": "Externalizing & Detachment",
+            "level": "Spectrum",
+            "code": "COLLExtDet",
+            "kind": "collection",
+            "branch": 2,
+            "color": "#FFCCD6",
+            "children": [
+              {
+                "label": "Antagonistic PD",
+                "level": "Component",
+                "code": "COLLAntPf",
+                "kind": "collection",
+                "branch": 2,
+                "color": "#FEDCE3",
+                "children": [
+                  {
+                    "label": "Antagonism",
+                    "level": "Component",
+                    "code": "P006gM",
+                    "kind": "concept",
+                    "branch": 2,
+                    "color": "#FCDEE4"
+                  },
+                  {
+                    "label": "PF Problems",
+                    "level": "Trait",
+                    "code": "COLLPF",
+                    "kind": "collection",
+                    "branch": 2,
+                    "color": "#FCDEE4",
+                    "provisional": true,
+                    "children": [
+                      {
+                        "label": "Identity problems",
+                        "level": "Trait",
+                        "code": "T00Eht",
+                        "kind": "concept",
+                        "branch": 2,
+                        "color": "#FAE1E6"
+                      },
+                      {
+                        "label": "Negative relationships",
+                        "level": "Trait",
+                        "code": "T00Fe0",
+                        "kind": "concept",
+                        "branch": 2,
+                        "color": "#FAE1E6"
+                      },
+                      {
+                        "label": "Fragility",
+                        "level": "Trait",
+                        "code": "T00G3d",
+                        "kind": "concept",
+                        "branch": 2,
+                        "color": "#FAE1E6"
+                      },
+                      {
+                        "label": "Ineptitude",
+                        "level": "Trait",
+                        "code": "T00HCy",
+                        "kind": "concept",
+                        "branch": 2,
+                        "color": "#FAE1E6"
+                      },
+                      {
+                        "label": "(low) Invulnerability",
+                        "level": "Trait",
+                        "code": "T00IAT",
+                        "kind": "concept",
+                        "branch": 2,
+                        "color": "#FAE1E6"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "label": "Detachment",
+                "level": "Component",
+                "code": "P004R1",
+                "kind": "concept",
+                "branch": 2,
+                "color": "#FEDCE3",
+                "bridge": [
+                  "Depression & Detachment"
+                ]
+              },
+              {
+                "label": "Disinhibition & Substance Use",
+                "level": "Component",
+                "code": "COLLDisinhibSub",
+                "kind": "collection",
+                "branch": 2,
+                "color": "#FEDCE3",
+                "children": [
+                  {
+                    "label": "Disinhibited Externalizing",
+                    "level": "Component",
+                    "code": "P005xY",
+                    "kind": "concept",
+                    "branch": 2,
+                    "color": "#FCDEE4"
+                  },
+                  {
+                    "label": "Substance use",
+                    "level": "Component",
+                    "code": "C02EBv",
+                    "kind": "concept",
+                    "branch": 2,
+                    "color": "#FCDEE4"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
