@@ -39,6 +39,7 @@ dist/
 
 # Docs
 docs/audit/
+site/
 robot_report.tsv
 
 # Local working copy, not part of the tracked factorization
