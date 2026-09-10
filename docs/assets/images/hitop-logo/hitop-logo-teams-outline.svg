@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-labelledby="title">
+  <title id="title">HiTOP nested strata outline icon</title>
+  <g fill="none" stroke="#fff" stroke-linejoin="round" stroke-width="2">
+    <path d="M12 3h8v4h-3v2"/>
+    <path d="M9 9h14v4h-6v2"/>
+    <path d="M6 15h20v4h-9v2"/>
+    <path d="M3 21h26v5H3z"/>
+    <path d="M15 7v14h2V7"/>
+  </g>
+</svg>

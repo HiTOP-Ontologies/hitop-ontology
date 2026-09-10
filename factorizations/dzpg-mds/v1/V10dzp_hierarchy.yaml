@@ -18,30 +18,22 @@ hierarchy:
   code: F001Hw
   children:
 
-    # PF_identity_2, PF_identity_5
+    # PF_identity_2, PF_identity_5, PF_self_reflection_2
     - label: Identity problems
       level: Trait
       code: T00Eht
-    # PF_affect_comm_1, PF_affect_diff_2, PF_affect_tolrnce_1
-    - label: Affect regulation
+    # PF_affect_diff_2, PF_affect_tolrnce_1
+    - label: Emotional lability
       level: Trait
       code: T008mD
-      provisional: true
-    # PF_intern_relshp_mod_4
+    # PF_intern_relshp_mod_4, PF_affect_comm_1
     - label: Negative relationships
       level: Trait
       code: T00Fe0
-      provisional: true
     # PF_self_est_reg_1
     - label: Fragility
       level: Trait
       code: T00G3d
-      provisional: true
-    # PF_self_reflection_2
-    - label: Ineptitude
-      level: Trait
-      code: T00HCy
-      provisional: true
 
     - label: Internalizing
       level: Spectrum
@@ -61,19 +53,14 @@ hierarchy:
               level: Component
               code: C00e0L
               provisional: true
-            # C00fKQ = Generalized Anxiety Disorder Symptoms
-            - label: Worries
-              level: Component
-              code: C00fKQ
             # DSM5CC_6 + PHQ4_3 "nervös, ängstlich, angespannt" -- generisch,
             # getrennt von "Worries" (PHQ4_4, gezielt Sorgenkontrolle) :: T007eM = Anxiousness
-            - label: Free floating anxiety
+            - label: Anxiousness
               level: Component
               code: T007eM
-              provisional: true
-            - label: Hyperarousal
+            - label: Generalized Anxiety Disorder Symptoms
               level: Component
-              code: C00iAh
+              code: C00fKQ
             - label: Lassitude
               level: Component
               code: C00WJc
@@ -84,11 +71,13 @@ hierarchy:
             # PCPTSD5_3 "staendig wachsam" ueberschneidet sich mit dem
             # bereits vorhandenen Hyperarousal-Knoten (bridge statt Duplikat)
             # C00hPJ = Avoidance
-            - label: Traumascreening
+            # PCPTSD5_3 ist Hyperarousal dafür brauchen wir keine Bridge
+            - label: Avoidance
               level: Component
               code: C00hPJ
-              provisional: true
-              bridge: [Hyperarousal]
+            - label: Hyperarousal
+              level: Component
+              code: C00iAh
         - label: Fear
           level: Subfactor
           code: U0036N
@@ -180,10 +169,9 @@ hierarchy:
         # soziale Komponente ist der Kern des Items, kein separater
         # "Social Anhedonia"-Code im Kern vorhanden
         # T013F1 = Disaffiliativeness
-        - label: Social Anhedonia
+        - label: Disaffiliativeness
           level: Trait
           code: T013F1
-          provisional: true
         - label: Anhedonia
           level: Trait
           code: T01hQc
@@ -201,24 +189,12 @@ hierarchy:
       level: Spectrum
       code: P005xY
       children:
-        # PF_impulse_reg_1 "voller Wut, koennte Kontrolle verlieren"
-        # T01Neb = Impatient Urgency
-        - label: Regulation aggessive impulses
-          level: Trait
-          code: T01Neb
-          provisional: true
         - label: Irritability
           level: Component
           code: C00l5y
         - label: Impulsivity
           level: Trait
           code: T015o8
-        # DI_normviolation "aufregende Dinge, auch wenn gegen das Gesetz"
-        # T01UGN = Rebelliousness
-        - label: Norm violation
-          level: Trait
-          code: T01UGN
-          provisional: true
         - label: Risk taking
           level: Trait
           code: T019Cj
@@ -228,6 +204,26 @@ hierarchy:
         - label: Harmful Substance Use
           level: Subfactor
           code: U0061L
+          children:
+            - label: Alcohol use # DSM5CC_21
+              level: Component
+              code: C01DAb
+            - label: Smoking # DSM5CC_22
+              level: Component
+              code: COLLsmok
+              provisional: true
+              kind: collection
+              children:
+                - label: Substance Use
+                  level: Component
+                  code: C02EBv
+            - label: Drug problems # DSM5CC_23a
+              level: Component
+              code: C01Ip4
+            - label: Drug use # DSM5CC_23a2
+              level: Component
+              code: C01HGq
+
 
     - label: Antagonistic Externalizing
       level: Spectrum
@@ -237,15 +233,39 @@ hierarchy:
           level: Trait
           code: T01Ziz
         # AN_entitlement -- kein exakter Kern-Code, Grandiosity/Entitlement
-        # sind im AMPD-Antagonismus-Modell eng verwandte Facetten
+        # sind im AMPD-Antagonismus-Modell eng verwandte Facetten Vorschlag Grandiosity
         # T01a7u = Grandiosity
-        - label: Entitlement
+        - label: Grandiosity
           level: Trait
           code: T01a7u
-          provisional: true
         - label: Hostility
           level: Trait
           code: T0094I
         - label: Manipulativeness
           level: Trait
           code: T01bz7
+        - label: Antisocial Behavior
+          level: Subfactor
+          code: U007EJ
+          children:
+            # PF_impulse_reg_1 "voller Wut, koennte Kontrolle verlieren"
+            # T01Neb = Impatient Urgency
+            - label: Aggression
+              level: Trait
+              code: COLLaggr
+              kind: collection
+              provisional: true
+              children:
+                - label: Impatient Urgency
+                  level: Trait
+                  code: T01Neb
+            # DI_normviolation "aufregende Dinge, auch wenn gegen das Gesetz"
+            # T01UGN = Excitement seeking
+            - label: Excitement seeking
+              level: Trait
+              code: COLLexcit
+              kind: collection
+              children:
+                - label: Rebelliousness
+                  level: Trait
+                  code: T01UGN

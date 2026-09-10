@@ -2,17 +2,21 @@
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 
 from .constants import (
     DISAMBIGUATED_SUFFIX_RE,
     FULL_CODE_RE,
+    HITOP_BASE_CODE_PATTERN,
     MANIFESTATION_TYPES,
     NAMESPACE_RE,
     SLUG_RE,
 )
 from .exceptions import InvalidCodeError
 from .slug import split_disambiguated_slug
+
+HITOP_BASE_CODE_RE = re.compile(f"^{HITOP_BASE_CODE_PATTERN}$")
 
 
 @dataclass(frozen=True, slots=True)
@@ -87,8 +91,8 @@ def build_code(
         raise InvalidCodeError(f"Invalid namespace token {namespace_token!r}.")
     if not SLUG_RE.fullmatch(slug):
         raise InvalidCodeError(f"Invalid slug {slug!r}.")
-    if not hitop_base_code or "." in hitop_base_code or "-" in hitop_base_code:
-        raise InvalidCodeError("HiTOP base code must be a non-empty atomic code.")
+    if not HITOP_BASE_CODE_RE.fullmatch(hitop_base_code):
+        raise InvalidCodeError("HiTOP base code must match the canonical prefix-free form.")
     return ManifestationCode(
         hitop_base_code=hitop_base_code,
         manifestation_type=manifestation_type,

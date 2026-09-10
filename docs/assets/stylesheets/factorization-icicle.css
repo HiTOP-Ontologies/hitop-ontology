@@ -14,7 +14,6 @@
   --hitop-icicle-muted: #5b6270;
   --hitop-icicle-bg: #ffffff;
   --hitop-icicle-connector: rgba(11, 11, 11, 0.38);
-  --hitop-icicle-provisional-stroke: rgba(11, 11, 11, 0.55);
   border: 1px solid var(--hitop-icicle-border);
   border-radius: 10px;
   background: var(--hitop-icicle-bg);
@@ -28,7 +27,6 @@
     --hitop-icicle-muted: #a3aab7;
     --hitop-icicle-bg: #14161a;
     --hitop-icicle-connector: rgba(255, 255, 255, 0.4);
-    --hitop-icicle-provisional-stroke: rgba(255, 255, 255, 0.6);
   }
 }
 :root[data-theme="dark"] .hitop-icicle-wrapper {
@@ -37,7 +35,6 @@
   --hitop-icicle-muted: #a3aab7;
   --hitop-icicle-bg: #14161a;
   --hitop-icicle-connector: rgba(255, 255, 255, 0.4);
-  --hitop-icicle-provisional-stroke: rgba(255, 255, 255, 0.6);
 }
 :root[data-theme="light"] .hitop-icicle-wrapper {
   --hitop-icicle-border: #d8dbe2;
@@ -45,8 +42,105 @@
   --hitop-icicle-muted: #5b6270;
   --hitop-icicle-bg: #ffffff;
   --hitop-icicle-connector: rgba(11, 11, 11, 0.38);
-  --hitop-icicle-provisional-stroke: rgba(11, 11, 11, 0.55);
 }
+
+/* Share/download toolbar -- see renderFactorizationIcicle in
+   factorization-icicle.js. A thin action strip above the diagram, dividing
+   line matching the legend/detail sections' own border-top dividers below. */
+.hitop-icicle-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--hitop-icicle-border);
+}
+.hitop-icicle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 7px;
+  border: 1px solid var(--hitop-icicle-border);
+  background: var(--hitop-icicle-bg);
+  color: var(--hitop-icicle-text);
+  cursor: pointer;
+  line-height: 1;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.05s ease;
+}
+.hitop-icicle-btn svg { width: 13px; height: 13px; flex: none; }
+.hitop-icicle-btn:hover { border-color: var(--hitop-icicle-muted); }
+.hitop-icicle-btn:active { transform: translateY(1px); }
+.hitop-icicle-btn:focus-visible { outline: 2px solid var(--hitop-icicle-text); outline-offset: 2px; }
+.hitop-icicle-btn-primary {
+  background: var(--hitop-icicle-text);
+  color: var(--hitop-icicle-bg);
+  border-color: var(--hitop-icicle-text);
+}
+.hitop-icicle-btn-primary:hover { opacity: 0.88; }
+
+.hitop-icicle-menu { position: relative; }
+.hitop-icicle-menu-caret { width: 10px !important; height: 10px !important; margin-left: 1px; }
+.hitop-icicle-menu-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 210px;
+  background: var(--hitop-icicle-bg);
+  border: 1px solid var(--hitop-icicle-border);
+  border-radius: 9px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 20;
+}
+.hitop-icicle-menu-list[hidden] { display: none; }
+.hitop-icicle-menu-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-align: left;
+  padding: 7px 9px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--hitop-icicle-text);
+  cursor: pointer;
+}
+.hitop-icicle-menu-item:hover,
+.hitop-icicle-menu-item:focus-visible {
+  background: rgba(127, 127, 127, 0.14);
+  outline: none;
+}
+.hitop-icicle-menu-item-hint { font-size: 10.5px; font-weight: 500; color: var(--hitop-icicle-muted); }
+
+.hitop-icicle-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translate(-50%, 8px);
+  background: var(--hitop-icicle-text);
+  color: var(--hitop-icicle-bg);
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 1000;
+}
+.hitop-icicle-toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
 
 .hitop-icicle-svg-host {
   width: 100%;
@@ -60,7 +154,10 @@
 
 /* Connector lines between a parent band and each child band, mirroring the
    official figure's vertical tier lines. Dashed for a child marked
-   `provisional: true` in its source hierarchy.yaml. */
+   `provisional: true` in its source hierarchy.yaml -- this dashed
+   connector is the box's *only* provisional marker; the box itself never
+   gets an extra outline, so a provisional node reads identically to a
+   settled one except for the line feeding into it. */
 .hitop-icicle-connector {
   stroke: var(--hitop-icicle-connector);
   stroke-width: 1.5px;
@@ -70,15 +167,11 @@
 }
 
 /* Box fill is set per-node in JS (branch hue + ordinal depth ramp) as an
-   SVG attribute -- only structural/stroke styling belongs here. */
+   SVG attribute -- only structural/stroke styling belongs here. Deliberately
+   no `.is-provisional` variant: see the connector comment above. */
 .hitop-icicle-box {
   stroke: var(--hitop-icicle-bg);
   stroke-width: 1.5px;
-}
-.hitop-icicle-box.is-provisional {
-  stroke: var(--hitop-icicle-provisional-stroke);
-  stroke-width: 2px;
-  stroke-dasharray: 4 3;
 }
 
 .hitop-icicle-node rect {
@@ -201,6 +294,10 @@
   height: 11px;
   border-radius: 3px;
   flex: none;
+}
+.hitop-icicle-legend-empty {
+  color: var(--hitop-icicle-muted);
+  font-size: 12px;
 }
 
 .hitop-icicle-detail {

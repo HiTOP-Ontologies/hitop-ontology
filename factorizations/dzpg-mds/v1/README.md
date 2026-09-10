@@ -8,7 +8,7 @@ A factorization is a specific, versioned composition of stable HiTOP base
 concepts from the shared core ontology (`ontology/hitop.rdf`), expressed as
 a recursive hierarchy tree. This factorization tracks the DZPG "Psychische
 Gesundheit Basiserfassung" minimal data set item composition (see
-`docs/hitop_base_vocabulary.md` and `docs/mapping-und-harmonisierung.md`
+`docs/concepts/core-vocabulary.md` and `docs/mapping-und-harmonisierung.md`
 for related manifestation-level tooling used by this data set). The tree
 was built from the "HiTOP Section" sheet of
 `docs/audit/20260615T191039+0200_hitop_ontology_release_audit/DZPG MDS Adult + HiTOP.xlsx`.

@@ -4,7 +4,7 @@ Status: Entwurf
 Version: 0.2.0  
 Letzte Aktualisierung: 2026-05-31  
 Gilt fuer: HiTOP-Manifestationssuffixe  
-Primaerformat: `<HiTOP>.M-<TT>-<NS>-<SLUG>`
+Primaerformat: `<HITOP_BASE_CODE>.M-<TT>-<NS>-<SLUG>`
 
 ## 1. Zweck
 
@@ -18,7 +18,7 @@ Das Schema trennt vier Verantwortlichkeiten:
 
 | Aspekt | Feld | Verantwortung |
 | --- | --- | --- |
-| HiTOP-Konzeptidentitaet | `<HiTOP>` | stabiler Basiscode des HiTOP-Codesystems |
+| HiTOP-Konzeptidentitaet | `<HITOP_BASE_CODE>` | stabiler Basiscode des HiTOP-Codesystems |
 | Manifestationskategorie | `<TT>` | kontrollierter Manifestationstyp |
 | lokaler Authority-Raum | `<NS>` | fixlaengiges Namespace-Token zur Kollisionsisolierung |
 | lesbarer lokaler Name | `<SLUG>` | lokal lesbarer Identifier |
@@ -64,20 +64,20 @@ einem Regex, einer Tabelle oder einem Algorithmusblock.
 Neue Manifestationssuffixe MUST diese kanonische Form verwenden:
 
 ```text
-<HiTOP>.M-<TT>-<NS>-<SLUG>
+<HITOP_BASE_CODE>.M-<TT>-<NS>-<SLUG>
 ```
 
 Beispiel:
 
 ```text
-HiTOPU0aB2X.M-AF-RORPLACEHOLDERAB-CHRONIC_WORRY
+U0aB2X.M-AF-RORPLACEHOLDERAB-CHRONIC_WORRY
 ```
 
 ### 4.2 Felduebersicht
 
 | Feld | Erforderlich | Form | Beispiel |
 | --- | --- | --- | --- |
-| `<HiTOP>` | ja | HiTOP-Basiscode | `HiTOPU0aB2X` |
+| `<HITOP_BASE_CODE>` | ja | HiTOP-Basiscode | `U0aB2X` |
 | `M` | ja | literaler Suffix-Block | `M` |
 | `<TT>` | ja | Manifestationstyp | `AF` |
 | `<NS>` | ja | fixlaengiges Namespace-Token | `RORPLACEHOLDERAB` |
@@ -283,7 +283,7 @@ Kollisionen geprueft wurde.
 Ein Disambiguator loest eine lokale Slug-Kollision innerhalb desselben Tupels:
 
 ```text
-<HiTOP> + M + <TT> + <NS>
+<HITOP_BASE_CODE> + M + <TT> + <NS>
 ```
 
 Er MUST nur verwendet werden, wenn zwei unterschiedliche Manifestationen sonst
@@ -360,10 +360,10 @@ Beispiel:
 
 ```text
 canonical_disambiguation_basis =
-  <ROR_URL>|hitopu0ab2x|m|af|study-a|instrument-x|item-17
+  <ROR_URL>|u0ab2x|m|af|study-a|instrument-x|item-17
 
-disambiguator = CGREBL
-slug = CHRONIC_WORRY_CGREBL
+disambiguator = ALN53Q
+slug = CHRONIC_WORRY_ALN53Q
 ```
 
 ## 9. Erforderliche Metadaten
@@ -375,8 +375,8 @@ Mappings zu unterstuetzen.
 Minimale YAML-Struktur:
 
 ```yaml
-code: "HiTOPU0aB2X.M-AF-RORPLACEHOLDERAB-CHRONIC_WORRY"
-hitop_base_code: "HiTOPU0aB2X"
+code: "U0aB2X.M-AF-RORPLACEHOLDERAB-CHRONIC_WORRY"
+hitop_base_code: "U0aB2X"
 suffix_block: "M"
 manifestation_type: "AF"
 namespace:
@@ -414,8 +414,8 @@ Empfohlene optionale Felder:
 Vollstaendige YAML-Struktur mit allen empfohlenen optionalen Feldern:
 
 ```yaml
-code: "HiTOPU0aB2X.M-AF-RORPLACEHOLDERAB-CHRONIC_WORRY_CGREBL"
-hitop_base_code: "HiTOPU0aB2X"
+code: "U0aB2X.M-AF-RORPLACEHOLDERAB-CHRONIC_WORRY_ALN53Q"
+hitop_base_code: "U0aB2X"
 suffix_block: "M"
 manifestation_type: "AF"
 namespace:
@@ -424,10 +424,10 @@ namespace:
   identifier: "<ROR_URL>"
   label: "Example source organization"
   acronym: "EXORG"
-slug: "CHRONIC_WORRY_CGREBL"
+slug: "CHRONIC_WORRY_ALN53Q"
 base_slug: "CHRONIC_WORRY"
-disambiguator: "CGREBL"
-disambiguation_basis: "<ROR_URL>|hitopu0ab2x|m|af|study-a|instrument-x|item-17"
+disambiguator: "ALN53Q"
+disambiguation_basis: "<ROR_URL>|u0ab2x|m|af|study-a|instrument-x|item-17"
 preferred_label: "Chronic worry"
 alt_labels:
   - "Persistent worry"
@@ -464,7 +464,7 @@ replaces: []
 replaced_by: []
 mapping_review_status: "unreviewed"
 mappings:
-  - target_code: "HiTOPU0aB2X.M-AF-ROROTHERTOKENABC-EXCESSIVE_WORRY"
+  - target_code: "U0aB2X.M-AF-ROROTHERTOKENABC-EXCESSIVE_WORRY"
     relation: "skos:closeMatch"
     mapping_artifact: "docs/mapping-und-harmonisierung.md"
 provenance:
@@ -496,14 +496,14 @@ tolerieren, statt den Datensatz deswegen abzulehnen.
 
 Ein kanonischer Manifestationssuffix ist syntaktisch gueltig, wenn:
 
-1. `<HiTOP>` vorhanden ist
+1. `<HITOP_BASE_CODE>` vorhanden ist
 2. der Suffix-Block literal `M` ist
 3. `<TT>` ein erlaubter Manifestationstyp ist
 4. `<NS>` dem Muster `[A-Z]{3}[A-Z2-7]{13}` entspricht
 5. `<SLUG>` dem Muster `[A-Z0-9](?:[A-Z0-9_]{1,38}[A-Z0-9])` entspricht
 6. die Slug-Gesamtlaenge 3 bis 40 Zeichen betraegt
 
-Regex fuer den Suffix-Block ohne `<HiTOP>.`:
+Regex fuer den Suffix-Block ohne `<HITOP_BASE_CODE>.`:
 
 ```text
 ^M-(GS|CS|SY|AF|CG|PC|BH|SS|SL|SU|IR|IM)-[A-Z]{3}[A-Z2-7]{13}-[A-Z0-9](?:[A-Z0-9_]{1,38}[A-Z0-9])$
@@ -521,7 +521,7 @@ Ein Code ist semantisch gueltig, wenn:
 
 1. der HiTOP-Basiscode existiert
 2. das Namespace-Token zu den dokumentierten Namespace-Metadaten passt
-3. der Slug innerhalb von `<HiTOP> + M + <TT> + <NS>` eindeutig ist
+3. der Slug innerhalb von `<HITOP_BASE_CODE> + M + <TT> + <NS>` eindeutig ist
 4. disambiguierte Slugs `disambiguator` und `disambiguation_basis` enthalten
 5. Definition und Source-Metadaten vorhanden sind
 
@@ -548,7 +548,7 @@ Die folgenden HiTOP-Basiscodes sind illustrativ.
 ### 11.1 HiTOP-kuratierter Namespace
 
 ```text
-HiTOPU0aB2X.M-AF-HTPAJIPZH4KRXKXK-CHRONIC_WORRY
+U0aB2X.M-AF-HTPAJIPZH4KRXKXK-CHRONIC_WORRY
 ```
 
 Bedeutung: affektive Manifestation `CHRONIC_WORRY` im HiTOP-kuratierten
@@ -557,7 +557,7 @@ Namespace.
 ### 11.2 Organisationsnamespace ueber ROR
 
 ```text
-HiTOPU0aB2X.M-SS-RORPLACEHOLDERAB-RESTING_PALPITATIONS
+U0aB2X.M-SS-RORPLACEHOLDERAB-RESTING_PALPITATIONS
 ```
 
 Bedeutung: somatische Manifestation im Namespace, der aus
@@ -566,7 +566,7 @@ Bedeutung: somatische Manifestation im Namespace, der aus
 ### 11.3 Studien- oder Datensatznamespace ueber DOI
 
 ```text
-HiTOPC1mQ8Z.M-CG-DOICRZ5I6RDFXGS7-ATTENTION_LAPSE
+C1mQ8Z.M-CG-DOICRZ5I6RDFXGS7-ATTENTION_LAPSE
 ```
 
 Bedeutung: kognitive Manifestation in einem DOI-abgeleiteten Studien- oder
@@ -575,7 +575,7 @@ Datensatznamespace.
 ### 11.4 Personennamespace ueber ORCID
 
 ```text
-HiTOPC0bF4K.M-IR-ORCPLACEHOLDERAB-REJECTION_SENSITIVITY
+C0bF4K.M-IR-ORCPLACEHOLDERAB-REJECTION_SENSITIVITY
 ```
 
 Bedeutung: interpersonale Manifestation in einem ORCID-abgeleiteten Namespace.
@@ -583,7 +583,7 @@ Bedeutung: interpersonale Manifestation in einem ORCID-abgeleiteten Namespace.
 ### 11.5 Projektnamespace ueber Reverse DNS
 
 ```text
-HiTOPT0cR7M.M-BH-DNSPLACEHOLDERAB-AVOIDANCE_BEHAVIOR
+T0cR7M.M-BH-DNSPLACEHOLDERAB-AVOIDANCE_BEHAVIOR
 ```
 
 Bedeutung: behaviorale Manifestation in einem Reverse-DNS-Projektnamespace.
@@ -591,8 +591,8 @@ Bedeutung: behaviorale Manifestation in einem Reverse-DNS-Projektnamespace.
 ### 11.6 Gleicher Slug, anderer Namespace
 
 ```text
-HiTOPU0aB2X.M-AF-RORPLACEHOLDERAB-CHRONIC_WORRY
-HiTOPU0aB2X.M-AF-ROROTHERTOKENABC-CHRONIC_WORRY
+U0aB2X.M-AF-RORPLACEHOLDERAB-CHRONIC_WORRY
+U0aB2X.M-AF-ROROTHERTOKENABC-CHRONIC_WORRY
 ```
 
 Diese Codes kollidieren nicht, weil die Namespace-Token unterschiedlich sind.
@@ -602,8 +602,8 @@ Mappings dargestellt werden.
 ### 11.7 Gleicher Slug, gleicher Namespace
 
 ```text
-HiTOPU0aB2X.M-AF-RORPLACEHOLDERAB-CHRONIC_WORRY
-HiTOPU0aB2X.M-AF-RORPLACEHOLDERAB-CHRONIC_WORRY_CGREBL
+U0aB2X.M-AF-RORPLACEHOLDERAB-CHRONIC_WORRY
+U0aB2X.M-AF-RORPLACEHOLDERAB-CHRONIC_WORRY_ALN53Q
 ```
 
 Der zweite Code verwendet einen Disambiguator, weil der lokale Namespace bereits
@@ -648,7 +648,7 @@ Replacement-Metadaten:
 
 ```yaml
 status: "replaced"
-replaced_by: "HiTOPU0aB2X.M-AF-RORPLACEHOLDERAB-EXCESSIVE_WORRY"
+replaced_by: "U0aB2X.M-AF-RORPLACEHOLDERAB-EXCESSIVE_WORRY"
 change_reason: "Label and operationalization harmonized with source instrument."
 ```
 
@@ -661,7 +661,7 @@ Producer SHOULD folgenden Workflow implementieren:
 3. geeigneten Namespace-Quellidentifier auswaehlen
 4. fixlaengiges Namespace-Token generieren
 5. Base-Slug aus einem stabilen Label generieren
-6. lokale Eindeutigkeit innerhalb von `<HiTOP> + M + <TT> + <NS>` pruefen
+6. lokale Eindeutigkeit innerhalb von `<HITOP_BASE_CODE> + M + <TT> + <NS>` pruefen
 7. Disambiguator nur bei lokaler Kollision anhaengen
 8. erforderliche Metadaten mit dem Code publizieren
 9. Mappings publizieren, wenn aequivalente oder verwandte Manifestationen bekannt sind

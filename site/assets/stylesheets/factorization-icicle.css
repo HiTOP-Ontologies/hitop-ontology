@@ -1,0 +1,323 @@
+/*
+ * Styling for the generic D3 icicle renderer (factorization-icicle.js).
+ * Theme-aware: relies on custom properties so it reads correctly in both
+ * MkDocs Material's light and dark palettes. Box fill and text color are
+ * computed per-node in JS (branch hue + ordinal depth ramp, contrast-picked
+ * text) and set as SVG/CSS attributes -- this stylesheet must NOT declare
+ * `fill`/`color` on .hitop-icicle-box/.hitop-icicle-box-content, since a
+ * CSS rule would win over the attribute and silently break the contrast
+ * logic.
+ */
+.hitop-icicle-wrapper {
+  --hitop-icicle-border: #d8dbe2;
+  --hitop-icicle-text: #1b1f24;
+  --hitop-icicle-muted: #5b6270;
+  --hitop-icicle-bg: #ffffff;
+  --hitop-icicle-connector: rgba(11, 11, 11, 0.38);
+  border: 1px solid var(--hitop-icicle-border);
+  border-radius: 10px;
+  background: var(--hitop-icicle-bg);
+  overflow: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+  .hitop-icicle-wrapper {
+    --hitop-icicle-border: #33383f;
+    --hitop-icicle-text: #e7e9ee;
+    --hitop-icicle-muted: #a3aab7;
+    --hitop-icicle-bg: #14161a;
+    --hitop-icicle-connector: rgba(255, 255, 255, 0.4);
+  }
+}
+:root[data-theme="dark"] .hitop-icicle-wrapper {
+  --hitop-icicle-border: #33383f;
+  --hitop-icicle-text: #e7e9ee;
+  --hitop-icicle-muted: #a3aab7;
+  --hitop-icicle-bg: #14161a;
+  --hitop-icicle-connector: rgba(255, 255, 255, 0.4);
+}
+:root[data-theme="light"] .hitop-icicle-wrapper {
+  --hitop-icicle-border: #d8dbe2;
+  --hitop-icicle-text: #1b1f24;
+  --hitop-icicle-muted: #5b6270;
+  --hitop-icicle-bg: #ffffff;
+  --hitop-icicle-connector: rgba(11, 11, 11, 0.38);
+}
+
+/* Share/download toolbar -- see renderFactorizationIcicle in
+   factorization-icicle.js. A thin action strip above the diagram, dividing
+   line matching the legend/detail sections' own border-top dividers below. */
+.hitop-icicle-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--hitop-icicle-border);
+}
+.hitop-icicle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 7px;
+  border: 1px solid var(--hitop-icicle-border);
+  background: var(--hitop-icicle-bg);
+  color: var(--hitop-icicle-text);
+  cursor: pointer;
+  line-height: 1;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.05s ease;
+}
+.hitop-icicle-btn svg { width: 13px; height: 13px; flex: none; }
+.hitop-icicle-btn:hover { border-color: var(--hitop-icicle-muted); }
+.hitop-icicle-btn:active { transform: translateY(1px); }
+.hitop-icicle-btn:focus-visible { outline: 2px solid var(--hitop-icicle-text); outline-offset: 2px; }
+.hitop-icicle-btn-primary {
+  background: var(--hitop-icicle-text);
+  color: var(--hitop-icicle-bg);
+  border-color: var(--hitop-icicle-text);
+}
+.hitop-icicle-btn-primary:hover { opacity: 0.88; }
+
+.hitop-icicle-menu { position: relative; }
+.hitop-icicle-menu-caret { width: 10px !important; height: 10px !important; margin-left: 1px; }
+.hitop-icicle-menu-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 210px;
+  background: var(--hitop-icicle-bg);
+  border: 1px solid var(--hitop-icicle-border);
+  border-radius: 9px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 20;
+}
+.hitop-icicle-menu-list[hidden] { display: none; }
+.hitop-icicle-menu-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-align: left;
+  padding: 7px 9px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--hitop-icicle-text);
+  cursor: pointer;
+}
+.hitop-icicle-menu-item:hover,
+.hitop-icicle-menu-item:focus-visible {
+  background: rgba(127, 127, 127, 0.14);
+  outline: none;
+}
+.hitop-icicle-menu-item-hint { font-size: 10.5px; font-weight: 500; color: var(--hitop-icicle-muted); }
+
+.hitop-icicle-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translate(-50%, 8px);
+  background: var(--hitop-icicle-text);
+  color: var(--hitop-icicle-bg);
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 1000;
+}
+.hitop-icicle-toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
+.hitop-icicle-svg-host {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.hitop-icicle-svg-host svg {
+  display: block;
+  font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Connector lines between a parent band and each child band, mirroring the
+   official figure's vertical tier lines. Dashed for a child marked
+   `provisional: true` in its source hierarchy.yaml -- this dashed
+   connector is the box's *only* provisional marker; the box itself never
+   gets an extra outline, so a provisional node reads identically to a
+   settled one except for the line feeding into it. */
+.hitop-icicle-connector {
+  stroke: var(--hitop-icicle-connector);
+  stroke-width: 1.5px;
+}
+.hitop-icicle-connector.is-provisional {
+  stroke-dasharray: 4 3;
+}
+
+/* Box fill is set per-node in JS (branch hue + ordinal depth ramp) as an
+   SVG attribute -- only structural/stroke styling belongs here. Deliberately
+   no `.is-provisional` variant: see the connector comment above. */
+.hitop-icicle-box {
+  stroke: var(--hitop-icicle-bg);
+  stroke-width: 1.5px;
+}
+
+.hitop-icicle-node rect {
+  cursor: pointer;
+}
+
+.hitop-icicle-node:focus .hitop-icicle-box,
+.hitop-icicle-node.is-active .hitop-icicle-box {
+  stroke: var(--hitop-icicle-text);
+  stroke-width: 2.5px;
+  stroke-dasharray: none;
+}
+
+.hitop-icicle-node:focus {
+  outline: none;
+}
+
+/* The HTML content of every box (structural label+caption, or a
+   leaf-group's caption+tag list) lives in one <foreignObject> div, sized
+   and measured to fit exactly (see measureHtmlHeight in the JS) -- never
+   scrollable. `overflow: hidden` here is only a defensive backstop against
+   a rare probe/render measurement mismatch, not the normal path. */
+.hitop-icicle-box-content {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  overflow: hidden;
+  text-align: center;
+  font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Structural box label (Superspectrum/Spectrum/Subfactor/...): real HTML
+   text, never SVG <text> -- this is what lets the browser's own
+   line-breaking and dictionary hyphenation wrap a long label across lines
+   and, only if a single word still doesn't fit, hyphenate it at a
+   linguistically correct break point instead of ever truncating it. */
+.hitop-icicle-label-html {
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 1.25;
+  overflow-wrap: break-word;
+  word-break: normal;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+.hitop-icicle-sublabel-html {
+  font-weight: 500;
+  font-size: 9px;
+  opacity: 0.85;
+  margin-top: 3px;
+}
+
+/* Leaf-group tag list (a contiguous run of same-level leaf children, e.g.
+   all Components of one Subfactor): a wrapped group of small pill-shaped
+   tags, the flex-wrap "chip group" pattern common to Material Design,
+   Carbon, and most other major design systems for a dense set of short
+   labels -- denser and clearer than a plain wrapped sentence, since each
+   tag's own background/shape marks where it starts and ends instead of
+   relying on punctuation. Components/Traits are never structural row
+   headers, so every tag is always normal weight and non-italic, at a small
+   size matching .hitop-icicle-sublabel-html (the structural boxes' own
+   level caption) -- never bold, never italic. */
+.hitop-icicle-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  gap: 3px 5px;
+  margin-top: 4px;
+}
+.hitop-icicle-chip {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 9.5px;
+  line-height: 1.3;
+  padding: 2px 7px;
+  border-radius: 8px;
+  background: var(--hitop-chip-bg, rgba(127, 127, 127, 0.18));
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+.hitop-icicle-chip:hover,
+.hitop-icicle-chip:focus {
+  background: var(--hitop-chip-bg-hover, rgba(127, 127, 127, 0.3));
+  outline: none;
+}
+/* A provisional tag (`provisional: true` in the source hierarchy.yaml) is
+   an outlined, dashed pill instead of a filled one -- the leaf-group
+   equivalent of a structural box's dashed border, marking a concept that
+   is not yet settled. */
+.hitop-icicle-chip.is-provisional {
+  background: transparent;
+  border: 1px dashed currentColor;
+  padding: 1px 6px;
+}
+
+.hitop-icicle-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 10px 16px;
+  border-top: 1px solid var(--hitop-icicle-border);
+  font-size: 12px;
+  color: var(--hitop-icicle-text);
+}
+.hitop-icicle-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.hitop-icicle-legend-swatch {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  flex: none;
+}
+.hitop-icicle-legend-empty {
+  color: var(--hitop-icicle-muted);
+  font-size: 12px;
+}
+
+.hitop-icicle-detail {
+  border-top: 1px solid var(--hitop-icicle-border);
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--hitop-icicle-text);
+  line-height: 1.6;
+  min-height: 1.6em;
+}
+
+.hitop-icicle-detail em {
+  color: var(--hitop-icicle-muted);
+  font-style: normal;
+}
+
+.hitop-icicle-placeholder {
+  padding: 24px;
+  border: 1px dashed var(--hitop-icicle-border, #d8dbe2);
+  border-radius: 10px;
+  color: var(--hitop-icicle-muted, #5b6270);
+  font-size: 13.5px;
+}

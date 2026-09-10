@@ -6,7 +6,6 @@ from typing import Any
 
 from .HITOPChecksum import (
     BASE62_ALPHABET,
-    DEFAULT_PREFIX,
     HITOPChecksum,
     HITOPChecksumError,
     base62_encode,
@@ -19,7 +18,6 @@ _CSV_EXPORTS = {"HiTOPCSVError", "build_hitop_code", "process_csv"}
 
 __all__ = [
     "BASE62_ALPHABET",
-    "DEFAULT_PREFIX",
     "HITOPCSVError",
     "HITOPChecksum",
     "HITOPChecksumError",

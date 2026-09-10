@@ -51,7 +51,7 @@ or:
 .venv/bin/python -m hitop.suffix --help
 ```
 
-See `../docs/tooling_examples.md` for copyable command line and Python API
+See `../docs/reference/tooling-and-cli.md` for copyable command line and Python API
 examples with expected output.
 
 ## Validation
@@ -222,8 +222,27 @@ Common failure signals:
 
 Scans public Markdown files under `docs/` for manifestation-code examples and
 validates them with the package parser. Placeholder examples that use
-`<HiTOP>` are normalized to a representative base code before parsing.
+The `<HITOP_BASE_CODE>` placeholder is normalized to a representative base code
+before parsing.
 
 Common failure signal: `Documentation code validation failed` followed by the
 file path, byte offset, raw code, and validation error list. Fix the documented
 example or update the parser only when the specification changed intentionally.
+
+## Website generation and validation
+
+The Pages job regenerates the data-driven catalog and diagram viewer before it
+validates the navigation-derived page structure and runs the strict MkDocs
+build:
+
+```bash
+.venv/bin/python scripts/generate_factorization_catalog.py
+.venv/bin/python scripts/generate_diagram_viewer_page.py
+.venv/bin/python scripts/validate_website_structure.py
+.venv/bin/mkdocs build --strict
+```
+
+`validate_website_structure.py` reads `mkdocs.yml`; it does not maintain a
+second hard-coded page list. It verifies that each navigation target exists,
+that each detail page has exactly one matching H1 and a page intro, and that
+the custom HTML home page contains an H1.

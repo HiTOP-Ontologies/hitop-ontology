@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import csv
+import io
 import tempfile
 import unittest
+from contextlib import redirect_stdout
 from pathlib import Path
 
 from hitop.base import hitop
@@ -23,14 +25,9 @@ class HITOPChecksumTests(unittest.TestCase):
     def test_known_hitop_checksum_values(self) -> None:
         """Protect documented HiTOP checksum outputs for core fixture rows."""
 
-        self.assertEqual(calculate_check_digit("HiTOP", "C0", "01"), "qy")
-        self.assertEqual(calculate_check_digit("HiTOP", "C0", "02"), "17")
-        self.assertEqual(calculate_check_digit("HiTOP", "C0", "03"), "3z")
-
-    def test_known_mds_checksum_value(self) -> None:
-        """Verify that changing the code-system prefix changes the checksum."""
-
-        self.assertEqual(calculate_check_digit("MDS", "C0", "01"), "y6")
+        self.assertEqual(calculate_check_digit("C0", "01"), "qy")
+        self.assertEqual(calculate_check_digit("C0", "02"), "17")
+        self.assertEqual(calculate_check_digit("C0", "03"), "3z")
 
     def test_legacy_get_code_uses_canonical_algorithm(self) -> None:
         """Keep the historical ``getCode`` API bound to the canonical algorithm."""
@@ -41,7 +38,6 @@ class HITOPChecksumTests(unittest.TestCase):
         """Verify the preferred explicit construction path for production use."""
 
         checksum = HITOPChecksum.from_parts(
-            prefix="HiTOP",
             segment="U0",
             concept_code="d1",
         )
@@ -51,13 +47,13 @@ class HITOPChecksumTests(unittest.TestCase):
     def test_numeric_segment_from_existing_vocabulary_is_supported(self) -> None:
         """Ensure numeric-only hierarchy segments from source data remain valid."""
 
-        self.assertEqual(calculate_check_digit("HiTOP", "00", "04"), "KV")
+        self.assertEqual(calculate_check_digit("00", "04"), "KV")
 
     def test_invalid_base62_input_is_rejected(self) -> None:
         """Reject concept codes that cannot be represented in the Base62 alphabet."""
 
         with self.assertRaises(HITOPChecksumError):
-            calculate_check_digit("HiTOP", "C0", "not-valid")
+            calculate_check_digit("C0", "not-valid")
 
     def test_base62_encoding(self) -> None:
         """Cover Base62 boundary values and backwards-compatible module exports."""
@@ -103,6 +99,27 @@ class HiTOPCSVGenerationTests(unittest.TestCase):
 
             with self.assertRaises(HiTOPCSVError):
                 process_csv(input_path, output_path)
+
+    def test_cli_reports_success_and_generated_row_count(self) -> None:
+        """Give operators an unambiguous success signal after generation."""
+
+        with tempfile.TemporaryDirectory() as tmp:
+            input_path = Path(tmp) / "input.csv"
+            output_path = Path(tmp) / "output.csv"
+            input_path.write_text(
+                "Code;Label;Segment;Segment Level\n01;Conversion;C;0\n",
+                encoding="utf-8",
+            )
+            stdout = io.StringIO()
+
+            with redirect_stdout(stdout):
+                exit_status = hitop.main([str(input_path), str(output_path)])
+
+        self.assertEqual(exit_status, 0)
+        self.assertEqual(
+            stdout.getvalue(),
+            f"Generated 1 HiTOP code(s): {output_path}\n",
+        )
 
 
 if __name__ == "__main__":

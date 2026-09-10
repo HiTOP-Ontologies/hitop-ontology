@@ -2,11 +2,12 @@
 
 This module contains the production checksum implementation used by
 ``hitop.py``.  The checksum is intentionally deterministic and depends on the
-code system prefix, the hierarchy segment, and the local concept code.
+the hierarchy segment and the local concept code. ``HiTOP`` is a fixed internal
+checksum namespace and is never emitted as part of a code.
 
 Canonical checksum input::
 
-    <prefix>-<segment>-<concept_code>
+    HiTOP-<segment>-<concept_code>
 
 The input string is hashed twice with SHA-256.  The first 32 bits of the second
 hash are reduced into the two-character Base62 checksum space.
@@ -18,27 +19,14 @@ import hashlib
 import re
 
 BASE62_ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-DEFAULT_PREFIX = "HiTOP"
+_CHECKSUM_NAMESPACE = "HiTOP"
 
-PREFIX_RE = re.compile(r"^[A-Za-z][A-Za-z0-9]{1,31}$")
 SEGMENT_RE = re.compile(r"^[0-9A-Za-z][0-9]+$")
 CONCEPT_CODE_RE = re.compile(r"^[0-9A-Za-z]+$")
 
 
 class HITOPChecksumError(ValueError):
     """Raised when checksum input cannot be processed safely."""
-
-
-def _normalize_prefix(prefix: str) -> str:
-    """Validate and normalize the code system prefix used for hashing."""
-
-    value = str(prefix).strip()
-    if not PREFIX_RE.fullmatch(value):
-        raise HITOPChecksumError(
-            "Prefix must start with a letter and contain only ASCII letters "
-            "and digits, length 2 to 32."
-        )
-    return value
 
 
 def _normalize_segment(segment: str) -> str:
@@ -98,17 +86,11 @@ def base62_encode(number: int) -> str:
     return "".join(reversed(chars))
 
 
-def calculate_check_digit(
-    prefix: str,
-    segment: str,
-    concept_code: str,
-) -> str:
+def calculate_check_digit(segment: str, concept_code: str) -> str:
     """Calculate the two-character HiTOP checksum.
 
     Parameters
     ----------
-    prefix:
-        Code system prefix.  ``HiTOP`` is the default production prefix.
     segment:
         Hierarchy segment and segment level, for example ``C0`` or ``U1``.
     concept_code:
@@ -120,13 +102,11 @@ def calculate_check_digit(
         Two Base62 characters.  Leading zeroes are preserved.
     """
 
-    normalized_prefix = _normalize_prefix(prefix)
     normalized_segment = _normalize_segment(segment)
     normalized_code = _normalize_concept_code(concept_code)
 
-    # Keep the separator explicit so that e.g. ("AB", "C", "D") and
-    # ("A", "BC", "D") cannot produce the same checksum input string.
-    checksum_input = f"{normalized_prefix}-{normalized_segment}-{normalized_code}"
+    # Keep separators explicit so the checksum input remains unambiguous.
+    checksum_input = f"{_CHECKSUM_NAMESPACE}-{normalized_segment}-{normalized_code}"
     first_hash = hashlib.sha256(checksum_input.encode("utf-8")).hexdigest()
     second_hash = hashlib.sha256(first_hash.encode("ascii")).hexdigest()
     checksum_value = int(second_hash[:8], 16) % (len(BASE62_ALPHABET) ** 2)
@@ -136,7 +116,7 @@ def calculate_check_digit(
 class HITOPChecksum:
     """Checksum helper for a HiTOP local concept code stem.
 
-    The preferred production path is ``from_parts(prefix, segment, concept_code)``
+    The preferred production path is ``from_parts(segment, concept_code)``
     because it makes all checksum inputs explicit.  Direct construction with
     ``HITOPChecksum("C001")`` is kept for backwards compatibility and interprets
     the first two characters as the segment.
@@ -145,7 +125,6 @@ class HITOPChecksum:
     def __init__(
         self,
         code: str,
-        prefix: str = DEFAULT_PREFIX,
         *,
         segment: str | None = None,
         concept_code: str | None = None,
@@ -157,8 +136,6 @@ class HITOPChecksum:
         pass explicit parts via :meth:`from_parts` so that checksum inputs remain
         auditable and unambiguous.
         """
-
-        self.prefix = _normalize_prefix(prefix)
 
         if segment is None and concept_code is None:
             stem = str(code).strip()
@@ -189,7 +166,6 @@ class HITOPChecksum:
     def from_parts(
         cls,
         *,
-        prefix: str = DEFAULT_PREFIX,
         segment: str,
         concept_code: str,
     ) -> HITOPChecksum:
@@ -197,7 +173,6 @@ class HITOPChecksum:
 
         return cls(
             f"{segment}{concept_code}",
-            prefix=prefix,
             segment=segment,
             concept_code=concept_code,
         )
@@ -218,7 +193,7 @@ class HITOPChecksum:
     def check_digit(self) -> str:
         """Return the two-character checksum for this code stem."""
 
-        return calculate_check_digit(self.prefix, self.segment, self.concept_code)
+        return calculate_check_digit(self.segment, self.concept_code)
 
     def get_check_digit(self) -> str:
         """Return the checksum using a PEP-8 compatible method name."""

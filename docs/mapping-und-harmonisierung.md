@@ -60,10 +60,10 @@ Minimalstruktur:
 mapping_id: "map-2026-000001"
 source:
   system: "http://purl.org/hitop"
-  code: "HiTOPU0aB2X.M-AF-ROR3J2WQSVQFFIKK-CHRONIC_WORRY"
+  code: "U0aB2X.M-AF-ROR3J2WQSVQFFIKK-CHRONIC_WORRY"
 target:
   system: "http://purl.org/hitop"
-  code: "HiTOPU0aB2X.M-AF-RORYLBKANYXUGB6O-EXCESSIVE_WORRY"
+  code: "U0aB2X.M-AF-RORYLBKANYXUGB6O-EXCESSIVE_WORRY"
 relation:
   skos: "skos:closeMatch"
   fhir: "related-to"
@@ -353,9 +353,9 @@ source_code,target_code,relation,score,review_level,status,created,source_versio
 ### 11.2 SKOS/RDF
 
 ```turtle
-<http://purl.org/hitop#HiTOPU0aB2X.M-AF-ROR3J2WQSVQFFIKK-CHRONIC_WORRY>
+<http://purl.org/hitop#U0aB2X.M-AF-ROR3J2WQSVQFFIKK-CHRONIC_WORRY>
   skos:closeMatch
-    <http://purl.org/hitop#HiTOPU0aB2X.M-AF-RORYLBKANYXUGB6O-EXCESSIVE_WORRY> .
+    <http://purl.org/hitop#U0aB2X.M-AF-RORYLBKANYXUGB6O-EXCESSIVE_WORRY> .
 ```
 
 ### 11.3 FHIR ConceptMap
@@ -373,10 +373,10 @@ Infrastruktur publiziert oder ueber `$translate` nutzbar gemacht werden sollen.
       "target": "http://purl.org/hitop",
       "element": [
         {
-          "code": "HiTOPU0aB2X.M-AF-ROR3J2WQSVQFFIKK-CHRONIC_WORRY",
+          "code": "U0aB2X.M-AF-ROR3J2WQSVQFFIKK-CHRONIC_WORRY",
           "target": [
             {
-              "code": "HiTOPU0aB2X.M-AF-RORYLBKANYXUGB6O-EXCESSIVE_WORRY",
+              "code": "U0aB2X.M-AF-RORYLBKANYXUGB6O-EXCESSIVE_WORRY",
               "relationship": "related-to"
             }
           ]

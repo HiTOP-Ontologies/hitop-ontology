@@ -1,0 +1,1313 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Machine-readable ontology and living documentation for the Hierarchical Taxonomy of Psychopathology">
+      
+      
+      
+        <link rel="canonical" href="https://hitop-ontologies.github.io/hitop-ontology/models/diagrams/">
+      
+      
+        <link rel="prev" href="../factorizations/">
+      
+      
+        <link rel="next" href="../specification/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/hitop-logo/favicon/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Diagrams - HiTOP Ontology</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/site.css">
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/project-refinements.css">
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/factorization-icicle.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/hitop-logo/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/hitop-logo/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/hitop-logo/favicon/apple-touch-icon-180.png">
+  <link rel="manifest" href="../../assets/images/hitop-logo/site.webmanifest">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="hitop-light" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#diagrams" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="HiTOP Ontology" class="md-header__button md-logo" aria-label="HiTOP Ontology" data-md-component="logo">
+      
+  <img src="../../assets/images/hitop-logo/hitop-logo-master-transparent.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HiTOP Ontology
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Diagrams
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/HiTOP-Ontologies/hitop-ontology" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HiTOP-Ontologies/hitop-ontology
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="HiTOP Ontology" class="md-nav__button md-logo" aria-label="HiTOP Ontology" data-md-component="logo">
+      
+  <img src="../../assets/images/hitop-logo/hitop-logo-master-transparent.svg" alt="logo">
+
+    </a>
+    HiTOP Ontology
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/HiTOP-Ontologies/hitop-ontology" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HiTOP-Ontologies/hitop-ontology
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/about-the-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About the project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/status-and-roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Status & roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/publication-and-citation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publication & citation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/core-vocabulary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core vocabulary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/code-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code system
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/manifestation-suffixes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manifestation suffixes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/mapping-harmonization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mapping & harmonization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../factorizations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Factorizations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diagrams
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diagrams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#diagram-data-and-non-javascript-fallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram data and non-JavaScript fallback
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to read it
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../specification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-a-factorization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Create a factorization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/tooling-and-cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tooling & CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/build-and-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build & installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/validation-and-quality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validation & quality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/release-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#diagram-data-and-non-javascript-fallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram data and non-JavaScript fallback
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to read it
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="diagrams">Diagrams<a class="headerlink" href="#diagrams" title="Permanent link">&para;</a></h1>
+<div class="hitop-page-intro">
+  <p>Every factorization rendered as a live icicle diagram, straight from its own generated diagram data.</p>
+  <span class="hitop-source">Status · Generated and validated during the Pages build</span>
+  <span class="hitop-source">Generated source · <a href="https://github.com/HiTOP-Ontologies/hitop-ontology/tree/main/factorizations">factorizations/*/v*/*_diagram.json</a></span>
+</div>
+
+<h3 id="diagram-data-and-non-javascript-fallback">Diagram data and non-JavaScript fallback<a class="headerlink" href="#diagram-data-and-non-javascript-fallback" title="Permanent link">&para;</a></h3>
+<p>The interactive diagram is an enhancement of the same generated data listed below. This table remains available when JavaScript is disabled and provides the status, hierarchy provenance, and complete diagram data for every selectable factorization.</p>
+<table>
+<thead>
+<tr>
+<th>Factorization</th>
+<th>Status</th>
+<th>Source and provenance</th>
+<th>Generated diagram data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HiTOP Working Model — v1 (V1052k)</td>
+<td><strong>draft</strong></td>
+<td><a href="https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/working-model/v1/README.md">Hierarchy and provenance</a></td>
+<td><a href="https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/working-model/v1/V1052k_diagram.json">Diagram data</a></td>
+</tr>
+<tr>
+<td>Emotional Dysfunction Superspectrum — v1 (V106mv)</td>
+<td><strong>active</strong></td>
+<td><a href="https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/emotional-dysfunction/v1/README.md">Hierarchy and provenance</a></td>
+<td><a href="https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/emotional-dysfunction/v1/V106mv_diagram.json">Diagram data</a></td>
+</tr>
+<tr>
+<td>Externalizing Superspectrum — v1 (V108kx)</td>
+<td><strong>draft</strong></td>
+<td><a href="https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/externalizing/v1/README.md">Hierarchy and provenance</a></td>
+<td><a href="https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/externalizing/v1/V108kx_diagram.json">Diagram data</a></td>
+</tr>
+<tr>
+<td>Psychosis Superspectrum — v1 (V10749)</td>
+<td><strong>draft</strong></td>
+<td><a href="https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/psychosis/v1/README.md">Hierarchy and provenance</a></td>
+<td><a href="https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/psychosis/v1/V10749_diagram.json">Diagram data</a></td>
+</tr>
+<tr>
+<td>DZPG Minimal Data Set — v1 (V10dzp)</td>
+<td><strong>draft</strong></td>
+<td><a href="https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/dzpg-mds/v1/README.md">Hierarchy and provenance</a></td>
+<td><a href="https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/dzpg-mds/v1/V10dzp_diagram.json">Diagram data</a></td>
+</tr>
+<tr>
+<td>HiTOP Bass-Ackwards Structure — v1 (V10bak)</td>
+<td><strong>draft</strong></td>
+<td><a href="https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/bass-ackwards/v1/README.md">Hierarchy and provenance</a></td>
+<td><a href="https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/bass-ackwards/v1/V10bak_diagram.json">Diagram data</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-to-read-it">How to read it<a class="headerlink" href="#how-to-read-it" title="Permanent link">&para;</a></h2>
+<p>Every diagram is an icicle layout: one row per hierarchy level (Factor, Superspectrum, Spectrum, Subfactor, with Component and Trait sharing a single bottom row, matching the official HiTOP figures), rather than one row per raw tree depth. Color follows a single, factorization-wide rule (<code>src/hitop/factorization/colors.py</code>): a fixed 24-color palette is spread evenly across every Factor, Superspectrum, Spectrum, and Subfactor node in tree order, so a whole branch reads as one continuous gradient, the same way the official HiTOP figures color a branch consistently; Component and Trait nodes take a progressively lighter, less saturated shade of their direct parent's color instead of a palette entry of their own. A dashed connector or outline marks a node the source hierarchy flags <code>provisional: true</code>.</p>
+<p>Click any box to focus its subtree in the legend below the diagram. The toolbar above the diagram shares a link or downloads the current view as SVG, PNG, or a print-ready PDF.</p>
+<div class="hitop-diagram-viewer">
+  <label for="factorization-select">Factorization<select id="factorization-select">
+      <option value="working-model" selected>HiTOP Working Model — v1 (V1052k)</option>
+      <option value="emotional-dysfunction">Emotional Dysfunction Superspectrum — v1 (V106mv)</option>
+      <option value="externalizing">Externalizing Superspectrum — v1 (V108kx)</option>
+      <option value="psychosis">Psychosis Superspectrum — v1 (V10749)</option>
+      <option value="dzpg-mds">DZPG Minimal Data Set — v1 (V10dzp)</option>
+      <option value="bass-ackwards">HiTOP Bass-Ackwards Structure — v1 (V10bak)</option>
+  </select></label>
+  <div id="diagram-container"></div>
+</div>
+
+<style>
+.hitop-diagram-viewer{margin:1.5rem 0}
+.hitop-diagram-viewer label{display:flex;align-items:center;gap:.6rem;margin-bottom:1rem;font-size:.78rem;font-weight:750;color:var(--md-default-fg-color)}
+.hitop-diagram-viewer select{font-size:.78rem;padding:.4rem .6rem;border-radius:4px;border:1px solid var(--hitop-line, var(--md-default-fg-color--lightest));background:var(--md-default-bg-color);color:var(--md-default-fg-color)}
+.hitop-diagram-fallback{padding:2.5rem 1.5rem;text-align:center;border:1px dashed var(--hitop-line, var(--md-default-fg-color--lightest));border-radius:6px}
+.hitop-diagram-fallback p{margin:0 0 1rem;color:var(--md-default-fg-color--light);font-size:.82rem}
+</style>
+
+<script type="application/json" id="data-working-model">{"meta":{"factorization_id":"working-model","version":"V1052k","label":"HiTOP Working Model","status":"draft"},"hierarchy":{"label":"General Factor of Psychopathology (p-factor)","level":"Factor","code":"F001Hw","kind":"concept","branch":null,"color":"#1E3A5F","children":[{"label":"Externalizing","level":"Superspectrum","code":"S0013h","kind":"concept","branch":0,"color":"#2F5FA3","children":[{"label":"Disinhibited Externalizing","level":"Spectrum","code":"P005xY","kind":"concept","branch":0,"color":"#3F7EB8","children":[{"label":"Harmful Substance Use","level":"Subfactor","code":"U0061L","kind":"concept","branch":0,"color":"#4B8CC7","children":[{"label":"Alcohol use","level":"Component","code":"C01DAb","kind":"concept","branch":0,"color":"#71A2CF"},{"label":"Alcohol problems","level":"Component","code":"C01Elz","kind":"concept","branch":0,"color":"#71A2CF"},{"label":"Marijuana use","level":"Component","code":"C01FDy","kind":"concept","branch":0,"color":"#71A2CF"},{"label":"Marijuana problems","level":"Component","code":"C01GEY","kind":"concept","branch":0,"color":"#71A2CF"},{"label":"Drug use","level":"Component","code":"C01HGq","kind":"concept","branch":0,"color":"#71A2CF"},{"label":"Drug problems","level":"Component","code":"C01Ip4","kind":"concept","branch":0,"color":"#71A2CF"}]},{"label":"Antisocial Behavior","level":"Subfactor","code":"U007EJ","kind":"concept","branch":0,"color":"#6AAFE0","bridge":["Disinhibited Externalizing","Antagonistic Externalizing"],"children":[{"label":"Physical aggression","level":"Component","code":"C01JH8","kind":"concept","branch":0,"color":"#93C3E5"},{"label":"Destructive aggression","level":"Component","code":"C01KXo","kind":"concept","branch":0,"color":"#93C3E5"},{"label":"Relational aggression","level":"Component","code":"C01LSp","kind":"concept","branch":0,"color":"#93C3E5"},{"label":"Fraud","level":"Component","code":"C01MjB","kind":"concept","branch":0,"color":"#93C3E5"},{"label":"Impatient urgency","level":"Trait","code":"T01Neb","kind":"concept","branch":0,"color":"#93C3E5"},{"label":"(low) Planful control","level":"Trait","code":"T01OY2","kind":"concept","branch":0,"color":"#93C3E5"},{"label":"(low) Dependability","level":"Trait","code":"T01PMW","kind":"concept","branch":0,"color":"#93C3E5"},{"label":"Alienation","level":"Trait","code":"T01QNN","kind":"concept","branch":0,"color":"#93C3E5"},{"label":"Boredom proneness","level":"Trait","code":"T01RYG","kind":"concept","branch":0,"color":"#93C3E5"},{"label":"Blame externalization","level":"Trait","code":"T01SYW","kind":"concept","branch":0,"color":"#93C3E5"},{"label":"(low) Honesty","level":"Trait","code":"T01T3u","kind":"concept","branch":0,"color":"#93C3E5"},{"label":"Rebelliousness","level":"Trait","code":"T01UGN","kind":"concept","branch":0,"color":"#93C3E5"},{"label":"(low) Empathy","level":"Trait","code":"T01VXq","kind":"concept","branch":0,"color":"#93C3E5"},{"label":"Excitement seeking","level":"Trait","code":"T01W1E","kind":"concept","branch":0,"color":"#93C3E5"}]},{"label":"Problematic impulsivity","level":"Trait","code":"T015o8","kind":"concept","branch":0,"color":"#6095C4"},{"label":"Irresponsibility","level":"Trait","code":"T016k0","kind":"concept","branch":0,"color":"#6095C4"},{"label":"Theft","level":"Trait","code":"T0177S","kind":"concept","branch":0,"color":"#6095C4"},{"label":"Distractibility","level":"Trait","code":"T018ir","kind":"concept","branch":0,"color":"#6095C4"},{"label":"Risk taking","level":"Trait","code":"T019Cj","kind":"concept","branch":0,"color":"#6095C4"},{"label":"(low) Rigid perfectionism","level":"Trait","code":"T01A5i","kind":"concept","branch":0,"color":"#6095C4"},{"label":"(low) Ruminative deliberation","level":"Trait","code":"T01BfQ","kind":"concept","branch":0,"color":"#6095C4"},{"label":"(low) Workaholism","level":"Trait","code":"T01C1W","kind":"concept","branch":0,"color":"#6095C4"}]},{"label":"Antagonistic Externalizing","level":"Spectrum","code":"P006gM","kind":"concept","branch":0,"color":"#7ABEE1","children":[{"label":"Attention seeking","level":"Trait","code":"T01XQi","kind":"concept","branch":0,"color":"#A2D0E7"},{"label":"Callousness","level":"Trait","code":"T01Y7w","kind":"concept","branch":0,"color":"#A2D0E7"},{"label":"Deceitfulness","level":"Trait","code":"T01Ziz","kind":"concept","branch":0,"color":"#A2D0E7"},{"label":"Grandiosity","level":"Trait","code":"T01a7u","kind":"concept","branch":0,"color":"#A2D0E7"},{"label":"Manipulativeness","level":"Trait","code":"T01bz7","kind":"concept","branch":0,"color":"#A2D0E7"},{"label":"Rudeness","level":"Trait","code":"T01cX5","kind":"concept","branch":0,"color":"#A2D0E7"},{"label":"Egocentricity","level":"Trait","code":"T01d9I","kind":"concept","branch":0,"color":"#A2D0E7"},{"label":"Dominance","level":"Trait","code":"T01eG6","kind":"concept","branch":0,"color":"#A2D0E7"},{"label":"Flirtatiousness","level":"Trait","code":"T01fc8","kind":"concept","branch":0,"color":"#A2D0E7"},{"label":"(low) Timorousness","level":"Trait","code":"T01gKP","kind":"concept","branch":0,"color":"#A2D0E7"}]}]},{"label":"Somatoform","level":"Spectrum","code":"P001Y2","kind":"concept","branch":1,"color":"#9EDAED","children":[{"label":"Conversion","level":"Component","code":"C001qy","kind":"concept","branch":1,"color":"#C6E8F3"},{"label":"Somatization","level":"Component","code":"C00217","kind":"concept","branch":1,"color":"#C6E8F3"},{"label":"Malaise","level":"Component","code":"C0033z","kind":"concept","branch":1,"color":"#C6E8F3"},{"label":"Head Pain","level":"Component","code":"C00416","kind":"concept","branch":1,"color":"#C6E8F3"},{"label":"Gastrointestinal","level":"Component","code":"C005Sv","kind":"concept","branch":1,"color":"#C6E8F3"},{"label":"Cognitive","level":"Component","code":"C006MD","kind":"concept","branch":1,"color":"#C6E8F3"}]},{"label":"Internalizing","level":"Spectrum","code":"P002nf","kind":"concept","branch":2,"color":"#9FC0E9","children":[{"label":"Anxiousness","level":"Trait","code":"T007eM","kind":"concept","branch":2,"color":"#C6D9F0"},{"label":"Emotional lability","level":"Trait","code":"T008mD","kind":"concept","branch":2,"color":"#C6D9F0"},{"label":"Hostility","level":"Trait","code":"T0094I","kind":"concept","branch":2,"color":"#C6D9F0"},{"label":"Perseveration","level":"Trait","code":"T00A0Z","kind":"concept","branch":2,"color":"#C6D9F0"},{"label":"(low) Restricted affectivity","level":"Trait","code":"T00BXK","kind":"concept","branch":2,"color":"#C6D9F0"},{"label":"Separation insecurity","level":"Trait","code":"T00Cgy","kind":"concept","branch":2,"color":"#C6D9F0"},{"label":"Submissiveness","level":"Trait","code":"T00D42","kind":"concept","branch":2,"color":"#C6D9F0"},{"label":"Identity problems","level":"Trait","code":"T00Eht","kind":"concept","branch":2,"color":"#C6D9F0"},{"label":"Negative relationships","level":"Trait","code":"T00Fe0","kind":"concept","branch":2,"color":"#C6D9F0"},{"label":"Fragility","level":"Trait","code":"T00G3d","kind":"concept","branch":2,"color":"#C6D9F0"},{"label":"Ineptitude","level":"Trait","code":"T00HCy","kind":"concept","branch":2,"color":"#C6D9F0"},{"label":"(low) Invulnerability","level":"Trait","code":"T00IAT","kind":"concept","branch":2,"color":"#C6D9F0"},{"label":"Sexual Problems","level":"Subfactor","code":"U0012Y","kind":"concept","branch":2,"color":"#AEB8E3"},{"label":"Eating Pathology","level":"Subfactor","code":"U002SC","kind":"concept","branch":2,"color":"#CA92DA"},{"label":"Fear","level":"Subfactor","code":"U0036N","kind":"concept","branch":2,"color":"#DDA5DD","children":[{"label":"Interactive anxiety","level":"Component","code":"C00JTU","kind":"concept","branch":2,"color":"#E9C7E9"},{"label":"Performance anxiety","level":"Component","code":"C00KL0","kind":"concept","branch":2,"color":"#E9C7E9"},{"label":"Public places","level":"Component","code":"C00LqY","kind":"concept","branch":2,"color":"#E9C7E9"},{"label":"Enclosed spaces","level":"Component","code":"C00Mpl","kind":"concept","branch":2,"color":"#E9C7E9"},{"label":"Animal phobia","level":"Component","code":"C00N4I","kind":"concept","branch":2,"color":"#E9C7E9"},{"label":"Situational phobia","level":"Component","code":"C00OuR","kind":"concept","branch":2,"color":"#E9C7E9"},{"label":"Blood-injection-injury","level":"Component","code":"C00Pjp","kind":"concept","branch":2,"color":"#E9C7E9"},{"label":"Physiological panic","level":"Component","code":"C00Q1t","kind":"concept","branch":2,"color":"#E9C7E9"},{"label":"Psychological panic","level":"Component","code":"C00RGy","kind":"concept","branch":2,"color":"#E9C7E9"},{"label":"Cleaning","level":"Component","code":"C00S9m","kind":"concept","branch":2,"color":"#E9C7E9"},{"label":"Rituals","level":"Component","code":"C00TgL","kind":"concept","branch":2,"color":"#E9C7E9"},{"label":"Checking","level":"Component","code":"C00Urw","kind":"concept","branch":2,"color":"#E9C7E9"}]},{"label":"Distress","level":"Subfactor","code":"U004dm","kind":"concept","branch":2,"color":"#EECAE1","children":[{"label":"Dysphoria","level":"Component","code":"C00VHv","kind":"concept","branch":2,"color":"#F6E5F0"},{"label":"Lassitude","level":"Component","code":"C00WJc","kind":"concept","branch":2,"color":"#F6E5F0"},{"label":"Anhedonia","level":"Component","code":"C00XyI","kind":"concept","branch":2,"color":"#F6E5F0"},{"label":"Insomnia","level":"Component","code":"C00Y8j","kind":"concept","branch":2,"color":"#F6E5F0"},{"label":"Suicidality","level":"Component","code":"C00ZyP","kind":"concept","branch":2,"color":"#F6E5F0"},{"label":"Agitation","level":"Component","code":"C00aMF","kind":"concept","branch":2,"color":"#F6E5F0"},{"label":"Retardation","level":"Component","code":"C00bEx","kind":"concept","branch":2,"color":"#F6E5F0"},{"label":"Appetite loss","level":"Component","code":"C00cSn","kind":"concept","branch":2,"color":"#F6E5F0"},{"label":"Appetite gain","level":"Component","code":"C00dc1","kind":"concept","branch":2,"color":"#F6E5F0"},{"label":"(low) Wellbeing","level":"Component","code":"C00e0L","kind":"concept","branch":2,"color":"#F6E5F0"},{"label":"GAD Symptoms","level":"Component","code":"C00fKQ","kind":"concept","branch":2,"color":"#F6E5F0"},{"label":"Re-experiencing","level":"Component","code":"C00gvD","kind":"concept","branch":2,"color":"#F6E5F0"},{"label":"Avoidance","level":"Component","code":"C00hPJ","kind":"concept","branch":2,"color":"#F6E5F0"},{"label":"Hyperarousal","level":"Component","code":"C00iAh","kind":"concept","branch":2,"color":"#F6E5F0"},{"label":"Numbing","level":"Component","code":"C00jw5","kind":"concept","branch":2,"color":"#F6E5F0"},{"label":"Dissociation","level":"Component","code":"C00kEN","kind":"concept","branch":2,"color":"#F6E5F0"},{"label":"Irritability","level":"Component","code":"C00l5y","kind":"concept","branch":2,"color":"#F6E5F0"},{"label":"Pure obsessions","level":"Component","code":"C00mpe","kind":"concept","branch":2,"color":"#F6E5F0"}]},{"label":"Mania","level":"Subfactor","code":"U0050q","kind":"concept","branch":2,"color":"#FF8FA4","bridge":["Internalizing","Thought Disorder"],"children":[{"label":"Euphoric activation","level":"Component","code":"C00nyb","kind":"concept","branch":2,"color":"#FDBFCB"},{"label":"Hyper-active cognition","level":"Component","code":"C00oKM","kind":"concept","branch":2,"color":"#FDBFCB"},{"label":"Reckless overconfidence","level":"Component","code":"C00pnZ","kind":"concept","branch":2,"color":"#FDBFCB"}]}]},{"label":"Thought Disorder","level":"Spectrum","code":"P003SL","kind":"concept","branch":3,"color":"#FFB3BA","children":[{"label":"Psychotic","level":"Component","code":"C00qSD","kind":"concept","branch":3,"color":"#FEDCDF"},{"label":"Disorganized","level":"Component","code":"C00rnS","kind":"concept","branch":3,"color":"#FEDCDF"},{"label":"Inexpressivity","level":"Component","code":"C00sWr","kind":"concept","branch":3,"color":"#FEDCDF"},{"label":"Avolition","level":"Component","code":"C00tUQ","kind":"concept","branch":3,"color":"#FEDCDF"},{"label":"Eccentricity","level":"Trait","code":"T00ua9","kind":"concept","branch":3,"color":"#FEDCDF"},{"label":"Cognitive/perceptual dysregulation","level":"Trait","code":"T00vjR","kind":"concept","branch":3,"color":"#FEDCDF"},{"label":"Unusual beliefs and experiences","level":"Trait","code":"T00wk6","kind":"concept","branch":3,"color":"#FEDCDF"},{"label":"Fantasy proneness","level":"Trait","code":"T00xLn","kind":"concept","branch":3,"color":"#FEDCDF"}]},{"label":"Detachment","level":"Spectrum","code":"P004R1","kind":"concept","branch":4,"color":"#FFCCD6","children":[{"label":"Anhedonia","level":"Trait","code":"T01hQc","kind":"concept","branch":4,"color":"#FEDCE3"},{"label":"Depressivity","level":"Trait","code":"T00yfU","kind":"concept","branch":4,"color":"#FEDCE3"},{"label":"Intimacy avoidance","level":"Trait","code":"T00zDk","kind":"concept","branch":4,"color":"#FEDCE3"},{"label":"Suspiciousness","level":"Trait","code":"T010c6","kind":"concept","branch":4,"color":"#FEDCE3"},{"label":"Withdrawal","level":"Trait","code":"T011K6","kind":"concept","branch":4,"color":"#FEDCE3"},{"label":"Interpersonal passivity","level":"Trait","code":"T012QL","kind":"concept","branch":4,"color":"#FEDCE3"},{"label":"Disaffiliative","level":"Trait","code":"T013F1","kind":"concept","branch":4,"color":"#FEDCE3"},{"label":"(low) Attention seeking","level":"Trait","code":"T014BA","kind":"concept","branch":4,"color":"#FEDCE3"}]}]}}</script>
+<script type="application/json" id="data-emotional-dysfunction">{"meta":{"factorization_id":"emotional-dysfunction","version":"V106mv","label":"Emotional Dysfunction Superspectrum","status":"draft"},"hierarchy":{"label":"Emotional dysfunction","level":"Superspectrum","code":"S002SE","kind":"concept","branch":null,"color":"#1E3A5F","children":[{"label":"Somatoform","level":"Spectrum","code":"P001Y2","kind":"concept","branch":0,"color":"#3F7EB8","children":[{"label":"Malaise","level":"Component","code":"C0033z","kind":"concept","branch":0,"color":"#6095C4"},{"label":"Pain","level":"Component","code":"C01i7x","kind":"concept","branch":0,"color":"#6095C4"},{"label":"Fatigue","level":"Component","code":"C01jKN","kind":"concept","branch":0,"color":"#6095C4"},{"label":"Neurological","level":"Component","code":"C01kKJ","kind":"concept","branch":0,"color":"#6095C4"},{"label":"Gastrointestinal","level":"Component","code":"C005Sv","kind":"concept","branch":0,"color":"#6095C4"},{"label":"Cardiopulmonary","level":"Component","code":"C01l9M","kind":"concept","branch":0,"color":"#6095C4"},{"label":"Physiological anxiety","level":"Component","code":"C024WG","kind":"concept","branch":0,"color":"#6095C4","bridge":["Somatoform","Distress"]},{"label":"Health/illness anxiety","level":"Component","code":"C025ex","kind":"concept","branch":0,"color":"#6095C4","bridge":["Somatoform","Distress"]}]},{"label":"Internalizing","level":"Spectrum","code":"P002nf","kind":"concept","branch":1,"color":"#6AAFE0","children":[{"label":"Distress","level":"Subfactor","code":"U004dm","kind":"concept","branch":1,"color":"#9EDAED","children":[{"label":"Negative emotionality","level":"Component","code":"C01mPz","kind":"concept","branch":1,"color":"#C6E8F3"},{"label":"Anxiousness","level":"Trait","code":"T007eM","kind":"concept","branch":1,"color":"#C6E8F3"},{"label":"Depressivity","level":"Trait","code":"T00yfU","kind":"concept","branch":1,"color":"#C6E8F3"},{"label":"Dysphoria","level":"Component","code":"C00VHv","kind":"concept","branch":1,"color":"#C6E8F3"},{"label":"Suicidality","level":"Component","code":"C00ZyP","kind":"concept","branch":1,"color":"#C6E8F3"},{"label":"Insomnia","level":"Component","code":"C00Y8j","kind":"concept","branch":1,"color":"#C6E8F3"},{"label":"Anger/irritability","level":"Component","code":"C01nVp","kind":"concept","branch":1,"color":"#C6E8F3"},{"label":"Emotional lability","level":"Trait","code":"T008mD","kind":"concept","branch":1,"color":"#C6E8F3"},{"label":"Hyperactive cognition","level":"Component","code":"C00oKM","kind":"concept","branch":1,"color":"#C6E8F3"}]},{"label":"Mania","level":"Subfactor","code":"U0050q","kind":"concept","branch":1,"color":"#AEB8E3","provisional":true,"children":[{"label":"Euphoric activation","level":"Component","code":"C00nyb","kind":"concept","branch":1,"color":"#D1D6EE"},{"label":"Reckless overconfidence","level":"Component","code":"C00pnZ","kind":"concept","branch":1,"color":"#D1D6EE"},{"label":"Decreased need for sleep","level":"Component","code":"C0237W","kind":"concept","branch":1,"color":"#D1D6EE"}]},{"label":"Fear","level":"Subfactor","code":"U0036N","kind":"concept","branch":1,"color":"#DDA5DD","children":[{"label":"Behavioral avoidance","level":"Component","code":"C01oMk","kind":"concept","branch":1,"color":"#E9C7E9"},{"label":"Anxiety sensitivity","level":"Component","code":"C01pc6","kind":"concept","branch":1,"color":"#E9C7E9"},{"label":"Situational phobia","level":"Component","code":"C00OuR","kind":"concept","branch":1,"color":"#E9C7E9"},{"label":"Animal phobia","level":"Component","code":"C00N4I","kind":"concept","branch":1,"color":"#E9C7E9"},{"label":"BII phobia","level":"Component","code":"C01qTa","kind":"concept","branch":1,"color":"#E9C7E9"},{"label":"Physiological panic","level":"Component","code":"C00Q1t","kind":"concept","branch":1,"color":"#E9C7E9"},{"label":"Psychological panic","level":"Component","code":"C00RGy","kind":"concept","branch":1,"color":"#E9C7E9"},{"label":"Performance anxiety","level":"Component","code":"C00KL0","kind":"concept","branch":1,"color":"#E9C7E9"},{"label":"Interactive anxiety","level":"Component","code":"C00JTU","kind":"concept","branch":1,"color":"#E9C7E9"},{"label":"Fear of public places","level":"Component","code":"C00LqY","kind":"concept","branch":1,"color":"#E9C7E9"},{"label":"Fear of enclosed spaces","level":"Component","code":"C00Mpl","kind":"concept","branch":1,"color":"#E9C7E9"}]},{"label":"Pure obsessions","level":"Component","code":"C00mpe","kind":"concept","branch":1,"color":"#93C3E5"},{"label":"Compulsive checking","level":"Component","code":"C00Urw","kind":"concept","branch":1,"color":"#93C3E5"},{"label":"Compulsive rituals","level":"Component","code":"C00TgL","kind":"concept","branch":1,"color":"#93C3E5"},{"label":"Compulsive cleaning","level":"Component","code":"C00S9m","kind":"concept","branch":1,"color":"#93C3E5"},{"label":"Separation insecurity","level":"Trait","code":"T00Cgy","kind":"concept","branch":1,"color":"#93C3E5"},{"label":"Submissiveness","level":"Trait","code":"T00D42","kind":"concept","branch":1,"color":"#93C3E5"},{"label":"Eating pathology","level":"Subfactor","code":"U002SC","kind":"concept","branch":1,"color":"#FF8FA4","children":[{"label":"Body dissatisfaction","level":"Component","code":"C01rfi","kind":"concept","branch":1,"color":"#FDBFCB"},{"label":"Binge eating","level":"Component","code":"C01s9T","kind":"concept","branch":1,"color":"#FDBFCB"},{"label":"Cognitive restraint","level":"Component","code":"C01tAk","kind":"concept","branch":1,"color":"#FDBFCB"},{"label":"Purging","level":"Component","code":"C01ueZ","kind":"concept","branch":1,"color":"#FDBFCB"},{"label":"Excessive exercise","level":"Component","code":"C01vT5","kind":"concept","branch":1,"color":"#FDBFCB"},{"label":"Restricting","level":"Component","code":"C01wSl","kind":"concept","branch":1,"color":"#FDBFCB"},{"label":"Muscle building","level":"Component","code":"C01xzj","kind":"concept","branch":1,"color":"#FDBFCB"},{"label":"Negative attitudes toward obesity","level":"Component","code":"C01yno","kind":"concept","branch":1,"color":"#FDBFCB"}]},{"label":"Sexual problems","level":"Subfactor","code":"U0012Y","kind":"concept","branch":1,"color":"#FFCCD6","children":[{"label":"Low sexual desire","level":"Component","code":"C01zXz","kind":"concept","branch":1,"color":"#FEDCE3"},{"label":"Difficulties with arousal","level":"Component","code":"C020XA","kind":"concept","branch":1,"color":"#FEDCE3"},{"label":"Low orgasmic function","level":"Component","code":"C021Q0","kind":"concept","branch":1,"color":"#FEDCE3"},{"label":"Sex-related distress","level":"Component","code":"C022PW","kind":"concept","branch":1,"color":"#FEDCE3"}]}]}]}}</script>
+<script type="application/json" id="data-externalizing">{"meta":{"factorization_id":"externalizing","version":"V108kx","label":"Externalizing Superspectrum","status":"draft"},"hierarchy":{"label":"Externalizing","level":"Superspectrum","code":"S0013h","kind":"concept","branch":null,"color":"#1E3A5F","children":[{"label":"Disinhibition","level":"Spectrum","code":"P005xY","kind":"concept","branch":0,"color":"#5A9ED4","children":[{"label":"Hyperactivity","level":"Component","code":"C00oKM","kind":"concept","branch":0,"color":"#81B3DB"},{"label":"Inattention","level":"Component","code":"C02BO8","kind":"concept","branch":0,"color":"#81B3DB"},{"label":"Substance abuse","level":"Subfactor","code":"U0061L","kind":"concept","branch":0,"color":"#9FC0E9","children":[{"label":"Substance use","level":"Component","code":"C02EBv","kind":"concept","branch":0,"color":"#C6D9F0"},{"label":"Substance problems","level":"Component","code":"C02FZY","kind":"concept","branch":0,"color":"#C6D9F0"}]},{"label":"Antisocial behavior","level":"Subfactor","code":"U007EJ","kind":"concept","branch":0,"color":"#E7B9DF","bridge":["Disinhibition","Antagonism"],"children":[{"label":"Physical aggression","level":"Component","code":"C01JH8","kind":"concept","branch":0,"color":"#F2DCEE"},{"label":"Relational aggression","level":"Component","code":"C01LSp","kind":"concept","branch":0,"color":"#F2DCEE"},{"label":"Destruction of property","level":"Component","code":"C02CiQ","kind":"concept","branch":0,"color":"#F2DCEE"},{"label":"Fraud","level":"Component","code":"C01MjB","kind":"concept","branch":0,"color":"#F2DCEE"},{"label":"Theft","level":"Trait","code":"T0177S","kind":"concept","branch":0,"color":"#F2DCEE"}]},{"label":"Impulsivity","level":"Trait","code":"T015o8","kind":"concept","branch":0,"color":"#81B3DB"},{"label":"Irresponsibility","level":"Trait","code":"T016k0","kind":"concept","branch":0,"color":"#81B3DB"},{"label":"Disorganization","level":"Trait","code":"C00rnS","kind":"concept","branch":0,"color":"#81B3DB"},{"label":"Distractibility","level":"Trait","code":"T018ir","kind":"concept","branch":0,"color":"#81B3DB"},{"label":"Risk taking","level":"Trait","code":"T019Cj","kind":"concept","branch":0,"color":"#81B3DB"},{"label":"(Low) Perfectionism","level":"Trait","code":"T01A5i","kind":"concept","branch":0,"color":"#81B3DB"},{"label":"(Low) Workaholism","level":"Trait","code":"T01C1W","kind":"concept","branch":0,"color":"#81B3DB"}]},{"label":"Antagonism","level":"Spectrum","code":"P006gM","kind":"concept","branch":1,"color":"#FFCCD6","children":[{"label":"Manipulativeness","level":"Trait","code":"T01bz7","kind":"concept","branch":1,"color":"#FEDCE3"},{"label":"Deceitfulness","level":"Trait","code":"T01Ziz","kind":"concept","branch":1,"color":"#FEDCE3"},{"label":"Callousness","level":"Trait","code":"T01Y7w","kind":"concept","branch":1,"color":"#FEDCE3"},{"label":"Exhibitionism","level":"Trait","code":"C02DSC","kind":"concept","branch":1,"color":"#FEDCE3"},{"label":"Grandiosity","level":"Trait","code":"T01a7u","kind":"concept","branch":1,"color":"#FEDCE3"},{"label":"Hostility","level":"Trait","code":"T0094I","kind":"concept","branch":1,"color":"#FEDCE3"},{"label":"Domineering","level":"Trait","code":"T01eG6","kind":"concept","branch":1,"color":"#FEDCE3"},{"label":"Suspiciousness","level":"Trait","code":"T010c6","kind":"concept","branch":1,"color":"#FEDCE3"},{"label":"Rudeness","level":"Trait","code":"T01cX5","kind":"concept","branch":1,"color":"#FEDCE3"}]}]}}</script>
+<script type="application/json" id="data-psychosis">{"meta":{"factorization_id":"psychosis","version":"V10749","label":"Psychosis Superspectrum","status":"draft"},"hierarchy":{"label":"Psychosis","level":"Superspectrum","code":"S003TB","kind":"concept","branch":null,"color":"#1E3A5F","children":[{"label":"Thought disorder (Psychoticism)","level":"Spectrum","code":"P003SL","kind":"concept","branch":0,"color":"#9FC0E9","children":[{"label":"Fantasy proneness","level":"Trait","code":"T00xLn","kind":"concept","branch":0,"color":"#C6D9F0"},{"label":"Unusual Beliefs and Experiences","level":"Trait","code":"T00wk6","kind":"concept","branch":0,"color":"#C6D9F0"},{"label":"Peculiarity","level":"Trait","code":"T026cQ","kind":"concept","branch":0,"color":"#C6D9F0"},{"label":"Mania","level":"Component","code":"U0050q","kind":"concept","branch":0,"color":"#C6D9F0","provisional":true},{"label":"Dissociation","level":"Component","code":"C00kEN","kind":"concept","branch":0,"color":"#C6D9F0"},{"label":"Reality distortion","level":"Component","code":"C0277d","kind":"concept","branch":0,"color":"#C6D9F0"},{"label":"Disorganization","level":"Component","code":"C00rnS","kind":"concept","branch":0,"color":"#C6D9F0"}]},{"label":"Detachment","level":"Spectrum","code":"P004R1","kind":"concept","branch":1,"color":"#FFCCD6","children":[{"label":"Emotional detachment","level":"Trait","code":"T028jy","kind":"concept","branch":1,"color":"#FEDCE3"},{"label":"Anhedonia","level":"Trait","code":"T01hQc","kind":"concept","branch":1,"color":"#FEDCE3"},{"label":"Social withdrawal","level":"Trait","code":"T029jr","kind":"concept","branch":1,"color":"#FEDCE3"},{"label":"Romantic disinterest","level":"Trait","code":"T02A06","kind":"concept","branch":1,"color":"#FEDCE3"},{"label":"Inexpressivity","level":"Component","code":"C00sWr","kind":"concept","branch":1,"color":"#FEDCE3"},{"label":"Avolition","level":"Component","code":"C00tUQ","kind":"concept","branch":1,"color":"#FEDCE3"}]}]}}</script>
+<script type="application/json" id="data-dzpg-mds">{"meta":{"factorization_id":"dzpg-mds","version":"V10dzp","label":"HiTOP DZPG Minimal Data Set","status":"draft"},"hierarchy":{"label":"General Psychopathology","level":"Factor","code":"F001Hw","kind":"concept","branch":null,"color":"#1E3A5F","children":[{"label":"Identity problems","level":"Trait","code":"T00Eht","kind":"concept","branch":0,"color":"#2C507F"},{"label":"Emotional lability","level":"Trait","code":"T008mD","kind":"concept","branch":1,"color":"#2C507F"},{"label":"Negative relationships","level":"Trait","code":"T00Fe0","kind":"concept","branch":2,"color":"#2C507F"},{"label":"Fragility","level":"Trait","code":"T00G3d","kind":"concept","branch":3,"color":"#2C507F"},{"label":"Internalizing","level":"Spectrum","code":"P002nf","kind":"concept","branch":4,"color":"#2F5FA3","children":[{"label":"Distress","level":"Subfactor","code":"U004dm","kind":"concept","branch":4,"color":"#4D98C7","children":[{"label":"Dysphoria","level":"Component","code":"C00VHv","kind":"concept","branch":4,"color":"#73ACCF"},{"label":"Low self esteem","level":"Component","code":"C00e0L","kind":"concept","branch":4,"color":"#73ACCF","provisional":true},{"label":"Anxiousness","level":"Component","code":"T007eM","kind":"concept","branch":4,"color":"#73ACCF"},{"label":"Generalized Anxiety Disorder Symptoms","level":"Component","code":"C00fKQ","kind":"concept","branch":4,"color":"#73ACCF"},{"label":"Lassitude","level":"Component","code":"C00WJc","kind":"concept","branch":4,"color":"#73ACCF"},{"label":"Appetite loss","level":"Component","code":"C00cSn","kind":"concept","branch":4,"color":"#73ACCF"},{"label":"Avoidance","level":"Component","code":"C00hPJ","kind":"concept","branch":4,"color":"#73ACCF"},{"label":"Hyperarousal","level":"Component","code":"C00iAh","kind":"concept","branch":4,"color":"#73ACCF"}]},{"label":"Fear","level":"Subfactor","code":"U0036N","kind":"concept","branch":4,"color":"#5A9ED4","children":[{"label":"Panic","level":"Component","code":"COLLpani","kind":"collection","branch":4,"color":"#81B3DB","children":[{"label":"Physiological panic","level":"Component","code":"C00Q1t","kind":"concept","branch":4,"color":"#CBDEED"},{"label":"Psychological panic","level":"Component","code":"C00RGy","kind":"concept","branch":4,"color":"#CBDEED"}]},{"label":"(Agora)phobia","level":"Component","code":"COLLPhobia","kind":"collection","branch":4,"color":"#81B3DB","children":[{"label":"Public places","level":"Component","code":"C00LqY","kind":"concept","branch":4,"color":"#CBDEED"},{"label":"Enclosed spaces","level":"Component","code":"C00Mpl","kind":"concept","branch":4,"color":"#CBDEED"}]},{"label":"Social phobia","level":"Component","code":"COLLSoc","kind":"collection","branch":4,"color":"#81B3DB","children":[{"label":"Interactive anxiety","level":"Component","code":"C00JTU","kind":"concept","branch":4,"color":"#CBDEED"},{"label":"Performance anxiety","level":"Component","code":"C00KL0","kind":"concept","branch":4,"color":"#CBDEED"}]},{"label":"OCD","level":"Component","code":"COLLOcd","kind":"collection","branch":4,"color":"#81B3DB","children":[{"label":"Pure obsessions","level":"Component","code":"C00mpe","kind":"concept","branch":4,"color":"#CBDEED"}]}]},{"label":"Eating","level":"Subfactor","code":"U002SC","kind":"concept","branch":4,"color":"#7ABEE1","children":[{"label":"ED Bulimic","level":"Component","code":"C01s9T","kind":"concept","branch":4,"color":"#A2D0E7","provisional":true},{"label":"ED Anorectic","level":"Component","code":"C01wSl","kind":"concept","branch":4,"color":"#A2D0E7","provisional":true}]}]},{"label":"Somatoform","level":"Spectrum","code":"P001Y2","kind":"concept","branch":5,"color":"#9EDAED","children":[{"label":"Somatization","level":"Component","code":"C00217","kind":"concept","branch":5,"color":"#C6E8F3"}]},{"label":"Thought Disorder","level":"Spectrum","code":"P003SL","kind":"concept","branch":6,"color":"#AEB8E3","children":[{"label":"Dissociation","level":"Component","code":"C00kEN","kind":"concept","branch":6,"color":"#D1D6EE"},{"label":"Perceptual dysregulation","level":"Trait","code":"T00vjR","kind":"concept","branch":6,"color":"#D1D6EE"},{"label":"Unusual beliefs","level":"Trait","code":"T00wk6","kind":"concept","branch":6,"color":"#D1D6EE"},{"label":"Psychotic symptoms","level":"Component","code":"C00qSD","kind":"concept","branch":6,"color":"#D1D6EE"}]},{"label":"Detachment","level":"Spectrum","code":"P004R1","kind":"concept","branch":7,"color":"#CA92DA","children":[{"label":"Disaffiliativeness","level":"Trait","code":"T013F1","kind":"concept","branch":7,"color":"#DAB6E4"},{"label":"Anhedonia","level":"Trait","code":"T01hQc","kind":"concept","branch":7,"color":"#DAB6E4"},{"label":"Restricted affectivity","level":"Trait","code":"T00BXK","kind":"concept","branch":7,"color":"#DAB6E4"},{"label":"Intimacy avoidance","level":"Trait","code":"T00zDk","kind":"concept","branch":7,"color":"#DAB6E4"},{"label":"Withdrawal","level":"Trait","code":"T011K6","kind":"concept","branch":7,"color":"#DAB6E4"}]},{"label":"Disinhibited Externalizing","level":"Spectrum","code":"P005xY","kind":"concept","branch":8,"color":"#E7B9DF","children":[{"label":"Irritability","level":"Component","code":"C00l5y","kind":"concept","branch":8,"color":"#F2DCEE"},{"label":"Impulsivity","level":"Trait","code":"T015o8","kind":"concept","branch":8,"color":"#F2DCEE"},{"label":"Risk taking","level":"Trait","code":"T019Cj","kind":"concept","branch":8,"color":"#F2DCEE"},{"label":"Distractibility","level":"Trait","code":"T018ir","kind":"concept","branch":8,"color":"#F2DCEE"},{"label":"Harmful Substance Use","level":"Subfactor","code":"U0061L","kind":"concept","branch":8,"color":"#F8B7C5","children":[{"label":"Alcohol use","level":"Component","code":"C01DAb","kind":"concept","branch":8,"color":"#FBDFE5"},{"label":"Smoking","level":"Component","code":"COLLsmok","kind":"collection","branch":8,"color":"#FBDFE5","provisional":true,"children":[{"label":"Substance Use","level":"Component","code":"C02EBv","kind":"concept","branch":8,"color":"#F9E1E6"}]},{"label":"Drug problems","level":"Component","code":"C01Ip4","kind":"concept","branch":8,"color":"#FBDFE5"},{"label":"Drug use","level":"Component","code":"C01HGq","kind":"concept","branch":8,"color":"#FBDFE5"}]}]},{"label":"Antagonistic Externalizing","level":"Spectrum","code":"P006gM","kind":"concept","branch":9,"color":"#FFB3BA","children":[{"label":"Deceitfulness","level":"Trait","code":"T01Ziz","kind":"concept","branch":9,"color":"#FEDCDF"},{"label":"Grandiosity","level":"Trait","code":"T01a7u","kind":"concept","branch":9,"color":"#FEDCDF"},{"label":"Hostility","level":"Trait","code":"T0094I","kind":"concept","branch":9,"color":"#FEDCDF"},{"label":"Manipulativeness","level":"Trait","code":"T01bz7","kind":"concept","branch":9,"color":"#FEDCDF"},{"label":"Antisocial Behavior","level":"Subfactor","code":"U007EJ","kind":"concept","branch":9,"color":"#FFCCD6","children":[{"label":"Aggression","level":"Trait","code":"COLLaggr","kind":"collection","branch":9,"color":"#FEDCE3","provisional":true,"children":[{"label":"Impatient Urgency","level":"Trait","code":"T01Neb","kind":"concept","branch":9,"color":"#FCDEE4"}]},{"label":"Excitement seeking","level":"Trait","code":"COLLexcit","kind":"collection","branch":9,"color":"#FEDCE3","children":[{"label":"Rebelliousness","level":"Trait","code":"T01UGN","kind":"concept","branch":9,"color":"#FCDEE4"}]}]}]}]}}</script>
+<script type="application/json" id="data-bass-ackwards">{"meta":{"factorization_id":"bass-ackwards","version":"V10bak","label":"HiTOP Bass-Ackwards Structure","status":"draft"},"hierarchy":{"label":"General Psychopathology","level":"Factor","code":"F001Hw","kind":"concept","branch":null,"color":"#1E3A5F","children":[{"label":"Internalizing","level":"Superspectrum","code":"P002nf","kind":"concept","branch":0,"color":"#3F7EB8","children":[{"label":"Distress","level":"Subfactor","code":"U004dm","kind":"concept","branch":0,"color":"#6AAFE0","children":[{"label":"Depression & Detachment","level":"Component","code":"COLLDepression","kind":"collection","branch":0,"color":"#93C3E5","bridge":["Detachment"],"provisional":true,"children":[{"label":"Somatic Depression","level":"Component","code":"COLLSomDep","kind":"collection","branch":0,"color":"#DEECF5","provisional":true,"children":[{"label":"Lassitude","level":"Component","code":"C00WJc","kind":"concept","branch":0,"color":"#E5EFF5"},{"label":"Insomnia","level":"Component","code":"C00Y8j","kind":"concept","branch":0,"color":"#E5EFF5"}]},{"label":"Cognitive Depression","level":"Component","code":"COLLCogDep","kind":"collection","branch":0,"color":"#DEECF5","provisional":true,"children":[{"label":"Dysphoria","level":"Component","code":"C00VHv","kind":"concept","branch":0,"color":"#E5EFF5"},{"label":"Anhedonia","level":"Component","code":"C00XyI","kind":"concept","branch":0,"color":"#E5EFF5"}]}]},{"label":"GAD & PF","level":"Component","code":"COLLGadPf","kind":"collection","branch":0,"color":"#93C3E5","bridge":["PF Problems"],"provisional":true,"children":[{"label":"GAD & OCD","level":"Component","code":"COLLGadOcd","kind":"collection","branch":0,"color":"#DEECF5","bridge":["Thought Disorder"],"children":[{"label":"GAD Symptoms","level":"Component","code":"C00fKQ","kind":"concept","branch":0,"color":"#E5EFF5"},{"label":"Pure obsessions","level":"Component","code":"C00mpe","kind":"concept","branch":0,"color":"#E5EFF5"}]}]}]},{"label":"Fear","level":"Subfactor","code":"U0036N","kind":"concept","branch":0,"color":"#9EDAED","children":[{"label":"Social Anxiety & Agoraphobia","level":"Component","code":"COLLSocAgora","kind":"collection","branch":0,"color":"#C6E8F3","children":[{"label":"Interactive anxiety","level":"Component","code":"C00JTU","kind":"concept","branch":0,"color":"#E3F2F7"},{"label":"Performance anxiety","level":"Component","code":"C00KL0","kind":"concept","branch":0,"color":"#E3F2F7"},{"label":"Public places","level":"Component","code":"C00LqY","kind":"concept","branch":0,"color":"#E3F2F7"},{"label":"Enclosed spaces","level":"Component","code":"C00Mpl","kind":"concept","branch":0,"color":"#E3F2F7"}]},{"label":"Panic Disorder & Somatoform","level":"Component","code":"COLLPanicSom","kind":"collection","branch":0,"color":"#C6E8F3","children":[{"label":"Physiological panic","level":"Component","code":"C00Q1t","kind":"concept","branch":0,"color":"#E3F2F7"},{"label":"Psychological panic","level":"Component","code":"C00RGy","kind":"concept","branch":0,"color":"#E3F2F7"},{"label":"Somatoform","level":"Component","code":"P001Y2","kind":"concept","branch":0,"color":"#E3F2F7"}]},{"label":"Specific Phobia","level":"Component","code":"C00OuR","kind":"concept","branch":0,"color":"#C6E8F3","provisional":true}]}]},{"label":"Eating Disorder","level":"Spectrum","code":"COLLEatDis","kind":"collection","branch":1,"color":"#AEB8E3","children":[{"label":"ED Thoughts","level":"Component","code":"C01rfi","kind":"concept","branch":1,"color":"#D1D6EE","provisional":true},{"label":"ED Bulimic","level":"Component","code":"C01ueZ","kind":"concept","branch":1,"color":"#D1D6EE","provisional":true},{"label":"ED Anorectic","level":"Component","code":"C01wSl","kind":"concept","branch":1,"color":"#D1D6EE","provisional":true}]},{"label":"Externalizing & Thought Disorder & Detachment","level":"Superspectrum","code":"COLLExtDetTd","kind":"collection","branch":2,"color":"#DDA5DD","children":[{"label":"Thought Disorder & Mania","level":"Spectrum","code":"COLLTdMania","kind":"collection","branch":2,"color":"#FF8FA4","children":[{"label":"Thought Disorder","level":"Component","code":"P003SL","kind":"concept","branch":2,"color":"#FDBFCB"},{"label":"Mania","level":"Component","code":"U0050q","kind":"concept","branch":2,"color":"#FDBFCB"}]},{"label":"Externalizing & Detachment","level":"Spectrum","code":"COLLExtDet","kind":"collection","branch":2,"color":"#FFCCD6","children":[{"label":"Antagonistic PD","level":"Component","code":"COLLAntPf","kind":"collection","branch":2,"color":"#FEDCE3","children":[{"label":"Antagonism","level":"Component","code":"P006gM","kind":"concept","branch":2,"color":"#FCDEE4"},{"label":"PF Problems","level":"Trait","code":"COLLPF","kind":"collection","branch":2,"color":"#FCDEE4","provisional":true,"children":[{"label":"Identity problems","level":"Trait","code":"T00Eht","kind":"concept","branch":2,"color":"#FAE1E6"},{"label":"Negative relationships","level":"Trait","code":"T00Fe0","kind":"concept","branch":2,"color":"#FAE1E6"},{"label":"Fragility","level":"Trait","code":"T00G3d","kind":"concept","branch":2,"color":"#FAE1E6"},{"label":"Ineptitude","level":"Trait","code":"T00HCy","kind":"concept","branch":2,"color":"#FAE1E6"},{"label":"(low) Invulnerability","level":"Trait","code":"T00IAT","kind":"concept","branch":2,"color":"#FAE1E6"}]}]},{"label":"Detachment","level":"Component","code":"P004R1","kind":"concept","branch":2,"color":"#FEDCE3","bridge":["Depression & Detachment"]},{"label":"Disinhibition & Substance Use","level":"Component","code":"COLLDisinhibSub","kind":"collection","branch":2,"color":"#FEDCE3","children":[{"label":"Disinhibited Externalizing","level":"Component","code":"P005xY","kind":"concept","branch":2,"color":"#FCDEE4"},{"label":"Substance use","level":"Component","code":"C02EBv","kind":"concept","branch":2,"color":"#FCDEE4"}]}]}]}]}}</script>
+
+<p>Every diagram compiles mechanically from <code>&lt;version&gt;_hierarchy.yaml</code> via <code>scripts/generate_factorization_diagram_data.py</code>, using the same validation logic as the test suite — <a href="../factorizations/">see the full catalog</a> for status and provenance, or <a href="../create-a-factorization/">create a factorization</a> to compose one yourself.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+  
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../factorizations/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Factorizations">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Factorizations
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../specification/" class="md-footer__link md-footer__link--next" aria-label="Next: Specification">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Specification
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      HiTOP Ontologies contributors · MIT License · Not a diagnostic instrument
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/HiTOP-Ontologies/hitop-ontology" target="_blank" rel="noopener" title="HiTOP Ontology on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../assets/javascripts/site.js"></script>
+      
+        <script src="../../assets/javascripts/vendor/d3.v7.min.js"></script>
+      
+        <script src="../../assets/javascripts/factorization-icicle.js"></script>
+      
+        <script src="../../assets/javascripts/learning-factorization.js"></script>
+      
+        <script src="../../assets/javascripts/diagram-viewer.js"></script>
+      
+    
+  </body>
+</html>

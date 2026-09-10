@@ -22,13 +22,12 @@
         "color": "#2C507F"
       },
       {
-        "label": "Affect regulation",
+        "label": "Emotional lability",
         "level": "Trait",
         "code": "T008mD",
         "kind": "concept",
         "branch": 1,
-        "color": "#2C507F",
-        "provisional": true
+        "color": "#2C507F"
       },
       {
         "label": "Negative relationships",
@@ -36,8 +35,7 @@
         "code": "T00Fe0",
         "kind": "concept",
         "branch": 2,
-        "color": "#2C507F",
-        "provisional": true
+        "color": "#2C507F"
       },
       {
         "label": "Fragility",
@@ -45,24 +43,14 @@
         "code": "T00G3d",
         "kind": "concept",
         "branch": 3,
-        "color": "#2C507F",
-        "provisional": true
-      },
-      {
-        "label": "Ineptitude",
-        "level": "Trait",
-        "code": "T00HCy",
-        "kind": "concept",
-        "branch": 4,
-        "color": "#2C507F",
-        "provisional": true
+        "color": "#2C507F"
       },
       {
         "label": "Internalizing",
         "level": "Spectrum",
         "code": "P002nf",
         "kind": "concept",
-        "branch": 5,
+        "branch": 4,
         "color": "#2F5FA3",
         "children": [
           {
@@ -70,78 +58,73 @@
             "level": "Subfactor",
             "code": "U004dm",
             "kind": "concept",
-            "branch": 5,
-            "color": "#4B8CC7",
+            "branch": 4,
+            "color": "#4D98C7",
             "children": [
               {
                 "label": "Dysphoria",
                 "level": "Component",
                 "code": "C00VHv",
                 "kind": "concept",
-                "branch": 5,
-                "color": "#71A2CF"
+                "branch": 4,
+                "color": "#73ACCF"
               },
               {
                 "label": "Low self esteem",
                 "level": "Component",
                 "code": "C00e0L",
                 "kind": "concept",
-                "branch": 5,
-                "color": "#71A2CF",
+                "branch": 4,
+                "color": "#73ACCF",
                 "provisional": true
               },
               {
-                "label": "Worries",
-                "level": "Component",
-                "code": "C00fKQ",
-                "kind": "concept",
-                "branch": 5,
-                "color": "#71A2CF"
-              },
-              {
-                "label": "Free floating anxiety",
+                "label": "Anxiousness",
                 "level": "Component",
                 "code": "T007eM",
                 "kind": "concept",
-                "branch": 5,
-                "color": "#71A2CF",
-                "provisional": true
+                "branch": 4,
+                "color": "#73ACCF"
               },
               {
-                "label": "Hyperarousal",
+                "label": "Generalized Anxiety Disorder Symptoms",
                 "level": "Component",
-                "code": "C00iAh",
+                "code": "C00fKQ",
                 "kind": "concept",
-                "branch": 5,
-                "color": "#71A2CF"
+                "branch": 4,
+                "color": "#73ACCF"
               },
               {
                 "label": "Lassitude",
                 "level": "Component",
                 "code": "C00WJc",
                 "kind": "concept",
-                "branch": 5,
-                "color": "#71A2CF"
+                "branch": 4,
+                "color": "#73ACCF"
               },
               {
                 "label": "Appetite loss",
                 "level": "Component",
                 "code": "C00cSn",
                 "kind": "concept",
-                "branch": 5,
-                "color": "#71A2CF"
+                "branch": 4,
+                "color": "#73ACCF"
               },
               {
-                "label": "Traumascreening",
+                "label": "Avoidance",
                 "level": "Component",
                 "code": "C00hPJ",
                 "kind": "concept",
-                "branch": 5,
-                "color": "#71A2CF",
-                "bridge": [
-                  "Hyperarousal"
-                ],
-                "provisional": true
+                "branch": 4,
+                "color": "#73ACCF"
+              },
+              {
+                "label": "Hyperarousal",
+                "level": "Component",
+                "code": "C00iAh",
+                "kind": "concept",
+                "branch": 4,
+                "color": "#73ACCF"
               }
             ]
           },
@@ -150,32 +133,32 @@
             "level": "Subfactor",
             "code": "U0036N",
             "kind": "concept",
-            "branch": 5,
-            "color": "#6AAFE0",
+            "branch": 4,
+            "color": "#5A9ED4",
             "children": [
               {
                 "label": "Panic",
                 "level": "Component",
                 "code": "COLLpani",
                 "kind": "collection",
-                "branch": 5,
-                "color": "#93C3E5",
+                "branch": 4,
+                "color": "#81B3DB",
                 "children": [
                   {
                     "label": "Physiological panic",
                     "level": "Component",
                     "code": "C00Q1t",
                     "kind": "concept",
-                    "branch": 5,
-                    "color": "#DEECF5"
+                    "branch": 4,
+                    "color": "#CBDEED"
                   },
                   {
                     "label": "Psychological panic",
                     "level": "Component",
                     "code": "C00RGy",
                     "kind": "concept",
-                    "branch": 5,
-                    "color": "#DEECF5"
+                    "branch": 4,
+                    "color": "#CBDEED"
                   }
                 ]
               },
@@ -184,24 +167,24 @@
                 "level": "Component",
                 "code": "COLLPhobia",
                 "kind": "collection",
-                "branch": 5,
-                "color": "#93C3E5",
+                "branch": 4,
+                "color": "#81B3DB",
                 "children": [
                   {
                     "label": "Public places",
                     "level": "Component",
                     "code": "C00LqY",
                     "kind": "concept",
-                    "branch": 5,
-                    "color": "#DEECF5"
+                    "branch": 4,
+                    "color": "#CBDEED"
                   },
                   {
                     "label": "Enclosed spaces",
                     "level": "Component",
                     "code": "C00Mpl",
                     "kind": "concept",
-                    "branch": 5,
-                    "color": "#DEECF5"
+                    "branch": 4,
+                    "color": "#CBDEED"
                   }
                 ]
               },
@@ -210,24 +193,24 @@
                 "level": "Component",
                 "code": "COLLSoc",
                 "kind": "collection",
-                "branch": 5,
-                "color": "#93C3E5",
+                "branch": 4,
+                "color": "#81B3DB",
                 "children": [
                   {
                     "label": "Interactive anxiety",
                     "level": "Component",
                     "code": "C00JTU",
                     "kind": "concept",
-                    "branch": 5,
-                    "color": "#DEECF5"
+                    "branch": 4,
+                    "color": "#CBDEED"
                   },
                   {
                     "label": "Performance anxiety",
                     "level": "Component",
                     "code": "C00KL0",
                     "kind": "concept",
-                    "branch": 5,
-                    "color": "#DEECF5"
+                    "branch": 4,
+                    "color": "#CBDEED"
                   }
                 ]
               },
@@ -236,16 +219,16 @@
                 "level": "Component",
                 "code": "COLLOcd",
                 "kind": "collection",
-                "branch": 5,
-                "color": "#93C3E5",
+                "branch": 4,
+                "color": "#81B3DB",
                 "children": [
                   {
                     "label": "Pure obsessions",
                     "level": "Component",
                     "code": "C00mpe",
                     "kind": "concept",
-                    "branch": 5,
-                    "color": "#DEECF5"
+                    "branch": 4,
+                    "color": "#CBDEED"
                   }
                 ]
               }
@@ -256,16 +239,16 @@
             "level": "Subfactor",
             "code": "U002SC",
             "kind": "concept",
-            "branch": 5,
-            "color": "#8ACCE6",
+            "branch": 4,
+            "color": "#7ABEE1",
             "children": [
               {
                 "label": "ED Bulimic",
                 "level": "Component",
                 "code": "C01s9T",
                 "kind": "concept",
-                "branch": 5,
-                "color": "#B2DCEC",
+                "branch": 4,
+                "color": "#A2D0E7",
                 "provisional": true
               },
               {
@@ -273,8 +256,8 @@
                 "level": "Component",
                 "code": "C01wSl",
                 "kind": "concept",
-                "branch": 5,
-                "color": "#B2DCEC",
+                "branch": 4,
+                "color": "#A2D0E7",
                 "provisional": true
               }
             ]
@@ -286,16 +269,16 @@
         "level": "Spectrum",
         "code": "P001Y2",
         "kind": "concept",
-        "branch": 6,
-        "color": "#9FC0E9",
+        "branch": 5,
+        "color": "#9EDAED",
         "children": [
           {
             "label": "Somatization",
             "level": "Component",
             "code": "C00217",
             "kind": "concept",
-            "branch": 6,
-            "color": "#C6D9F0"
+            "branch": 5,
+            "color": "#C6E8F3"
           }
         ]
       },
@@ -304,40 +287,40 @@
         "level": "Spectrum",
         "code": "P003SL",
         "kind": "concept",
-        "branch": 7,
-        "color": "#BCA2DF",
+        "branch": 6,
+        "color": "#AEB8E3",
         "children": [
           {
             "label": "Dissociation",
             "level": "Component",
             "code": "C00kEN",
             "kind": "concept",
-            "branch": 7,
-            "color": "#D5C5EA"
+            "branch": 6,
+            "color": "#D1D6EE"
           },
           {
             "label": "Perceptual dysregulation",
             "level": "Trait",
             "code": "T00vjR",
             "kind": "concept",
-            "branch": 7,
-            "color": "#D5C5EA"
+            "branch": 6,
+            "color": "#D1D6EE"
           },
           {
             "label": "Unusual beliefs",
             "level": "Trait",
             "code": "T00wk6",
             "kind": "concept",
-            "branch": 7,
-            "color": "#D5C5EA"
+            "branch": 6,
+            "color": "#D1D6EE"
           },
           {
             "label": "Psychotic symptoms",
             "level": "Component",
             "code": "C00qSD",
             "kind": "concept",
-            "branch": 7,
-            "color": "#D5C5EA"
+            "branch": 6,
+            "color": "#D1D6EE"
           }
         ]
       },
@@ -346,49 +329,48 @@
         "level": "Spectrum",
         "code": "P004R1",
         "kind": "concept",
-        "branch": 8,
-        "color": "#DDA5DD",
+        "branch": 7,
+        "color": "#CA92DA",
         "children": [
           {
-            "label": "Social Anhedonia",
+            "label": "Disaffiliativeness",
             "level": "Trait",
             "code": "T013F1",
             "kind": "concept",
-            "branch": 8,
-            "color": "#E9C7E9",
-            "provisional": true
+            "branch": 7,
+            "color": "#DAB6E4"
           },
           {
             "label": "Anhedonia",
             "level": "Trait",
             "code": "T01hQc",
             "kind": "concept",
-            "branch": 8,
-            "color": "#E9C7E9"
+            "branch": 7,
+            "color": "#DAB6E4"
           },
           {
             "label": "Restricted affectivity",
             "level": "Trait",
             "code": "T00BXK",
             "kind": "concept",
-            "branch": 8,
-            "color": "#E9C7E9"
+            "branch": 7,
+            "color": "#DAB6E4"
           },
           {
             "label": "Intimacy avoidance",
             "level": "Trait",
             "code": "T00zDk",
             "kind": "concept",
-            "branch": 8,
-            "color": "#E9C7E9"
+            "branch": 7,
+            "color": "#DAB6E4"
           },
           {
             "label": "Withdrawal",
             "level": "Trait",
             "code": "T011K6",
             "kind": "concept",
-            "branch": 8,
-            "color": "#E9C7E9"
+            "branch": 7,
+            "color": "#DAB6E4"
           }
         ]
       },
@@ -397,66 +379,93 @@
         "level": "Spectrum",
         "code": "P005xY",
         "kind": "concept",
-        "branch": 9,
-        "color": "#EECAE1",
+        "branch": 8,
+        "color": "#E7B9DF",
         "children": [
-          {
-            "label": "Regulation aggessive impulses",
-            "level": "Trait",
-            "code": "T01Neb",
-            "kind": "concept",
-            "branch": 9,
-            "color": "#F6E5F0",
-            "provisional": true
-          },
           {
             "label": "Irritability",
             "level": "Component",
             "code": "C00l5y",
             "kind": "concept",
-            "branch": 9,
-            "color": "#F6E5F0"
+            "branch": 8,
+            "color": "#F2DCEE"
           },
           {
             "label": "Impulsivity",
             "level": "Trait",
             "code": "T015o8",
             "kind": "concept",
-            "branch": 9,
-            "color": "#F6E5F0"
-          },
-          {
-            "label": "Norm violation",
-            "level": "Trait",
-            "code": "T01UGN",
-            "kind": "concept",
-            "branch": 9,
-            "color": "#F6E5F0",
-            "provisional": true
+            "branch": 8,
+            "color": "#F2DCEE"
           },
           {
             "label": "Risk taking",
             "level": "Trait",
             "code": "T019Cj",
             "kind": "concept",
-            "branch": 9,
-            "color": "#F6E5F0"
+            "branch": 8,
+            "color": "#F2DCEE"
           },
           {
             "label": "Distractibility",
             "level": "Trait",
             "code": "T018ir",
             "kind": "concept",
-            "branch": 9,
-            "color": "#F6E5F0"
+            "branch": 8,
+            "color": "#F2DCEE"
           },
           {
             "label": "Harmful Substance Use",
             "level": "Subfactor",
             "code": "U0061L",
             "kind": "concept",
-            "branch": 9,
-            "color": "#FFB3BA"
+            "branch": 8,
+            "color": "#F8B7C5",
+            "children": [
+              {
+                "label": "Alcohol use",
+                "level": "Component",
+                "code": "C01DAb",
+                "kind": "concept",
+                "branch": 8,
+                "color": "#FBDFE5"
+              },
+              {
+                "label": "Smoking",
+                "level": "Component",
+                "code": "COLLsmok",
+                "kind": "collection",
+                "branch": 8,
+                "color": "#FBDFE5",
+                "provisional": true,
+                "children": [
+                  {
+                    "label": "Substance Use",
+                    "level": "Component",
+                    "code": "C02EBv",
+                    "kind": "concept",
+                    "branch": 8,
+                    "color": "#F9E1E6"
+                  }
+                ]
+              },
+              {
+                "label": "Drug problems",
+                "level": "Component",
+                "code": "C01Ip4",
+                "kind": "concept",
+                "branch": 8,
+                "color": "#FBDFE5"
+              },
+              {
+                "label": "Drug use",
+                "level": "Component",
+                "code": "C01HGq",
+                "kind": "concept",
+                "branch": 8,
+                "color": "#FBDFE5"
+              }
+            ]
           }
         ]
       },
@@ -465,41 +474,87 @@
         "level": "Spectrum",
         "code": "P006gM",
         "kind": "concept",
-        "branch": 10,
-        "color": "#FFCCD6",
+        "branch": 9,
+        "color": "#FFB3BA",
         "children": [
           {
             "label": "Deceitfulness",
             "level": "Trait",
             "code": "T01Ziz",
             "kind": "concept",
-            "branch": 10,
-            "color": "#FEDCE3"
+            "branch": 9,
+            "color": "#FEDCDF"
           },
           {
-            "label": "Entitlement",
+            "label": "Grandiosity",
             "level": "Trait",
             "code": "T01a7u",
             "kind": "concept",
-            "branch": 10,
-            "color": "#FEDCE3",
-            "provisional": true
+            "branch": 9,
+            "color": "#FEDCDF"
           },
           {
             "label": "Hostility",
             "level": "Trait",
             "code": "T0094I",
             "kind": "concept",
-            "branch": 10,
-            "color": "#FEDCE3"
+            "branch": 9,
+            "color": "#FEDCDF"
           },
           {
             "label": "Manipulativeness",
             "level": "Trait",
             "code": "T01bz7",
             "kind": "concept",
-            "branch": 10,
-            "color": "#FEDCE3"
+            "branch": 9,
+            "color": "#FEDCDF"
+          },
+          {
+            "label": "Antisocial Behavior",
+            "level": "Subfactor",
+            "code": "U007EJ",
+            "kind": "concept",
+            "branch": 9,
+            "color": "#FFCCD6",
+            "children": [
+              {
+                "label": "Aggression",
+                "level": "Trait",
+                "code": "COLLaggr",
+                "kind": "collection",
+                "branch": 9,
+                "color": "#FEDCE3",
+                "provisional": true,
+                "children": [
+                  {
+                    "label": "Impatient Urgency",
+                    "level": "Trait",
+                    "code": "T01Neb",
+                    "kind": "concept",
+                    "branch": 9,
+                    "color": "#FCDEE4"
+                  }
+                ]
+              },
+              {
+                "label": "Excitement seeking",
+                "level": "Trait",
+                "code": "COLLexcit",
+                "kind": "collection",
+                "branch": 9,
+                "color": "#FEDCE3",
+                "children": [
+                  {
+                    "label": "Rebelliousness",
+                    "level": "Trait",
+                    "code": "T01UGN",
+                    "kind": "concept",
+                    "branch": 9,
+                    "color": "#FCDEE4"
+                  }
+                ]
+              }
+            ]
           }
         ]
       }

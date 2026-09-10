@@ -19,8 +19,8 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 SCHEMA_PATH = ROOT_DIR / "schema" / "manifestation-record.schema.json"
 
 VALID_RECORD = {
-    "code": "HiTOPU0aB2X.M-AF-ROR3FG46LQKYZLLX-CHRONIC_WORRY",
-    "hitop_base_code": "HiTOPU0aB2X",
+    "code": "U0aB2X.M-AF-ROR3FG46LQKYZLLX-CHRONIC_WORRY",
+    "hitop_base_code": "U0aB2X",
     "suffix_block": "M",
     "manifestation_type": "AF",
     "namespace": {
@@ -80,7 +80,7 @@ FULL_GENERATED_RECORD = {
     "mapping_review_status": "unreviewed",
     "mappings": [
         {
-            "target_code": "HiTOPU0aB2X.M-AF-ROROTHERTOKENABC-EXCESSIVE_WORRY",
+            "target_code": "U0aB2X.M-AF-ROROTHERTOKENABC-EXCESSIVE_WORRY",
             "relation": "skos:closeMatch",
             "mapping_artifact": "docs/mapping-und-harmonisierung.md",
         }

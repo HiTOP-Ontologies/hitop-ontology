@@ -28,13 +28,13 @@
   "properties": {
     "code": {
       "type": "string",
-      "description": "Full HiTOP manifestation code in the form <HiTOP>.M-<TT>-<NS>-<SLUG>.",
-      "pattern": "^[A-Za-z0-9]+\\.M-(GS|CS|SY|AF|CG|PC|BH|SS|SL|SU|IR|IM)-[A-Z]{3}[A-Z2-7]{13}-[A-Z0-9](?:[A-Z0-9_]{1,38}[A-Z0-9])$"
+      "description": "Full HiTOP manifestation code in the form <HITOP_BASE_CODE>.M-<TT>-<NS>-<SLUG>.",
+      "pattern": "^[A-Za-z0-9][0-9][A-Za-z0-9]{4}\\.M-(GS|CS|SY|AF|CG|PC|BH|SS|SL|SU|IR|IM)-[A-Z]{3}[A-Z2-7]{13}-[A-Z0-9](?:[A-Z0-9_]{1,38}[A-Z0-9])$"
     },
     "hitop_base_code": {
       "type": "string",
       "description": "Stable atomic HiTOP base code without a manifestation suffix.",
-      "pattern": "^[A-Za-z0-9]+$"
+      "pattern": "^[A-Za-z0-9][0-9][A-Za-z0-9]{4}$"
     },
     "suffix_block": {
       "const": "M",

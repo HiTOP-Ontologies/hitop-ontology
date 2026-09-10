@@ -53,6 +53,9 @@ jobs:
       - name: Validate documentation code examples
         run: python scripts/validate_hitop_suffix_docs.py
 
+      - name: Validate website structure
+        run: python scripts/validate_website_structure.py
+
       - name: JSON Schema syntax check
         run: |
           python -c "import json; json.load(open('schema/manifestation-record.schema.json'))"
@@ -93,3 +96,48 @@ jobs:
           name: robot-report
           path: robot_report.tsv
           retention-days: 90
+
+  pages:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install documentation dependencies
+        run: pip install --constraint requirements-lock.txt -e ".[docs]"
+
+      - name: Generate factorization catalog
+        run: python scripts/generate_factorization_catalog.py
+
+      - name: Generate diagram viewer
+        run: python scripts/generate_diagram_viewer_page.py
+
+      - name: Validate website structure
+        run: python scripts/validate_website_structure.py
+
+      - name: Build website
+        run: mkdocs build --strict
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

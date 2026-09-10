@@ -1,0 +1,101 @@
+site_name: HiTOP Ontology
+site_description: Machine-readable ontology and living documentation for the Hierarchical Taxonomy of Psychopathology
+site_url: https://hitop-ontologies.github.io/hitop-ontology/
+repo_url: https://github.com/HiTOP-Ontologies/hitop-ontology
+repo_name: HiTOP-Ontologies/hitop-ontology
+copyright: HiTOP Ontologies contributors · MIT License · Not a diagnostic instrument
+
+theme:
+  name: material
+  language: en
+  custom_dir: docs/overrides
+  logo: assets/images/hitop-logo/hitop-logo-master-transparent.svg
+  favicon: assets/images/hitop-logo/favicon/favicon.ico
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+  # The first release uses one fixed presentation. Dark-theme variables remain
+  # available in the stylesheets and can be re-enabled in a later release.
+  palette:
+    scheme: hitop-light
+
+nav:
+  - Start: index.md
+  - Project:
+      - About the project: project/about-the-project.md
+      - Status & roadmap: project/status-and-roadmap.md
+      - Publication & citation: project/publication-and-citation.md
+  - Concepts:
+      - Core vocabulary: concepts/core-vocabulary.md
+      - Code system: concepts/code-system.md
+      - Manifestation suffixes: concepts/manifestation-suffixes.md
+      - Mapping & harmonization: concepts/mapping-harmonization.md
+  - Models:
+      - Factorizations: models/factorizations.md
+      - Diagrams: models/diagrams.md
+      - Specification: models/specification.md
+      - Create a factorization: models/create-a-factorization.md
+  - Reference:
+      - Tooling & CLI: reference/tooling-and-cli.md
+      - Build & installation: reference/build-and-installation.md
+      - Validation & quality: reference/validation-and-quality.md
+      - Release checklist: reference/release-checklist.md
+      - References: reference/references.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+plugins:
+  - search
+
+hooks:
+  - scripts/mkdocs_hooks.py
+
+extra_css:
+  - assets/stylesheets/site.css
+  - assets/stylesheets/project-refinements.css
+  - assets/stylesheets/factorization-icicle.css
+
+extra_javascript:
+  - assets/javascripts/site.js
+  - assets/javascripts/vendor/d3.v7.min.js
+  - assets/javascripts/factorization-icicle.js
+  - assets/javascripts/learning-factorization.js
+  - assets/javascripts/diagram-viewer.js
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/HiTOP-Ontologies/hitop-ontology
+      name: HiTOP Ontology on GitHub
+
+exclude_docs: |
+  audit/
+  overrides/
+  assets/images/hitop-logo/README.md
+  governance/
+  # Canonical repository specifications retained as source material. The
+  # English website pages link to them instead of publishing duplicate routes.
+  codesystem.md
+  /factorizations.md
+  mapping-und-harmonisierung.md
+  modular-namespaced-suffix-schema.md

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ 'assets/images/hitop-logo/favicon/favicon-32x32.png' | url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ 'assets/images/hitop-logo/favicon/favicon-16x16.png' | url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ 'assets/images/hitop-logo/favicon/apple-touch-icon-180.png' | url }}">
+  <link rel="manifest" href="{{ 'assets/images/hitop-logo/site.webmanifest' | url }}">
+{% endblock %}
+
+{% block footer %}
+  {{ super() }}
+{% endblock %}

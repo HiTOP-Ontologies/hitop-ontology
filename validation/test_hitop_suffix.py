@@ -98,7 +98,7 @@ class SlugTests(unittest.TestCase):
 
         basis = build_disambiguation_basis(
             namespace_identifier="https://ror.org/03yrm5c26",
-            hitop_base_code="HiTOPU0aB2X",
+            hitop_base_code="U0aB2X",
             manifestation_type="AF",
             study_id="study-a",
             instrument="instrument-x",
@@ -106,13 +106,13 @@ class SlugTests(unittest.TestCase):
         )
         self.assertEqual(
             basis,
-            "https://ror.org/03yrm5c26|hitopu0ab2x|m|af|study-a|instrument-x|item-17",
+            "https://ror.org/03yrm5c26|u0ab2x|m|af|study-a|instrument-x|item-17",
         )
-        self.assertEqual(generate_disambiguator(basis), "CGREBL")
-        self.assertEqual(attach_disambiguator("CHRONIC_WORRY", basis), "CHRONIC_WORRY_CGREBL")
+        self.assertEqual(generate_disambiguator(basis), "FHKQM3")
+        self.assertEqual(attach_disambiguator("CHRONIC_WORRY", basis), "CHRONIC_WORRY_FHKQM3")
         self.assertEqual(
-            split_disambiguated_slug("CHRONIC_WORRY_CGREBL"),
-            ("CHRONIC_WORRY", "CGREBL"),
+            split_disambiguated_slug("CHRONIC_WORRY_FHKQM3"),
+            ("CHRONIC_WORRY", "FHKQM3"),
         )
 
 
@@ -123,21 +123,29 @@ class CodeTests(unittest.TestCase):
         """Round-trip a canonical manifestation code through build, parse, validate."""
 
         code = build_code(
-            hitop_base_code="HiTOPU0aB2X",
+            hitop_base_code="U0aB2X",
             manifestation_type="AF",
             namespace_token="ROR3FG46LQKYZLLX",
             slug="CHRONIC_WORRY",
         )
-        self.assertEqual(code, "HiTOPU0aB2X.M-AF-ROR3FG46LQKYZLLX-CHRONIC_WORRY")
+        self.assertEqual(code, "U0aB2X.M-AF-ROR3FG46LQKYZLLX-CHRONIC_WORRY")
         parsed = parse_code(code)
-        self.assertEqual(parsed.hitop_base_code, "HiTOPU0aB2X")
+        self.assertEqual(parsed.hitop_base_code, "U0aB2X")
         self.assertEqual(parsed.manifestation_type, "AF")
         self.assertEqual(validate_code(code), [])
 
     def test_invalid_short_form(self) -> None:
         """Reject short-form suffixes that omit the required namespace token."""
 
-        errors = validate_code("HiTOPU0aB2X.M-AF-CHRONIC_WORRY")
+        errors = validate_code("U0aB2X.M-AF-CHRONIC_WORRY")
+        self.assertTrue(errors)
+
+    def test_visible_hitop_prefix_is_rejected(self) -> None:
+        """Reject a base code with a written HiTOP prefix."""
+
+        errors = validate_code(
+            "HiTOPU0aB2X.M-AF-ROR3FG46LQKYZLLX-CHRONIC_WORRY"
+        )
         self.assertTrue(errors)
 
     def test_invalid_manifestation_type_is_rejected(self) -> None:
@@ -145,7 +153,7 @@ class CodeTests(unittest.TestCase):
 
         with self.assertRaises(InvalidCodeError):
             build_code(
-                hitop_base_code="HiTOPU0aB2X",
+                hitop_base_code="U0aB2X",
                 manifestation_type="ZZ",
                 namespace_token="ROR3FG46LQKYZLLX",
                 slug="CHRONIC_WORRY",
@@ -156,7 +164,7 @@ class CodeTests(unittest.TestCase):
 
         with self.assertRaises(InvalidCodeError):
             build_code(
-                hitop_base_code="HiTOPU0aB2X",
+                hitop_base_code="U0aB2X",
                 manifestation_type="AF",
                 namespace_token="TOO_SHORT",
                 slug="CHRONIC_WORRY",
@@ -171,8 +179,8 @@ class MetadataTests(unittest.TestCase):
 
         report = validate_metadata(
             {
-                "code": "HiTOPU0aB2X.M-AF-ROR3FG46LQKYZLLX-CHRONIC_WORRY",
-                "hitop_base_code": "HiTOPU0aB2X",
+                "code": "U0aB2X.M-AF-ROR3FG46LQKYZLLX-CHRONIC_WORRY",
+                "hitop_base_code": "U0aB2X",
                 "suffix_block": "M",
                 "manifestation_type": "AF",
                 "namespace": {
@@ -201,8 +209,8 @@ class MetadataTests(unittest.TestCase):
 
         report = validate_metadata(
             {
-                "code": "HiTOPU0aB2X.M-AF-ROR3FG46LQKYZLLX-CHRONIC_WORRY",
-                "hitop_base_code": "HiTOPU0aB2X",
+                "code": "U0aB2X.M-AF-ROR3FG46LQKYZLLX-CHRONIC_WORRY",
+                "hitop_base_code": "U0aB2X",
                 "suffix_block": "M",
                 "manifestation_type": "AF",
                 "namespace": {
@@ -231,8 +239,8 @@ class MetadataTests(unittest.TestCase):
 
         report = validate_metadata(
             {
-                "code": "HiTOPU0aB2X.M-AF-ROR3FG46LQKYZLLX-CHRONIC_WORRY",
-                "hitop_base_code": "HiTOPU0aB2X",
+                "code": "U0aB2X.M-AF-ROR3FG46LQKYZLLX-CHRONIC_WORRY",
+                "hitop_base_code": "U0aB2X",
                 "suffix_block": "M",
                 "manifestation_type": "AF",
                 "namespace": {
@@ -260,8 +268,8 @@ class MetadataTests(unittest.TestCase):
 
         report = validate_metadata(
             {
-                "code": "HiTOPU0aB2X.M-AF-ROR3FG46LQKYZLLX-CHRONIC_WORRY",
-                "hitop_base_code": "HiTOPU0aB2X",
+                "code": "U0aB2X.M-AF-ROR3FG46LQKYZLLX-CHRONIC_WORRY",
+                "hitop_base_code": "U0aB2X",
                 "suffix_block": "M",
                 "manifestation_type": "AF",
                 "namespace": {
@@ -292,7 +300,7 @@ class MappingTests(unittest.TestCase):
         """Score a plausible related symptom mapping into a reviewable relation."""
 
         source = {
-            "hitop_base_code": "HiTOPU0aB2X",
+            "hitop_base_code": "U0aB2X",
             "manifestation_type": "AF",
             "slug": "CHRONIC_WORRY",
             "preferred_label": "Chronic worry",
@@ -300,7 +308,7 @@ class MappingTests(unittest.TestCase):
             "operationalization": {"instrument": "instrument-x", "time_window": "past 2 weeks"},
         }
         target = {
-            "hitop_base_code": "HiTOPU0aB2X",
+            "hitop_base_code": "U0aB2X",
             "manifestation_type": "AF",
             "slug": "EXCESSIVE_WORRY",
             "preferred_label": "Excessive worry",

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">HiTOP nested strata logo on white</title>
+  <desc id="desc">Four blue rectangular hierarchy levels connected by a centered vertical spine on a white background.</desc>
+  <rect width="1024" height="1024" fill="#fff"/>
+  <g>
+    <path fill="#1E3A5F" d="M352 164h320a18 18 0 0 1 18 18v106a18 18 0 0 1-18 18H548v62h-72v-62H352a18 18 0 0 1-18-18V182a18 18 0 0 1 18-18Z"/>
+    <path fill="#264B7D" d="M252 368h520a18 18 0 0 1 18 18v106a18 18 0 0 1-18 18H548v62h-72v-62H252a18 18 0 0 1-18-18V386a18 18 0 0 1 18-18Z"/>
+    <path fill="#3F7EB8" d="M152 572h720a18 18 0 0 1 18 18v106a18 18 0 0 1-18 18H548v62h-72v-62H152a18 18 0 0 1-18-18V590a18 18 0 0 1 18-18Z"/>
+    <rect width="920" height="142" x="52" y="776" fill="#6AAFE0" rx="18"/>
+  </g>
+</svg>

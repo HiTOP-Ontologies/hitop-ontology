@@ -8,15 +8,13 @@ plus two output columns:
     The two-character Base62 checksum.
 
 ``HiTOP``
-    The local concept code stem plus checksum, for example ``C001qy``.  For
-    backwards compatibility this column does not include the ``HiTOP`` prefix;
-    the prefix is used only as checksum input.
+    The local concept code stem plus checksum, for example ``C001qy``.
 
 Example
 -------
 
 ```bash
-hitop-codegen src/data/hitop_base_vocabulary.csv /tmp/hitop_base_vocabulary.csv --prefix HiTOP
+hitop-codegen src/data/hitop_base_vocabulary.csv /tmp/hitop_base_vocabulary.csv
 ```
 """
 
@@ -31,7 +29,6 @@ from pathlib import Path
 try:
     from .HITOPChecksum import (
         BASE62_ALPHABET,
-        DEFAULT_PREFIX,
         HITOPChecksum,
         HITOPChecksumError,
         base62_encode,  # noqa: F401 -- re-exported as hitop.base62_encode
@@ -42,7 +39,6 @@ try:
 except ImportError:  # pragma: no cover - direct script execution fallback
     from HITOPChecksum import (
         BASE62_ALPHABET,
-        DEFAULT_PREFIX,
         HITOPChecksum,
         HITOPChecksumError,
     )
@@ -62,7 +58,7 @@ class HiTOPCSVError(ValueError):
     """Raised when the input CSV cannot be converted into HiTOP codes."""
 
 
-def calculate_check_digit(prefix: str, segment: str, code: str) -> str:
+def calculate_check_digit(segment: str, code: str) -> str:
     """Calculate the canonical two-character checksum.
 
     This wrapper preserves the historical public function from ``hitop.py``.
@@ -70,7 +66,7 @@ def calculate_check_digit(prefix: str, segment: str, code: str) -> str:
     same production algorithm.
     """
 
-    return _calculate_check_digit(prefix, segment, code)
+    return _calculate_check_digit(segment, code)
 
 
 def _ensure_required_columns(fieldnames: Iterable[str] | None) -> list[str]:
@@ -109,13 +105,12 @@ def _row_value(row: dict[str, str], column: str, row_number: int) -> str:
     return value
 
 
-def build_hitop_code(row: dict[str, str], *, prefix: str, row_number: int) -> tuple[str, str]:
+def build_hitop_code(row: dict[str, str], *, row_number: int) -> tuple[str, str]:
     """Build ``(check_digit, local_code)`` for one CSV row."""
 
     segment = _row_value(row, "Segment", row_number) + _row_value(row, "Segment Level", row_number)
     concept_code = _row_value(row, "Code", row_number)
     checksum = HITOPChecksum.from_parts(
-        prefix=prefix,
         segment=segment,
         concept_code=concept_code,
     )
@@ -125,10 +120,9 @@ def build_hitop_code(row: dict[str, str], *, prefix: str, row_number: int) -> tu
 def process_csv(
     input_file: Path,
     output_file: Path,
-    prefix: str = DEFAULT_PREFIX,
     *,
     delimiter: str = ";",
-) -> None:
+) -> int:
     """Read a source CSV and write generated checksum/code columns.
 
     Parameters
@@ -138,10 +132,13 @@ def process_csv(
         ``Segment Level`` columns.
     output_file:
         Destination CSV path.  Parent directories are created automatically.
-    prefix:
-        Code system prefix used as part of the checksum input.
     delimiter:
         CSV delimiter.  The repository source files use semicolons.
+
+    Returns
+    -------
+    int
+        Number of generated data rows.
     """
 
     if len(delimiter) != 1:
@@ -166,15 +163,18 @@ def process_csv(
 
             # DictReader starts data rows after the header, so row 2 is the
             # first user-visible row in spreadsheet tools.
+            generated_rows = 0
             for row_number, row in enumerate(reader, start=2):
                 check_digit, hitop_code = build_hitop_code(
                     row,
-                    prefix=prefix,
                     row_number=row_number,
                 )
                 row[CHECK_DIGIT_COLUMN] = check_digit
                 row[CODE_COLUMN] = hitop_code
                 writer.writerow(row)
+                generated_rows += 1
+
+    return generated_rows
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -185,11 +185,6 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("input_file", type=Path, help="Path to the input CSV file.")
     parser.add_argument("output_file", type=Path, help="Path to the output CSV file.")
-    parser.add_argument(
-        "--prefix",
-        default=DEFAULT_PREFIX,
-        help=f"Prefix used for checksum generation (default: {DEFAULT_PREFIX}).",
-    )
     parser.add_argument(
         "--delimiter",
         default=";",
@@ -205,16 +200,16 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     try:
-        process_csv(
+        generated_rows = process_csv(
             args.input_file,
             args.output_file,
-            args.prefix,
             delimiter=args.delimiter,
         )
     except (OSError, csv.Error, HiTOPCSVError, HITOPChecksumError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1
 
+    print(f"Generated {generated_rows} HiTOP code(s): {args.output_file}")
     return 0
 
 

@@ -107,7 +107,7 @@ def load_hitop_vocabulary(path: Path) -> dict[str, str]:
             code = row.get("HiTOP", "").strip()
             if not label or not code:
                 continue
-            mapping[label.lower()] = code if code.startswith("HiTOP") else f"HiTOP{code}"
+            mapping[label.lower()] = code
     return mapping
 
 

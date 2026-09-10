@@ -38,6 +38,7 @@ SLUG_PATTERN = r"[A-Z0-9](?:[A-Z0-9_]{1,38}[A-Z0-9])"
 BASE_SLUG_PATTERN = r"[A-Z0-9](?:[A-Z0-9_]{1,31}[A-Z0-9])"
 DISAMBIGUATOR_PATTERN = r"[A-Z2-7]{6}"
 MANIFESTATION_TYPE_PATTERN = "|".join(MANIFESTATION_TYPES)
+HITOP_BASE_CODE_PATTERN = r"[0-9A-Za-z][0-9][0-9A-Za-z]{4}"
 
 NAMESPACE_RE = re.compile(f"^{NAMESPACE_PATTERN}$")
 SLUG_RE = re.compile(f"^{SLUG_PATTERN}$")
@@ -56,7 +57,7 @@ DISAMBIGUATED_SUFFIX_RE = re.compile(
 )
 
 FULL_CODE_RE = re.compile(
-    rf"^(?P<hitop>[A-Za-z0-9]+)\."
+    rf"^(?P<hitop>{HITOP_BASE_CODE_PATTERN})\."
     rf"(?P<suffix>M-(?P<manifestation_type>{MANIFESTATION_TYPE_PATTERN})-"
     rf"(?P<namespace>{NAMESPACE_PATTERN})-(?P<slug>{SLUG_PATTERN}))$"
 )

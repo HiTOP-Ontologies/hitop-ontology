@@ -39,4 +39,14 @@ dist/
 
 # Docs
 docs/audit/
-docs/robot_report.tsv
+robot_report.tsv
+
+# Local working copy, not part of the tracked factorization
+factorizations/dzpg-mds/v1/V10dzp_hierarchy_AK.yaml
+
+# Claude Code — project policy for this repo: nothing Claude-related is
+# tracked in git (config, agents/skills/commands, hooks, session/plugin
+# state, or CLAUDE.md itself). See .claude/SETUP.md for the full rationale.
+.claude/
+CLAUDE.md
+CLAUDE.local.md

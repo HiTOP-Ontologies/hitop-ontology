@@ -78,7 +78,7 @@ HiTOP concepts.
 | [`docs/modular-namespaced-suffix-schema.md`](docs/modular-namespaced-suffix-schema.md) | Modular namespaced manifestation suffix specification |
 | [`docs/mapping-und-harmonisierung.md`](docs/mapping-und-harmonisierung.md) | Mapping, review, and harmonization specification |
 | [`docs/factorizations.md`](docs/factorizations.md) | Factorization manifest structure, versioning, and governance |
-| [`docs/tooling_examples.md`](docs/tooling_examples.md) | Copyable CLI and Python API examples |
+| [`docs/reference/tooling-and-cli.md`](docs/reference/tooling-and-cli.md) | Copyable CLI and Python API examples |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Review workflow, validation gates, and contribution expectations |
 
 ## Identifier model
@@ -87,18 +87,18 @@ The project separates a stable HiTOP base code from optional manifestation
 suffixes.
 
 ```text
-<HiTOP>.M-<TT>-<NS>-<SLUG>
+<HITOP_BASE_CODE>.M-<TT>-<NS>-<SLUG>
 ```
 
 Example:
 
 ```text
-HiTOPU0aB2X.M-AF-ROR3J2WQSVQFFIKK-CHRONIC_WORRY
+U0aB2X.M-AF-ROR3J2WQSVQFFIKK-CHRONIC_WORRY
 ```
 
 | Part | Meaning |
 | --- | --- |
-| `<HiTOP>` | Stable HiTOP base concept code |
+| `<HITOP_BASE_CODE>` | Stable HiTOP base concept code |
 | `M` | Literal manifestation block |
 | `<TT>` | Controlled manifestation type, for example `AF`, `SS`, or `IM` |
 | `<NS>` | Fixed-length namespace token for the local authority space |
@@ -106,7 +106,8 @@ HiTOPU0aB2X.M-AF-ROR3J2WQSVQFFIKK-CHRONIC_WORRY
 
 The code string is intentionally compact. Full semantic meaning belongs in the
 ontology, metadata, mappings, definitions, and review evidence, not in the
-identifier alone.
+identifier alone. In data exchange, use the local code together with the HiTOP
+system IRI `http://purl.org/hitop`.
 
 ## Standards alignment
 
@@ -186,7 +187,7 @@ Build a full manifestation code:
 
 ```bash
 .venv/bin/hitop-suffix build-code \
-  --hitop HiTOPU0aB2X \
+  --hitop U0aB2X \
   --manifestation-type AF \
   --namespace-token ROR3J2WQSVQFFIKK \
   --slug CHRONIC_WORRY
@@ -196,11 +197,11 @@ Validate a full manifestation code:
 
 ```bash
 .venv/bin/hitop-suffix validate-code \
-  HiTOPU0aB2X.M-AF-ROR3J2WQSVQFFIKK-CHRONIC_WORRY
+  U0aB2X.M-AF-ROR3J2WQSVQFFIKK-CHRONIC_WORRY
 ```
 
 More CLI and Python API examples are maintained in
-[`docs/tooling_examples.md`](docs/tooling_examples.md).
+[`docs/reference/tooling-and-cli.md`](docs/reference/tooling-and-cli.md).
 
 ## Validation
 
@@ -247,12 +248,12 @@ Start with these documents:
 
 | Topic | Document |
 | --- | --- |
-| Installation and dependency policy | [`docs/build_and_installation.md`](docs/build_and_installation.md) |
+| Installation and dependency policy | [`docs/reference/build-and-installation.md`](docs/reference/build-and-installation.md) |
 | Code-system model | [`docs/codesystem.md`](docs/codesystem.md) |
-| Base vocabulary | [`docs/hitop_base_vocabulary.md`](docs/hitop_base_vocabulary.md) |
+| Base vocabulary | [`docs/concepts/core-vocabulary.md`](docs/concepts/core-vocabulary.md) |
 | Manifestation suffixes | [`docs/modular-namespaced-suffix-schema.md`](docs/modular-namespaced-suffix-schema.md) |
 | Mapping and harmonization | [`docs/mapping-und-harmonisierung.md`](docs/mapping-und-harmonisierung.md) |
-| Tooling examples | [`docs/tooling_examples.md`](docs/tooling_examples.md) |
+| Tooling examples | [`docs/reference/tooling-and-cli.md`](docs/reference/tooling-and-cli.md) |
 
 ## Contributing
 

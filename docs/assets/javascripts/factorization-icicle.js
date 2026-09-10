@@ -56,10 +56,12 @@
  * Structure: a thin gap is left between rows so a connector line can be
  * drawn from each parent box down into every child box/leaf-group, even
  * when they are several rows apart (a skipped level). A node marked
- * `provisional: true` in the source hierarchy.yaml gets a dashed box
- * outline (or, inside a leaf list, a dashed-outline pill instead of a
- * solid-fill one) and, for an individually-boxed node, a dashed incoming
- * connector line.
+ * `provisional: true` in the source hierarchy.yaml is marked *only* by a
+ * dashed incoming connector line for an individually-boxed node (the box
+ * itself carries no extra outline), or, inside a leaf list, by a
+ * dashed-outline pill instead of a solid-fill one -- a leaf-group member
+ * has no connector line of its own, so the pill outline is its sole
+ * marker.
  *
  * Leaf density: a parent's children that are leaves (no further children)
  * are never given one sliver box each. They are grouped by shared `level`
@@ -72,6 +74,14 @@
  * focusable, and always normal weight, non-italic, at a small size
  * matching the structural-box level caption, since a Component/Trait is
  * not a structural row header.
+ *
+ * Interactivity: the legend beneath the diagram always reflects the
+ * children of whatever node was last clicked (defaulting to the factor's
+ * own top-level branches before any click) -- see renderLegend/selectNode.
+ * A share/download toolbar sits above the diagram; downloads offer SVG,
+ * PNG, and PDF, all built from a second, <foreignObject>-free render of
+ * the same layout (see buildExportSvg's docstring for why that's a
+ * separate code path rather than a clone of the interactive SVG).
  *
  * One renderer serves every factorization: call
  * renderFactorizationIcicle(container, data) once per page with that
@@ -116,6 +126,25 @@
   var LABEL_FONT = 11;
   var CHIP_FONT_SIZE = 9.5;
 
+  // Static-export sizing (see buildExportSvg). Kept at module scope since
+  // none of it depends on a particular diagram instance.
+  var EXPORT_LABEL_PAD_X = 8;
+  var EXPORT_LABEL_PAD_Y = 6;
+  var EXPORT_SUBLABEL_FONT = 9;
+  var EXPORT_SUBLABEL_GAP = 3;
+  var EXPORT_CHIP_ROW_GAP = 3;
+  var EXPORT_CHIP_COL_GAP = 5;
+  var SVG_NS = "http://www.w3.org/2000/svg";
+
+  var A4_WIDTH_MM = 210;
+  var A4_HEIGHT_MM = 297;
+  var A4_MARGIN_MM = 10;
+  var PNG_DPI = 200;
+  var PDF_DPI = 200;
+  var MM_PER_INCH = 25.4;
+  var CSS_PX_PER_INCH = 96;
+  var PT_PER_INCH = 72;
+
   function canonicalRank(levelLabel) {
     var key = String(levelLabel || "").trim().toLowerCase();
     return Object.prototype.hasOwnProperty.call(LEVEL_RANK_MAP, key)
@@ -134,10 +163,10 @@
     var box = document.createElement("div");
     box.className = "hitop-icicle-placeholder";
     box.textContent =
-      (meta && meta.label ? meta.label : "Diese Faktorisierung") +
-      ": der Baum ist noch nicht kuratiert (meta.status: " +
+      (meta && meta.label ? meta.label : "This factorization") +
+      ": the tree has not been curated yet (meta.status: " +
       (meta && meta.status ? meta.status : "draft") +
-      "). Diagramm erscheint, sobald hierarchy in der YAML-Datei befuellt ist.";
+      "). The diagram appears once hierarchy is populated in the YAML file.";
     container.appendChild(box);
   }
 
@@ -287,6 +316,57 @@
       max = Math.max(max, measureTextWidth(w, fontSize, fontWeight));
     });
     return max;
+  }
+
+  /**
+   * Greedy word-wrap of `text` into lines no wider than `maxWidth`, measured
+   * with the same `measureTextWidth` the interactive layout uses. Used only
+   * by the static export renderer (see buildExportSvg): wrapping there is
+   * computed once, up front, into fixed line positions, rather than left to
+   * the viewer's own text engine -- see that function's docstring for why.
+   */
+  function wrapWords(text, maxWidth, fontSize, fontWeight) {
+    var words = String(text).split(/\s+/).filter(Boolean);
+    if (!words.length) return [""];
+    var lines = [];
+    var current = "";
+    words.forEach(function (w) {
+      var candidate = current ? current + " " + w : w;
+      if (current && measureTextWidth(candidate, fontSize, fontWeight) > maxWidth) {
+        lines.push(current);
+        current = w;
+      } else {
+        current = candidate;
+      }
+    });
+    if (current) lines.push(current);
+    return lines;
+  }
+
+  /**
+   * Pack `members` (leaf-group chip data) into rows no wider than
+   * `maxWidth`, mirroring the on-screen flex-wrap chip list's `gap: 3px 5px`
+   * -- used only by the static export renderer (see buildExportSvg).
+   */
+  function packChips(members, maxWidth) {
+    var COL_GAP = 5;
+    var rows = [];
+    var row = [];
+    var rowWidth = 0;
+    members.forEach(function (m) {
+      var chipWidth = measureTextWidth(m.data.label, CHIP_FONT_SIZE, 400) + CHIP_WIDTH_PADDING;
+      var addWidth = row.length ? chipWidth + COL_GAP : chipWidth;
+      if (row.length && rowWidth + addWidth > maxWidth) {
+        rows.push(row);
+        row = [];
+        rowWidth = 0;
+        addWidth = chipWidth;
+      }
+      row.push({ member: m, width: chipWidth });
+      rowWidth += addWidth;
+    });
+    if (row.length) rows.push(row);
+    return rows;
   }
 
   /**
@@ -446,6 +526,253 @@
     return list;
   }
 
+  /** Vertically-centered, pre-wrapped label (+ optional level caption) as
+   * fixed <tspan> lines -- see buildExportSvg's docstring. Module-level:
+   * takes only plain values, no per-instance state. */
+  function appendExportLabel(g, boxWidth, boxHeight, label, sublabel, color) {
+    var maxWidth = Math.max(boxWidth - EXPORT_LABEL_PAD_X * 2, 4);
+    var lines = wrapWords(label, maxWidth, LABEL_FONT, 700);
+    var lineHeight = LABEL_FONT * 1.25;
+    var subLineHeight = sublabel ? EXPORT_SUBLABEL_FONT * 1.2 : 0;
+    var blockHeight = lines.length * lineHeight + (sublabel ? EXPORT_SUBLABEL_GAP + subLineHeight : 0);
+    var blockTop = Math.max((boxHeight - blockHeight) / 2, EXPORT_LABEL_PAD_Y);
+
+    var text = document.createElementNS(SVG_NS, "text");
+    text.setAttribute("text-anchor", "middle");
+    text.setAttribute("font-size", LABEL_FONT);
+    text.setAttribute("font-weight", "700");
+    text.setAttribute("fill", color);
+    lines.forEach(function (line, i) {
+      var tspan = document.createElementNS(SVG_NS, "tspan");
+      tspan.setAttribute("x", boxWidth / 2);
+      tspan.setAttribute("y", blockTop + lineHeight * (i + 0.82));
+      tspan.textContent = line;
+      text.appendChild(tspan);
+    });
+    g.appendChild(text);
+
+    if (!sublabel) return;
+    var sub = document.createElementNS(SVG_NS, "text");
+    sub.setAttribute("x", boxWidth / 2);
+    sub.setAttribute(
+      "y",
+      blockTop + lines.length * lineHeight + EXPORT_SUBLABEL_GAP + subLineHeight * 0.78
+    );
+    sub.setAttribute("text-anchor", "middle");
+    sub.setAttribute("font-size", EXPORT_SUBLABEL_FONT);
+    sub.setAttribute("font-weight", "500");
+    sub.setAttribute("fill", color);
+    sub.setAttribute("opacity", "0.85");
+    sub.textContent = sublabel;
+    g.appendChild(sub);
+  }
+
+  /**
+   * A shrink-only scale factor (never > 1: fitting a diagram to A4 should
+   * shrink an oversized one, not blow up a small one past its natural
+   * size) so `contentWpx`x`contentHpx` -- read as ordinary CSS pixels, i.e.
+   * 96px/inch, matching how every other size in this renderer is already
+   * interpreted -- would still fit inside an A4 page's printable area
+   * (page size minus a margin on all sides) in *some* orientation. Tries
+   * both orientations and keeps the larger resulting scale (landscape, in
+   * practice, for this diagram's wide aspect ratio).
+   *
+   * This only decides how large the diagram becomes -- the exported
+   * PNG/PDF is then sized exactly to that scaled diagram (see
+   * exportPngBlob/exportPdfBytes below), not padded out to A4's full
+   * physical size, so the file's own dimensions are exactly the diagram's,
+   * flush in the top-left corner rather than centered in leftover page
+   * space.
+   */
+  function computeA4Scale(contentWpx, contentHpx) {
+    function fitFor(pageWmm, pageHmm) {
+      var availWmm = pageWmm - A4_MARGIN_MM * 2;
+      var availHmm = pageHmm - A4_MARGIN_MM * 2;
+      var contentWmm = (contentWpx / CSS_PX_PER_INCH) * MM_PER_INCH;
+      var contentHmm = (contentHpx / CSS_PX_PER_INCH) * MM_PER_INCH;
+      return Math.min(availWmm / contentWmm, availHmm / contentHmm, 1);
+    }
+    return Math.max(fitFor(A4_WIDTH_MM, A4_HEIGHT_MM), fitFor(A4_HEIGHT_MM, A4_WIDTH_MM));
+  }
+
+  /** Rasterize `svgMarkup` onto a canvas sized `targetWpx`x`targetHpx`,
+   * filled with `bgColor` first (SVG has no inherent background). Safe from
+   * the canvas-tainting restriction only because the export SVG has no
+   * <foreignObject> -- see buildExportSvg's docstring. */
+  function rasterizeSvgToCanvas(svgMarkup, targetWpx, targetHpx, bgColor) {
+    return new Promise(function (resolve, reject) {
+      var url = URL.createObjectURL(
+        new Blob([svgMarkup], { type: "image/svg+xml;charset=utf-8" })
+      );
+      var img = new Image();
+      img.onload = function () {
+        var canvas = document.createElement("canvas");
+        canvas.width = Math.max(Math.round(targetWpx), 1);
+        canvas.height = Math.max(Math.round(targetHpx), 1);
+        var ctx = canvas.getContext("2d");
+        if (bgColor) {
+          ctx.fillStyle = bgColor;
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        URL.revokeObjectURL(url);
+        resolve(canvas);
+      };
+      img.onerror = function () {
+        URL.revokeObjectURL(url);
+        reject(new Error("The diagram could not be rasterized."));
+      };
+      img.src = url;
+    });
+  }
+
+  function canvasToBlob(canvas, type, quality) {
+    return new Promise(function (resolve, reject) {
+      canvas.toBlob(
+        function (blob) {
+          blob ? resolve(blob) : reject(new Error("Export fehlgeschlagen."));
+        },
+        type,
+        quality
+      );
+    });
+  }
+
+  /**
+   * A minimal, hand-written single-page PDF wrapping one JPEG image --
+   * intentionally not a real vector PDF (the export SVG this is built from
+   * *is* vector, but re-deriving a compliant vector content stream from it
+   * is a disproportionate amount of extra machinery here). PDF's
+   * `/Filter /DCTDecode` accepts a standard JPEG byte stream directly, so
+   * `canvas.toBlob("image/jpeg")`'s output can be embedded as-is.
+   * Structure follows the PDF 1.4 spec's minimal single-image-page layout:
+   * Catalog -> Pages -> Page -> (XObject image, content stream).
+   */
+  function buildSinglePageImagePdf(jpegBytes, imgWpx, imgHpx, pageWpt, pageHpt, x, y, w, h) {
+    var enc = new TextEncoder();
+    var chunks = [];
+    var offsets = [];
+    var pos = 0;
+
+    function push(bytes) {
+      chunks.push(bytes);
+      pos += bytes.length;
+    }
+    function pushText(str) {
+      push(enc.encode(str));
+    }
+    function beginObj(num) {
+      offsets[num] = pos;
+      pushText(num + " 0 obj\n");
+    }
+    function pad10(n) {
+      var s = String(Math.round(n));
+      while (s.length < 10) s = "0" + s;
+      return s;
+    }
+
+    pushText("%PDF-1.4\n");
+    push(new Uint8Array([0x25, 0xe2, 0xe3, 0xcf, 0xd3, 0x0a])); // binary-content marker comment
+
+    beginObj(1);
+    pushText("<< /Type /Catalog /Pages 2 0 R >>\nendobj\n");
+
+    beginObj(2);
+    pushText("<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj\n");
+
+    beginObj(3);
+    pushText(
+      "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 " +
+        pageWpt +
+        " " +
+        pageHpt +
+        "] /Resources << /XObject << /Im0 4 0 R >> >> /Contents 5 0 R >>\nendobj\n"
+    );
+
+    beginObj(4);
+    pushText(
+      "<< /Type /XObject /Subtype /Image /Width " +
+        imgWpx +
+        " /Height " +
+        imgHpx +
+        " /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length " +
+        jpegBytes.byteLength +
+        " >>\nstream\n"
+    );
+    push(new Uint8Array(jpegBytes));
+    pushText("\nendstream\nendobj\n");
+
+    var content = "q\n" + w + " 0 0 " + h + " " + x + " " + y + " cm\n/Im0 Do\nQ";
+    beginObj(5);
+    pushText("<< /Length " + content.length + " >>\nstream\n" + content + "\nendstream\nendobj\n");
+
+    var xrefStart = pos;
+    var count = 6;
+    pushText("xref\n0 " + count + "\n");
+    pushText("0000000000 65535 f \n");
+    for (var i = 1; i < count; i++) {
+      pushText(pad10(offsets[i]) + " 00000 n \n");
+    }
+    pushText("trailer\n<< /Size " + count + " /Root 1 0 R >>\nstartxref\n" + xrefStart + "\n%%EOF");
+
+    var total = 0;
+    chunks.forEach(function (c) {
+      total += c.length;
+    });
+    var out = new Uint8Array(total);
+    var o = 0;
+    chunks.forEach(function (c) {
+      out.set(c, o);
+      o += c.length;
+    });
+    return out;
+  }
+
+  var toastEl = null;
+  function showToast(message) {
+    if (!toastEl) {
+      toastEl = document.createElement("div");
+      toastEl.className = "hitop-icicle-toast";
+      document.body.appendChild(toastEl);
+    }
+    toastEl.textContent = message;
+    requestAnimationFrame(function () {
+      toastEl.classList.add("is-visible");
+    });
+    clearTimeout(showToast._timer);
+    showToast._timer = setTimeout(function () {
+      toastEl.classList.remove("is-visible");
+    }, 2600);
+  }
+
+  function triggerDownload(blob, filename) {
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(function () {
+      URL.revokeObjectURL(url);
+    }, 4000);
+  }
+
+  function copyLinkFallback(url) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard
+        .writeText(url)
+        .then(function () {
+          showToast("Link copied to clipboard.");
+        })
+        .catch(function () {
+          window.prompt("Copy link:", url);
+        });
+    }
+    window.prompt("Copy link:", url);
+    return Promise.resolve();
+  }
+
   /**
    * Render one factorization's icicle diagram into `container`.
    *
@@ -464,6 +791,27 @@
     el.innerHTML = "";
     var wrapper = document.createElement("div");
     wrapper.className = "hitop-icicle-wrapper";
+
+    var toolbar = document.createElement("div");
+    toolbar.className = "hitop-icicle-toolbar";
+    toolbar.innerHTML =
+      '<button type="button" class="hitop-icicle-btn" data-role="share" title="Share diagram" aria-label="Share diagram">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M12 15V4" /><path d="M7.5 8.5 12 4l4.5 4.5" /><path d="M5 13v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5" />' +
+      "</svg><span>Share</span></button>" +
+      '<div class="hitop-icicle-menu">' +
+      '<button type="button" class="hitop-icicle-btn hitop-icicle-btn-primary" data-role="download-trigger" aria-haspopup="true" aria-expanded="false" title="Download diagram" aria-label="Download diagram">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M12 4v11" /><path d="M7.5 11.5 12 16l4.5-4.5" /><path d="M5 19h14" />' +
+      "</svg><span>Download</span>" +
+      '<svg class="hitop-icicle-menu-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>' +
+      "</button>" +
+      '<div class="hitop-icicle-menu-list" role="menu" hidden>' +
+      '<button type="button" class="hitop-icicle-menu-item" role="menuitem" data-format="svg"><span>SVG</span><span class="hitop-icicle-menu-item-hint">Vector, lossless</span></button>' +
+      '<button type="button" class="hitop-icicle-menu-item" role="menuitem" data-format="png"><span>PNG</span><span class="hitop-icicle-menu-item-hint">Scaled to fit A4</span></button>' +
+      '<button type="button" class="hitop-icicle-menu-item" role="menuitem" data-format="pdf"><span>PDF</span><span class="hitop-icicle-menu-item-hint">Print-ready, A4</span></button>' +
+      "</div></div>";
+
     var svgHost = document.createElement("div");
     svgHost.className = "hitop-icicle-svg-host";
     var legend = document.createElement("div");
@@ -473,6 +821,7 @@
     detail.innerHTML =
       "<em>Knoten anklicken oder mit der Maus/Tastatur fokussieren, " +
       "um Level, Code und Herkunft zu sehen.</em>";
+    wrapper.appendChild(toolbar);
     wrapper.appendChild(svgHost);
     wrapper.appendChild(legend);
     wrapper.appendChild(detail);
@@ -523,10 +872,68 @@
     });
     var maxRow = sortedRanks.length - 1;
 
-    function focusData(dData, cellSelection, matchFn) {
-      detail.innerHTML = describeNode(dData);
+    // The node the legend currently reflects. Defaults to the root (the
+    // factor itself), so the legend starts out showing its top-level
+    // branches; a click on any node re-points it there, and a
+    // resize-triggered redraw re-renders the legend from this same node so
+    // the user's selection survives.
+    var activeNode = root;
+
+    // The most recent draw()'s row geometry and connector data, kept around
+    // so buildExportSvg (see below) can lay out a static export without
+    // recomputing layout -- refreshed on every draw(), including a
+    // resize-triggered one, so an export always reflects the current size.
+    var lastDraw = null;
+
+    /** Legend: one swatch per child of `node`, using that child's own
+     * palette color -- the factor's top-level branches by default, or
+     * whatever node was last clicked. A leaf with no children renders a
+     * short explanatory placeholder instead of an empty bar. */
+    function renderLegend(node) {
+      var children = (node && node.children) || [];
+      legend.innerHTML = "";
+      if (!children.length) {
+        var empty = document.createElement("span");
+        empty.className = "hitop-icicle-legend-empty";
+        empty.textContent =
+          node && node !== root
+            ? "No further sublevels below “" + node.data.label + "”."
+            : "No top-level branches.";
+        legend.appendChild(empty);
+        return;
+      }
+      children.forEach(function (child) {
+        var swatch = document.createElement("span");
+        swatch.className = "hitop-icicle-legend-item";
+        var dot = document.createElement("span");
+        dot.className = "hitop-icicle-legend-swatch";
+        dot.style.background = child.data.color;
+        var label = document.createElement("span");
+        label.textContent = child.data.label;
+        swatch.appendChild(dot);
+        swatch.appendChild(label);
+        legend.appendChild(swatch);
+      });
+    }
+
+    /** Hover preview: updates the detail text only, leaving the legend and
+     * the persistent selection untouched so passing the mouse over sibling
+     * nodes doesn't make the legend flicker. */
+    function previewNode(dNode) {
+      detail.innerHTML = describeNode(dNode.data);
+    }
+
+    /** Click/keyboard selection: updates the detail text, re-points the
+     * legend at `dNode`'s own children (see renderLegend), and -- for a
+     * node with its own box -- marks that box active. */
+    function selectNode(dNode, cellSelection) {
+      activeNode = dNode;
+      detail.innerHTML = describeNode(dNode.data);
+      renderLegend(dNode);
       if (cellSelection) {
-        cellSelection.classed("is-active", matchFn);
+        cellSelection.classed("is-active", function (n) {
+          return n === dNode;
+        });
       }
     }
 
@@ -586,7 +993,7 @@
         .attr("width", width)
         .attr("height", totalHeight)
         .attr("role", "img")
-        .attr("aria-label", "Faktorisierungsbaum " + (data.meta ? data.meta.label : ""));
+        .attr("aria-label", "Factorization tree " + (data.meta ? data.meta.label : ""));
 
       var connectorData = internalNodes
         .filter(function (d) {
@@ -653,10 +1060,7 @@
           .attr("height", boxHeight)
           .attr("fill", fill)
           .attr("opacity", d.data.kind === "collection" ? 0.85 : 1)
-          .attr(
-            "class",
-            d.data.provisional ? "hitop-icicle-box is-provisional" : "hitop-icicle-box"
-          )
+          .attr("class", "hitop-icicle-box")
           .append("title")
           .text(d.data.label + " (" + d.data.level + ", " + d.data.code + ")");
 
@@ -675,16 +1079,16 @@
       });
 
       cell.on("click", function (event, d) {
-        focusData(d.data, cell, function (n) { return n === d; });
+        selectNode(d, cell);
       });
       cell.on("keydown", function (event, d) {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
-          focusData(d.data, cell, function (n) { return n === d; });
+          selectNode(d, cell);
         }
       });
       cell.on("mouseenter", function (event, d) {
-        focusData(d.data, null, null);
+        previewNode(d);
       });
 
       // Leaf groups: one box per contiguous run of same-level leaf
@@ -750,35 +1154,34 @@
               .text(c.data.label);
 
             chip.on("click", function () {
-              focusData(c.data, null, null);
+              selectNode(c, null);
             });
             chip.on("keydown", function (event) {
               if (event.key === "Enter" || event.key === " ") {
                 event.preventDefault();
-                focusData(c.data, null, null);
+                selectNode(c, null);
               }
             });
             chip.on("mouseenter", function () {
-              focusData(c.data, null, null);
+              previewNode(c);
             });
           });
         });
       });
 
-      // Legend: one swatch per top-level branch, using its own palette color.
-      legend.innerHTML = "";
-      (root.children || []).forEach(function (child) {
-        var swatch = document.createElement("span");
-        swatch.className = "hitop-icicle-legend-item";
-        var dot = document.createElement("span");
-        dot.className = "hitop-icicle-legend-swatch";
-        dot.style.background = child.data.color;
-        var label = document.createElement("span");
-        label.textContent = child.data.label;
-        swatch.appendChild(dot);
-        swatch.appendChild(label);
-        legend.appendChild(swatch);
-      });
+      // Legend: children of the currently selected node (default: the
+      // factor's own top-level branches) -- see renderLegend/selectNode.
+      // Re-rendered from `activeNode` on every draw so a resize-triggered
+      // redraw preserves whatever the user last clicked.
+      renderLegend(activeNode);
+
+      lastDraw = {
+        rowHeight: rowHeight,
+        rowTop: rowTop,
+        width: width,
+        totalHeight: totalHeight,
+        connectorData: connectorData,
+      };
     }
 
     draw();
@@ -790,6 +1193,348 @@
     window.addEventListener("resize", function () {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(draw, 150);
+    });
+
+    /**
+     * Build the diagram as a standalone, dependency-free SVG: plain
+     * <rect>/<line>/<text>, no <foreignObject>. Two things this buys over
+     * serializing the live (foreignObject-based) interactive SVG directly:
+     *
+     *  - Portability: <foreignObject> HTML reflow is the least-supported
+     *    part of the SVG spec outside of actual browsers (patchy or absent
+     *    in most image viewers, Office, and PDF tooling), and where it does
+     *    render, its line-wrapping depends on whatever font *that* renderer
+     *    substitutes when the original isn't installed -- both of which
+     *    made a downloaded diagram's line breaks unpredictable from one
+     *    viewer to the next (e.g. a label that fit on one line here
+     *    wrapping to two elsewhere). Wrapping is instead computed once,
+     *    right here, with the same `measureTextWidth` the interactive
+     *    layout itself uses, and baked in as fixed <tspan> positions -- so
+     *    every viewer paints the exact same lines, full stop.
+     *  - Rasterizability: browsers taint a canvas the moment an SVG image
+     *    containing <foreignObject> is drawn onto it (a deliberate, blanket
+     *    security restriction that applies regardless of same-origin blob
+     *    URLs), which made a canvas-based PNG/PDF export of the interactive
+     *    SVG impossible. A <foreignObject>-free SVG carries no such
+     *    restriction, which is what lets the PNG/PDF export functions below
+     *    rasterize this output directly.
+     *
+     * Returns `{ markup, width, height }`, or null before the first draw().
+     */
+    function buildExportSvg() {
+      if (!lastDraw) return null;
+      var width = lastDraw.width;
+      var height = lastDraw.totalHeight;
+
+      var svg = document.createElementNS(SVG_NS, "svg");
+      svg.setAttribute("xmlns", SVG_NS);
+      svg.setAttribute("viewBox", "0 0 " + width + " " + height);
+      svg.setAttribute("width", width);
+      svg.setAttribute("height", height);
+      svg.setAttribute("role", "img");
+      svg.setAttribute(
+        "aria-label",
+        "Factorization tree " + (data.meta && data.meta.label ? data.meta.label : "")
+      );
+      svg.setAttribute("font-family", '-apple-system, "Segoe UI", Roboto, Arial, sans-serif');
+
+      var bg = document.createElementNS(SVG_NS, "rect");
+      bg.setAttribute("width", width);
+      bg.setAttribute("height", height);
+      bg.setAttribute("fill", "#ffffff");
+      svg.appendChild(bg);
+
+      var connectorGroup = document.createElementNS(SVG_NS, "g");
+      lastDraw.connectorData.forEach(function (c) {
+        var line = document.createElementNS(SVG_NS, "line");
+        line.setAttribute("x1", c.x);
+        line.setAttribute("x2", c.x);
+        line.setAttribute("y1", lastDraw.rowTop[c.fromRow] + lastDraw.rowHeight[c.fromRow]);
+        line.setAttribute("y2", lastDraw.rowTop[c.toRow]);
+        line.setAttribute("stroke", "rgba(11, 11, 11, 0.38)");
+        line.setAttribute("stroke-width", "1.5");
+        if (c.provisional) line.setAttribute("stroke-dasharray", "4 3");
+        connectorGroup.appendChild(line);
+      });
+      svg.appendChild(connectorGroup);
+
+      internalNodes.forEach(function (d) {
+        var row = rowOfRank[d.levelRank];
+        var boxWidth = Math.max(d.__widthPx - SIB_GAP, 0);
+        var boxHeight = lastDraw.rowHeight[row] - SIB_GAP;
+        var fill = d.data.color;
+        var textColor = textColorFor(fill);
+
+        var g = document.createElementNS(SVG_NS, "g");
+        g.setAttribute("transform", "translate(" + d.__x0px + "," + lastDraw.rowTop[row] + ")");
+
+        var rect = document.createElementNS(SVG_NS, "rect");
+        rect.setAttribute("width", boxWidth);
+        rect.setAttribute("height", boxHeight);
+        rect.setAttribute("fill", fill);
+        rect.setAttribute("opacity", d.data.kind === "collection" ? 0.85 : 1);
+        rect.setAttribute("stroke", "#ffffff");
+        rect.setAttribute("stroke-width", "1.5");
+        var title = document.createElementNS(SVG_NS, "title");
+        title.textContent = d.data.label + " (" + d.data.level + ", " + d.data.code + ")";
+        rect.appendChild(title);
+        g.appendChild(rect);
+
+        appendExportLabel(g, boxWidth, boxHeight, d.data.label, d.data.level, textColor);
+        svg.appendChild(g);
+      });
+
+      internalNodes.forEach(function (p) {
+        p.__leafGroups.forEach(function (group) {
+          var row = rowOfRank[group.rank];
+          var boxWidth = Math.max(group.__widthPx - SIB_GAP, 0);
+          var boxHeight = lastDraw.rowHeight[row] - SIB_GAP;
+          var fill = group.members[0].data.color;
+          var textColor = textColorFor(fill);
+          var luminance = d3.hsl(fill).l;
+          var chipFill = luminance > 0.6 ? "rgba(0,0,0,0.08)" : "rgba(255,255,255,0.22)";
+
+          var g = document.createElementNS(SVG_NS, "g");
+          g.setAttribute(
+            "transform",
+            "translate(" + group.__x0px + "," + lastDraw.rowTop[row] + ")"
+          );
+
+          var rect = document.createElementNS(SVG_NS, "rect");
+          rect.setAttribute("width", boxWidth);
+          rect.setAttribute("height", boxHeight);
+          rect.setAttribute("fill", fill);
+          rect.setAttribute("stroke", "#ffffff");
+          rect.setAttribute("stroke-width", "1.5");
+          g.appendChild(rect);
+
+          var subLineHeight = EXPORT_SUBLABEL_FONT * 1.2;
+          var sub = document.createElementNS(SVG_NS, "text");
+          sub.setAttribute("x", boxWidth / 2);
+          sub.setAttribute("y", EXPORT_LABEL_PAD_Y + subLineHeight * 0.78);
+          sub.setAttribute("text-anchor", "middle");
+          sub.setAttribute("font-size", EXPORT_SUBLABEL_FONT);
+          sub.setAttribute("font-weight", "500");
+          sub.setAttribute("fill", textColor);
+          sub.setAttribute("opacity", "0.85");
+          sub.textContent = group.level;
+          g.appendChild(sub);
+
+          var innerWidth = Math.max(boxWidth - EXPORT_LABEL_PAD_X * 2, 4);
+          var chipRows = packChips(group.members, innerWidth);
+          var chipHeight = CHIP_FONT_SIZE * 1.3 + 4;
+          var chipsTop = EXPORT_LABEL_PAD_Y + subLineHeight + 4;
+
+          chipRows.forEach(function (rowChips, ri) {
+            var rowY = chipsTop + ri * (chipHeight + EXPORT_CHIP_ROW_GAP);
+            var rowWidth =
+              rowChips.reduce(function (sum, c) {
+                return sum + c.width;
+              }, 0) +
+              (rowChips.length - 1) * EXPORT_CHIP_COL_GAP;
+            var cursorX = boxWidth / 2 - rowWidth / 2;
+            rowChips.forEach(function (c) {
+              var chipG = document.createElementNS(SVG_NS, "g");
+              chipG.setAttribute("transform", "translate(" + cursorX + "," + rowY + ")");
+
+              var pill = document.createElementNS(SVG_NS, "rect");
+              pill.setAttribute("width", c.width);
+              pill.setAttribute("height", chipHeight);
+              pill.setAttribute("rx", chipHeight / 2);
+              if (c.member.data.provisional) {
+                pill.setAttribute("fill", "none");
+                pill.setAttribute("stroke", textColor);
+                pill.setAttribute("stroke-width", "1");
+                pill.setAttribute("stroke-dasharray", "3 2");
+              } else {
+                pill.setAttribute("fill", chipFill);
+              }
+              chipG.appendChild(pill);
+
+              var chipText = document.createElementNS(SVG_NS, "text");
+              chipText.setAttribute("x", c.width / 2);
+              chipText.setAttribute("y", chipHeight / 2 + CHIP_FONT_SIZE * 0.36);
+              chipText.setAttribute("text-anchor", "middle");
+              chipText.setAttribute("font-size", CHIP_FONT_SIZE);
+              chipText.setAttribute("fill", textColor);
+              chipText.textContent = c.member.data.label;
+              chipG.appendChild(chipText);
+
+              g.appendChild(chipG);
+              cursorX += c.width + EXPORT_CHIP_COL_GAP;
+            });
+          });
+
+          svg.appendChild(g);
+        });
+      });
+
+      return {
+        markup: new XMLSerializer().serializeToString(svg),
+        width: width,
+        height: height,
+      };
+    }
+
+    function buildExportFilename(ext) {
+      var meta = data.meta || {};
+      var base =
+        [meta.factorization_id, meta.version].filter(Boolean).join("-") || "hitop-faktorisierung";
+      return base + "-diagramm." + ext;
+    }
+
+    /** The diagram alone, scaled (if needed) to what would still fit a DIN A4
+     * page -- see computeA4Scale -- rasterized at exactly that size. No page
+     * padding, no centering: the PNG's own dimensions are the diagram's. */
+    function exportPngBlob() {
+      var built = buildExportSvg();
+      if (!built) return Promise.reject(new Error("The diagram has not rendered yet."));
+      var scale = computeA4Scale(built.width, built.height);
+      var wPx = (built.width / CSS_PX_PER_INCH) * PNG_DPI * scale;
+      var hPx = (built.height / CSS_PX_PER_INCH) * PNG_DPI * scale;
+      return rasterizeSvgToCanvas(built.markup, wPx, hPx, "#ffffff").then(function (canvas) {
+        return canvasToBlob(canvas, "image/png");
+      });
+    }
+
+    /** The diagram alone, scaled (if needed) to what would still fit a DIN A4
+     * page -- see computeA4Scale -- wrapped into a single-page PDF whose page
+     * size *is* that scaled diagram, filling it completely. No A4-sized page
+     * padding and no centering: a PDF page has no inherent margin to begin
+     * with, so "top-left" here just means the image fills the page exactly
+     * as authored, with nothing added around it. */
+    function exportPdfBytes() {
+      var built = buildExportSvg();
+      if (!built) return Promise.reject(new Error("The diagram has not rendered yet."));
+      var scale = computeA4Scale(built.width, built.height);
+      var contentWpt = (built.width / CSS_PX_PER_INCH) * PT_PER_INCH * scale;
+      var contentHpt = (built.height / CSS_PX_PER_INCH) * PT_PER_INCH * scale;
+      var imgWpx = Math.round((contentWpt / PT_PER_INCH) * PDF_DPI);
+      var imgHpx = Math.round((contentHpt / PT_PER_INCH) * PDF_DPI);
+
+      return rasterizeSvgToCanvas(built.markup, imgWpx, imgHpx, "#ffffff")
+        .then(function (canvas) {
+          return canvasToBlob(canvas, "image/jpeg", 0.92);
+        })
+        .then(function (jpegBlob) {
+          return jpegBlob.arrayBuffer();
+        })
+        .then(function (jpegBytes) {
+          return buildSinglePageImagePdf(
+            jpegBytes,
+            imgWpx,
+            imgHpx,
+            contentWpt,
+            contentHpt,
+            0,
+            0,
+            contentWpt,
+            contentHpt
+          );
+        });
+    }
+
+    function handleDownload(format) {
+      if (format === "svg") {
+        var built = buildExportSvg();
+        if (!built) {
+          showToast("The diagram has not rendered yet.");
+          return;
+        }
+        triggerDownload(
+          new Blob([built.markup], { type: "image/svg+xml;charset=utf-8" }),
+          buildExportFilename("svg")
+        );
+        showToast("Diagram downloaded as SVG.");
+        return;
+      }
+      if (format === "png") {
+        exportPngBlob()
+          .then(function (blob) {
+            triggerDownload(blob, buildExportFilename("png"));
+            showToast("Diagram downloaded as PNG.");
+          })
+          .catch(function (err) {
+            console.error(err);
+            showToast("PNG export failed.");
+          });
+        return;
+      }
+      if (format === "pdf") {
+        exportPdfBytes()
+          .then(function (bytes) {
+            triggerDownload(
+              new Blob([bytes], { type: "application/pdf" }),
+              buildExportFilename("pdf")
+            );
+            showToast("Diagram downloaded as PDF.");
+          })
+          .catch(function (err) {
+            console.error(err);
+            showToast("PDF export failed.");
+          });
+      }
+    }
+
+    // Share/download toolbar wiring. Every export pulls a fresh
+    // buildExportSvg() (rather than caching one), so it always reflects the
+    // diagram's current size even after a resize-triggered redraw.
+    var shareBtn = toolbar.querySelector('[data-role="share"]');
+    var menuEl = toolbar.querySelector(".hitop-icicle-menu");
+    var menuTrigger = toolbar.querySelector('[data-role="download-trigger"]');
+    var menuList = toolbar.querySelector(".hitop-icicle-menu-list");
+
+    function onDocClick(event) {
+      if (!menuEl.contains(event.target)) closeMenu();
+    }
+    function onDocKeydown(event) {
+      if (event.key === "Escape") closeMenu();
+    }
+    function openMenu() {
+      menuList.hidden = false;
+      menuTrigger.setAttribute("aria-expanded", "true");
+      document.addEventListener("click", onDocClick, true);
+      document.addEventListener("keydown", onDocKeydown, true);
+    }
+    function closeMenu() {
+      menuList.hidden = true;
+      menuTrigger.setAttribute("aria-expanded", "false");
+      document.removeEventListener("click", onDocClick, true);
+      document.removeEventListener("keydown", onDocKeydown, true);
+    }
+
+    menuTrigger.addEventListener("click", function (event) {
+      event.stopPropagation();
+      if (menuList.hidden) openMenu();
+      else closeMenu();
+    });
+    Array.prototype.forEach.call(menuList.querySelectorAll(".hitop-icicle-menu-item"), function (
+      item
+    ) {
+      item.addEventListener("click", function () {
+        closeMenu();
+        handleDownload(item.getAttribute("data-format"));
+      });
+    });
+
+    shareBtn.addEventListener("click", function () {
+      var meta = data.meta || {};
+      var shareTitle = meta.label || document.title;
+      var shareUrl = window.location.href;
+
+      exportPngBlob()
+        .then(function (blob) {
+          var file = new File([blob], buildExportFilename("png"), { type: "image/png" });
+          if (navigator.canShare && navigator.canShare({ files: [file] })) {
+            return navigator.share({ files: [file], title: shareTitle, text: shareTitle });
+          }
+          if (navigator.share) return navigator.share({ title: shareTitle, url: shareUrl });
+          return copyLinkFallback(shareUrl);
+        })
+        .catch(function (err) {
+          if (err && err.name === "AbortError") return; // user cancelled the native share sheet
+          copyLinkFallback(shareUrl);
+        });
     });
   }
 

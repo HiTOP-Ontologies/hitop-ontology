@@ -35,4 +35,4 @@ tagged and released — see [`docs/release_checklist.md`](docs/release_checklist
 - Local validation suite (`validation/`) and documentation code-example
   validator (`scripts/validate_hitop_suffix_docs.py`).
 - Clinical review scaffolding: `docs/references.md` (citation tracking per
-  concept) and `docs/clinical-annotation-notes.md` (boundary-case decisions).
+  concept) and `docs/governance/clinical-annotation-notes.md` (boundary-case decisions).
