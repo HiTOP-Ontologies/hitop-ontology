@@ -514,7 +514,7 @@
             often emerging in response to acute stress or mood states, leading to a temporary inability to enjoy previously pleasurable activities.
         </obo:IAO_0000115>
         <rdfs:comment xml:lang="en">Anhedonia conceptualized as a Component refers to a transient reduction in the capacity to experience pleasure, often emerging in response to acute stress or mood states.</rdfs:comment>
-        <rdfs:label xml:lang="en">Anhedonia</rdfs:label>
+        <rdfs:label xml:lang="en">Anhedonia (Component)</rdfs:label>
     </owl:Class>
     
 
@@ -988,18 +988,18 @@
     <owl:Class rdf:about="http://purl.org/hitop#F001Hw">
         <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
         <obo:IAO_0000115 xml:lang="en">
-            General Psychopathology = Def. a Psychological Condition which manifests across multiple 
+            General Factor of Psychopathology = Def. a Psychological Condition which manifests across multiple 
             mental health disorders and includes broad symptoms such as mood disturbances, anxiety, 
             cognitive dysfunctions, and behavioral problems.
         </obo:IAO_0000115>
         <rdfs:comment xml:lang="en">
-            General Psychopathology refers to the broad, overarching category of mental disorders and 
+            General Factor of Psychopathology refers to the broad, overarching category of mental disorders and 
             psychological symptoms that can manifest across different mental health conditions. It encompasses a wide range of 
             psychological phenomena that are not specific to any single disorder but may contribute to or exacerbate multiple types 
             of mental health issues. This category includes general symptoms and traits that are commonly observed in various 
             psychiatric conditions, such as mood disturbances, anxiety, cognitive dysfunctions, and behavioral problems.
         </rdfs:comment>
-        <rdfs:label xml:lang="en">General Psychopathology</rdfs:label>
+        <rdfs:label xml:lang="en">General Factor of Psychopathology</rdfs:label>
         <skos:changeNote>
             Indicates the potential for future inclusion of additional spectra and other related concepts as new developments and 
             insights emerge in the field of general psychopathology. Allows for flexible expansion and refinement of the taxonomy 
@@ -1412,12 +1412,25 @@
     <owl:Class rdf:about="http://purl.org/hitop#T00vjR">
         <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
         <obo:IAO_0000115 xml:lang="en">
-            Cognitive Perceptual Dysregulation =def. a Thought Disorder which is characterized by disturbances in cognition and 
-            perception, including unusual beliefs, perceptual aberrations, and difficulties distinguishing internal thoughts 
-            from external reality.
+            Cognitive Dysregulation =def. a Thought Disorder which is characterized by disturbances primarily in cognition, 
+            including unusual beliefs, disturbances in thought processes, and difficulties distinguishing internal thoughts from external reality.
         </obo:IAO_0000115>
-        <rdfs:comment xml:lang="en">A trait characterized by disturbances in cognition and perception.</rdfs:comment>
-        <rdfs:label xml:lang="en">Cognitive perceptual dysregulation</rdfs:label>
+        <rdfs:comment xml:lang="en">A trait characterized by disturbances in cognition.</rdfs:comment>
+        <rdfs:label xml:lang="en">Cognitive dysregulation</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://purl.org/hitop#T02EFv -->
+
+    <owl:Class rdf:about="http://purl.org/hitop#T02EFv">
+        <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
+        <obo:IAO_0000115 xml:lang="en">
+            Perceptual Dysregulation =def. a Thought Disorder which is characterized by disturbances primarily in perception, 
+            including perceptual aberrations, unusual sensory experiences, and difficulties distinguishing internal perceptual experiences from external reality.
+        </obo:IAO_0000115>
+        <rdfs:comment xml:lang="en">A trait characterized by disturbances in perception.</rdfs:comment>
+        <rdfs:label xml:lang="en">Perceptual dysregulation</rdfs:label>
     </owl:Class>
     
 
@@ -1960,7 +1973,7 @@
             interest in typically rewarding experiences, leading to a reduced ability to experience joy or satisfaction from activities that are usually enjoyable.
         </obo:IAO_0000115>
         <rdfs:comment xml:lang="en">Anhedonia conceptualized as a Trait refers to a stable, enduring disposition toward diminished pleasure or interest in typically rewarding experiences.</rdfs:comment>
-        <rdfs:label xml:lang="en">Anhedonia</rdfs:label>
+        <rdfs:label xml:lang="en">Anhedonia (Trait)</rdfs:label>
     </owl:Class>
 
 
@@ -2407,36 +2420,6 @@
         </obo:IAO_0000115>
         <rdfs:comment xml:lang="en">A trait characterized by a recurrent tendency or desire to draw attention to oneself through the display of one’s body, sexuality, or behaviors in ways intended to provoke, shock, or gain validation.</rdfs:comment>
         <rdfs:label xml:lang="en">Exhibitionism</rdfs:label>
-    </owl:Class>
-
-
-
-    <!-- http://purl.org/hitop#C02EBv -->
-
-    <owl:Class rdf:about="http://purl.org/hitop#C02EBv">
-        <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
-        <obo:IAO_0000115 xml:lang="en">
-            Substance Use =def. a Substance Abuse component which is characterized by the general consumption of alcohol,
-            drugs, or other psychoactive substances, without reference to a single substance category, as distinguished
-            from substance-specific components such as drug use or alcohol use.
-        </obo:IAO_0000115>
-        <rdfs:comment xml:lang="en">The general consumption of alcohol, drugs, or other psychoactive substances, considered broadly rather than for one specific substance.</rdfs:comment>
-        <rdfs:label xml:lang="en">Substance use</rdfs:label>
-    </owl:Class>
-
-
-
-    <!-- http://purl.org/hitop#C02FZY -->
-
-    <owl:Class rdf:about="http://purl.org/hitop#C02FZY">
-        <rdfs:subClassOf rdf:resource="http://purl.org/hitop#O002sP"/>
-        <obo:IAO_0000115 xml:lang="en">
-            Substance Problems =def. a Substance Abuse component which is characterized by dependence, abuse, or negative
-            physical, psychological, or social consequences resulting from substance use in general, without reference
-            to a single substance category.
-        </obo:IAO_0000115>
-        <rdfs:comment xml:lang="en">Dependence, abuse, or negative consequences resulting from substance use, considered broadly rather than for one specific substance.</rdfs:comment>
-        <rdfs:label xml:lang="en">Substance problems</rdfs:label>
     </owl:Class>
 
 

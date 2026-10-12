@@ -26,6 +26,7 @@ provide clinical advice.
 - [Validation](#validation)
 - [Ontology conversion](#ontology-conversion)
 - [Documentation](#documentation)
+- [Ecosystem and reuse](#ecosystem-and-reuse)
 - [Contributing](#contributing)
 - [Citation](#citation)
 - [License](#license)
@@ -255,6 +256,25 @@ Start with these documents:
 | Mapping and harmonization | [`docs/mapping-und-harmonisierung.md`](docs/mapping-und-harmonisierung.md) |
 | Tooling examples | [`docs/reference/tooling-and-cli.md`](docs/reference/tooling-and-cli.md) |
 
+## Ecosystem and reuse
+
+HiTOP Ontology is maintained as an independent, domain-focused upstream
+project. It is not an official publication of the organizations linked below.
+The links document relevant research and implementation contexts without
+implying ownership, endorsement, or joint governance.
+
+| Context | Relationship | Reference |
+| --- | --- | --- |
+| German Center for Mental Health (DZPG) | Mental-health research context; the repository contains a versioned DZPG Minimal Data Set factorization | [DZPG website](https://www.dzpg.org/) · [`factorizations/dzpg-mds`](factorizations/dzpg-mds/) |
+| Medical Informatics Initiative (MII) | Interoperability and downstream implementation context | [MII repositories on GitHub](https://github.com/medizininformatik-initiative) |
+
+Downstream specifications should link to a tagged HiTOP Ontology release or
+DOI rather than copying an unversioned snapshot. Conversely, concrete public
+implementations can be added here once a stable module-specific URL is
+available. See
+[`docs/project/publication-and-citation.md`](docs/project/publication-and-citation.md)
+for the publication and cross-referencing policy.
+
 ## Contributing
 
 Contributions should keep clinical content, ontology artifacts, tooling, schema
@@ -284,8 +304,8 @@ repository and the version used:
 }
 ```
 
-For public scholarly release, add a root-level `CITATION.cff` with the DOI,
-release date, authorship metadata, and preferred citation.
+For a DOI-backed scholarly release, update the root-level [`CITATION.cff`](CITATION.cff)
+with the DOI, release date, authorship metadata, and preferred citation.
 
 ## License
 

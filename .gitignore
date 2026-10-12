@@ -44,6 +44,7 @@ robot_report.tsv
 
 # Local working copy, not part of the tracked factorization
 factorizations/dzpg-mds/v1/V10dzp_hierarchy_AK.yaml
+factorizations/dzpg-mds/v1/V10dzp_label_checkliste.md
 
 # Claude Code — project policy for this repo: nothing Claude-related is
 # tracked in git (config, agents/skills/commands, hooks, session/plugin

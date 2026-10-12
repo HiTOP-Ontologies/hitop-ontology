@@ -9,6 +9,16 @@ Tags follow the `vMAJOR.MINOR.PATCH` convention and match the version in
 
 ## [Unreleased]
 
+### Changed
+
+- Factorization label validation now checks each `*_hierarchy.yaml` against
+  the core ontology only: every `kind: concept` node's `label` must match its
+  code's `rdfs:label` (case-insensitive, collections exempt). The former
+  cross-file comparison between factorizations
+  (`check_cross_file_label_consistency`,
+  `test_codes_have_consistent_labels_across_files`) is removed, since
+  factorizations are authored independently of each other.
+
 ## [0.1.0] - Not yet tagged
 
 Blocked on Clinical Lab Go/No-Go (`CLIN-C5-02`) before this version is

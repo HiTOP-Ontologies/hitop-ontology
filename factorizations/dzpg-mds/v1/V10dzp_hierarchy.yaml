@@ -13,7 +13,7 @@ meta:
     created_at: "2026-07-03"
 
 hierarchy:
-  label: General Psychopathology
+  label: General Factor of Psychopathology
   level: Factor
   code: F001Hw
   children:
@@ -51,12 +51,17 @@ hierarchy:
             # Distress-Proxy :: C00e0L = (low) Wellbeing
             - label: Low self esteem
               level: Component
-              code: C00e0L
+              kind: collection
+              code: COLLselfest
               provisional: true
+              children:
+                - label: (low) Wellbeing
+                  level: Component
+                  code: C00e0L
             # DSM5CC_6 + PHQ4_3 "nervös, ängstlich, angespannt" -- generisch,
             # getrennt von "Worries" (PHQ4_4, gezielt Sorgenkontrolle) :: T007eM = Anxiousness
             - label: Anxiousness
-              level: Component
+              level: Trait
               code: T007eM
             - label: Generalized Anxiety Disorder Symptoms
               level: Component
@@ -123,18 +128,28 @@ hierarchy:
                 - label: Pure obsessions
                   level: Component
                   code: C00mpe
-        - label: Eating
+        - label: Eating Pathology
           level: Subfactor
           code: U002SC
           children:
             - label: ED Bulimic
               level: Component
-              code: C01s9T
+              kind: collection
+              code: COLLedbul
               provisional: true
+              children:
+                - label: Binge eating
+                  level: Component
+                  code: C01s9T
             - label: ED Anorectic
               level: Component
-              code: C01wSl
+              kind: collection
+              code: COLLedanore
               provisional: true
+              children:
+                - label: Restricting
+                  level: Component
+                  code: C01wSl
 
     - label: Somatoform
       level: Spectrum
@@ -154,10 +169,11 @@ hierarchy:
         - label: Perceptual dysregulation
           level: Trait
           code: T00vjR
-        - label: Unusual beliefs
+          # Cognitive Perceptual Dysregulation sind 2 Codes . in ontology anpassen. alle faktorisierungen anpassen, sofern notwendig
+        - label: Unusual beliefs and Experiences
           level: Trait
           code: T00wk6
-        - label: Psychotic symptoms
+        - label: Psychotic
           level: Component
           code: C00qSD
 
@@ -177,7 +193,13 @@ hierarchy:
           code: T01hQc
         - label: Restricted affectivity
           level: Trait
-          code: T00BXK
+          kind: collection
+          code: COLLResaffect
+          provisional: true
+          children:
+            - label: (low) Restricted Affectivity
+              level: Trait
+              code: T00BXK
         - label: Intimacy avoidance
           level: Trait
           code: T00zDk
@@ -192,7 +214,7 @@ hierarchy:
         - label: Irritability
           level: Component
           code: C00l5y
-        - label: Impulsivity
+        - label: Problematic Impulsivity
           level: Trait
           code: T015o8
         - label: Risk taking
@@ -223,7 +245,33 @@ hierarchy:
             - label: Drug use # DSM5CC_23a2
               level: Component
               code: C01HGq
-
+        - label: Antisocial Behavior
+          level: Subfactor
+          code: U007EJ
+          bridge:
+            - Disinhibited Externalizing
+            - Antagonistic Externalizing
+          children:
+            # PF_impulse_reg_1 "voller Wut, koennte Kontrolle verlieren"
+            - label: Aggression
+              level: Trait
+              code: COLLaggr
+              kind: collection
+              provisional: true
+              children:
+                - label: Relational Aggression
+                  level: Trait
+                  code: C01LSp
+                - label: Destructive Aggression
+                  level: Trait
+                  code: C01KXo
+                - label: Physical Aggression
+                  level: Trait
+                  code: C01JH8
+            # DI_normviolation "aufregende Dinge, auch wenn gegen das Gesetz"
+            - label: Excitement seeking
+              level: Trait
+              code: T01W1E
 
     - label: Antagonistic Externalizing
       level: Spectrum
@@ -244,28 +292,3 @@ hierarchy:
         - label: Manipulativeness
           level: Trait
           code: T01bz7
-        - label: Antisocial Behavior
-          level: Subfactor
-          code: U007EJ
-          children:
-            # PF_impulse_reg_1 "voller Wut, koennte Kontrolle verlieren"
-            # T01Neb = Impatient Urgency
-            - label: Aggression
-              level: Trait
-              code: COLLaggr
-              kind: collection
-              provisional: true
-              children:
-                - label: Impatient Urgency
-                  level: Trait
-                  code: T01Neb
-            # DI_normviolation "aufregende Dinge, auch wenn gegen das Gesetz"
-            # T01UGN = Excitement seeking
-            - label: Excitement seeking
-              level: Trait
-              code: COLLexcit
-              kind: collection
-              children:
-                - label: Rebelliousness
-                  level: Trait
-                  code: T01UGN

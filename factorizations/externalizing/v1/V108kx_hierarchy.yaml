@@ -25,7 +25,13 @@ hierarchy:
       children:
         - label: Hyperactivity
           level: Component
-          code: C00oKM
+          code: COLLHypera
+          kind: collection
+          provisional: true
+          children:
+            - label: Impatient Urgency
+              level: Component
+              code: T01Neb
         - label: Inattention
           level: Component
           code: C02BO8
@@ -35,10 +41,33 @@ hierarchy:
           children:
             - label: Substance use
               level: Component
-              code: C02EBv
-            - label: Substance problems
+              kind: collection
+              code: COLLSubuse
+              children:
+                - label: Alcohol use
+                  level: Component
+                  code: C01DAb
+                - label: Marijuana use
+                  level: Component
+                  code: C01FDy
+                - label: Drug use
+                  level: Component
+                  code: C01HGq
+            - label: Substance Problems
               level: Component
-              code: C02FZY
+              kind: collection
+              code: COLLSubprob
+              children:
+                - label: Alcohol Problems
+                  level: Component
+                  code: C01Elz
+                - label: Marijuana Problems
+                  level: Component
+                  code: C01GEY
+                - label: Drug Problems
+                  level: Component
+                  code: C01Ip4
+
         - label: Antisocial behavior
           level: Subfactor
           code: U007EJ

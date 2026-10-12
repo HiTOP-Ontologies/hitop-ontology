@@ -19,7 +19,7 @@ hierarchy:
   level: Superspectrum
   code: S003TB
   children:
-    - label: Thought disorder (Psychoticism)
+    - label: Thought disorder
       level: Spectrum
       code: P003SL
       children:

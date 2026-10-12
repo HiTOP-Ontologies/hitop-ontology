@@ -13,7 +13,7 @@ meta:
     notes: "Derived from hitop_working_model.png; manually validated against V1052k audit."
 
 hierarchy:
-  label: General Factor of Psychopathology (p-factor)
+  label: General Factor of Psychopathology
   level: Factor
   code: F001Hw
   children:
@@ -355,7 +355,7 @@ hierarchy:
         - label: Eccentricity
           level: Trait
           code: T00ua9
-        - label: Cognitive/perceptual dysregulation
+        - label: Cognitive Perceptual Dysregulation
           level: Trait
           code: T00vjR
         - label: Unusual beliefs and experiences
@@ -386,7 +386,7 @@ hierarchy:
         - label: Interpersonal passivity
           level: Trait
           code: T012QL
-        - label: Disaffiliative
+        - label: Disaffiliativeness
           level: Trait
           code: T013F1
         - label: (low) Attention seeking

@@ -31,7 +31,7 @@ from pathlib import Path
 from typing import Any
 
 import yaml
-from rdflib import OWL, RDF, Graph, Namespace
+from rdflib import OWL, RDF, RDFS, Graph, Namespace
 
 HITOP = Namespace("http://purl.org/hitop#")
 CANONICAL_ONTOLOGY_IRI = "http://purl.org/hitop"
@@ -82,6 +82,22 @@ def load_core_class_local_names(ontology_ttl: Path) -> set[str]:
         if subject_iri.startswith(prefix):
             names.add(subject_iri[len(prefix) :])
     return names
+
+
+def load_core_class_labels(ontology_ttl: Path) -> dict[str, set[str]]:
+    """Return ``{local-name: {rdfs:label, ...}}`` for every class in the core ontology."""
+
+    graph = Graph()
+    graph.parse(ontology_ttl, format="turtle")
+    prefix = str(HITOP)
+    labels: dict[str, set[str]] = {}
+    for subject in graph.subjects(RDF.type, OWL.Class):
+        subject_iri = str(subject)
+        if subject_iri.startswith(prefix):
+            labels[subject_iri[len(prefix) :]] = {
+                str(label) for label in graph.objects(subject, RDFS.label)
+            }
+    return labels
 
 
 def iter_nodes(
@@ -332,30 +348,42 @@ def collect_codes_with_labels(record: dict[str, Any]) -> list[tuple[str, str]]:
     ]
 
 
-def check_cross_file_label_consistency(documents: list[tuple[Path, dict[str, Any]]]) -> list[str]:
-    """Flag any ``hitop_base_code`` that carries a substantively different label across files.
+def check_labels_match_core(
+    record: dict[str, Any],
+    *,
+    path: Path,
+    core_labels: dict[str, set[str]],
+) -> list[str]:
+    """Flag any ``kind: concept`` node whose ``label`` differs from its core ``rdfs:label``.
 
-    Comparison is case-insensitive: papers routinely differ only in casing
-    for the same construct (e.g. "Sexual Problems" vs. "Sexual problems"),
-    which is not a data error. A wording difference beyond casing (e.g.
-    "Disinhibited Externalizing" vs. "Disinhibition") is reported, since it
-    either reflects genuine terminology drift between cited papers that a
-    curator should record via a mapping, or -- as with the historical
-    ``T01OY2`` collision -- a real code-assignment bug.
+    Each factorization is validated against the core ontology only, never
+    against other factorizations: factorizations are authored independently
+    and have no knowledge of each other. Comparison is case-insensitive,
+    since papers routinely differ only in casing for the same construct
+    (e.g. "Sexual Problems" vs. "Sexual problems"). A wording difference
+    beyond casing is reported, since it either hides a real code-assignment
+    bug (as with the historical ``T01OY2`` collision) or a synonym that
+    belongs in the core as a mapping. A node that deliberately names a
+    different, factorization-local construct must be a ``kind: collection``
+    node, which is exempt. Codes missing from the core are left to
+    ``validate_hierarchy_document``'s referential-integrity check.
     """
 
-    by_code: dict[str, dict[str, tuple[str, list[str]]]] = {}
-    for path, record in documents:
-        for code, label in collect_codes_with_labels(record):
-            key = label.casefold()
-            bucket = by_code.setdefault(code, {})
-            bucket.setdefault(key, (label, []))[1].append(str(path))
+    hierarchy = record.get("hierarchy")
+    if not isinstance(hierarchy, dict):
+        return []
 
     errors: list[str] = []
-    for code, variants in sorted(by_code.items()):
-        if len(variants) > 1:
-            detail = "; ".join(
-                f"{label!r} in {sorted(paths)}" for label, paths in sorted(variants.values())
+    for node, _parent in iter_nodes(hierarchy):
+        if not isinstance(node, dict) or node.get("kind", "concept") == "collection":
+            continue
+        code, label = node.get("code"), node.get("label")
+        if not isinstance(code, str) or not isinstance(label, str):
+            continue
+        expected = core_labels.get(code)
+        if expected and label.casefold() not in {value.casefold() for value in expected}:
+            errors.append(
+                f"{path.name}:{label}: label differs from core rdfs:label "
+                f"{sorted(expected)} for code {code!r}."
             )
-            errors.append(f"code {code!r} has inconsistent labels across files: {detail}")
     return errors

@@ -172,7 +172,7 @@ This reference covers every `meta` and node field defined by [`schema/factorizat
 - schema conformance against `factorization-hierarchy.schema.json`;
 - that every `kind: concept` node's `code` (recursively, across the whole tree) actually exists as a class in `ontology/hitop.ttl` — referential integrity; `kind: collection` nodes are exempt. Vertical order itself already follows structurally from the `children` nesting and is not checked separately; `level` is deliberately not checked for depth consistency (see [Vocabulary](#vocabulary));
 - that no `code` occurs twice within one tree;
-- that the same `code` never appears in different files with a different `label` — this catches code collisions such as curation typos.
+- that every `kind: concept` node's `label` matches the `rdfs:label` of its code in `ontology/hitop.ttl` (case-insensitive; `kind: collection` nodes are exempt) — this catches code collisions such as curation typos. Each factorization is checked against the core ontology only, never against other factorizations, because factorizations are authored independently. A synonym belongs in the core as a mapping; a construct with a different meaning is modelled as `kind: collection`.
 
 ## Generated factorization ontology
 

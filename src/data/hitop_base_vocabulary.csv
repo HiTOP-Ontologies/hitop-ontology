@@ -55,7 +55,7 @@ Code;Label;Segment;Segment Level;CheckDigit;HiTOP
 0s;Inexpressivity;C;0;Wr;C00sWr
 0t;Avolition;C;0;UQ;C00tUQ
 0u;Eccentricity;T;0;a9;T00ua9
-0v;Cognitive perceptual dysregulation;T;0;jR;T00vjR
+0v;Cognitive dysregulation;T;0;jR;T00vjR
 0w;Unusual beliefs and experiences;T;0;k6;T00wk6
 0x;Fantasy proneness;T;0;Ln;T00xLn
 0y;Depressivity;T;0;fU;T00yfU
@@ -136,8 +136,7 @@ Code;Label;Segment;Segment Level;CheckDigit;HiTOP
 2B;Inattention;C;0;O8;C02BO8
 2C;Destruction of property;C;0;iQ;C02CiQ
 2D;Exhibitionism;C;0;SC;C02DSC
-2E;Substance use;C;0;Bv;C02EBv
-2F;Substance problems;C;0;ZY;C02FZY
+2E;Perceptual dysregulation;T;0;Fv;T02EFv
 01;General Factor of Psychopathology;F;0;Hw;F001Hw
 01;Externalizing;S;0;3h;S0013h
 02;Emotional dysfunction;S;0;SE;S002SE

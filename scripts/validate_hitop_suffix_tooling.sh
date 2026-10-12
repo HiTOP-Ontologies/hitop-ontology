@@ -41,8 +41,8 @@ run_check "Python syntax and imports" \
 if [[ "${ALLOW_KNOWN_LABEL_INCONSISTENCIES}" == "true" ]]; then
   run_check "regression tests (approved label exception excluded)" \
     "${PYTHON}" -m pytest "${ROOT_DIR}/validation" -q \
-    --deselect "validation/test_factorizations.py::FactorizationHierarchyTests::test_codes_have_consistent_labels_across_files"
-  echo "Approved exceptions: 1 cross-file label-consistency check (clinical review pending)"
+    --deselect "validation/test_factorizations.py::FactorizationHierarchyTests::test_concept_labels_match_core"
+  echo "Approved exceptions: 1 core label-match check (clinical review pending)"
 else
   run_check "regression tests" "${PYTHON}" -m pytest "${ROOT_DIR}/validation" -q
 fi

@@ -14,7 +14,7 @@ meta:
     created_at: "2026-07-03"
 
 hierarchy:
-  label: General Psychopathology
+  label: General Factor of Psychopathology
   level: Factor
   code: F001Hw
   children:
@@ -71,7 +71,7 @@ hierarchy:
                   code: COLLGadOcd
                   bridge: [Thought Disorder]
                   children:
-                    - label: GAD Symptoms
+                    - label: Generalized Anxiety Disorder Symptoms
                       level: Component
                       code: C00fKQ
                     - label: Pure obsessions
@@ -114,26 +114,52 @@ hierarchy:
                   code: P001Y2
             - label: Specific Phobia
               level: Component
-              code: C00OuR
-              provisional: true
+              code: COLLSpecPhobia
+              kind: collection
+              children:
+                - label: Animal phobia
+                  level: Component
+                  code: C00N4I
+                - label: Blood-Injection-Injury
+                  level: Component
+                  code: C00Pjp
+                - label: Situational phobia
+                  level: Component
+                  code: C00OuR
 
-    - label: Eating Disorder
+    - label: Eating Pathology
       level: Spectrum
-      kind: collection
-      code: COLLEatDis
+      code: U002SC
       children:
         - label: ED Thoughts
           level: Component
-          code: C01rfi
+          code: COLLEDThoughts
           provisional: true
+          children:
+            - label: Body dissatisfaction
+              level: Component
+              code: C01rfi
         - label: ED Bulimic
           level: Component
-          code: C01ueZ
+          kind: collection
+          code: COLLedbul
           provisional: true
+          children:
+                - label: Binge eating
+                  level: Component
+                  code: C01s9T
+                - label: Purging
+                  level: Component
+                  code: C01ueZ
         - label: ED Anorectic
           level: Component
-          code: C01wSl
+          kind: collection
+          code: COLLedanore
           provisional: true
+          children:
+                - label: Restricting
+                  level: Component
+                  code: C01wSl
 
     - label: Externalizing & Thought Disorder & Detachment
       level: Superspectrum
@@ -161,7 +187,7 @@ hierarchy:
               kind: collection
               code: COLLAntPf
               children:
-                - label: Antagonism
+                - label: Antagonistic Externalizing
                   level: Component
                   code: P006gM
                 - label: PF Problems

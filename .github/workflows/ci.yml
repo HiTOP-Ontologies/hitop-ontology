@@ -7,11 +7,11 @@ on:
 
 env:
   # Central toggle (TECH-T3-01): while "true", the known pre-existing
-  # cross-file label inconsistencies tracked in CLIN-C0-04..22 (and the
-  # original CLIN-C0-02/CLIN-C0-11 case) do not fail the build. Flip this to
-  # "false" once every CLIN-C0-* label task is resolved and
-  # test_codes_have_consistent_labels_across_files is green, so CI goes back
-  # to failing honestly on any future regression.
+  # deviations of factorization labels from the core rdfs:label (tracked in
+  # the CLIN-C0-* label tasks) do not fail the build. Each factorization is
+  # checked against the core ontology only, never against other
+  # factorizations. Flip this to "false" once test_concept_labels_match_core
+  # is green, so CI goes back to failing honestly on any future regression.
   ALLOW_KNOWN_LABEL_INCONSISTENCIES: "true"
 
 jobs:
@@ -37,17 +37,17 @@ jobs:
       - name: Compile sources
         run: python -m compileall -q src scripts validation
 
-      - name: Run tests (excluding known pre-existing label inconsistencies)
+      - name: Run tests (excluding known pre-existing label deviations from core)
         run: >
           python -m pytest validation -q
           --deselect
-          validation/test_factorizations.py::FactorizationHierarchyTests::test_codes_have_consistent_labels_across_files
+          validation/test_factorizations.py::FactorizationHierarchyTests::test_concept_labels_match_core
 
-      - name: Cross-file label consistency (tracked in CLIN-C0-04..22)
+      - name: Concept labels match core ontology (tracked in CLIN-C0-*)
         continue-on-error: ${{ env.ALLOW_KNOWN_LABEL_INCONSISTENCIES == 'true' }}
         run: >
           python -m pytest
-          validation/test_factorizations.py::FactorizationHierarchyTests::test_codes_have_consistent_labels_across_files
+          validation/test_factorizations.py::FactorizationHierarchyTests::test_concept_labels_match_core
           -q
 
       - name: Validate documentation code examples

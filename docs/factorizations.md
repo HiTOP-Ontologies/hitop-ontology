@@ -205,9 +205,14 @@ Jeder Knoten im `hierarchy`-Baum hat:
   aus der `children`-Verschachtelung und wird nicht separat geprüft; `level`
   wird bewusst nicht auf Tiefen-Konsistenz geprüft (siehe Abschnitt 4),
 - dass innerhalb eines Baums kein `code` doppelt vorkommt,
-- dass derselbe `code` nicht in verschiedenen Dateien mit unterschiedlichem
-  `label` auftaucht (fängt Code-Kollisionen wie Tippfehler bei der
-  Kuratierung ab).
+- dass das `label` jedes `kind: concept`-Knotens dem `rdfs:label` des Codes
+  in `ontology/hitop.ttl` entspricht (Groß-/Kleinschreibung wird ignoriert;
+  `kind: collection`-Knoten sind ausgenommen). Das fängt Code-Kollisionen
+  wie Tippfehler bei der Kuratierung ab. Jede Faktorisierung wird dabei nur
+  gegen die Core-Ontologie geprüft, nie gegen andere Faktorisierungen, weil
+  Faktorisierungen unabhängig voneinander erstellt werden. Ein Synonym
+  gehört als Mapping in den Core; ein inhaltlich abweichendes Konstrukt wird
+  als `kind: collection` modelliert.
 
 ## 6. Generierte Faktorisierungs-Ontology
 
