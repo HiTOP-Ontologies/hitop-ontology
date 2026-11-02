@@ -32,4 +32,4 @@ ruff==0.15.22
 tomli_w==1.2.0
 tox==4.55.1
 typing_extensions==4.16.0
-virtualenv==21.5.0
+virtualenv==21.14.13
