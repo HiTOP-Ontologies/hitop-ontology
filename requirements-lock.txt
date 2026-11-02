@@ -25,7 +25,9 @@ python-discovery==1.4.2
 PyYAML==6.0.3
 rdflib==7.6.0
 referencing==0.37.0
-rpds-py==2026.6.3
+rpds-py==2026.6.3; python_version >= "3.11"
+# rpds-py 2026.x requires Python >= 3.11; keep the last 3.10-compatible release.
+rpds-py==0.30.0; python_version < "3.11"
 ruff==0.15.22
 tomli_w==1.2.0
 tox==4.55.1
