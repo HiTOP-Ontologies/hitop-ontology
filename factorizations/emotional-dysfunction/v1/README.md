@@ -7,7 +7,7 @@ Status: **active**
 A factorization is a specific, versioned composition of stable HiTOP base
 concepts from the shared core ontology (`ontology/hitop.rdf`), expressed as
 a recursive hierarchy tree. This factorization tracks the Emotional
-Dysfunction superspectrum structure from Kotov et al. (2021), World
+Dysfunction superspectrum structure from Watson et al. (2022), World
 Psychiatry, doi:10.1002/wps.20943. See
 [`docs/factorizations.md`](../../../docs/factorizations.md) for the full
 governance model, the `hitop:hasTier`/`hitop:hasLevel`
@@ -22,5 +22,5 @@ vocabulary, and how to add a new version.
 
 ## Status
 
-`meta.status` is `active`. Two nodes (`Mania` and its children) remain
-`provisional: true` pending further review.
+`meta.status` is `active`. Individual provisional placements are marked
+with `provisional: true` in the hierarchy and retained in the generated artifacts.

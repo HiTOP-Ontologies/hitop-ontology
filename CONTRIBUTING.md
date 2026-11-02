@@ -118,9 +118,10 @@ gates, and document the reason for the dependency change.
 
 Tags follow `vMAJOR.MINOR.PATCH` (SemVer) and match the version in
 `pyproject.toml` and `owl:versionInfo` in `ontology/hitop.rdf`. Record every
-notable change under the `[Unreleased]` section of
-[`CHANGELOG.md`](CHANGELOG.md) as part of the same pull request. Before
-tagging a release, work through
-[`docs/release_checklist.md`](docs/release_checklist.md), which also tracks
+notable change under an `[Unreleased]` section at the top of
+[`CHANGELOG.md`](CHANGELOG.md) as part of the same pull request; create that
+section with the first change after a release. Before tagging a release,
+rename it to the version and release date, and work through
+[`docs/reference/release-checklist.md`](docs/reference/release-checklist.md), which also tracks
 the current version table across package, ontology, schema, and
 specification documents.

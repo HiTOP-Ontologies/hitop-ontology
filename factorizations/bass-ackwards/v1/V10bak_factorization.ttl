@@ -1,6 +1,12 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+@prefix hitop: <http://purl.org/hitop#> .
+
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+@prefix prov: <http://www.w3.org/ns/prov#> .
 
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
@@ -8,12 +14,300 @@
 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+    hitop:F001Hw rdfs:label "General Factor of Psychopathology"@en ;
+    hitop:hasLevel "Factor" ;
+    hitop:hasTier hitop:P002nf ,
+    hitop:U002SC ,
+ <http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLExtDetTd> ;
+    rdfs:comment "General Factor of Psychopathology refers to the broad, overarching category of mental disorders and psychological symptoms that can manifest across different mental health conditions. It encompasses a wide range of psychological phenomena that are not specific to any single disorder but may contribute to or exacerbate multiple types of mental health issues. This category includes general symptoms and traits that are commonly observed in various psychiatric conditions, such as mood disturbances, anxiety, cognitive dysfunctions, and behavioral problems."@en .
+
 <http://purl.org/hitop/factorizations/bass-ackwards/vV10bak> a owl:Ontology ;
-    rdfs:label "HiTOP Bass-Ackwards Structure"@en ;
+    rdfs:label "Bass-Ackwards Structure"@en ;
+    dcterms:bibliographicCitation "Kerber et al. (2024), Translational Psychiatry, doi:10.1038/s41398-024-03046-z" ;
+    dcterms:contributor <https://orcid.org/0000-0002-4505-4593> ,
+ <https://orcid.org/0000-0002-8588-7784> ;
     dcterms:created "2026-07-03"^^xsd:date ;
-    dcterms:creator "Dr. Rogério Blitz" ;
+    dcterms:creator <https://orcid.org/0000-0002-4505-4593> ,
+ <https://orcid.org/0000-0002-8588-7784> ;
     dcterms:isVersionOf "0.1.0" ;
-    dcterms:source "TBD" ;
+    dcterms:source "https://www.nature.com/articles/s41398-024-03046-z" ;
+    rdfs:seeAlso <http://purl.org/hitop/contributions> ;
     owl:imports <http://purl.org/hitop> ;
     owl:versionInfo "V10bak" ;
-    skos:changeNote "status: draft"@en .
+    skos:changeNote "status: active"@en ;
+ prov:has_provenance <http://purl.org/hitop/contributions> .
+
+    hitop:C00JTU rdfs:label "Interactive anxiety"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Anxiety experienced in social interactions and group settings."@en .
+
+    hitop:C00KL0 rdfs:label "Performance anxiety"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Anxiety related to performing tasks or activities, often in public or under observation."@en .
+
+    hitop:C00LqY rdfs:label "Public places"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Fear or anxiety associated with being in public spaces."@en .
+
+    hitop:C00Mpl rdfs:label "Enclosed spaces"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Fear or anxiety related to confined or small spaces."@en .
+
+    hitop:C00N4I rdfs:label "Animal phobia"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Fear or anxiety related to animals."@en .
+
+    hitop:C00OuR rdfs:label "Situational phobia"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Fear or anxiety related to specific situations or environments."@en .
+
+    hitop:C00Pjp rdfs:label "Blood-Injection-Injury"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Fear or anxiety related to blood, injections, or injuries."@en ;
+    skos:altLabel "Blood-injection-injury"@en .
+
+    hitop:C00Q1t rdfs:label "Physiological panic"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Panic attacks characterized by physiological symptoms such as rapid heartbeat and sweating."@en .
+
+    hitop:C00RGy rdfs:label "Psychological panic"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component of psychological panic is an intense, overwhelming fear that triggers physical symptoms and a sense of losing control."@en .
+
+    hitop:C00VHv rdfs:label "Dysphoria"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A state of generalized unhappiness or dissatisfaction."@en .
+
+    hitop:C00WJc rdfs:label "Lassitude"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A state of physical or mental weariness and lack of energy."@en .
+
+    hitop:C00XyI rdfs:label "Anhedonia (Component)"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Anhedonia conceptualized as a Component refers to a transient reduction in the capacity to experience pleasure, often emerging in response to acute stress or mood states."@en .
+
+    hitop:C00Y8j rdfs:label "Insomnia"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Difficulty falling asleep or staying asleep, or waking up too early and not being able to go back to sleep."@en .
+
+    hitop:C00fKQ rdfs:label "Generalized Anxiety Disorder Symptoms"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component of generalized anxiety disorder symptoms is excessive, persistent worry that interferes with daily life and is often accompanied by physical symptoms like restlessness and fatigue."@en ;
+    skos:altLabel "Generalized anxiety disorder symptoms"@en .
+
+    hitop:C00mpe rdfs:label "Pure obsessions"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Recurrent and persistent intrusive thoughts that cause significant distress, without accompanying compulsive behaviors."@en .
+
+    hitop:C01DAb rdfs:label "Alcohol use"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "The consumption of alcoholic beverages, which may lead to problematic use."@en .
+
+    hitop:C01FDy rdfs:label "Marijuana use"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "The consumption of marijuana, which may lead to problematic use."@en .
+
+    hitop:C01HGq rdfs:label "Drug use"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "The consumption of illicit or prescription drugs, which may lead to problematic use."@en .
+
+    hitop:P001Y2 rdfs:label "Somatoform"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "The Somatoform label refers to a category of mental health disorders characterized by physical symptoms that cannot be fully explained by any underlying medical condition, highlighting the complex interaction between mind and body in mental health."@en .
+
+    hitop:P002nf rdfs:label "Internalizing"@en ;
+    hitop:hasLevel "Superspectrum" ;
+    hitop:hasTier hitop:U0036N ,
+    hitop:U004dm ;
+    rdfs:comment "The Internalizing label refers to a category of mental health disorders characterized by inward-focused symptoms such as anxiety, depression, and withdrawal, reflecting emotional and cognitive distress."@en .
+
+    hitop:P003SL rdfs:label "Thought Disorder"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Thought Disorder refers to a category of mental health conditions characterized by disorganized thinking, impaired reality testing, and disturbances in the form or content of thought."@en .
+
+    hitop:P004R1 rdfs:label "Detachment"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Detachment refers to a psychological state characterized by emotional distance and disengagement from social interactions."@en ;
+    skos:changeNote "Bridges: Depression & Detachment"@en .
+
+    hitop:P005xY rdfs:label "Disinhibited Externalizing"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Disinhibited Externalizing involves behaviors that are impulsive and lacking in social restraint or inhibition."@en .
+
+    hitop:P006gM rdfs:label "Antagonistic Externalizing"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Antagonistic Externalizing describes behaviors that involve hostility and aggression towards others."@en .
+
+    hitop:T00Eht rdfs:label "Identity problems"@en ;
+    hitop:hasLevel "Trait" ;
+    rdfs:comment "A trait characterized by difficulties in forming or maintaining a stable sense of self."@en .
+
+    hitop:T00Fe0 rdfs:label "Negative relationships"@en ;
+    hitop:hasLevel "Trait" ;
+    rdfs:comment "A trait of negative relationships is that they contribute to stress, conflict, or emotional harm, often undermining well-being and personal growth."@en .
+
+    hitop:T00G3d rdfs:label "Fragility"@en ;
+    hitop:hasLevel "Trait" ;
+    rdfs:comment "A trait characterized by a lack of resilience and a tendency to be easily hurt or affected by stress."@en .
+
+    hitop:T00HCy rdfs:label "Ineptitude"@en ;
+    hitop:hasLevel "Trait" ;
+    rdfs:comment "A trait characterized by a lack of skill or competence."@en .
+
+    hitop:T00IAT rdfs:label "(low) Invulnerability"@en ;
+    hitop:hasLevel "Trait" ;
+    rdfs:comment "A trait characterized by a perception of being immune to harm or negative effects."@en .
+
+    hitop:U002SC rdfs:label "Eating Pathology"@en ;
+    hitop:hasLevel "Spectrum" ;
+    hitop:hasTier <http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#EDAnorectic> ,
+ <http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#EDBulimic> ,
+ <http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#EDThoughts> ;
+    rdfs:comment "Eating Pathology includes disorders and maladaptive behaviors related to eating and body image."@en .
+
+    hitop:U0036N rdfs:label "Fear"@en ;
+    hitop:hasLevel "Subfactor" ;
+    hitop:hasTier <http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLPanicSom> ,
+ <http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLSocAgora> ,
+ <http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLSpecPhobia> ;
+    rdfs:comment "Fear refers to an emotional response to perceived threats or danger."@en .
+
+    hitop:U004dm rdfs:label "Distress"@en ;
+    hitop:hasLevel "Subfactor" ;
+    hitop:hasTier <http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLDepression> ,
+ <http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLGadPf> ;
+    rdfs:comment "Distress involves significant emotional suffering or discomfort."@en .
+
+    hitop:U0050q rdfs:label "Mania"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Mania is characterized by elevated mood, increased activity, and impulsive behavior."@en .
+
+<http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLAntPf> a skos:Collection ;
+    rdfs:label "Antagonistic PD"@en ;
+    hitop:hasLevel "Component" ;
+    hitop:hasTier hitop:P006gM ,
+ <http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLPF> .
+
+<http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLCogDep> a skos:Collection ;
+    rdfs:label "Cognitive Depression"@en ;
+    hitop:hasLevel "Component" ;
+    hitop:hasTier hitop:C00VHv ,
+    hitop:C00XyI .
+
+<http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLDepression> a skos:Collection ;
+    rdfs:label "Depression & Detachment"@en ;
+    hitop:hasLevel "Component" ;
+    hitop:hasTier <http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLCogDep> ,
+ <http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLSomDep> ;
+    skos:changeNote "Bridges: Detachment"@en .
+
+<http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLDisinhibSub> a skos:Collection ;
+    rdfs:label "Disinhibition & Substance Use"@en ;
+    hitop:hasLevel "Component" ;
+    hitop:hasTier hitop:P005xY ,
+ <http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLSubuse> .
+
+<http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLExtDet> a skos:Collection ;
+    rdfs:label "Externalizing & Detachment"@en ;
+    hitop:hasLevel "Spectrum" ;
+    hitop:hasTier hitop:P004R1 ,
+ <http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLAntPf> ,
+ <http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLDisinhibSub> .
+
+<http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLExtDetTd> a skos:Collection ;
+    rdfs:label "Externalizing & Thought Disorder & Detachment"@en ;
+    hitop:hasLevel "Superspectrum" ;
+    hitop:hasTier <http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLExtDet> ,
+ <http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLTdMania> .
+
+<http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLGadOcd> a skos:Collection ;
+    rdfs:label "GAD & OCD"@en ;
+    hitop:hasLevel "Component" ;
+    hitop:hasTier hitop:C00fKQ ,
+    hitop:C00mpe ;
+    skos:changeNote "Bridges: Thought Disorder"@en .
+
+<http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLGadPf> a skos:Collection ;
+    rdfs:label "GAD & PF"@en ;
+    hitop:hasLevel "Component" ;
+    hitop:hasTier <http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLGadOcd> ;
+    skos:changeNote "Bridges: PF Problems"@en .
+
+<http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLPF> a skos:Collection ;
+    rdfs:label "PF Problems"@en ;
+    hitop:hasLevel "Trait" ;
+    hitop:hasTier hitop:T00Eht ,
+    hitop:T00Fe0 ,
+    hitop:T00G3d ,
+    hitop:T00HCy ,
+    hitop:T00IAT ;
+    skos:changeNote "Bridges: GAD & PF"@en .
+
+<http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLPanicSom> a skos:Collection ;
+    rdfs:label "Panic Disorder & Somatoform"@en ;
+    hitop:hasLevel "Component" ;
+    hitop:hasTier hitop:C00Q1t ,
+    hitop:C00RGy ,
+    hitop:P001Y2 .
+
+<http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLSocAgora> a skos:Collection ;
+    rdfs:label "Social Anxiety & Agoraphobia"@en ;
+    hitop:hasLevel "Component" ;
+    hitop:hasTier hitop:C00JTU ,
+    hitop:C00KL0 ,
+    hitop:C00LqY ,
+    hitop:C00Mpl .
+
+<http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLSomDep> a skos:Collection ;
+    rdfs:label "Somatic Depression"@en ;
+    hitop:hasLevel "Component" ;
+    hitop:hasTier hitop:C00WJc ,
+    hitop:C00Y8j .
+
+<http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLSpecPhobia> a skos:Collection ;
+    rdfs:label "Specific Phobia"@en ;
+    hitop:hasLevel "Component" ;
+    hitop:hasTier hitop:C00N4I ,
+    hitop:C00OuR ,
+    hitop:C00Pjp .
+
+<http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLSubuse> a skos:Collection ;
+    rdfs:label "Substance use"@en ;
+    hitop:hasLevel "Component" ;
+    hitop:hasTier hitop:C01DAb ,
+    hitop:C01FDy ,
+    hitop:C01HGq .
+
+<http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLTdMania> a skos:Collection ;
+    rdfs:label "Thought Disorder & Mania"@en ;
+    hitop:hasLevel "Spectrum" ;
+    hitop:hasTier hitop:P003SL ,
+    hitop:U0050q .
+
+<http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#EDAnorectic> a skos:Concept ;
+    rdfs:label "ED Anorectic"@en ;
+    hitop:hasLevel "Component" ;
+    skos:relatedMatch hitop:C01qTa ;
+    skos:scopeNote "Partial overlap with the referenced core concept; neither equivalence nor a narrower or broader direction is asserted."@en .
+
+<http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#EDBulimic> a skos:Concept ;
+    rdfs:label "ED Bulimic"@en ;
+    hitop:hasLevel "Component" ;
+    skos:relatedMatch hitop:C01mPz ;
+    skos:scopeNote "Partial overlap with the referenced core concept; neither equivalence nor a narrower or broader direction is asserted."@en .
+
+<http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#EDThoughts> a skos:Concept ;
+    rdfs:label "ED Thoughts"@en ;
+    hitop:hasLevel "Component" ;
+    skos:relatedMatch hitop:C01l9M ;
+    skos:scopeNote "Partial overlap with the referenced core concept; neither equivalence nor a narrower or broader direction is asserted."@en .
+
+<http://purl.org/hitop/contributions> rdfs:label "Contributors and contribution roles"@en .
+
+<https://orcid.org/0000-0002-4505-4593> a foaf:Person ;
+    rdfs:label "Rogério Blitz" ;
+    foaf:name "Rogério Blitz" .
+
+<https://orcid.org/0000-0002-8588-7784> a foaf:Person ;
+    rdfs:label "André Kerber" ;
+    foaf:name "André Kerber" .

@@ -1,6 +1,6 @@
 # HiTOP Working Model — v1 (V1052k)
 
-Status: **draft**
+Status: **active**
 
 ## What this is
 
@@ -21,6 +21,5 @@ vocabulary, and how to add a new version.
 
 ## Status
 
-`meta.status` is `draft`. Move it to `active` in
-`V1052k_hierarchy.yaml` once the tree has been fully reviewed against the
-source image (`data/hitop/images/hitop_working_model.png`).
+`meta.status` is `active` in `V1052k_hierarchy.yaml`. The hierarchy has been
+manually reviewed and passed structural, code, label, and generation checks.

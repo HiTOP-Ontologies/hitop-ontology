@@ -109,7 +109,13 @@ meta:
     ontology_iri: "http://purl.org/hitop"
     ontology_version: "{{ hitop_ontology_version }}"
   provenance:
-    created_by: "Dr. Rogério Blitz"
+    created_by:
+      - orcid: "https://orcid.org/0000-0002-4505-4593"
+        name: "Rogério Blitz"
+    contributors:
+      - orcid: "https://orcid.org/0000-0002-4505-4593"
+        name: "Rogério Blitz"
+    contributions: "http://purl.org/hitop/contributions"
     created_at: "2026-07-03"
 
 hierarchy:
@@ -153,7 +159,9 @@ This reference covers every `meta` and node field defined by [`schema/factorizat
 | Ontology pin | `meta.based_on.ontology_iri` | Mandatory | Always `http://purl.org/hitop` |
 | Ontology pin | `meta.based_on.ontology_version` | Mandatory | The `owl:versionInfo` state that `code` values were resolved against |
 | Ontology pin | `meta.based_on.commit` | Optional | Git commit hash pinning the exact ontology state codes were resolved against |
-| Provenance | `meta.provenance.created_by` | Mandatory | Person or role who curated this factorization |
+| Provenance | `meta.provenance.created_by` | Mandatory | List of people with `orcid` and `name`; legacy name strings remain accepted |
+| Provenance | `meta.provenance.contributors` | Optional | List of people with `orcid` and `name` contributing to this factorization |
+| Provenance | `meta.provenance.contributions` | Optional | PURL for the central contribution record; defaults to `http://purl.org/hitop/contributions` |
 | Provenance | `meta.provenance.created_at` | Mandatory | Date this factorization version was created |
 | Provenance | `meta.provenance.notes` | Optional | Free-text provenance notes, for example differences from a previous version |
 | Hierarchy | `hierarchy` | Conditional | The recursive tree root; MAY be `null` only while `meta.status` is `draft` and the tree has not been populated yet |

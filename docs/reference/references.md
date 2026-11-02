@@ -48,12 +48,18 @@ This prevents the same source from being cited in slightly different forms.
 | `DOI/URL` | When available | Persistent link; use a stable URL if no DOI exists, or `-` if neither exists; do not leave the field blank |
 | `Coverage` | Yes | One sentence describing what the source covers, such as the complete model or an update to the Internalizing spectrum |
 
-The initial row is intentionally neutral. Replace each placeholder only with
-verified bibliographic information:
+Each entry was verified against its DOI registry (Crossref or DataCite) or,
+for the working model, the publisher page:
 
 | citation_key | Full reference | DOI/URL | Coverage |
 | --- | --- | --- | --- |
-| - | - | - | - |
+| `kotov2017` | Kotov R, Krueger RF, Watson D, Achenbach TM, Althoff RR, Bagby RM, et al. The Hierarchical Taxonomy of Psychopathology (HiTOP): a dimensional alternative to traditional nosologies. J Abnorm Psychol. 2017;126(4):454-77. | https://doi.org/10.1037/abn0000258 | Founding description of the complete HiTOP model and its hierarchical levels. |
+| `kotov2020` | Kotov R, Jonas KG, Carpenter WT, Dretsch MN, Eaton NR, Forbes MK, et al. Validity and utility of Hierarchical Taxonomy of Psychopathology (HiTOP): I. Psychosis superspectrum. World Psychiatry. 2020;19(2):151-72. | https://doi.org/10.1002/wps.20730 | Psychosis superspectrum (thought disorder and detachment spectra); source of factorization `V10749`. |
+| `krueger2021` | Krueger RF, Hobbs KA, Conway CC, Dick DM, Dretsch MN, Eaton NR, et al. Validity and utility of Hierarchical Taxonomy of Psychopathology (HiTOP): II. Externalizing superspectrum. World Psychiatry. 2021;20(2):171-93. | https://doi.org/10.1002/wps.20844 | Externalizing superspectrum (disinhibited and antagonistic externalizing); source of factorization `V108kx`. |
+| `watson2022` | Watson D, Levin-Aspenson HF, Waszczuk MA, Conway CC, Dalgleish T, Dretsch MN, et al. Validity and utility of Hierarchical Taxonomy of Psychopathology (HiTOP): III. Emotional dysfunction superspectrum. World Psychiatry. 2022;21(1):26-54. | https://doi.org/10.1002/wps.20943 | Emotional dysfunction superspectrum (internalizing, somatoform, eating pathology, sexual problems, mania); source of factorization `V106mv`. |
+| `kerber2024` | Kerber A, Ehrenthal JC, Zimmermann J, Remmers C, Nolte T, Wendt LP, et al. Examining the role of personality functioning in a hierarchical taxonomy of psychopathology using two years of ambulatory assessed data. Transl Psychiatry. 2024;14(1):340. | https://doi.org/10.1038/s41398-024-03046-z | Empirical bass-ackwards structure; source of factorization `V10bak`. |
+| `woelke2025` | Woelke M, Foerstner BR, Rapp MA, Böttger SJ, Heinen-Stach D, Tschorn M. DZPG Minimum Data Set (MDS) [Internet]. OSF; 2025 [updated 2025 Oct 21; cited 2026 Nov 2]. | https://doi.org/10.17605/OSF.IO/EC9HS | DZPG Minimum Data Set; source of factorization `V10dzp`. |
+| `hitop_wm` | HiTOP Consortium. Current model [Internet]. Hierarchical Taxonomy of Psychopathology; [cited 2026 Oct 23]. | https://www.hitop-system.org/current-model | Current HiTOP working model; source of factorization `V1052k` and of most core labels. |
 
 ## 5. Part B — Source attribution by concept
 
@@ -77,162 +83,150 @@ ontology.
 
 | HiTOP code | Label | citation_key(s) | Section/page | Note | status | reviewed by | Date |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `C001qy` | Conversion | | |  | pending | | |
-| `C00217` | Somatization | | |  | pending | | |
-| `C0033z` | Malaise | | |  | pending | | |
-| `C00416` | Head Pain | | |  | pending | | |
-| `C005Sv` | Gastrointestinal | | |  | pending | | |
-| `C006MD` | Cognitive | | |  | pending | | |
-| `C00JTU` | Interactive anxiety | | |  | pending | | |
-| `C00KL0` | Performance anxiety | | |  | pending | | |
-| `C00LqY` | Public places | | |  | pending | | |
-| `C00Mpl` | Enclosed spaces | | |  | pending | | |
-| `C00N4I` | Animal phobia | | |  | pending | | |
-| `C00OuR` | Situational phobia | | |  | pending | | |
-| `C00Pjp` | Blood-injection-injury | | |  | pending | | |
-| `C00Q1t` | Physiological panic | | |  | pending | | |
-| `C00RGy` | Psychological panic | | |  | pending | | |
-| `C00S9m` | Cleaning | | |  | pending | | |
-| `C00TgL` | Rituals | | |  | pending | | |
-| `C00Urw` | Checking | | |  | pending | | |
-| `C00VHv` | Dysphoria | | |  | pending | | |
-| `C00WJc` | Lassitude | | |  | pending | | |
-| `C00XyI` | Anhedonia | | |  | pending | | |
-| `C00Y8j` | Insomnia | | |  | pending | | |
-| `C00ZyP` | Suicidality | | |  | pending | | |
-| `C00aMF` | Agitation | | |  | pending | | |
-| `C00bEx` | Retardation | | |  | pending | | |
-| `C00cSn` | Appetite loss | | |  | pending | | |
-| `C00dc1` | Appetite gain | | |  | pending | | |
-| `C00e0L` | (low) Wellbeing | | |  | pending | | |
-| `C00fKQ` | Generalized anxiety disorder symptoms | | |  | pending | | |
-| `C00gvD` | Re-experiencing | | |  | pending | | |
-| `C00hPJ` | Avoidance | | |  | pending | | |
-| `C00iAh` | Hyperarousal | | |  | pending | | |
-| `C00jw5` | Numbing | | |  | pending | | |
-| `C00kEN` | Dissociation | | |  | pending | | |
-| `C00l5y` | Irritability | | |  | pending | | |
-| `C00mpe` | Pure obsessions | | |  | pending | | |
-| `C00nyb` | Euphoric activation | | |  | pending | | |
-| `C00oKM` | Hyperactive cognition | | |  | pending | | |
-| `C00pnZ` | Reckless overconfidence | | |  | pending | | |
-| `C00qSD` | Psychotic | | |  | pending | | |
-| `C00rnS` | Disorganized | | |  | pending | | |
-| `C00sWr` | Inexpressivity | | |  | pending | | |
-| `C00tUQ` | Avolition | | |  | pending | | |
-| `C01DAb` | Alcohol use | | |  | pending | | |
-| `C01Elz` | Alcohol problems | | |  | pending | | |
-| `C01FDy` | Marijuana use | | |  | pending | | |
-| `C01GEY` | Marijuana problems | | |  | pending | | |
-| `C01HGq` | Drug use | | |  | pending | | |
-| `C01Ip4` | Drug problems | | |  | pending | | |
-| `C01JH8` | Physical aggression | | |  | pending | | |
-| `C01KXo` | Destructive aggression | | |  | pending | | |
-| `C01LSp` | Relational aggression | | |  | pending | | |
-| `C01MjB` | Fraud | | |  | pending | | |
-| `F001Hw` | General Psychopathology | | |  | pending | | |
-| `O002sP` | Tier | | | Structural schema class (tier vocabulary from `docs/factorizations.md`), not a domain-specific HiTOP concept | excluded | | |
-| `P001Y2` | Somatoform | | |  | pending | | |
-| `P002nf` | Internalizing | | |  | pending | | |
-| `P003SL` | Thought Disorder | | |  | pending | | |
-| `P004R1` | Detachment | | |  | pending | | |
-| `P005xY` | Disinhibited Externalizing | | |  | pending | | |
-| `P006gM` | Antagonistic Externalizing | | |  | pending | | |
-| `S0013h` | Externalizing | | |  | pending | | |
-| `S002SE` | Emotional dysfunction | | |  | pending | | |
-| `S003TB` | Psychosis | | |  | pending | | |
-| `T007eM` | Anxiousness | | |  | pending | | |
-| `T008mD` | Emotional lability | | |  | pending | | |
-| `T0094I` | Hostility | | |  | pending | | |
-| `T00A0Z` | Perseveration | | |  | pending | | |
-| `T00BXK` | (low) Restricted affectivity | | |  | pending | | |
-| `T00Cgy` | Separation insecurity | | |  | pending | | |
-| `T00D42` | Submissiveness | | |  | pending | | |
-| `T00Eht` | Identity problems | | |  | pending | | |
-| `T00Fe0` | Negative relationships | | |  | pending | | |
-| `T00G3d` | Fragility | | |  | pending | | |
-| `T00HCy` | Ineptitude | | |  | pending | | |
-| `T00IAT` | (low) Invulnerability | | |  | pending | | |
-| `T00ua9` | Eccentricity | | |  | pending | | |
-| `T00vjR` | Cognitive perceptual dysregulation | | |  | pending | | |
-| `T00wk6` | Unusual beliefs and experiences | | |  | pending | | |
-| `T00xLn` | Fantasy proneness | | |  | pending | | |
-| `T00yfU` | Depressivity | | |  | pending | | |
-| `T00zDk` | Intimacy avoidance | | |  | pending | | |
-| `T010c6` | Suspiciousness | | |  | pending | | |
-| `T011K6` | Withdrawal | | |  | pending | | |
-| `T012QL` | Interpersonal passivity | | |  | pending | | |
-| `T013F1` | Disaffiliativeness | | |  | pending | | |
-| `T014BA` | (low) Attention seeking | | |  | pending | | |
-| `T015o8` | Problematic impulsivity | | |  | pending | | |
-| `T016k0` | Irresponsibility | | |  | pending | | |
-| `T0177S` | Theft | | |  | pending | | |
-| `T018ir` | Distractibility | | |  | pending | | |
-| `T019Cj` | Risk taking | | |  | pending | | |
-| `T01A5i` | (low) Rigid perfectionism | | |  | pending | | |
-| `T01BfQ` | (low) Ruminative deliberation | | |  | pending | | |
-| `T01C1W` | (low) Workaholism | | |  | pending | | |
-| `T01Neb` | Impatient urgency | | |  | pending | | |
-| `T01OY2` | (low) Planful control | | |  | pending | | |
-| `T01PMW` | (low) Dependability | | |  | pending | | |
-| `T01QNN` | Alienation | | |  | pending | | |
-| `T01RYG` | Boredom proneness | | |  | pending | | |
-| `T01SYW` | Blame externalization | | |  | pending | | |
-| `T01T3u` | (low) Honesty | | |  | pending | | |
-| `T01UGN` | Rebelliousness | | |  | pending | | |
-| `T01VXq` | (low) Empathy | | |  | pending | | |
-| `T01W1E` | Excitement seeking | | |  | pending | | |
-| `T01XQi` | Attention seeking | | |  | pending | | |
-| `T01Y7w` | Callousness | | |  | pending | | |
-| `T01Ziz` | Deceitfulness | | |  | pending | | |
-| `T01a7u` | Grandiosity | | |  | pending | | |
-| `T01bz7` | Manipulativeness | | |  | pending | | |
-| `T01cX5` | Rudeness | | |  | pending | | |
-| `T01d9I` | Egocentricity | | |  | pending | | |
-| `T01eG6` | Dominance | | |  | pending | | |
-| `T01fc8` | Flirtatiousness | | |  | pending | | |
-| `T01gKP` | (low) Timorousness | | |  | pending | | |
-| `T01hQc` | Anhedonia | | |  | pending | | |
-| `C01i7x` | Pain | | |  | pending | | |
-| `C01jKN` | Fatigue | | |  | pending | | |
-| `C01kKJ` | Neurological | | |  | pending | | |
-| `C01l9M` | Cardiopulmonary | | |  | pending | | |
-| `C01mPz` | Negative emotionality | | |  | pending | | |
-| `C01nVp` | Anger/irritability | | |  | pending | | |
-| `C01oMk` | Behavioral avoidance | | |  | pending | | |
-| `C01pc6` | Anxiety sensitivity | | |  | pending | | |
-| `C01qTa` | BII phobia | | |  | pending | | |
-| `C01rfi` | Body dissatisfaction | | |  | pending | | |
-| `C01s9T` | Binge eating | | |  | pending | | |
-| `C01tAk` | Cognitive restraint | | |  | pending | | |
-| `C01ueZ` | Purging | | |  | pending | | |
-| `C01vT5` | Excessive exercise | | |  | pending | | |
-| `C01wSl` | Restricting | | |  | pending | | |
-| `C01xzj` | Muscle building | | |  | pending | | |
-| `C01yno` | Negative attitudes toward obesity | | |  | pending | | |
-| `C01zXz` | Low sexual desire | | |  | pending | | |
-| `C020XA` | Difficulties with arousal | | |  | pending | | |
-| `C021Q0` | Low orgasmic function | | |  | pending | | |
-| `C022PW` | Sex-related distress | | |  | pending | | |
-| `C0237W` | Decreased need for sleep | | |  | pending | | |
-| `C024WG` | Physiological anxiety | | |  | pending | | |
-| `C025ex` | Health/Illness anxiety | | |  | pending | | |
-| `T026cQ` | Peculiarity | | |  | pending | | |
-| `C0277d` | Reality distortion | | |  | pending | | |
-| `T028jy` | Emotional detachment | | |  | pending | | |
-| `T029jr` | Social withdrawal | | |  | pending | | |
-| `T02A06` | Romantic disinterest | | |  | pending | | |
-| `C02BO8` | Inattention | | |  | pending | | |
-| `C02CiQ` | Destruction of property | | |  | pending | | |
-| `C02DSC` | Exhibitionism | | |  | pending | | |
-| `U0012Y` | Sexual Problems | | |  | pending | | |
-| `U002SC` | Eating Pathology | | |  | pending | | |
-| `U0036N` | Fear | | |  | pending | | |
-| `U004dm` | Distress | | |  | pending | | |
-| `U0050q` | Mania | | |  | pending | | |
-| `U0061L` | Harmful Substance Use | | |  | pending | | |
-| `U007EJ` | Antisocial Behavior | | |  | pending | | |
-| `0004KV` | Version | | |  | pending | | |
+| `0004KV` | Version |  |  | Structural schema class (factorization version), not a domain-specific HiTOP concept | excluded |  |  |
+| `C001qy` | Conversion | hitop_wm, kotov2017 |  | Identity in: working-model; partial overlap only in: emotional-dysfunction ("Neurological") | draft |  |  |
+| `C00217` | Somatization | hitop_wm, kotov2017, woelke2025 |  | Identity in: working-model, dzpg-mds | draft |  |  |
+| `C0033z` | Malaise | hitop_wm, kotov2017, watson2022 |  | Identity in: working-model, emotional-dysfunction | draft |  |  |
+| `C00416` | Head Pain | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `C005Sv` | Gastrointestinal | hitop_wm, kotov2017, watson2022 |  | Identity in: working-model, emotional-dysfunction | draft |  |  |
+| `C006MD` | Cognitive | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `C00JTU` | Interactive anxiety | hitop_wm, kotov2017, watson2022, kerber2024, woelke2025 |  | Identity in: working-model, emotional-dysfunction, bass-ackwards, dzpg-mds | draft |  |  |
+| `C00KL0` | Performance anxiety | hitop_wm, kotov2017, watson2022, kerber2024, woelke2025 |  | Identity in: working-model, emotional-dysfunction, bass-ackwards, dzpg-mds | draft |  |  |
+| `C00LqY` | Public places | hitop_wm, kotov2017, watson2022, kerber2024, woelke2025 |  | Identity in: working-model, emotional-dysfunction, bass-ackwards, dzpg-mds | draft |  |  |
+| `C00Mpl` | Enclosed spaces | hitop_wm, kotov2017, watson2022, kerber2024, woelke2025 |  | Identity in: working-model, emotional-dysfunction, bass-ackwards, dzpg-mds | draft |  |  |
+| `C00N4I` | Animal phobia | hitop_wm, kotov2017, watson2022, kerber2024 |  | Identity in: working-model, emotional-dysfunction, bass-ackwards | draft |  |  |
+| `C00OuR` | Situational phobia | hitop_wm, kotov2017, watson2022, kerber2024 |  | Identity in: working-model, emotional-dysfunction, bass-ackwards | draft |  |  |
+| `C00Pjp` | Blood-injection-injury | hitop_wm, kotov2017, watson2022, kerber2024 |  | Identity in: working-model, emotional-dysfunction, bass-ackwards | draft |  |  |
+| `C00Q1t` | Physiological panic | hitop_wm, kotov2017, watson2022, kerber2024, woelke2025 |  | Identity in: working-model, emotional-dysfunction, bass-ackwards, dzpg-mds; partial overlap only in: emotional-dysfunction ("Cardiopulmonary"), emotional-dysfunction ("Physiological anxiety") | draft |  |  |
+| `C00RGy` | Psychological panic | hitop_wm, kotov2017, watson2022, kerber2024, woelke2025 |  | Identity in: working-model, emotional-dysfunction, bass-ackwards, dzpg-mds; partial overlap only in: emotional-dysfunction ("Anxiety sensitivity") | draft |  |  |
+| `C00S9m` | Cleaning | hitop_wm, kotov2017, watson2022 |  | Identity in: working-model, emotional-dysfunction | draft |  |  |
+| `C00TgL` | Rituals | hitop_wm, kotov2017, watson2022 |  | Identity in: working-model, emotional-dysfunction | draft |  |  |
+| `C00Urw` | Checking | hitop_wm, kotov2017, watson2022 |  | Identity in: working-model, emotional-dysfunction | draft |  |  |
+| `C00VHv` | Dysphoria | hitop_wm, kotov2017, watson2022, kerber2024, woelke2025 |  | Identity in: working-model, emotional-dysfunction, bass-ackwards, dzpg-mds | draft |  |  |
+| `C00WJc` | Lassitude | hitop_wm, kotov2017, kerber2024, woelke2025 |  | Identity in: working-model, bass-ackwards, dzpg-mds | draft |  |  |
+| `C00XyI` | Anhedonia (Component) | hitop_wm, kotov2017, kerber2024 |  | Identity in: working-model, bass-ackwards | draft |  |  |
+| `C00Y8j` | Insomnia | hitop_wm, kotov2017, watson2022, kerber2024 |  | Identity in: working-model, emotional-dysfunction, bass-ackwards | draft |  |  |
+| `C00ZyP` | Suicidality | hitop_wm, kotov2017, watson2022 |  | Identity in: working-model, emotional-dysfunction | draft |  |  |
+| `C00aMF` | Agitation | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `C00bEx` | Retardation | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `C00cSn` | Appetite loss | hitop_wm, kotov2017, woelke2025 |  | Identity in: working-model, dzpg-mds | draft |  |  |
+| `C00dc1` | Appetite gain | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `C00e0L` | (low) Wellbeing | hitop_wm, kotov2017 |  | Identity in: working-model; partial overlap only in: dzpg-mds ("Low self esteem") | draft |  |  |
+| `C00fKQ` | Generalized anxiety disorder symptoms | hitop_wm, kotov2017, kerber2024, woelke2025 |  | Identity in: working-model, bass-ackwards, dzpg-mds | draft |  |  |
+| `C00gvD` | Re-experiencing | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `C00hPJ` | Avoidance | hitop_wm, kotov2017, woelke2025 |  | Identity in: working-model, dzpg-mds | draft |  |  |
+| `C00iAh` | Hyperarousal | hitop_wm, kotov2017, woelke2025 |  | Identity in: working-model, dzpg-mds | draft |  |  |
+| `C00jw5` | Numbing | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `C00kEN` | Dissociation | hitop_wm, kotov2017, kotov2020, woelke2025 |  | Identity in: working-model, psychosis, dzpg-mds | draft |  |  |
+| `C00l5y` | Irritability | hitop_wm, kotov2017, watson2022, woelke2025 |  | Identity in: working-model, emotional-dysfunction, dzpg-mds | draft |  |  |
+| `C00mpe` | Pure obsessions | hitop_wm, kotov2017, watson2022, kerber2024 |  | Identity in: working-model, emotional-dysfunction, bass-ackwards; partial overlap only in: dzpg-mds ("OCD") | draft |  |  |
+| `C00nyb` | Euphoric activation | hitop_wm, kotov2017, watson2022 |  | Identity in: working-model, emotional-dysfunction | draft |  |  |
+| `C00oKM` | Hyperactive cognition | hitop_wm, kotov2017, watson2022 |  | Identity in: working-model, emotional-dysfunction | draft |  |  |
+| `C00pnZ` | Reckless overconfidence | hitop_wm, kotov2017, watson2022 |  | Identity in: working-model, emotional-dysfunction | draft |  |  |
+| `C00qSD` | Psychotic | hitop_wm, kotov2017, kotov2020, woelke2025 |  | Identity in: working-model, psychosis, dzpg-mds | draft |  |  |
+| `C00rnS` | Disorganized | hitop_wm, kotov2017, kotov2020 |  | Identity in: working-model, psychosis | draft |  |  |
+| `C00sWr` | Inexpressivity | hitop_wm, kotov2017, kotov2020 |  | Identity in: working-model, psychosis | draft |  |  |
+| `C00tUQ` | Avolition | hitop_wm, kotov2017, kotov2020 |  | Identity in: working-model, psychosis | draft |  |  |
+| `C01DAb` | Alcohol use | hitop_wm, kotov2017, krueger2021, kerber2024, woelke2025 |  | Identity in: working-model, externalizing, bass-ackwards, dzpg-mds | draft |  |  |
+| `C01Elz` | Alcohol problems | hitop_wm, kotov2017, krueger2021 |  | Identity in: working-model, externalizing | draft |  |  |
+| `C01FDy` | Marijuana use | hitop_wm, kotov2017, krueger2021, kerber2024 |  | Identity in: working-model, externalizing, bass-ackwards | draft |  |  |
+| `C01GEY` | Marijuana problems | hitop_wm, kotov2017, krueger2021 |  | Identity in: working-model, externalizing | draft |  |  |
+| `C01HGq` | Drug use | hitop_wm, kotov2017, krueger2021, kerber2024, woelke2025 |  | Identity in: working-model, externalizing, bass-ackwards, dzpg-mds; partial overlap only in: dzpg-mds ("Smoking") | draft |  |  |
+| `C01Ip4` | Drug problems | hitop_wm, kotov2017, krueger2021, woelke2025 |  | Identity in: working-model, externalizing, dzpg-mds | draft |  |  |
+| `C01JH8` | Physical aggression | hitop_wm, kotov2017, krueger2021, woelke2025 |  | Identity in: working-model, externalizing, dzpg-mds | draft |  |  |
+| `C01KXo` | Destructive aggression | hitop_wm, kotov2017, krueger2021, woelke2025 |  | Identity in: working-model, externalizing, dzpg-mds | draft |  |  |
+| `C01LSp` | Relational aggression | hitop_wm, kotov2017, krueger2021, woelke2025 |  | Identity in: working-model, externalizing, dzpg-mds | draft |  |  |
+| `C01MjB` | Fraud | hitop_wm, kotov2017, krueger2021 |  | Identity in: working-model, externalizing | draft |  |  |
+| `C01i7x` | Pain | watson2022 |  | Identity in: emotional-dysfunction | draft |  |  |
+| `C01jKN` | Fatigue | watson2022 |  | Identity in: emotional-dysfunction | draft |  |  |
+| `C01kKJ` | Behavioral avoidance | watson2022 |  | Identity in: emotional-dysfunction | draft |  |  |
+| `C01l9M` | Body dissatisfaction | watson2022 |  | Identity in: emotional-dysfunction; partial overlap only in: bass-ackwards ("ED Thoughts") | draft |  |  |
+| `C01mPz` | Binge eating | watson2022 |  | Identity in: emotional-dysfunction; partial overlap only in: bass-ackwards ("ED Bulimic"), dzpg-mds ("ED Bulimic") | draft |  |  |
+| `C01nVp` | Cognitive restraint | watson2022 |  | Identity in: emotional-dysfunction | draft |  |  |
+| `C01oMk` | Purging | watson2022 |  | Identity in: emotional-dysfunction | draft |  |  |
+| `C01pc6` | Excessive exercise | watson2022 |  | Identity in: emotional-dysfunction | draft |  |  |
+| `C01qTa` | Restricting | watson2022 |  | Identity in: emotional-dysfunction; partial overlap only in: bass-ackwards ("ED Anorectic"), dzpg-mds ("ED Anorectic") | draft |  |  |
+| `C01rfi` | Muscle building | watson2022 |  | Identity in: emotional-dysfunction | draft |  |  |
+| `C01s9T` | Negative attitudes toward obesity | watson2022 |  | Identity in: emotional-dysfunction | draft |  |  |
+| `C01tAk` | Low sexual desire | watson2022 |  | Identity in: emotional-dysfunction | draft |  |  |
+| `C01ueZ` | Difficulties with arousal | watson2022 |  | Identity in: emotional-dysfunction | draft |  |  |
+| `C01vT5` | Low orgasmic function | watson2022 |  | Identity in: emotional-dysfunction | draft |  |  |
+| `C01wSl` | Sex-related distress | watson2022 |  | Identity in: emotional-dysfunction | draft |  |  |
+| `C01xzj` | Decreased need for sleep | watson2022 |  | Identity in: emotional-dysfunction | draft |  |  |
+| `C01yno` | Health/Illness anxiety | watson2022 |  | Identity in: emotional-dysfunction | draft |  |  |
+| `C01zXz` | Hyperactivity | krueger2021 |  | Identity in: externalizing | draft |  |  |
+| `C020XA` | Disorganization | krueger2021 |  | Identity in: externalizing | draft |  |  |
+| `F001Hw` | General Factor of Psychopathology | hitop_wm, kotov2017, kerber2024, woelke2025 |  | Identity in: working-model, bass-ackwards, dzpg-mds | draft |  |  |
+| `O002sP` | Tier |  |  | Structural schema class (tier vocabulary), not a domain-specific HiTOP concept | excluded |  |  |
+| `P001Y2` | Somatoform | hitop_wm, kotov2017, watson2022, kerber2024 |  | Identity in: working-model, emotional-dysfunction, bass-ackwards | draft |  |  |
+| `P002nf` | Internalizing | hitop_wm, kotov2017, watson2022, kerber2024, woelke2025 |  | Identity in: working-model, emotional-dysfunction, bass-ackwards, dzpg-mds; partial overlap only in: emotional-dysfunction ("Negative emotionality") | draft |  |  |
+| `P003SL` | Thought Disorder | hitop_wm, kotov2017, kotov2020, kerber2024, woelke2025 |  | Identity in: working-model, psychosis, bass-ackwards, dzpg-mds | draft |  |  |
+| `P004R1` | Detachment | hitop_wm, kotov2017, kotov2020, kerber2024, woelke2025 |  | Identity in: working-model, psychosis, bass-ackwards, dzpg-mds | draft |  |  |
+| `P005xY` | Disinhibited Externalizing | hitop_wm, kotov2017, krueger2021, kerber2024, woelke2025 |  | Identity in: working-model, externalizing, bass-ackwards, dzpg-mds | draft |  |  |
+| `P006gM` | Antagonistic Externalizing | hitop_wm, kotov2017, krueger2021, kerber2024, woelke2025 |  | Identity in: working-model, externalizing, bass-ackwards, dzpg-mds | draft |  |  |
+| `S0013h` | Externalizing | hitop_wm, kotov2017, krueger2021 |  | Identity in: working-model, externalizing | draft |  |  |
+| `S002SE` | Emotional dysfunction | watson2022 |  | Identity in: emotional-dysfunction | draft |  |  |
+| `S003TB` | Psychosis | kotov2020 |  | Identity in: psychosis | draft |  |  |
+| `T007eM` | Anxiousness | hitop_wm, kotov2017, watson2022, woelke2025 |  | Identity in: working-model, emotional-dysfunction, dzpg-mds | draft |  |  |
+| `T008mD` | Emotional lability | hitop_wm, kotov2017, watson2022, woelke2025 |  | Identity in: working-model, emotional-dysfunction, dzpg-mds | draft |  |  |
+| `T0094I` | Hostility | hitop_wm, kotov2017, krueger2021, woelke2025 |  | Identity in: working-model, externalizing, dzpg-mds | draft |  |  |
+| `T00A0Z` | Perseveration | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `T00BXK` | (low) Restricted affectivity | hitop_wm, kotov2017 |  | Identity in: working-model; partial overlap only in: dzpg-mds ("Restricted affectivity"), psychosis ("Emotional detachment") | draft |  |  |
+| `T00Cgy` | Separation insecurity | hitop_wm, kotov2017, watson2022 |  | Identity in: working-model, emotional-dysfunction | draft |  |  |
+| `T00D42` | Submissiveness | hitop_wm, kotov2017, watson2022 |  | Identity in: working-model, emotional-dysfunction | draft |  |  |
+| `T00Eht` | Identity problems | hitop_wm, kotov2017, kerber2024, woelke2025 |  | Identity in: working-model, bass-ackwards, dzpg-mds | draft |  |  |
+| `T00Fe0` | Negative relationships | hitop_wm, kotov2017, kerber2024, woelke2025 |  | Identity in: working-model, bass-ackwards, dzpg-mds | draft |  |  |
+| `T00G3d` | Fragility | hitop_wm, kotov2017, kerber2024, woelke2025 |  | Identity in: working-model, bass-ackwards, dzpg-mds | draft |  |  |
+| `T00HCy` | Ineptitude | hitop_wm, kotov2017, kerber2024 |  | Identity in: working-model, bass-ackwards | draft |  |  |
+| `T00IAT` | (low) Invulnerability | hitop_wm, kotov2017, kerber2024 |  | Identity in: working-model, bass-ackwards | draft |  |  |
+| `T00ua9` | Eccentricity | hitop_wm, kotov2017, kotov2020 |  | Identity in: working-model, psychosis | draft |  |  |
+| `T00vjR` | Cognitive dysregulation | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `T00wk6` | Unusual beliefs and experiences | hitop_wm, kotov2017, kotov2020, woelke2025 |  | Identity in: working-model, psychosis, dzpg-mds | draft |  |  |
+| `T00xLn` | Fantasy proneness | hitop_wm, kotov2017, kotov2020 |  | Identity in: working-model, psychosis | draft |  |  |
+| `T00yfU` | Depressivity | hitop_wm, kotov2017, watson2022 |  | Identity in: working-model, emotional-dysfunction | draft |  |  |
+| `T00zDk` | Intimacy avoidance | hitop_wm, kotov2017, woelke2025 |  | Identity in: working-model, dzpg-mds; partial overlap only in: psychosis ("Romantic disinterest") | draft |  |  |
+| `T010c6` | Suspiciousness | hitop_wm, kotov2017, krueger2021 |  | Identity in: working-model, externalizing | draft |  |  |
+| `T011K6` | Withdrawal | hitop_wm, kotov2017, kotov2020, woelke2025 |  | Identity in: working-model, psychosis, dzpg-mds | draft |  |  |
+| `T012QL` | Interpersonal passivity | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `T013F1` | Disaffiliativeness | hitop_wm, kotov2017, woelke2025 |  | Identity in: working-model, dzpg-mds | draft |  |  |
+| `T014BA` | (low) Attention seeking | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `T015o8` | Problematic impulsivity | hitop_wm, kotov2017, krueger2021, woelke2025 |  | Identity in: working-model, externalizing, dzpg-mds | draft |  |  |
+| `T016k0` | Irresponsibility | hitop_wm, kotov2017, krueger2021 |  | Identity in: working-model, externalizing | draft |  |  |
+| `T0177S` | Theft | hitop_wm, kotov2017, krueger2021 |  | Identity in: working-model, externalizing | draft |  |  |
+| `T018ir` | Distractibility | hitop_wm, kotov2017, krueger2021, woelke2025 |  | Identity in: working-model, externalizing, dzpg-mds; partial overlap only in: externalizing ("Inattention") | draft |  |  |
+| `T019Cj` | Risk taking | hitop_wm, kotov2017, krueger2021, woelke2025 |  | Identity in: working-model, externalizing, dzpg-mds | draft |  |  |
+| `T01A5i` | (low) Rigid perfectionism | hitop_wm, kotov2017 |  | Identity in: working-model; partial overlap only in: externalizing ("(Low) Perfectionism") | draft |  |  |
+| `T01BfQ` | (low) Ruminative deliberation | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `T01C1W` | (low) Workaholism | hitop_wm, kotov2017, krueger2021 |  | Identity in: working-model, externalizing | draft |  |  |
+| `T01Neb` | Impatient urgency | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `T01OY2` | (low) Planful control | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `T01PMW` | (low) Dependability | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `T01QNN` | Alienation | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `T01RYG` | Boredom proneness | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `T01SYW` | Blame externalization | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `T01T3u` | (low) Honesty | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `T01UGN` | Rebelliousness | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `T01VXq` | (low) Empathy | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `T01W1E` | Excitement seeking | hitop_wm, kotov2017, woelke2025 |  | Identity in: working-model, dzpg-mds | draft |  |  |
+| `T01XQi` | Attention seeking | hitop_wm, kotov2017, krueger2021 |  | Identity in: working-model, externalizing | draft |  |  |
+| `T01Y7w` | Callousness | hitop_wm, kotov2017, krueger2021 |  | Identity in: working-model, externalizing | draft |  |  |
+| `T01Ziz` | Deceitfulness | hitop_wm, kotov2017, krueger2021, woelke2025 |  | Identity in: working-model, externalizing, dzpg-mds | draft |  |  |
+| `T01a7u` | Grandiosity | hitop_wm, kotov2017, krueger2021, woelke2025 |  | Identity in: working-model, externalizing, dzpg-mds | draft |  |  |
+| `T01bz7` | Manipulativeness | hitop_wm, kotov2017, krueger2021, woelke2025 |  | Identity in: working-model, externalizing, dzpg-mds | draft |  |  |
+| `T01cX5` | Rudeness | hitop_wm, kotov2017, krueger2021 |  | Identity in: working-model, externalizing | draft |  |  |
+| `T01d9I` | Egocentricity | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `T01eG6` | Dominance | hitop_wm, kotov2017, krueger2021 |  | Identity in: working-model, externalizing | draft |  |  |
+| `T01fc8` | Flirtatiousness | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `T01gKP` | (low) Timorousness | hitop_wm, kotov2017 |  | Identity in: working-model | draft |  |  |
+| `T01hQc` | Anhedonia (Trait) | hitop_wm, kotov2017, kotov2020, woelke2025 |  | Identity in: working-model, psychosis, dzpg-mds | draft |  |  |
+| `T021iZ` | Perceptual dysregulation | hitop_wm, kotov2017, woelke2025 |  | Identity in: working-model, dzpg-mds | draft |  |  |
+| `U0012Y` | Sexual Problems | hitop_wm, kotov2017, watson2022 |  | Identity in: working-model, emotional-dysfunction | draft |  |  |
+| `U002SC` | Eating Pathology | hitop_wm, kotov2017, watson2022, kerber2024, woelke2025 |  | Identity in: working-model, emotional-dysfunction, bass-ackwards, dzpg-mds | draft |  |  |
+| `U0036N` | Fear | hitop_wm, kotov2017, watson2022, kerber2024, woelke2025 |  | Identity in: working-model, emotional-dysfunction, bass-ackwards, dzpg-mds | draft |  |  |
+| `U004dm` | Distress | hitop_wm, kotov2017, watson2022, kerber2024, woelke2025 |  | Identity in: working-model, emotional-dysfunction, bass-ackwards, dzpg-mds | draft |  |  |
+| `U0050q` | Mania | hitop_wm, kotov2017, kotov2020, watson2022, kerber2024 |  | Identity in: working-model, psychosis, emotional-dysfunction, bass-ackwards | draft |  |  |
+| `U0061L` | Harmful Substance Use | hitop_wm, kotov2017, krueger2021, woelke2025 |  | Identity in: working-model, externalizing, dzpg-mds | draft |  |  |
+| `U007EJ` | Antisocial Behavior | hitop_wm, kotov2017, krueger2021, woelke2025 |  | Identity in: working-model, externalizing, dzpg-mds | draft |  |  |
 
 ## 6. Rules for new entries
 

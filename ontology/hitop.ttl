@@ -8,6 +8,8 @@
 
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -40,31 +42,34 @@
 
 <http://purl.org/hitop> a owl:Ontology ;
     rdfs:label "Hierarchical Taxonomy of Psychopathology (HiTOP) Ontology" ;
-    dcterms:contributor "Dr. André Kerber" ,
- "Dr. Julius Weise" ,
- "Dr. Lisa Rebecca Otto" ,
- "Dr. Maike Richter" ,
- "Dr. Marcel Jentsch" ,
- "Dr. Mira Tschorn" ,
- "Dr. Rogério Blitz" ,
- "Dr. Yannik Terhorst" ,
- "Falk Gerrik Verhees" ,
- "Margaux Gatrio" ,
- "Prof. Dr. Nils Opel" ;
+    dcterms:contributor <https://orcid.org/0000-0002-0908-5579> ,
+ <https://orcid.org/0000-0002-4505-4593> ,
+ <https://orcid.org/0000-0002-5702-8405> ,
+ <https://orcid.org/0000-0002-6808-2968> ,
+ <https://orcid.org/0000-0002-8588-7784> ,
+ <https://orcid.org/0000-0002-9128-3987> ,
+ <https://orcid.org/0000-0003-4078-3954> ,
+ <https://orcid.org/0000-0003-4091-5048> ,
+ <https://orcid.org/0000-0003-4749-3298> ,
+ <https://orcid.org/0009-0004-3059-6578> ,
+ <https://orcid.org/0009-0007-3950-7684> ;
     dcterms:created "2024-07-29" ;
     dcterms:creator <https://orcid.org/0000-0002-4505-4593> ;
     dcterms:hasVersion dcterms:1.1 ;
     dcterms:isVersionOf dcterms:1.1 ;
-    dcterms:issued dcterms:1.1 ;
+    dcterms:issued dcterms:1.1 ,
+ "2026-11-02" ;
     dcterms:license <https://opensource.org/licenses/MIT> ;
     dcterms:modified "2025-08-19" ;
-    dcterms:publisher "Dr. Rogério Blitz" ;
+    dcterms:publisher <https://orcid.org/0000-0002-4505-4593> ;
     dcterms:rights "This work is licensed under the MIT License." ;
-    dcterms:rightsHolder "Dr. Rogério Blitz" ;
+    dcterms:rightsHolder <https://orcid.org/0000-0002-4505-4593> ;
     rdfs:comment "This ontology implements a structured representation of the Hierarchical Taxonomy of Psychopathology (HiTOP) and is designed to support an open, extensible framework for modeling mental health dimensions. It allows for the representation of an unlimited number of factor structures and variants, enabling flexible integration of empirical findings and theoretical refinements." ;
-    rdfs:seeAlso <https://www.hitop-system.org/> ;
+    rdfs:seeAlso <http://purl.org/hitop/contributions> ,
+ <https://www.hitop-system.org/> ;
     owl:versionInfo "0.1.0"^^xsd:string ;
-    skos:changeNote <https://www.w3.org/2009/08/skos-reference/skos.html> .
+    skos:changeNote <https://www.w3.org/2009/08/skos-reference/skos.html> ;
+ prov:has_provenance <http://purl.org/hitop/contributions> .
 
     hitop:C001qy a owl:Class ;
     rdfs:label "Conversion"@en ;
@@ -187,7 +192,7 @@
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C00XyI a owl:Class ;
-    rdfs:label "Anhedonia"@en ;
+    rdfs:label "Anhedonia (Component)"@en ;
     obo:IAO_0000115 "Anhedonia =def. a Distress which is conceptualized as a transient reduction in the capacity to experience pleasure, often emerging in response to acute stress or mood states, leading to a temporary inability to enjoy previously pleasurable activities."@en ;
     rdfs:comment "Anhedonia conceptualized as a Component refers to a transient reduction in the capacity to experience pleasure, often emerging in response to acute stress or mood states."@en ;
     rdfs:subClassOf hitop:O002sP .
@@ -393,181 +398,115 @@
     hitop:C01jKN a owl:Class ;
     rdfs:label "Fatigue"@en ;
     obo:IAO_0000115 "Fatigue =def. a Somatoform which is defined by a persistent or recurrent sense of tiredness, reduced energy, or diminished capacity for sustained physical or mental activity."@en ;
-    rdfs:comment "A component or trait defined by a persistent or recurrent sense of tiredness, reduced energy, or diminished capacity for sustained physical or mental activity."@en ;
+    rdfs:comment "A component defined by a persistent or recurrent sense of tiredness, reduced energy, or diminished capacity for sustained physical or mental activity."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01kKJ a owl:Class ;
-    rdfs:label "Neurological"@en ;
-    obo:IAO_0000115 "Neurological =def. a Somatoform which is defined by functional disturbances or symptoms related to the nervous system, including sensory, motor, or cognitive manifestations."@en ;
-    rdfs:comment "A component or trait reflecting functional disturbances or symptoms related to the nervous system, including sensory, motor, or cognitive manifestations."@en ;
+    rdfs:label "Behavioral avoidance"@en ;
+    obo:IAO_0000115 "Behavioral avoidance =def. a Fear component which is defined by the consistent tendency to withdraw from or evade situations, thoughts, or stimuli perceived as threatening, distressing, or aversive."@en ;
+    rdfs:comment "A component defined by the consistent tendency to withdraw from or evade situations, thoughts, or stimuli perceived as threatening, distressing, or aversive."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01l9M a owl:Class ;
-    rdfs:label "Cardiopulmonary"@en ;
-    obo:IAO_0000115 "Cardiopulmonary =def. a Somatoform which is defined by signs or symptoms involving the heart and lungs, such as circulatory, respiratory, or exercise-related difficulties."@en ;
-    rdfs:comment "A component or trait associated with signs or symptoms involving the heart and lungs, such as circulatory, respiratory, or exercise-related difficulties."@en ;
+    rdfs:label "Body dissatisfaction"@en ;
+    obo:IAO_0000115 "Body dissatisfaction =def. an Eating pathology component which is defined by persistent negative evaluations of one’s own body shape, weight, or appearance, often linked to distress and maladaptive behaviors."@en ;
+    rdfs:comment "A component defined by persistent negative evaluations of one’s own body shape, weight, or appearance, often linked to distress and maladaptive behaviors."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:C01mPz a owl:Class ;
-    rdfs:label "Negative emotionality"@en ;
-    obo:IAO_0000115 "Negative emotionality =def. a Distress trait which is defined by a general tendency to experience frequent and intense negative emotions such as sadness, anxiety, and guilt across diverse situations."@en ;
-    rdfs:comment "A trait reflecting a general tendency to experience frequent and intense negative emotions such as sadness, anxiety, and guilt across diverse situations."@en ;
-    rdfs:subClassOf hitop:O002sP .
-
-    hitop:C01nVp a owl:Class ;
-    rdfs:label "Anger/irritability"@en ;
-    obo:IAO_0000115 "Anger/irritability =def. a Distress component or trait which is defined by a heightened propensity toward frustration, hostility, or easily provoked emotional reactivity."@en ;
-    rdfs:comment "A component or trait characterized by a heightened propensity toward frustration, hostility, or easily provoked emotional reactivity."@en ;
-    rdfs:subClassOf hitop:O002sP .
-
-    hitop:C01oMk a owl:Class ;
-    rdfs:label "Behavioral avoidance"@en ;
-    obo:IAO_0000115 "Behavioral avoidance =def. a Fear component or trait which is defined by the consistent tendency to withdraw from or evade situations, thoughts, or stimuli perceived as threatening, distressing, or aversive."@en ;
-    rdfs:comment "A component or trait defined by the consistent tendency to withdraw from or evade situations, thoughts, or stimuli perceived as threatening, distressing, or aversive."@en ;
-    rdfs:subClassOf hitop:O002sP .
-
-    hitop:C01pc6 a owl:Class ;
-    rdfs:label "Anxiety sensitivity"@en ;
-    obo:IAO_0000115 "Anxiety sensitivity =def. a Fear trait which is defined by the fear of anxiety-related sensations, based on beliefs that these sensations have harmful physical, psychological, or social consequences."@en ;
-    rdfs:comment "A trait reflecting the fear of anxiety-related sensations, based on beliefs that these sensations have harmful physical, psychological, or social consequences."@en ;
-    rdfs:subClassOf hitop:O002sP .
-
-    hitop:C01qTa a owl:Class ;
-    rdfs:label "BII phobia"@en ;
-    obo:IAO_0000115 "BII phobia =def. a Fear component which is defined by marked fear or avoidance of situations involving blood, injury, or invasive medical procedures, often accompanied by physiological reactions such as fainting."@en ;
-    rdfs:comment "A component characterized by marked fear or avoidance of situations involving blood, injury, or invasive medical procedures, often associated with physiological reactions such as fainting."@en ;
-    rdfs:subClassOf hitop:O002sP .
-
-    hitop:C01rfi a owl:Class ;
-    rdfs:label "Body dissatisfaction"@en ;
-    obo:IAO_0000115 "Body dissatisfaction =def. an Eating pathology component or trait which is defined by persistent negative evaluations of one’s own body shape, weight, or appearance, often linked to distress and maladaptive behaviors."@en ;
-    rdfs:comment "A component or trait defined by persistent negative evaluations of one’s own body shape, weight, or appearance, often linked to distress and maladaptive behaviors."@en ;
-    rdfs:subClassOf hitop:O002sP .
-
-    hitop:C01s9T a owl:Class ;
     rdfs:label "Binge eating"@en ;
     obo:IAO_0000115 "Binge eating =def. an Eating pathology component which is defined by recurrent episodes of consuming unusually large amounts of food, accompanied by a sense of loss of control during the episode."@en ;
     rdfs:comment "A component characterized by recurrent episodes of consuming unusually large amounts of food accompanied by a sense of loss of control during the episode."@en ;
     rdfs:subClassOf hitop:O002sP .
 
-    hitop:C01tAk a owl:Class ;
+    hitop:C01nVp a owl:Class ;
     rdfs:label "Cognitive restraint"@en ;
-    obo:IAO_0000115 "Cognitive restraint =def. an Eating pathology trait which is defined by the deliberate control or restriction of eating behavior based on cognitive rules or beliefs about food, body weight, or dieting."@en ;
-    rdfs:comment "A trait reflecting the deliberate control or restriction of eating behavior based on cognitive rules or beliefs about food, body weight, or dieting."@en ;
+    obo:IAO_0000115 "Cognitive restraint =def. an Eating pathology component which is defined by the deliberate control or restriction of eating behavior based on cognitive rules or beliefs about food, body weight, or dieting."@en ;
+    rdfs:comment "A component reflecting the deliberate control or restriction of eating behavior based on cognitive rules or beliefs about food, body weight, or dieting."@en ;
     rdfs:subClassOf hitop:O002sP .
 
-    hitop:C01ueZ a owl:Class ;
+    hitop:C01oMk a owl:Class ;
     rdfs:label "Purging"@en ;
     obo:IAO_0000115 "Purging =def. an Eating pathology component which is defined by recurrent compensatory behaviors such as self-induced vomiting, misuse of laxatives, or diuretics aimed at preventing weight gain after eating."@en ;
     rdfs:comment "A component involving recurrent compensatory behaviors such as self-induced vomiting, misuse of laxatives, or diuretics aimed at preventing weight gain after eating."@en ;
     rdfs:subClassOf hitop:O002sP .
 
-    hitop:C01vT5 a owl:Class ;
+    hitop:C01pc6 a owl:Class ;
     rdfs:label "Excessive exercise"@en ;
     obo:IAO_0000115 "Excessive exercise =def. an Eating pathology component defined by compulsive or disproportionate physical activity, often performed to control weight, shape, or mood, despite potential health risks."@en ;
     rdfs:comment "A component characterized by compulsive or disproportionate physical activity, often performed with the aim of controlling weight, shape, or mood, despite potential health risks."@en ;
     rdfs:subClassOf hitop:O002sP .
 
-    hitop:C01wSl a owl:Class ;
+    hitop:C01qTa a owl:Class ;
     rdfs:label "Restricting"@en ;
     obo:IAO_0000115 "Restricting =def. an Eating pathology component defined by the deliberate limitation of food intake to influence body weight or shape, typically associated with disordered eating patterns."@en ;
     rdfs:comment "A component defined by the deliberate limitation of food intake in order to influence body weight or shape, typically associated with disordered eating patterns."@en ;
     rdfs:subClassOf hitop:O002sP .
 
-    hitop:C01xzj a owl:Class ;
+    hitop:C01rfi a owl:Class ;
     rdfs:label "Muscle building"@en ;
     obo:IAO_0000115 "Muscle building =def. an Eating pathology component involving persistent efforts to increase muscularity through exercise, diet, or supplementation, sometimes associated with body image concerns."@en ;
     rdfs:comment "A component involving persistent efforts to increase muscularity through exercise, diet, or supplementation, sometimes associated with body image concerns."@en ;
     rdfs:subClassOf hitop:O002sP .
 
-    hitop:C01yno a owl:Class ;
+    hitop:C01s9T a owl:Class ;
     rdfs:label "Negative attitudes toward obesity"@en ;
     obo:IAO_0000115 "Negative attitudes toward obesity =def. an Eating pathology trait reflecting unfavorable beliefs, stereotypes, or stigmatizing attitudes toward individuals with obesity, often linked to social or cultural biases."@en ;
     rdfs:comment "A trait reflecting unfavorable beliefs, stereotypes, or stigmatizing attitudes toward individuals with obesity, often linked to social or cultural biases."@en ;
     rdfs:subClassOf hitop:O002sP .
 
-    hitop:C01zXz a owl:Class ;
+    hitop:C01tAk a owl:Class ;
     rdfs:label "Low sexual desire"@en ;
-    obo:IAO_0000115 "Low sexual desire =def. a Sexual problems component or trait characterized by a persistent or recurrent reduction in interest, motivation, or fantasies related to sexual activity."@en ;
-    rdfs:comment "A component or trait characterized by a persistent or recurrent reduction in interest, motivation, or fantasies related to sexual activity."@en ;
+    obo:IAO_0000115 "Low sexual desire =def. a Sexual problems component characterized by a persistent or recurrent reduction in interest, motivation, or fantasies related to sexual activity."@en ;
+    rdfs:comment "A component characterized by a persistent or recurrent reduction in interest, motivation, or fantasies related to sexual activity."@en ;
     rdfs:subClassOf hitop:O002sP .
 
-    hitop:C020XA a owl:Class ;
+    hitop:C01ueZ a owl:Class ;
     rdfs:label "Difficulties with arousal"@en ;
     obo:IAO_0000115 "Difficulties with arousal =def. a Sexual problems component characterized by challenges in attaining or maintaining adequate sexual excitement or physiological arousal during sexual activity."@en ;
     rdfs:comment "A component defined by challenges in attaining or maintaining adequate sexual excitement or physiological arousal during sexual activity."@en ;
     rdfs:subClassOf hitop:O002sP .
 
-    hitop:C021Q0 a owl:Class ;
+    hitop:C01vT5 a owl:Class ;
     rdfs:label "Low orgasmic function"@en ;
     obo:IAO_0000115 "Low orgasmic function =def. a Sexual problems component characterized by diminished ability, frequency, or satisfaction in reaching orgasm, often associated with sexual dysfunction."@en ;
     rdfs:comment "A component characterized by diminished ability, frequency, or satisfaction in reaching orgasm, often associated with sexual dysfunction."@en ;
     rdfs:subClassOf hitop:O002sP .
 
-    hitop:C022PW a owl:Class ;
+    hitop:C01wSl a owl:Class ;
     rdfs:label "Sex-related distress"@en ;
     obo:IAO_0000115 "Sex-related distress =def. a Sexual problems component defined by psychological discomfort, worry, or negative emotional reactions specifically linked to sexual experiences, functioning, or difficulties."@en ;
     rdfs:comment "A component defined by psychological discomfort, worry, or negative emotional reactions specifically linked to sexual experiences, functioning, or difficulties."@en ;
     rdfs:subClassOf hitop:O002sP .
 
-    hitop:C0237W a owl:Class ;
+    hitop:C01xzj a owl:Class ;
     rdfs:label "Decreased need for sleep"@en ;
-    obo:IAO_0000115 "Decreased need for sleep =def. a Mania component or trait marked by a reduced requirement for sleep without a corresponding sense of fatigue, often associated with altered mood or energy states."@en ;
-    rdfs:comment "A component or trait marked by a reduced requirement for sleep without a corresponding sense of fatigue, often associated with altered mood or energy states."@en ;
+    obo:IAO_0000115 "Decreased need for sleep =def. a Mania component marked by a reduced requirement for sleep without a corresponding sense of fatigue, often associated with altered mood or energy states."@en ;
+    rdfs:comment "A component marked by a reduced requirement for sleep without a corresponding sense of fatigue, often associated with altered mood or energy states."@en ;
     rdfs:subClassOf hitop:O002sP .
 
-    hitop:C024WG a owl:Class ;
-    rdfs:label "Physiological anxiety"@en ;
-    obo:IAO_0000115 "Physiological anxiety =def. a Somatoform and Distress component reflecting bodily manifestations of anxiety such as rapid heartbeat, sweating, trembling, or gastrointestinal discomfort."@en ;
-    rdfs:comment "A component reflecting bodily manifestations of anxiety such as rapid heartbeat, sweating, trembling, or gastrointestinal discomfort."@en ;
-    rdfs:subClassOf hitop:O002sP .
-
-    hitop:C025ex a owl:Class ;
+    hitop:C01yno a owl:Class ;
     rdfs:label "Health/Illness anxiety"@en ;
     obo:IAO_0000115 "Health/Illness anxiety =def. a Somatoform and Distress component characterized by excessive worry or preoccupation with having, developing, or misinterpreting symptoms of a serious medical condition."@en ;
     rdfs:comment "A component characterized by excessive worry or preoccupation with having, developing, or misinterpreting symptoms of a serious medical condition."@en ;
     rdfs:subClassOf hitop:O002sP .
 
-    hitop:C0277d a owl:Class ;
-    rdfs:label "Reality distortion"@en ;
-    obo:IAO_0000115 "Reality distortion =def. a Thought disorder component characterized by alterations in the perception or interpretation of reality, such as delusions, hallucinations, or disorganized thinking."@en ;
-    rdfs:comment "A component characterized by alterations in the perception or interpretation of reality, such as delusions, hallucinations, or disorganized thinking."@en ;
+    hitop:C01zXz a owl:Class ;
+    rdfs:label "Hyperactivity"@en ;
+    obo:IAO_0000115 "Hyperactivity =def. a Disinhibition component which is characterized by excessive motor activity or restlessness relative to developmental level and situational demands, often manifesting as fidgeting, difficulty remaining seated, or difficulty engaging quietly in activities."@en ;
+    rdfs:comment "A component characterized by excessive motor activity or restlessness, often expressed as fidgeting, difficulty remaining seated, or difficulty engaging quietly in activities."@en ;
     rdfs:subClassOf hitop:O002sP .
 
-    hitop:C02BO8 a owl:Class ;
-    rdfs:label "Inattention"@en ;
-    obo:IAO_0000115 "Inattention =def. a Disinhibition component defined by difficulties sustaining focus, being easily distracted, or failing to maintain attention during tasks or activities."@en ;
-    rdfs:comment "A component defined by difficulties sustaining focus, being easily distracted, or failing to maintain attention during tasks or activities."@en ;
-    rdfs:subClassOf hitop:O002sP .
-
-    hitop:C02CiQ a owl:Class ;
-    rdfs:label "Destruction of property"@en ;
-    obo:IAO_0000115 "Destruction of property =def. an Antisocial behavior component involving deliberate or impulsive damage, vandalism, or destruction of objects, possessions, or physical environments."@en ;
-    rdfs:comment "A component involving deliberate or impulsive damage, vandalism, or destruction of objects, possessions, or physical environments."@en ;
-    rdfs:subClassOf hitop:O002sP .
-
-    hitop:C02DSC a owl:Class ;
-    rdfs:label "Exhibitionism"@en ;
-    obo:IAO_0000115 "Exhibitionism =def. an Antagonism trait characterized by a recurrent tendency or desire to draw attention to oneself through the display of one’s body, sexuality, or behaviors in ways intended to provoke, shock, or gain validation."@en ;
-    rdfs:comment "A trait characterized by a recurrent tendency or desire to draw attention to oneself through the display of one’s body, sexuality, or behaviors in ways intended to provoke, shock, or gain validation."@en ;
-    rdfs:subClassOf hitop:O002sP .
-
-    hitop:C02EBv a owl:Class ;
-    rdfs:label "Substance use"@en ;
-    obo:IAO_0000115 "Substance Use =def. a Substance Abuse component which is characterized by the general consumption of alcohol, drugs, or other psychoactive substances, without reference to a single substance category, as distinguished from substance-specific components such as drug use or alcohol use."@en ;
-    rdfs:comment "The general consumption of alcohol, drugs, or other psychoactive substances, considered broadly rather than for one specific substance."@en ;
-    rdfs:subClassOf hitop:O002sP .
-
-    hitop:C02FZY a owl:Class ;
-    rdfs:label "Substance problems"@en ;
-    obo:IAO_0000115 "Substance Problems =def. a Substance Abuse component which is characterized by dependence, abuse, or negative physical, psychological, or social consequences resulting from substance use in general, without reference to a single substance category."@en ;
-    rdfs:comment "Dependence, abuse, or negative consequences resulting from substance use, considered broadly rather than for one specific substance."@en ;
+    hitop:C020XA a owl:Class ;
+    rdfs:label "Disorganization"@en ;
+    obo:IAO_0000115 "Disorganization =def. a Disinhibition component which is characterized by difficulties organizing and structuring everyday activities, tasks, and responsibilities, often manifesting as disordered routines, poor task sequencing, and difficulty maintaining an organized environment."@en ;
+    rdfs:comment "A component characterized by difficulties organizing everyday activities, tasks, and responsibilities, often reflected in disordered routines, poor task sequencing, and an unorganized environment."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:F001Hw a owl:Class ;
-    rdfs:label "General Psychopathology"@en ;
-    obo:IAO_0000115 "General Psychopathology = Def. a Psychological Condition which manifests across multiple mental health disorders and includes broad symptoms such as mood disturbances, anxiety, cognitive dysfunctions, and behavioral problems."@en ;
-    rdfs:comment "General Psychopathology refers to the broad, overarching category of mental disorders and psychological symptoms that can manifest across different mental health conditions. It encompasses a wide range of psychological phenomena that are not specific to any single disorder but may contribute to or exacerbate multiple types of mental health issues. This category includes general symptoms and traits that are commonly observed in various psychiatric conditions, such as mood disturbances, anxiety, cognitive dysfunctions, and behavioral problems."@en ;
+    rdfs:label "General Factor of Psychopathology"@en ;
+    obo:IAO_0000115 "General Factor of Psychopathology = Def. a Psychological Condition which manifests across multiple mental health disorders and includes broad symptoms such as mood disturbances, anxiety, cognitive dysfunctions, and behavioral problems."@en ;
+    rdfs:comment "General Factor of Psychopathology refers to the broad, overarching category of mental disorders and psychological symptoms that can manifest across different mental health conditions. It encompasses a wide range of psychological phenomena that are not specific to any single disorder but may contribute to or exacerbate multiple types of mental health issues. This category includes general symptoms and traits that are commonly observed in various psychiatric conditions, such as mood disturbances, anxiety, cognitive dysfunctions, and behavioral problems."@en ;
     rdfs:subClassOf hitop:O002sP ;
     skos:changeNote "Indicates the potential for future inclusion of additional spectra and other related concepts as new developments and insights emerge in the field of general psychopathology. Allows for flexible expansion and refinement of the taxonomy to integrate new spectra, subfactors, and related elements to better capture evolving understanding and research findings." .
 
@@ -713,9 +652,9 @@
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T00vjR a owl:Class ;
-    rdfs:label "Cognitive perceptual dysregulation"@en ;
-    obo:IAO_0000115 "Cognitive Perceptual Dysregulation =def. a Thought Disorder which is characterized by disturbances in cognition and perception, including unusual beliefs, perceptual aberrations, and difficulties distinguishing internal thoughts from external reality."@en ;
-    rdfs:comment "A trait characterized by disturbances in cognition and perception."@en ;
+    rdfs:label "Cognitive dysregulation"@en ;
+    obo:IAO_0000115 "Cognitive Dysregulation =def. a Thought Disorder which is characterized by disturbances primarily in cognition, including unusual beliefs, disturbances in thought processes, and difficulties distinguishing internal thoughts from external reality."@en ;
+    rdfs:comment "A trait characterized by disturbances in cognition."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T00wk6 a owl:Class ;
@@ -941,33 +880,15 @@
     rdfs:subClassOf hitop:O002sP .
 
     hitop:T01hQc a owl:Class ;
-    rdfs:label "Anhedonia"@en ;
+    rdfs:label "Anhedonia (Trait)"@en ;
     obo:IAO_0000115 "Anhedonia =def. a Detachment which is conceptualized as a stable, enduring disposition toward diminished pleasure or interest in typically rewarding experiences, leading to a reduced ability to experience joy or satisfaction from activities that are usually enjoyable."@en ;
     rdfs:comment "Anhedonia conceptualized as a Trait refers to a stable, enduring disposition toward diminished pleasure or interest in typically rewarding experiences."@en ;
     rdfs:subClassOf hitop:O002sP .
 
-    hitop:T026cQ a owl:Class ;
-    rdfs:label "Peculiarity"@en ;
-    obo:IAO_0000115 "Peculiarity =def. a Thought disorder trait characterized by unusual, unconventional, or idiosyncratic patterns of thinking, perception, or behavior that deviate from social norms."@en ;
-    rdfs:comment "A trait characterized by unusual, unconventional, or idiosyncratic patterns of thinking, perception, or behavior that deviate from social norms."@en ;
-    rdfs:subClassOf hitop:O002sP .
-
-    hitop:T028jy a owl:Class ;
-    rdfs:label "Emotional detachment"@en ;
-    obo:IAO_0000115 "Emotional detachment =def. a Detachment trait reflecting a persistent lack of emotional responsiveness, warmth, or connection in interpersonal interactions."@en ;
-    rdfs:comment "A trait reflecting a persistent lack of emotional responsiveness, warmth, or connection in interpersonal interactions."@en ;
-    rdfs:subClassOf hitop:O002sP .
-
-    hitop:T029jr a owl:Class ;
-    rdfs:label "Social withdrawal"@en ;
-    obo:IAO_0000115 "Social withdrawal =def. a Detachment trait defined by the tendency to avoid or disengage from social interactions and relationships, often leading to reduced social contact and support."@en ;
-    rdfs:comment "A trait defined by the tendency to avoid or disengage from social interactions and relationships, often leading to reduced social contact and support."@en ;
-    rdfs:subClassOf hitop:O002sP .
-
-    hitop:T02A06 a owl:Class ;
-    rdfs:label "Romantic disinterest"@en ;
-    obo:IAO_0000115 "Romantic disinterest =def. a Detachment trait marked by diminished or absent interest in forming or maintaining romantic relationships, independent of sexual orientation or activity."@en ;
-    rdfs:comment "A trait marked by diminished or absent interest in forming or maintaining romantic relationships, independent of sexual orientation or activity."@en ;
+    hitop:T021iZ a owl:Class ;
+    rdfs:label "Perceptual dysregulation"@en ;
+    obo:IAO_0000115 "Perceptual Dysregulation =def. a Thought Disorder which is characterized by disturbances primarily in perception, including perceptual aberrations, unusual sensory experiences, and difficulties distinguishing internal perceptual experiences from external reality."@en ;
+    rdfs:comment "A trait characterized by disturbances in perception."@en ;
     rdfs:subClassOf hitop:O002sP .
 
     hitop:U0012Y a owl:Class ;
@@ -1057,6 +978,8 @@
 
     skos:changeNote a owl:AnnotationProperty .
 
+prov:has_provenance a owl:AnnotationProperty .
+
     foaf:name a owl:AnnotationProperty .
 
     hitop:hasTier a owl:ObjectProperty ;
@@ -1067,9 +990,47 @@
     rdfs:range hitop:O002sP ;
     skos:changeNote "Indicates the potential for future inclusion of additional tiers or modification of existing ones to reflect new developments within specific levels of the hierarchy. Supports flexibility in expanding or refining the taxonomy based on emerging research and evolving understanding of horizontal relationships among psychological constructs."@en .
 
-<https://orcid.org/0000-0002-4505-4593> a foaf:Person ;
-    rdfs:label "Dr. Rogério Blitz"@en ;
-    foaf:name "Dr. Rogério Blitz" .
+<https://orcid.org/0000-0002-0908-5579> a foaf:Person ;
+    rdfs:label "Julius Weise" ;
+    foaf:name "Julius Weise" .
+
+<https://orcid.org/0000-0002-5702-8405> a foaf:Person ;
+    rdfs:label "Lisa Rebecca Otto" ;
+    foaf:name "Lisa Rebecca Otto" .
+
+<https://orcid.org/0000-0002-6808-2968> a foaf:Person ;
+    rdfs:label "Falk Gerrik Verhees" ;
+    foaf:name "Falk Gerrik Verhees" .
+
+<https://orcid.org/0000-0002-8588-7784> a foaf:Person ;
+    rdfs:label "André Kerber" ;
+    foaf:name "André Kerber" .
+
+<https://orcid.org/0000-0002-9128-3987> a foaf:Person ;
+    rdfs:label "Mira Tschorn" ;
+    foaf:name "Mira Tschorn" .
+
+<https://orcid.org/0000-0003-4078-3954> a foaf:Person ;
+    rdfs:label "Maike Richter" ;
+    foaf:name "Maike Richter" .
+
+<https://orcid.org/0000-0003-4091-5048> a foaf:Person ;
+    rdfs:label "Yannik Terhorst" ;
+    foaf:name "Yannik Terhorst" .
+
+<https://orcid.org/0000-0003-4749-3298> a foaf:Person ;
+    rdfs:label "Nils Opel" ;
+    foaf:name "Nils Opel" .
+
+<https://orcid.org/0009-0004-3059-6578> a foaf:Person ;
+    rdfs:label "Marcel Jentsch" ;
+    foaf:name "Marcel Jentsch" .
+
+<https://orcid.org/0009-0007-3950-7684> a foaf:Person ;
+    rdfs:label "Margaux Gatrio" ;
+    foaf:name "Margaux Gatrio" .
+
+<http://purl.org/hitop/contributions> rdfs:label "Contributors and contribution roles"@en .
 
     hitop:0004KV a owl:Class ;
     rdfs:label "Version"@en ;
@@ -1077,10 +1038,14 @@
     rdfs:comment "This class represents a version entity used to document the version number and descriptive information related to the evolution of HiTOP ontology elements."@en ;
     rdfs:subClassOf owl:Thing .
 
+<https://orcid.org/0000-0002-4505-4593> a foaf:Person ;
+    rdfs:label "Rogério Blitz" ;
+    foaf:name "Rogério Blitz" .
+
     hitop:O002sP a owl:Class ;
     rdfs:label "Tier"@en ;
-    obo:IAO_0000115 "Tier =def. a structural class which is characterized by representing any concrete HiTOP concept (for example a Superspectrum, Spectrum, Subfactor, Component, or Trait) that can participate in a factorization's parent-child structure via the hitop:hasTier relation."@en ;
-    rdfs:comment "A structural component of the HiTOP taxonomy used to define horizontal relationships within a specific level of the hierarchy. Each instance of Tier represents a distinct grouping or division within a given Level, encompassing constructs such as clusters, categories, or subcategories. The restriction ensures that all instances of this class must have at least one tier (via the property hitop:hasTier) that is also an instance of this class."@en ;
+    obo:IAO_0000115 "Tier =def. a structural class representing a HiTOP concept that can occupy a position in a factorization-specific hierarchy, with its hierarchical role described by hitop:hasLevel and its direct parent-child relationships expressed through hitop:hasTier."@en ;
+    rdfs:comment "A common structural class for HiTOP concepts used in factorizations. A concept may occupy different positions and hierarchical roles in different factorizations. Leaf concepts need not have child concepts."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
     owl:onProperty hitop:hasTier ;
     owl:someValuesFrom hitop:O002sP ] .

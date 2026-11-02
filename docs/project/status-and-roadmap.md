@@ -18,7 +18,7 @@
 | Supported Python | 3.10, 3.11, 3.12 |
 | License | MIT |
 
-The technical tooling supports local generation, validation, conversion, and release checks. Clinical content, ontology metadata, and release-governance decisions progress through the documented review workflow.
+The technical tooling supports local generation, validation, conversion, and release checks. Version `{{ hitop_ontology_version }}` is the first public release: its clinical content, the six factorizations, and the manifestation-suffix specification were reviewed and released by the Clinical Lab, and HiTOP base codes are frozen from this release on.
 
 ## Website roadmap
 

@@ -3,7 +3,7 @@
     "factorization_id": "emotional-dysfunction",
     "version": "V106mv",
     "label": "Emotional Dysfunction Superspectrum",
-    "status": "draft"
+    "status": "active"
   },
   "hierarchy": {
     "label": "Emotional dysfunction",
@@ -48,10 +48,11 @@
           {
             "label": "Neurological",
             "level": "Component",
-            "code": "C01kKJ",
-            "kind": "concept",
+            "code": "C001qy",
+            "kind": "partial",
             "branch": 0,
-            "color": "#6095C4"
+            "color": "#6095C4",
+            "id": "Neurological"
           },
           {
             "label": "Gastrointestinal",
@@ -64,18 +65,20 @@
           {
             "label": "Cardiopulmonary",
             "level": "Component",
-            "code": "C01l9M",
-            "kind": "concept",
+            "code": "C00Q1t",
+            "kind": "partial",
             "branch": 0,
-            "color": "#6095C4"
+            "color": "#6095C4",
+            "id": "Cardiopulmonary"
           },
           {
             "label": "Physiological anxiety",
             "level": "Component",
-            "code": "C024WG",
-            "kind": "concept",
+            "code": "C00Q1t",
+            "kind": "partial",
             "branch": 0,
             "color": "#6095C4",
+            "id": "Physiologicalanxiety",
             "bridge": [
               "Somatoform",
               "Distress"
@@ -84,7 +87,7 @@
           {
             "label": "Health/illness anxiety",
             "level": "Component",
-            "code": "C025ex",
+            "code": "C01yno",
             "kind": "concept",
             "branch": 0,
             "color": "#6095C4",
@@ -113,11 +116,12 @@
             "children": [
               {
                 "label": "Negative emotionality",
-                "level": "Component",
-                "code": "C01mPz",
-                "kind": "concept",
+                "level": "Trait",
+                "code": "P002nf",
+                "kind": "partial",
                 "branch": 1,
-                "color": "#C6E8F3"
+                "color": "#C6E8F3",
+                "id": "Negativeemotionality"
               },
               {
                 "label": "Anxiousness",
@@ -161,8 +165,8 @@
               },
               {
                 "label": "Anger/irritability",
-                "level": "Component",
-                "code": "C01nVp",
+                "level": "Trait",
+                "code": "C00l5y",
                 "kind": "concept",
                 "branch": 1,
                 "color": "#C6E8F3"
@@ -213,7 +217,7 @@
               {
                 "label": "Decreased need for sleep",
                 "level": "Component",
-                "code": "C0237W",
+                "code": "C01xzj",
                 "kind": "concept",
                 "branch": 1,
                 "color": "#D1D6EE"
@@ -231,18 +235,19 @@
               {
                 "label": "Behavioral avoidance",
                 "level": "Component",
-                "code": "C01oMk",
+                "code": "C01kKJ",
                 "kind": "concept",
                 "branch": 1,
                 "color": "#E9C7E9"
               },
               {
                 "label": "Anxiety sensitivity",
-                "level": "Component",
-                "code": "C01pc6",
-                "kind": "concept",
+                "level": "Trait",
+                "code": "C00RGy",
+                "kind": "partial",
                 "branch": 1,
-                "color": "#E9C7E9"
+                "color": "#E9C7E9",
+                "id": "Anxietysensitivity"
               },
               {
                 "label": "Situational phobia",
@@ -263,7 +268,7 @@
               {
                 "label": "BII phobia",
                 "level": "Component",
-                "code": "C01qTa",
+                "code": "C00Pjp",
                 "kind": "concept",
                 "branch": 1,
                 "color": "#E9C7E9"
@@ -377,7 +382,7 @@
               {
                 "label": "Body dissatisfaction",
                 "level": "Component",
-                "code": "C01rfi",
+                "code": "C01l9M",
                 "kind": "concept",
                 "branch": 1,
                 "color": "#FDBFCB"
@@ -385,7 +390,7 @@
               {
                 "label": "Binge eating",
                 "level": "Component",
-                "code": "C01s9T",
+                "code": "C01mPz",
                 "kind": "concept",
                 "branch": 1,
                 "color": "#FDBFCB"
@@ -393,7 +398,7 @@
               {
                 "label": "Cognitive restraint",
                 "level": "Component",
-                "code": "C01tAk",
+                "code": "C01nVp",
                 "kind": "concept",
                 "branch": 1,
                 "color": "#FDBFCB"
@@ -401,7 +406,7 @@
               {
                 "label": "Purging",
                 "level": "Component",
-                "code": "C01ueZ",
+                "code": "C01oMk",
                 "kind": "concept",
                 "branch": 1,
                 "color": "#FDBFCB"
@@ -409,7 +414,7 @@
               {
                 "label": "Excessive exercise",
                 "level": "Component",
-                "code": "C01vT5",
+                "code": "C01pc6",
                 "kind": "concept",
                 "branch": 1,
                 "color": "#FDBFCB"
@@ -417,7 +422,7 @@
               {
                 "label": "Restricting",
                 "level": "Component",
-                "code": "C01wSl",
+                "code": "C01qTa",
                 "kind": "concept",
                 "branch": 1,
                 "color": "#FDBFCB"
@@ -425,7 +430,7 @@
               {
                 "label": "Muscle building",
                 "level": "Component",
-                "code": "C01xzj",
+                "code": "C01rfi",
                 "kind": "concept",
                 "branch": 1,
                 "color": "#FDBFCB"
@@ -433,7 +438,7 @@
               {
                 "label": "Negative attitudes toward obesity",
                 "level": "Component",
-                "code": "C01yno",
+                "code": "C01s9T",
                 "kind": "concept",
                 "branch": 1,
                 "color": "#FDBFCB"
@@ -451,7 +456,7 @@
               {
                 "label": "Low sexual desire",
                 "level": "Component",
-                "code": "C01zXz",
+                "code": "C01tAk",
                 "kind": "concept",
                 "branch": 1,
                 "color": "#FEDCE3"
@@ -459,7 +464,7 @@
               {
                 "label": "Difficulties with arousal",
                 "level": "Component",
-                "code": "C020XA",
+                "code": "C01ueZ",
                 "kind": "concept",
                 "branch": 1,
                 "color": "#FEDCE3"
@@ -467,7 +472,7 @@
               {
                 "label": "Low orgasmic function",
                 "level": "Component",
-                "code": "C021Q0",
+                "code": "C01vT5",
                 "kind": "concept",
                 "branch": 1,
                 "color": "#FEDCE3"
@@ -475,7 +480,7 @@
               {
                 "label": "Sex-related distress",
                 "level": "Component",
-                "code": "C022PW",
+                "code": "C01wSl",
                 "kind": "concept",
                 "branch": 1,
                 "color": "#FEDCE3"

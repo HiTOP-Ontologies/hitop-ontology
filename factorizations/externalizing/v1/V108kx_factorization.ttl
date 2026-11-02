@@ -1,172 +1,230 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
-
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix hitop: <http://purl.org/hitop#> .
-
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-    hitop:S0013h rdfs:label "Externalizing"@en ;
+hitop:S0013h rdfs:label "Externalizing"@en ;
     hitop:hasLevel "Superspectrum" ;
-    hitop:hasTier hitop:P005xY ,
-    hitop:P006gM ;
+    hitop:hasTier hitop:P005xY,
+        hitop:P006gM ;
     rdfs:comment "Represents a broad HiTOP dimension characterized by outwardly directed behaviors and dysregulation."@en .
 
 <http://purl.org/hitop/factorizations/externalizing/vV108kx> a owl:Ontology ;
     rdfs:label "Externalizing Superspectrum"@en ;
-    dcterms:bibliographicCitation "Kotov et al. (2021), World Psychiatry, doi:10.1002/wps.20844" ;
+    dcterms:bibliographicCitation "Krueger et al. (2021), World Psychiatry, doi:10.1002/wps.20844" ;
+    dcterms:contributor <https://orcid.org/0000-0002-4505-4593>,
+        <https://orcid.org/0000-0002-8588-7784> ;
     dcterms:created "2026-07-05"^^xsd:date ;
-    dcterms:creator "Dr. Rogério Blitz" ;
+    dcterms:creator <https://orcid.org/0000-0002-4505-4593> ;
     dcterms:isVersionOf "0.1.0" ;
-    dcterms:source "data/hitop/images/Externalizing superspectrum.jpg" ;
+    dcterms:source "https://onlinelibrary.wiley.com/doi/10.1002/wps.20844" ;
+    rdfs:seeAlso <http://purl.org/hitop/contributions> ;
     owl:imports <http://purl.org/hitop> ;
     owl:versionInfo "V108kx" ;
-    skos:changeNote "status: draft"@en .
+    skos:changeNote "status: active"@en ;
+    prov:has_provenance <http://purl.org/hitop/contributions> .
 
-    hitop:C00oKM rdfs:label "Hyperactive cognition"@en ;
+hitop:C01DAb rdfs:label "Alcohol use"@en ;
     hitop:hasLevel "Component" ;
-    rdfs:comment "Increased cognitive activity, often characterized by racing thoughts and distractibility."@en .
+    rdfs:comment "The consumption of alcoholic beverages, which may lead to problematic use."@en .
 
-    hitop:C00rnS rdfs:label "Disorganized"@en ;
-    hitop:hasLevel "Trait" ;
-    rdfs:comment "A component characterized by disorganized thinking and behavior."@en .
+hitop:C01Elz rdfs:label "Alcohol Problems"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Issues related to the use of alcohol, including dependence and abuse."@en ;
+    skos:altLabel "Alcohol problems"@en .
 
-    hitop:C01JH8 rdfs:label "Physical aggression"@en ;
+hitop:C01FDy rdfs:label "Marijuana use"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "The consumption of marijuana, which may lead to problematic use."@en .
+
+hitop:C01GEY rdfs:label "Marijuana Problems"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Issues related to the use of marijuana, including dependence and abuse."@en ;
+    skos:altLabel "Marijuana problems"@en .
+
+hitop:C01HGq rdfs:label "Drug use"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "The consumption of illicit or prescription drugs, which may lead to problematic use."@en .
+
+hitop:C01Ip4 rdfs:label "Drug Problems"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Issues related to the use of drugs, including dependence and abuse."@en ;
+    skos:altLabel "Drug problems"@en .
+
+hitop:C01JH8 rdfs:label "Physical aggression"@en ;
     hitop:hasLevel "Component" ;
     rdfs:comment "Aggression involving physical acts of violence towards others."@en .
 
-    hitop:C01LSp rdfs:label "Relational aggression"@en ;
+hitop:C01KXo rdfs:label "Destruction of property"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "Aggression that results in damage to property or the environment."@en ;
+    skos:altLabel "Destructive aggression"@en .
+
+hitop:C01LSp rdfs:label "Relational aggression"@en ;
     hitop:hasLevel "Component" ;
     rdfs:comment "Aggression that harms others through manipulation of social relationships."@en .
 
-    hitop:C01MjB rdfs:label "Fraud"@en ;
+hitop:C01MjB rdfs:label "Fraud"@en ;
     hitop:hasLevel "Component" ;
     rdfs:comment "Deceptive behavior intended to secure unfair or unlawful gain."@en .
 
-    hitop:C02BO8 rdfs:label "Inattention"@en ;
+hitop:C01zXz rdfs:label "Hyperactivity"@en ;
     hitop:hasLevel "Component" ;
-    rdfs:comment "A component defined by difficulties sustaining focus, being easily distracted, or failing to maintain attention during tasks or activities."@en .
+    rdfs:comment "A component characterized by excessive motor activity or restlessness, often expressed as fidgeting, difficulty remaining seated, or difficulty engaging quietly in activities."@en .
 
-    hitop:C02CiQ rdfs:label "Destruction of property"@en ;
-    hitop:hasLevel "Component" ;
-    rdfs:comment "A component involving deliberate or impulsive damage, vandalism, or destruction of objects, possessions, or physical environments."@en .
-
-    hitop:C02DSC rdfs:label "Exhibitionism"@en ;
+hitop:C020XA rdfs:label "Disorganization"@en ;
     hitop:hasLevel "Trait" ;
-    rdfs:comment "A trait characterized by a recurrent tendency or desire to draw attention to oneself through the display of one’s body, sexuality, or behaviors in ways intended to provoke, shock, or gain validation."@en .
+    rdfs:comment "A component characterized by difficulties organizing everyday activities, tasks, and responsibilities, often reflected in disordered routines, poor task sequencing, and an unorganized environment."@en .
 
-    hitop:C02EBv rdfs:label "Substance use"@en ;
-    hitop:hasLevel "Component" ;
-    rdfs:comment "The general consumption of alcohol, drugs, or other psychoactive substances, considered broadly rather than for one specific substance."@en .
-
-    hitop:C02FZY rdfs:label "Substance problems"@en ;
-    hitop:hasLevel "Component" ;
-    rdfs:comment "Dependence, abuse, or negative consequences resulting from substance use, considered broadly rather than for one specific substance."@en .
-
-    hitop:P005xY rdfs:label "Disinhibited Externalizing"@en ;
+hitop:P005xY rdfs:label "Disinhibition"@en ;
     hitop:hasLevel "Spectrum" ;
-    hitop:hasTier hitop:C00oKM ,
-    hitop:C00rnS ,
-    hitop:C02BO8 ,
-    hitop:T015o8 ,
-    hitop:T016k0 ,
-    hitop:T018ir ,
-    hitop:T019Cj ,
-    hitop:T01A5i ,
-    hitop:T01C1W ,
-    hitop:U0061L ,
-    hitop:U007EJ ;
-    rdfs:comment "Disinhibited Externalizing involves behaviors that are impulsive and lacking in social restraint or inhibition."@en .
+    hitop:hasTier hitop:C01zXz,
+        hitop:C020XA,
+        hitop:T015o8,
+        hitop:T016k0,
+        hitop:T018ir,
+        hitop:T019Cj,
+        hitop:T01C1W,
+        hitop:U0061L,
+        hitop:U007EJ,
+        <http://purl.org/hitop/factorizations/externalizing/vV108kx#Inattention>,
+        <http://purl.org/hitop/factorizations/externalizing/vV108kx#Lowperfectionism> ;
+    rdfs:comment "Disinhibited Externalizing involves behaviors that are impulsive and lacking in social restraint or inhibition."@en ;
+    skos:altLabel "Disinhibited Externalizing"@en .
 
-    hitop:P006gM rdfs:label "Antagonistic Externalizing"@en ;
+hitop:P006gM rdfs:label "Antagonism"@en ;
     hitop:hasLevel "Spectrum" ;
-    hitop:hasTier hitop:C02DSC ,
-    hitop:T0094I ,
-    hitop:T010c6 ,
-    hitop:T01Y7w ,
-    hitop:T01Ziz ,
-    hitop:T01a7u ,
-    hitop:T01bz7 ,
-    hitop:T01cX5 ,
-    hitop:T01eG6 ;
-    rdfs:comment "Antagonistic Externalizing describes behaviors that involve hostility and aggression towards others."@en .
+    hitop:hasTier hitop:T0094I,
+        hitop:T010c6,
+        hitop:T01XQi,
+        hitop:T01Y7w,
+        hitop:T01Ziz,
+        hitop:T01a7u,
+        hitop:T01bz7,
+        hitop:T01cX5,
+        hitop:T01eG6 ;
+    rdfs:comment "Antagonistic Externalizing describes behaviors that involve hostility and aggression towards others."@en ;
+    skos:altLabel "Antagonistic Externalizing"@en .
 
-    hitop:T0094I rdfs:label "Hostility"@en ;
+hitop:T0094I rdfs:label "Hostility"@en ;
     hitop:hasLevel "Trait" ;
     rdfs:comment "A trait characterized by a tendency toward aggression or antagonism."@en .
 
-    hitop:T010c6 rdfs:label "Suspiciousness"@en ;
+hitop:T010c6 rdfs:label "Suspiciousness"@en ;
     hitop:hasLevel "Trait" ;
     rdfs:comment "A trait characterized by a tendency to be distrustful and suspicious of others."@en .
 
-    hitop:T015o8 rdfs:label "Problematic impulsivity"@en ;
+hitop:T015o8 rdfs:label "Impulsivity"@en ;
     hitop:hasLevel "Trait" ;
-    rdfs:comment "A trait characterized by difficulty in controlling impulsive behaviors, often leading to negative consequences."@en .
+    rdfs:comment "A trait characterized by difficulty in controlling impulsive behaviors, often leading to negative consequences."@en ;
+    skos:altLabel "Problematic impulsivity"@en .
 
-    hitop:T016k0 rdfs:label "Irresponsibility"@en ;
+hitop:T016k0 rdfs:label "Irresponsibility"@en ;
     hitop:hasLevel "Trait" ;
     rdfs:comment "A trait characterized by a lack of regard for the consequences of one's actions, often leading to reckless behavior."@en .
 
-    hitop:T0177S rdfs:label "Theft"@en ;
+hitop:T0177S rdfs:label "Theft"@en ;
     hitop:hasLevel "Trait" ;
     rdfs:comment "A trait characterized by a tendency to steal or engage in dishonest acquisition of property."@en .
 
-    hitop:T018ir rdfs:label "Distractibility"@en ;
-    hitop:hasLevel "Trait" ;
-    rdfs:comment "A trait characterized by an inability to maintain focus, leading to frequent shifts in attention."@en .
-
-    hitop:T019Cj rdfs:label "Risk taking"@en ;
+hitop:T019Cj rdfs:label "Risk taking"@en ;
     hitop:hasLevel "Trait" ;
     rdfs:comment "A trait characterized by engaging in behaviors that involve significant risk, often without regard for potential negative outcomes."@en .
 
-    hitop:T01A5i rdfs:label "(low) Rigid perfectionism"@en ;
+hitop:T01C1W rdfs:label "(Low) Workaholism"@en ;
     hitop:hasLevel "Trait" ;
-    rdfs:comment "A trait characterized by a low tendency toward excessive and inflexible striving for perfection and high standards."@en .
+    rdfs:comment "A trait characterized by reduced levels of excessive and compulsive commitment to work, with less impact on personal well-being and relationships."@en ;
+    skos:altLabel "(low) Workaholism"@en .
 
-    hitop:T01C1W rdfs:label "(low) Workaholism"@en ;
+hitop:T01XQi rdfs:label "Exhibitionism"@en ;
     hitop:hasLevel "Trait" ;
-    rdfs:comment "A trait characterized by reduced levels of excessive and compulsive commitment to work, with less impact on personal well-being and relationships."@en .
+    rdfs:comment "A trait of attention seeking is the constant need for validation or recognition, often leading to behavior aimed at drawing focus from others."@en ;
+    skos:altLabel "Attention seeking"@en .
 
-    hitop:T01Y7w rdfs:label "Callousness"@en ;
+hitop:T01Y7w rdfs:label "Callousness"@en ;
     hitop:hasLevel "Trait" ;
     rdfs:comment "A trait characterized by a lack of empathy and a tendency to be emotionally cold or indifferent to others."@en .
 
-    hitop:T01Ziz rdfs:label "Deceitfulness"@en ;
+hitop:T01Ziz rdfs:label "Deceitfulness"@en ;
     hitop:hasLevel "Trait" ;
     rdfs:comment "A trait characterized by a tendency to lie, cheat, or deceive others."@en .
 
-    hitop:T01a7u rdfs:label "Grandiosity"@en ;
+hitop:T01a7u rdfs:label "Grandiosity"@en ;
     hitop:hasLevel "Trait" ;
     rdfs:comment "A trait characterized by an exaggerated sense of one's own importance, abilities, or achievements."@en .
 
-    hitop:T01bz7 rdfs:label "Manipulativeness"@en ;
+hitop:T01bz7 rdfs:label "Manipulativeness"@en ;
     hitop:hasLevel "Trait" ;
     rdfs:comment "A trait characterized by a tendency to control or influence others for personal gain, often in a devious manner."@en .
 
-    hitop:T01cX5 rdfs:label "Rudeness"@en ;
+hitop:T01cX5 rdfs:label "Rudeness"@en ;
     hitop:hasLevel "Trait" ;
     rdfs:comment "A trait characterized by a lack of manners or respect in social interactions."@en .
 
-    hitop:T01eG6 rdfs:label "Dominance"@en ;
+hitop:T01eG6 rdfs:label "Domineering"@en ;
     hitop:hasLevel "Trait" ;
-    rdfs:comment "A trait characterized by a desire to control or lead others, often displaying assertiveness and power."@en .
+    rdfs:comment "A trait characterized by a desire to control or lead others, often displaying assertiveness and power."@en ;
+    skos:altLabel "Dominance"@en .
 
-    hitop:U0061L rdfs:label "Harmful Substance Use"@en ;
+hitop:U0061L rdfs:label "Substance abuse"@en ;
     hitop:hasLevel "Subfactor" ;
-    hitop:hasTier hitop:C02EBv ,
-    hitop:C02FZY ;
-    rdfs:comment "Harmful Substance Use refers to the excessive use of substances that causes significant harm or impairment."@en .
+    hitop:hasTier <http://purl.org/hitop/factorizations/externalizing/vV108kx#COLLSubprob>,
+        <http://purl.org/hitop/factorizations/externalizing/vV108kx#COLLSubuse> ;
+    rdfs:comment "Harmful Substance Use refers to the excessive use of substances that causes significant harm or impairment."@en ;
+    skos:altLabel "Harmful Substance Use"@en .
 
-    hitop:U007EJ rdfs:label "Antisocial Behavior"@en ;
+hitop:U007EJ rdfs:label "Antisocial behavior"@en ;
     hitop:hasLevel "Subfactor" ;
-    hitop:hasTier hitop:C01JH8 ,
-    hitop:C01LSp ,
-    hitop:C01MjB ,
-    hitop:C02CiQ ,
-    hitop:T0177S ;
+    hitop:hasTier hitop:C01JH8,
+        hitop:C01KXo,
+        hitop:C01LSp,
+        hitop:C01MjB,
+        hitop:T0177S ;
     rdfs:comment "Antisocial Behavior involves actions that violate societal norms and the rights of others."@en ;
+    skos:altLabel "Antisocial Behavior"@en ;
     skos:changeNote "Bridges: Disinhibition, Antagonism"@en .
+
+<http://purl.org/hitop/factorizations/externalizing/vV108kx#COLLSubprob> a skos:Collection ;
+    rdfs:label "Substance Problems"@en ;
+    hitop:hasLevel "Component" ;
+    hitop:hasTier hitop:C01Elz,
+        hitop:C01GEY,
+        hitop:C01Ip4 .
+
+<http://purl.org/hitop/factorizations/externalizing/vV108kx#COLLSubuse> a skos:Collection ;
+    rdfs:label "Substance use"@en ;
+    hitop:hasLevel "Component" ;
+    hitop:hasTier hitop:C01DAb,
+        hitop:C01FDy,
+        hitop:C01HGq .
+
+<http://purl.org/hitop/factorizations/externalizing/vV108kx#Inattention> a skos:Concept ;
+    rdfs:label "Inattention"@en ;
+    hitop:hasLevel "Component" ;
+    skos:relatedMatch hitop:T018ir ;
+    skos:scopeNote "Partial overlap with the referenced core concept; neither equivalence nor a narrower or broader direction is asserted."@en .
+
+<http://purl.org/hitop/factorizations/externalizing/vV108kx#Lowperfectionism> a skos:Concept ;
+    rdfs:label "(Low) Perfectionism"@en ;
+    hitop:hasLevel "Trait" ;
+    skos:relatedMatch hitop:T01A5i ;
+    skos:scopeNote "Partial overlap with the referenced core concept; neither equivalence nor a narrower or broader direction is asserted."@en .
+
+<https://orcid.org/0000-0002-8588-7784> a foaf:Person ;
+    rdfs:label "André Kerber" ;
+    foaf:name "André Kerber" .
+
+hitop:T018ir rdfs:label "Distractibility"@en ;
+    hitop:hasLevel "Trait" ;
+    rdfs:comment "A trait characterized by an inability to maintain focus, leading to frequent shifts in attention."@en .
+
+<http://purl.org/hitop/contributions> rdfs:label "Contributors and contribution roles"@en .
+
+<https://orcid.org/0000-0002-4505-4593> a foaf:Person ;
+    rdfs:label "Rogério Blitz" ;
+    foaf:name "Rogério Blitz" .
+

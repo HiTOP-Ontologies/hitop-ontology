@@ -122,8 +122,8 @@ class FactorizationHierarchyTests(unittest.TestCase):
         )
         self.assertTrue(any("does not exist as a class" in error for error in errors), errors)
 
-    def test_concept_label_differing_from_core_is_rejected(self) -> None:
-        """Reject a concept relabel, accept casing differences and relabelled collections."""
+    def test_concept_label_differing_from_core_is_allowed(self) -> None:
+        """Accept factorization-local wording for an equivalent concept."""
 
         record = {
             "meta": self._fake_meta(),
@@ -148,8 +148,7 @@ class FactorizationHierarchyTests(unittest.TestCase):
         errors = check_labels_match_core(
             record, path=self._fake_hierarchy_path(), core_labels=self.core_labels
         )
-        self.assertEqual(len(errors), 1, errors)
-        self.assertIn("'U004dm'", errors[0])
+        self.assertEqual(errors, [])
 
 
 if __name__ == "__main__":

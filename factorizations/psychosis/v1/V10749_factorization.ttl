@@ -1,8 +1,12 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
 @prefix hitop: <http://purl.org/hitop#> .
 
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+@prefix prov: <http://www.w3.org/ns/prov#> .
 
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
@@ -19,21 +23,32 @@
 <http://purl.org/hitop/factorizations/psychosis/vV10749> a owl:Ontology ;
     rdfs:label "Psychosis Superspectrum"@en ;
     dcterms:bibliographicCitation "Kotov et al. (2020), World Psychiatry, doi:10.1002/wps.20730" ;
+    dcterms:contributor <https://orcid.org/0000-0002-4505-4593> ,
+ <https://orcid.org/0000-0002-8588-7784> ;
     dcterms:created "2026-07-05"^^xsd:date ;
-    dcterms:creator "Dr. Rogério Blitz" ;
+    dcterms:creator <https://orcid.org/0000-0002-4505-4593> ;
     dcterms:isVersionOf "0.1.0" ;
-    dcterms:source "data/hitop/images/Psychosis superspectrum.jpg" ;
+    dcterms:source "https://onlinelibrary.wiley.com/doi/10.1002/wps.20730" ;
+    rdfs:seeAlso <http://purl.org/hitop/contributions> ;
     owl:imports <http://purl.org/hitop> ;
     owl:versionInfo "V10749" ;
-    skos:changeNote "status: draft"@en .
+    skos:changeNote "status: active"@en ;
+ prov:has_provenance <http://purl.org/hitop/contributions> .
 
     hitop:C00kEN rdfs:label "Dissociation"@en ;
     hitop:hasLevel "Component" ;
-    rdfs:comment "A mental process used to cope with stress or trauma, leading to a sense of detachment from one's surroundings or self."@en .
+    rdfs:comment "A mental process used to cope with stress or trauma, leading to a sense of detachment from one's surroundings or self."@en ;
+    skos:changeNote "provisional: true"@en .
 
-    hitop:C00rnS rdfs:label "Disorganized"@en ;
+    hitop:C00qSD rdfs:label "Reality distortion"@en ;
     hitop:hasLevel "Component" ;
-    rdfs:comment "A component characterized by disorganized thinking and behavior."@en .
+    rdfs:comment "A component characterized by symptoms of psychosis."@en ;
+    skos:altLabel "Psychotic"@en .
+
+    hitop:C00rnS rdfs:label "Disorganization"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "A component characterized by disorganized thinking and behavior."@en ;
+    skos:altLabel "Disorganized"@en .
 
     hitop:C00sWr rdfs:label "Inexpressivity"@en ;
     hitop:hasLevel "Component" ;
@@ -43,60 +58,74 @@
     hitop:hasLevel "Component" ;
     rdfs:comment "A component characterized by a lack of motivation to initiate and sustain purposeful activities."@en .
 
-    hitop:C0277d rdfs:label "Reality distortion"@en ;
-    hitop:hasLevel "Component" ;
-    rdfs:comment "A component characterized by alterations in the perception or interpretation of reality, such as delusions, hallucinations, or disorganized thinking."@en .
-
-    hitop:P003SL rdfs:label "Thought Disorder"@en ;
+    hitop:P003SL rdfs:label "Thought disorder"@en ;
     hitop:hasLevel "Spectrum" ;
     hitop:hasTier hitop:C00kEN ,
+    hitop:C00qSD ,
     hitop:C00rnS ,
-    hitop:C0277d ,
+    hitop:T00ua9 ,
     hitop:T00wk6 ,
     hitop:T00xLn ,
-    hitop:T026cQ ,
     hitop:U0050q ;
-    rdfs:comment "Thought Disorder refers to a category of mental health conditions characterized by disorganized thinking, impaired reality testing, and disturbances in the form or content of thought."@en .
+    rdfs:comment "Thought Disorder refers to a category of mental health conditions characterized by disorganized thinking, impaired reality testing, and disturbances in the form or content of thought."@en ;
+    skos:altLabel "Thought Disorder"@en .
 
     hitop:P004R1 rdfs:label "Detachment"@en ;
     hitop:hasLevel "Spectrum" ;
     hitop:hasTier hitop:C00sWr ,
     hitop:C00tUQ ,
+    hitop:T011K6 ,
     hitop:T01hQc ,
-    hitop:T028jy ,
-    hitop:T029jr ,
-    hitop:T02A06 ;
+ <http://purl.org/hitop/factorizations/psychosis/vV10749#Emotionaldetachment> ,
+ <http://purl.org/hitop/factorizations/psychosis/vV10749#Romanticdisinterest> ;
     rdfs:comment "Detachment refers to a psychological state characterized by emotional distance and disengagement from social interactions."@en .
 
-    hitop:T00wk6 rdfs:label "Unusual beliefs and experiences"@en ;
+    hitop:T00ua9 rdfs:label "Peculiarity"@en ;
     hitop:hasLevel "Trait" ;
-    rdfs:comment "A trait characterized by the presence of atypical beliefs and experiences."@en .
+    rdfs:comment "A trait characterized by unconventional or peculiar behavior."@en ;
+    skos:altLabel "Eccentricity"@en .
+
+    hitop:T00wk6 rdfs:label "Unusual Beliefs and Experiences"@en ;
+    hitop:hasLevel "Trait" ;
+    rdfs:comment "A trait characterized by the presence of atypical beliefs and experiences."@en ;
+    skos:altLabel "Unusual beliefs and experiences"@en .
 
     hitop:T00xLn rdfs:label "Fantasy proneness"@en ;
     hitop:hasLevel "Trait" ;
     rdfs:comment "A trait characterized by a tendency to engage in vivid and complex fantasies."@en .
 
-    hitop:T01hQc rdfs:label "Anhedonia"@en ;
+    hitop:T011K6 rdfs:label "Social withdrawal"@en ;
+    hitop:hasLevel "Trait" ;
+    rdfs:comment "A trait characterized by a tendency to retreat from social interactions and avoid engagement with others."@en ;
+    skos:altLabel "Withdrawal"@en .
+
+    hitop:T01hQc rdfs:label "Anhedonia (Trait)"@en ;
     hitop:hasLevel "Trait" ;
     rdfs:comment "Anhedonia conceptualized as a Trait refers to a stable, enduring disposition toward diminished pleasure or interest in typically rewarding experiences."@en .
-
-    hitop:T026cQ rdfs:label "Peculiarity"@en ;
-    hitop:hasLevel "Trait" ;
-    rdfs:comment "A trait characterized by unusual, unconventional, or idiosyncratic patterns of thinking, perception, or behavior that deviate from social norms."@en .
-
-    hitop:T028jy rdfs:label "Emotional detachment"@en ;
-    hitop:hasLevel "Trait" ;
-    rdfs:comment "A trait reflecting a persistent lack of emotional responsiveness, warmth, or connection in interpersonal interactions."@en .
-
-    hitop:T029jr rdfs:label "Social withdrawal"@en ;
-    hitop:hasLevel "Trait" ;
-    rdfs:comment "A trait defined by the tendency to avoid or disengage from social interactions and relationships, often leading to reduced social contact and support."@en .
-
-    hitop:T02A06 rdfs:label "Romantic disinterest"@en ;
-    hitop:hasLevel "Trait" ;
-    rdfs:comment "A trait marked by diminished or absent interest in forming or maintaining romantic relationships, independent of sexual orientation or activity."@en .
 
     hitop:U0050q rdfs:label "Mania"@en ;
     hitop:hasLevel "Component" ;
     rdfs:comment "Mania is characterized by elevated mood, increased activity, and impulsive behavior."@en ;
     skos:changeNote "provisional: true"@en .
+
+<http://purl.org/hitop/factorizations/psychosis/vV10749#Emotionaldetachment> a skos:Concept ;
+    rdfs:label "Emotional detachment"@en ;
+    hitop:hasLevel "Trait" ;
+    skos:relatedMatch hitop:T00BXK ;
+    skos:scopeNote "Partial overlap with the referenced core concept; neither equivalence nor a narrower or broader direction is asserted."@en .
+
+<http://purl.org/hitop/factorizations/psychosis/vV10749#Romanticdisinterest> a skos:Concept ;
+    rdfs:label "Romantic disinterest"@en ;
+    hitop:hasLevel "Trait" ;
+    skos:relatedMatch hitop:T00zDk ;
+    skos:scopeNote "Partial overlap with the referenced core concept; neither equivalence nor a narrower or broader direction is asserted."@en .
+
+<https://orcid.org/0000-0002-8588-7784> a foaf:Person ;
+    rdfs:label "André Kerber" ;
+    foaf:name "André Kerber" .
+
+<http://purl.org/hitop/contributions> rdfs:label "Contributors and contribution roles"@en .
+
+<https://orcid.org/0000-0002-4505-4593> a foaf:Person ;
+    rdfs:label "Rogério Blitz" ;
+    foaf:name "Rogério Blitz" .

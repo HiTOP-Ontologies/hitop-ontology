@@ -14,17 +14,17 @@ The core ontology (`ontology/hitop.rdf`) is a kit of stable, reusable building b
 <!-- BEGIN GENERATED FACTORIZATION CATALOG -->
 | Factorization | Directory version | Status |
 | --- | --- | --- |
-| [HiTOP Working Model — v1 (V1052k)](https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/working-model/v1/README.md) | `v1` | **draft** |
+| [HiTOP Working Model — v1 (V1052k)](https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/working-model/v1/README.md) | `v1` | **active** |
 | [Emotional Dysfunction Superspectrum — v1 (V106mv)](https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/emotional-dysfunction/v1/README.md) | `v1` | **active** |
-| [Externalizing Superspectrum — v1 (V108kx)](https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/externalizing/v1/README.md) | `v1` | **draft** |
-| [Psychosis Superspectrum — v1 (V10749)](https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/psychosis/v1/README.md) | `v1` | **draft** |
-| [DZPG Minimal Data Set — v1 (V10dzp)](https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/dzpg-mds/v1/README.md) | `v1` | **draft** |
-| [HiTOP Bass-Ackwards Structure — v1 (V10bak)](https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/bass-ackwards/v1/README.md) | `v1` | **draft** |
+| [Externalizing Superspectrum — v1 (V108kx)](https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/externalizing/v1/README.md) | `v1` | **active** |
+| [Psychosis Superspectrum — v1 (V10749)](https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/psychosis/v1/README.md) | `v1` | **active** |
+| [DZPG Minimal Data Set — v1 (V10dzp)](https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/dzpg-mds/v1/README.md) | `v1` | **active** |
+| [Bass-Ackwards Structure — v1 (V10bak)](https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/bass-ackwards/v1/README.md) | `v1` | **active** |
 <!-- END GENERATED FACTORIZATION CATALOG -->
 
 ## How the model works
 
-Each factorization's `<version>_hierarchy.yaml` file is a recursive tree that records parent-child order and the role each concept plays in that particular model. A `kind: concept` node references an existing core code; a `kind: collection` node is a factorization-local grouping with no independent identity of its own. `level` is always a free string, because the same concept can sit at a different level in different factorizations.
+Each factorization's `<version>_hierarchy.yaml` file is a recursive tree that records parent-child order and the role each concept plays in that particular model. A `kind: concept` node references an existing core code with the same meaning, allowing equivalent local wording. A `kind: partial` node represents partial overlap with an existing core concept, using a required stable local `id` and an optional `mapping_note` to describe the overlap. A `kind: collection` node is a factorization-local grouping. `level` is always a free string, because the same concept can sit at a different level in different factorizations.
 
 [Read the specification](specification.md){ .hitop-button }
 [Create a factorization](create-a-factorization.md){ .hitop-button .hitop-button--primary }

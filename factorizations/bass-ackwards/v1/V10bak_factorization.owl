@@ -1,13 +1,362 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:hitop="http://purl.org/hitop#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+  <rdf:Description rdf:about="http://purl.org/hitop#C00JTU">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Interactive anxiety</rdfs:label>
+    <rdfs:comment xml:lang="en">Anxiety experienced in social interactions and group settings.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00KL0">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Performance anxiety</rdfs:label>
+    <rdfs:comment xml:lang="en">Anxiety related to performing tasks or activities, often in public or under observation.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00LqY">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Public places</rdfs:label>
+    <rdfs:comment xml:lang="en">Fear or anxiety associated with being in public spaces.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00Mpl">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Enclosed spaces</rdfs:label>
+    <rdfs:comment xml:lang="en">Fear or anxiety related to confined or small spaces.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00N4I">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Animal phobia</rdfs:label>
+    <rdfs:comment xml:lang="en">Fear or anxiety related to animals.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00OuR">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Situational phobia</rdfs:label>
+    <rdfs:comment xml:lang="en">Fear or anxiety related to specific situations or environments.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00Pjp">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Blood-Injection-Injury</rdfs:label>
+    <skos:altLabel xml:lang="en">Blood-injection-injury</skos:altLabel>
+    <rdfs:comment xml:lang="en">Fear or anxiety related to blood, injections, or injuries.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00Q1t">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Physiological panic</rdfs:label>
+    <rdfs:comment xml:lang="en">Panic attacks characterized by physiological symptoms such as rapid heartbeat and sweating.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00RGy">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Psychological panic</rdfs:label>
+    <rdfs:comment xml:lang="en">A component of psychological panic is an intense, overwhelming fear that triggers physical symptoms and a sense of losing control.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00WJc">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Lassitude</rdfs:label>
+    <rdfs:comment xml:lang="en">A state of physical or mental weariness and lack of energy.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00Y8j">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Insomnia</rdfs:label>
+    <rdfs:comment xml:lang="en">Difficulty falling asleep or staying asleep, or waking up too early and not being able to go back to sleep.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00fKQ">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Generalized Anxiety Disorder Symptoms</rdfs:label>
+    <skos:altLabel xml:lang="en">Generalized anxiety disorder symptoms</skos:altLabel>
+    <rdfs:comment xml:lang="en">A component of generalized anxiety disorder symptoms is excessive, persistent worry that interferes with daily life and is often accompanied by physical symptoms like restlessness and fatigue.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00mpe">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Pure obsessions</rdfs:label>
+    <rdfs:comment xml:lang="en">Recurrent and persistent intrusive thoughts that cause significant distress, without accompanying compulsive behaviors.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#F001Hw">
+    <hitop:hasLevel>Factor</hitop:hasLevel>
+    <rdfs:label xml:lang="en">General Factor of Psychopathology</rdfs:label>
+    <rdfs:comment xml:lang="en">General Factor of Psychopathology refers to the broad, overarching category of mental disorders and psychological symptoms that can manifest across different mental health conditions. It encompasses a wide range of psychological phenomena that are not specific to any single disorder but may contribute to or exacerbate multiple types of mental health issues. This category includes general symptoms and traits that are commonly observed in various psychiatric conditions, such as mood disturbances, anxiety, cognitive dysfunctions, and behavioral problems.</rdfs:comment>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#P002nf">
+        <hitop:hasLevel>Superspectrum</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Internalizing</rdfs:label>
+        <rdfs:comment xml:lang="en">The Internalizing label refers to a category of mental health disorders characterized by inward-focused symptoms such as anxiety, depression, and withdrawal, reflecting emotional and cognitive distress.</rdfs:comment>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#U004dm"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#U0036N"/>
+      </rdf:Description>
+    </hitop:hasTier>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#U002SC">
+        <hitop:hasLevel>Spectrum</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Eating Pathology</rdfs:label>
+        <rdfs:comment xml:lang="en">Eating Pathology includes disorders and maladaptive behaviors related to eating and body image.</rdfs:comment>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#EDThoughts"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#EDBulimic"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#EDAnorectic"/>
+      </rdf:Description>
+    </hitop:hasTier>
+    <hitop:hasTier>
+      <skos:Collection rdf:about="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLExtDetTd">
+        <hitop:hasLevel>Superspectrum</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Externalizing &amp; Thought Disorder &amp; Detachment</rdfs:label>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLTdMania"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLExtDet"/>
+      </skos:Collection>
+    </hitop:hasTier>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#P001Y2">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Somatoform</rdfs:label>
+    <rdfs:comment xml:lang="en">The Somatoform label refers to a category of mental health disorders characterized by physical symptoms that cannot be fully explained by any underlying medical condition, highlighting the complex interaction between mind and body in mental health.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#P005xY">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Disinhibited Externalizing</rdfs:label>
+    <rdfs:comment xml:lang="en">Disinhibited Externalizing involves behaviors that are impulsive and lacking in social restraint or inhibition.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#P006gM">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Antagonistic Externalizing</rdfs:label>
+    <rdfs:comment xml:lang="en">Antagonistic Externalizing describes behaviors that involve hostility and aggression towards others.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#U0036N">
+    <hitop:hasLevel>Subfactor</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Fear</rdfs:label>
+    <rdfs:comment xml:lang="en">Fear refers to an emotional response to perceived threats or danger.</rdfs:comment>
+    <hitop:hasTier>
+      <skos:Collection rdf:about="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLSocAgora">
+        <hitop:hasLevel>Component</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Social Anxiety &amp; Agoraphobia</rdfs:label>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#C00JTU"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#C00KL0"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#C00LqY"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#C00Mpl"/>
+      </skos:Collection>
+    </hitop:hasTier>
+    <hitop:hasTier>
+      <skos:Collection rdf:about="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLPanicSom">
+        <hitop:hasLevel>Component</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Panic Disorder &amp; Somatoform</rdfs:label>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#C00Q1t"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#C00RGy"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#P001Y2"/>
+      </skos:Collection>
+    </hitop:hasTier>
+    <hitop:hasTier>
+      <skos:Collection rdf:about="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLSpecPhobia">
+        <hitop:hasLevel>Component</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Specific Phobia</rdfs:label>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#C00N4I"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#C00Pjp"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#C00OuR"/>
+      </skos:Collection>
+    </hitop:hasTier>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#U004dm">
+    <hitop:hasLevel>Subfactor</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Distress</rdfs:label>
+    <rdfs:comment xml:lang="en">Distress involves significant emotional suffering or discomfort.</rdfs:comment>
+    <hitop:hasTier>
+      <skos:Collection rdf:about="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLDepression">
+        <hitop:hasLevel>Component</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Depression &amp; Detachment</rdfs:label>
+        <skos:changeNote xml:lang="en">Bridges: Detachment</skos:changeNote>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLSomDep"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLCogDep"/>
+      </skos:Collection>
+    </hitop:hasTier>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLGadPf"/>
+  </rdf:Description>
   <owl:Ontology rdf:about="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak">
-    <rdfs:label xml:lang="en">HiTOP Bass-Ackwards Structure</rdfs:label>
+    <rdfs:label xml:lang="en">Bass-Ackwards Structure</rdfs:label>
     <owl:versionInfo>V10bak</owl:versionInfo>
     <owl:imports rdf:resource="http://purl.org/hitop"/>
     <dcterms:isVersionOf>0.1.0</dcterms:isVersionOf>
-    <dcterms:creator>Dr. Rogério Blitz</dcterms:creator>
+    <dcterms:creator>
+      <foaf:Person rdf:about="https://orcid.org/0000-0002-4505-4593">
+        <foaf:name>Rogério Blitz</foaf:name>
+        <rdfs:label>Rogério Blitz</rdfs:label>
+      </foaf:Person>
+    </dcterms:creator>
+    <dcterms:creator>
+      <foaf:Person rdf:about="https://orcid.org/0000-0002-8588-7784">
+        <foaf:name>André Kerber</foaf:name>
+        <rdfs:label>André Kerber</rdfs:label>
+      </foaf:Person>
+    </dcterms:creator>
+    <dcterms:contributor rdf:resource="https://orcid.org/0000-0002-4505-4593"/>
+    <dcterms:contributor rdf:resource="https://orcid.org/0000-0002-8588-7784"/>
+    <prov:has_provenance>
+      <rdf:Description rdf:about="http://purl.org/hitop/contributions">
+        <rdfs:label xml:lang="en">Contributors and contribution roles</rdfs:label>
+      </rdf:Description>
+    </prov:has_provenance>
+    <rdfs:seeAlso rdf:resource="http://purl.org/hitop/contributions"/>
     <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-03</dcterms:created>
-    <skos:changeNote xml:lang="en">status: draft</skos:changeNote>
-    <dcterms:source>TBD</dcterms:source>
+    <skos:changeNote xml:lang="en">status: active</skos:changeNote>
+    <dcterms:source>https://www.nature.com/articles/s41398-024-03046-z</dcterms:source>
+    <dcterms:bibliographicCitation>Kerber et al. (2024), Translational Psychiatry, doi:10.1038/s41398-024-03046-z</dcterms:bibliographicCitation>
   </owl:Ontology>
+  <skos:Collection rdf:about="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLCogDep">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Cognitive Depression</rdfs:label>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#C00VHv">
+        <hitop:hasLevel>Component</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Dysphoria</rdfs:label>
+        <rdfs:comment xml:lang="en">A state of generalized unhappiness or dissatisfaction.</rdfs:comment>
+      </rdf:Description>
+    </hitop:hasTier>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#C00XyI">
+        <hitop:hasLevel>Component</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Anhedonia (Component)</rdfs:label>
+        <rdfs:comment xml:lang="en">Anhedonia conceptualized as a Component refers to a transient reduction in the capacity to experience pleasure, often emerging in response to acute stress or mood states.</rdfs:comment>
+      </rdf:Description>
+    </hitop:hasTier>
+  </skos:Collection>
+  <skos:Collection rdf:about="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLExtDet">
+    <hitop:hasLevel>Spectrum</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Externalizing &amp; Detachment</rdfs:label>
+    <hitop:hasTier>
+      <skos:Collection rdf:about="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLAntPf">
+        <hitop:hasLevel>Component</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Antagonistic PD</rdfs:label>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#P006gM"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLPF"/>
+      </skos:Collection>
+    </hitop:hasTier>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#P004R1">
+        <hitop:hasLevel>Component</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Detachment</rdfs:label>
+        <rdfs:comment xml:lang="en">Detachment refers to a psychological state characterized by emotional distance and disengagement from social interactions.</rdfs:comment>
+        <skos:changeNote xml:lang="en">Bridges: Depression &amp; Detachment</skos:changeNote>
+      </rdf:Description>
+    </hitop:hasTier>
+    <hitop:hasTier>
+      <skos:Collection rdf:about="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLDisinhibSub">
+        <hitop:hasLevel>Component</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Disinhibition &amp; Substance Use</rdfs:label>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#P005xY"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLSubuse"/>
+      </skos:Collection>
+    </hitop:hasTier>
+  </skos:Collection>
+  <skos:Collection rdf:about="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLGadPf">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">GAD &amp; PF</rdfs:label>
+    <skos:changeNote xml:lang="en">Bridges: PF Problems</skos:changeNote>
+    <hitop:hasTier>
+      <skos:Collection rdf:about="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLGadOcd">
+        <hitop:hasLevel>Component</hitop:hasLevel>
+        <rdfs:label xml:lang="en">GAD &amp; OCD</rdfs:label>
+        <skos:changeNote xml:lang="en">Bridges: Thought Disorder</skos:changeNote>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#C00fKQ"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#C00mpe"/>
+      </skos:Collection>
+    </hitop:hasTier>
+  </skos:Collection>
+  <skos:Collection rdf:about="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLPF">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">PF Problems</rdfs:label>
+    <skos:changeNote xml:lang="en">Bridges: GAD &amp; PF</skos:changeNote>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#T00Eht">
+        <hitop:hasLevel>Trait</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Identity problems</rdfs:label>
+        <rdfs:comment xml:lang="en">A trait characterized by difficulties in forming or maintaining a stable sense of self.</rdfs:comment>
+      </rdf:Description>
+    </hitop:hasTier>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#T00Fe0">
+        <hitop:hasLevel>Trait</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Negative relationships</rdfs:label>
+        <rdfs:comment xml:lang="en">A trait of negative relationships is that they contribute to stress, conflict, or emotional harm, often undermining well-being and personal growth.</rdfs:comment>
+      </rdf:Description>
+    </hitop:hasTier>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#T00G3d">
+        <hitop:hasLevel>Trait</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Fragility</rdfs:label>
+        <rdfs:comment xml:lang="en">A trait characterized by a lack of resilience and a tendency to be easily hurt or affected by stress.</rdfs:comment>
+      </rdf:Description>
+    </hitop:hasTier>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#T00HCy">
+        <hitop:hasLevel>Trait</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Ineptitude</rdfs:label>
+        <rdfs:comment xml:lang="en">A trait characterized by a lack of skill or competence.</rdfs:comment>
+      </rdf:Description>
+    </hitop:hasTier>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#T00IAT">
+        <hitop:hasLevel>Trait</hitop:hasLevel>
+        <rdfs:label xml:lang="en">(low) Invulnerability</rdfs:label>
+        <rdfs:comment xml:lang="en">A trait characterized by a perception of being immune to harm or negative effects.</rdfs:comment>
+      </rdf:Description>
+    </hitop:hasTier>
+  </skos:Collection>
+  <skos:Collection rdf:about="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLSomDep">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Somatic Depression</rdfs:label>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00WJc"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#C00Y8j"/>
+  </skos:Collection>
+  <skos:Collection rdf:about="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLSubuse">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Substance use</rdfs:label>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#C01DAb">
+        <hitop:hasLevel>Component</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Alcohol use</rdfs:label>
+        <rdfs:comment xml:lang="en">The consumption of alcoholic beverages, which may lead to problematic use.</rdfs:comment>
+      </rdf:Description>
+    </hitop:hasTier>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#C01FDy">
+        <hitop:hasLevel>Component</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Marijuana use</rdfs:label>
+        <rdfs:comment xml:lang="en">The consumption of marijuana, which may lead to problematic use.</rdfs:comment>
+      </rdf:Description>
+    </hitop:hasTier>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#C01HGq">
+        <hitop:hasLevel>Component</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Drug use</rdfs:label>
+        <rdfs:comment xml:lang="en">The consumption of illicit or prescription drugs, which may lead to problematic use.</rdfs:comment>
+      </rdf:Description>
+    </hitop:hasTier>
+  </skos:Collection>
+  <skos:Collection rdf:about="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#COLLTdMania">
+    <hitop:hasLevel>Spectrum</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Thought Disorder &amp; Mania</rdfs:label>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#P003SL">
+        <hitop:hasLevel>Component</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Thought Disorder</rdfs:label>
+        <rdfs:comment xml:lang="en">Thought Disorder refers to a category of mental health conditions characterized by disorganized thinking, impaired reality testing, and disturbances in the form or content of thought.</rdfs:comment>
+      </rdf:Description>
+    </hitop:hasTier>
+    <hitop:hasTier>
+      <rdf:Description rdf:about="http://purl.org/hitop#U0050q">
+        <hitop:hasLevel>Component</hitop:hasLevel>
+        <rdfs:label xml:lang="en">Mania</rdfs:label>
+        <rdfs:comment xml:lang="en">Mania is characterized by elevated mood, increased activity, and impulsive behavior.</rdfs:comment>
+      </rdf:Description>
+    </hitop:hasTier>
+  </skos:Collection>
+  <skos:Concept rdf:about="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#EDAnorectic">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">ED Anorectic</rdfs:label>
+    <skos:relatedMatch rdf:resource="http://purl.org/hitop#C01qTa"/>
+    <skos:scopeNote xml:lang="en">Partial overlap with the referenced core concept; neither equivalence nor a narrower or broader direction is asserted.</skos:scopeNote>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#EDBulimic">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">ED Bulimic</rdfs:label>
+    <skos:relatedMatch rdf:resource="http://purl.org/hitop#C01mPz"/>
+    <skos:scopeNote xml:lang="en">Partial overlap with the referenced core concept; neither equivalence nor a narrower or broader direction is asserted.</skos:scopeNote>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak#EDThoughts">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">ED Thoughts</rdfs:label>
+    <skos:relatedMatch rdf:resource="http://purl.org/hitop#C01l9M"/>
+    <skos:scopeNote xml:lang="en">Partial overlap with the referenced core concept; neither equivalence nor a narrower or broader direction is asserted.</skos:scopeNote>
+  </skos:Concept>
 </rdf:RDF>

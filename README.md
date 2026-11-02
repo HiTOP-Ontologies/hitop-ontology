@@ -45,8 +45,10 @@ provide clinical advice.
 | License | MIT |
 
 The technical tooling is usable for local generation, validation, conversion,
-and release checks. Clinical content, ontology metadata, and release-governance
-decisions should still be reviewed before treating a public release as stable.
+and release checks. Version `0.1.0` is the first public release: its clinical
+content, the six factorizations, and the manifestation-suffix specification
+were reviewed and released by the Clinical Lab, and HiTOP base codes are
+frozen from this release on. See [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Why this exists
 
@@ -72,6 +74,7 @@ HiTOP concepts.
 | Artifact | Purpose |
 | --- | --- |
 | [`ontology/hitop.rdf`](ontology/hitop.rdf) | Canonical RDF/XML ontology source |
+| [`ontology/contributions.rdf`](ontology/contributions.rdf) | Structured contributor roles linked from the ontology via `prov:has_provenance` |
 | [`src/data/hitop_base_vocabulary.csv`](src/data/hitop_base_vocabulary.csv) | Local lookup table for stable HiTOP base codes |
 | [`schema/manifestation-record.schema.json`](schema/manifestation-record.schema.json) | JSON Schema for manifestation record exports |
 | [`schema/factorization-manifest.schema.json`](schema/factorization-manifest.schema.json) | JSON Schema for factorization manifests under `factorizations/` |

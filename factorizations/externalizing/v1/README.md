@@ -1,13 +1,13 @@
 # Externalizing Superspectrum — v1 (V108kx)
 
-Status: **draft**
+Status: **active**
 
 ## What this is
 
 A factorization is a specific, versioned composition of stable HiTOP base
 concepts from the shared core ontology (`ontology/hitop.rdf`), expressed as
 a recursive hierarchy tree. This factorization tracks the Externalizing
-superspectrum structure from Kotov et al. (2021), World Psychiatry,
+superspectrum structure from Krueger et al. (2021), World Psychiatry,
 doi:10.1002/wps.20844. See
 [`docs/factorizations.md`](../../../docs/factorizations.md) for the full
 governance model, the `hitop:hasTier`/`hitop:hasLevel`
@@ -22,6 +22,6 @@ vocabulary, and how to add a new version.
 
 ## Status
 
-`meta.status` is `draft`. Move it to `active` in
-`V108kx_hierarchy.yaml` once the tree has been fully reviewed against the
-cited paper.
+`meta.status` is `active` in `V108kx_hierarchy.yaml`. The hierarchy has been
+manually reviewed and passed schema, structural, code, identity, and generation
+checks.

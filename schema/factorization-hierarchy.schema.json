@@ -1,19 +1,28 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://purl.org/hitop/schema/v1/factorization-hierarchy.schema.json",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "title": "HiTOP Factorization Hierarchy",
-  "description": "Declares one versioned HiTOP factorization as a recursive tree of stable HiTOP base concepts. Every node names the hitop_base_code it plays and a free-text level name (for example Superspectrum, Spectrum, Subfactor, Component, or a factorization-specific refinement) describing the role it occupies in this factorization; nesting under `children` is the factorization's concrete parent-child structure and is what actually orders the tree (hitop:hasTier) -- `level` is descriptive only. A `kind: collection` node represents a factorization-local synthesis of several existing concepts (see docs/factorizations.md section 4) rather than a core Tier concept, so its `code` does not need to exist in ontology/hitop.ttl. A factorization file never redefines a concept's `rdf:type` or `rdfs:subClassOf`; it copies only the concept's `rdfs:label` (and `rdfs:comment`, when present) from the core ontology onto the generated node, purely so the generated file is readable on its own -- the core ontology remains the sole source of truth for these values. Every other node's `code` must already exist in ontology/hitop.ttl. See docs/factorizations.md for the governance model and for how `level` and `kind` map onto the core ontology's hitop:hasLevel/hitop:hasTier vocabulary.",
+  "description": "Versioned hierarchy of core concepts, partial mappings, and local collections. Children encode factorization-specific hasTier edges; level is descriptive. See docs/factorizations.md.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["meta", "hierarchy"],
+  "required": [
+    "meta",
+    "hierarchy"
+  ],
   "properties": {
-    "meta": { "$ref": "#/$defs/meta" },
+    "meta": {
+      "$ref": "#/$defs/meta"
+    },
     "hierarchy": {
       "description": "Root node of the factorization tree. May be null only while meta.status is \"draft\" and the tree has not been populated yet.",
       "oneOf": [
-        { "$ref": "#/$defs/node" },
-        { "type": "null" }
+        {
+          "$ref": "#/$defs/node"
+        },
+        {
+          "type": "null"
+        }
       ]
     }
   },
@@ -43,7 +52,9 @@
           "type": "string",
           "description": "Human-readable factorization name."
         },
-        "status": { "$ref": "#/$defs/status" },
+        "status": {
+          "$ref": "#/$defs/status"
+        },
         "source": {
           "type": "string",
           "description": "Origin of the factor structure, for example a source image or dataset path."
@@ -55,7 +66,10 @@
         "based_on": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["ontology_iri", "ontology_version"],
+          "required": [
+            "ontology_iri",
+            "ontology_version"
+          ],
           "properties": {
             "ontology_iri": {
               "type": "string",
@@ -76,11 +90,27 @@
         "provenance": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["created_by", "created_at"],
+          "required": [
+            "created_by",
+            "created_at"
+          ],
           "properties": {
             "created_by": {
-              "type": "string",
-              "description": "Person or role who curated this factorization."
+              "description": "Identified creators. A legacy name string is accepted for compatibility.",
+              "oneOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "$ref": "#/$defs/person"
+                  }
+                }
+              ]
             },
             "created_at": {
               "type": "string",
@@ -90,6 +120,19 @@
             "notes": {
               "type": "string",
               "description": "Optional free-text provenance notes, for example differences from a previous version."
+            },
+            "contributors": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/$defs/person"
+              },
+              "description": "People contributing specifically to this factorization."
+            },
+            "contributions": {
+              "type": "string",
+              "pattern": "^https?://[^\\s]+$",
+              "description": "Persistent URI of the central contribution record."
             }
           }
         }
@@ -97,7 +140,11 @@
     },
     "status": {
       "type": "string",
-      "enum": ["draft", "active", "deprecated"]
+      "enum": [
+        "draft",
+        "active",
+        "deprecated"
+      ]
     },
     "level": {
       "type": "string",
@@ -106,31 +153,47 @@
     },
     "kind": {
       "type": "string",
-      "description": "Whether this node references an existing core Tier concept (\"concept\", the default) or is a factorization-local synthesis of several existing concepts (\"collection\", modeled as a skos:Collection; see docs/factorizations.md section 4). Only \"collection\" nodes are exempt from the requirement that `code` exists in ontology/hitop.ttl.",
-      "enum": ["concept", "collection"],
+      "description": "concept (default): exact core concept with optional local wording; partial: local construct partially overlapping the core concept identified by code, without asserting equivalence or direction; collection: local grouping. Only collection codes are exempt from core lookup.",
+      "enum": [
+        "concept",
+        "partial",
+        "collection"
+      ],
       "default": "concept"
     },
     "node": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["label", "level", "code"],
+      "required": [
+        "label",
+        "level",
+        "code"
+      ],
       "properties": {
         "label": {
           "type": "string",
-          "description": "Human-readable name of the HiTOP concept (or, for a collection node, the synthesis) at this node."
+          "description": "Factorization-local wording. For concept this asserts the same meaning as the core concept; for partial it names the overlapping local construct; for collection it names the grouping."
         },
-        "level": { "$ref": "#/$defs/level" },
-        "kind": { "$ref": "#/$defs/kind" },
+        "level": {
+          "$ref": "#/$defs/level"
+        },
+        "kind": {
+          "$ref": "#/$defs/kind"
+        },
         "code": {
           "type": "string",
-          "description": "For kind \"concept\": the hitop_base_code from ontology/hitop.ttl that this node names. For kind \"collection\": a stable, factorization-local identifier that is not looked up in the core ontology.",
+          "description": "Existing core code for concept and partial; stable local identifier for collection.",
           "pattern": "^[A-Za-z0-9]+$"
         },
         "bridge": {
           "type": "array",
-          "description": "Documentation-only cross-loading note: other node labels this concept is also empirically associated with in the source paper. Does not create a second hitop:hasTier edge and is not validated against codes.",
-          "items": { "type": "string" },
-          "minItems": 1
+          "description": "Documentation-only cross-loading to exact, case-sensitive labels of other nodes in this same factorization, including partial and collection nodes. Targets must exist uniquely; self-references and duplicate targets are forbidden. No additional hasTier edges are generated. Reciprocal bridges and cycles are allowed.",
+          "items": {
+            "type": "string",
+            "pattern": "\\S"
+          },
+          "minItems": 1,
+          "uniqueItems": true
         },
         "provisional": {
           "type": "boolean",
@@ -139,8 +202,77 @@
         "children": {
           "type": "array",
           "description": "Child nodes one level step below this node, per hitop:hasTier. For a collection node, its children are exactly the existing concepts being synthesized.",
-          "items": { "$ref": "#/$defs/node" },
+          "items": {
+            "$ref": "#/$defs/node"
+          },
           "minItems": 1
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9]+$",
+          "description": "Required for partial only: stable local identity, unique also against collection codes. Independent of the referenced core code."
+        },
+        "mapping_note": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Optional explanation of the overlap and differences, allowed only for partial nodes."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "partial"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "id"
+            ]
+          },
+          "else": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "id"
+                  ]
+                },
+                {
+                  "required": [
+                    "mapping_note"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "person": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "orcid",
+        "name"
+      ],
+      "properties": {
+        "orcid": {
+          "type": "string",
+          "pattern": "^https://orcid\\.org/\\d{4}-\\d{4}-\\d{4}-\\d{3}[\\dX]$",
+          "description": "ORCID URI; the runtime validator also checks its checksum."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Published name without academic titles."
         }
       }
     }

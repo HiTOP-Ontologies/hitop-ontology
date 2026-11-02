@@ -44,6 +44,7 @@ its result for the exact commit that will receive the tag.
 - [ ] `mkdocs build --strict` completes successfully.
 - [ ] Required CI jobs pass for the exact release commit.
 - [ ] `CITATION.cff`, licensing information, and contributor attribution are current.
+- [ ] The `prov:has_provenance` link uses a configured version-specific PURL whose redirect is fixed to `ontology/contributions.rdf` at an immutable approved commit; the record is included in the release archive.
 - [ ] The release tag does not already exist locally or on the remote.
 
 ## 3. Verify the release candidate

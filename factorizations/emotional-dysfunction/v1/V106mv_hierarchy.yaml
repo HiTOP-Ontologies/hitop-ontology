@@ -5,13 +5,21 @@ meta:
   version: V106mv
   label: Emotional Dysfunction Superspectrum
   source: https://onlinelibrary.wiley.com/doi/10.1002/wps.20943
-  paper: "Kotov et al. (2021), World Psychiatry, doi:10.1002/wps.20943"
-  status: draft
+  paper: "Watson et al. (2022), World Psychiatry, doi:10.1002/wps.20943"
+  status: active
   based_on:
     ontology_iri: "http://purl.org/hitop"
     ontology_version: "0.1.0"
   provenance:
-    created_by: "Dr. Rogério Blitz"
+    created_by:
+      - orcid: "https://orcid.org/0000-0002-4505-4593"
+        name: "Rogério Blitz"
+    contributors:
+      - orcid: "https://orcid.org/0000-0002-4505-4593"
+        name: "Rogério Blitz"
+      - orcid: "https://orcid.org/0000-0002-8588-7784"
+        name: "André Kerber"
+    contributions: "http://purl.org/hitop/contributions"
     created_at: "2026-07-05"
 
 hierarchy:
@@ -33,21 +41,27 @@ hierarchy:
           level: Component
           code: C01jKN
         - label: Neurological
+          id: Neurological
           level: Component
-          code: C01kKJ
+          kind: partial
+          code: C001qy
         - label: Gastrointestinal
           level: Component
           code: C005Sv
         - label: Cardiopulmonary
+          id: Cardiopulmonary
           level: Component
-          code: C01l9M
+          kind: partial
+          code: C00Q1t
         - label: Physiological anxiety
+          id: Physiologicalanxiety
           level: Component
-          code: C024WG
+          kind: partial
+          code: C00Q1t
           bridge: [Somatoform, Distress]
         - label: Health/illness anxiety
           level: Component
-          code: C025ex
+          code: C01yno
           bridge: [Somatoform, Distress]
     - label: Internalizing
       level: Spectrum
@@ -58,8 +72,10 @@ hierarchy:
           code: U004dm
           children:
             - label: Negative emotionality
-              level: Component
-              code: C01mPz
+              id: Negativeemotionality
+              level: Trait
+              kind: partial
+              code: P002nf
             - label: Anxiousness
               level: Trait
               code: T007eM
@@ -76,8 +92,9 @@ hierarchy:
               level: Component
               code: C00Y8j
             - label: Anger/irritability
-              level: Component
-              code: C01nVp
+              level: Trait
+              kind: concept
+              code: C00l5y
             - label: Emotional lability
               level: Trait
               code: T008mD
@@ -86,8 +103,8 @@ hierarchy:
               code: C00oKM
         - label: Mania
           level: Subfactor
-          provisional: true
           code: U0050q
+          provisional: true
           children:
             - label: Euphoric activation
               level: Component
@@ -97,17 +114,19 @@ hierarchy:
               code: C00pnZ
             - label: Decreased need for sleep
               level: Component
-              code: C0237W
+              code: C01xzj
         - label: Fear
           level: Subfactor
           code: U0036N
           children:
             - label: Behavioral avoidance
               level: Component
-              code: C01oMk
+              code: C01kKJ
             - label: Anxiety sensitivity
-              level: Component
-              code: C01pc6
+              id: Anxietysensitivity
+              level: Trait
+              kind: partial
+              code: C00RGy
             - label: Situational phobia
               level: Component
               code: C00OuR
@@ -116,7 +135,8 @@ hierarchy:
               code: C00N4I
             - label: BII phobia
               level: Component
-              code: C01qTa
+              kind: concept
+              code: C00Pjp
             - label: Physiological panic
               level: Component
               code: C00Q1t
@@ -131,21 +151,26 @@ hierarchy:
               code: C00JTU
             - label: Fear of public places
               level: Component
+              kind: concept
               code: C00LqY
             - label: Fear of enclosed spaces
               level: Component
+              kind: concept
               code: C00Mpl
         - label: Pure obsessions
           level: Component
           code: C00mpe
         - label: Compulsive checking
           level: Component
+          kind: concept
           code: C00Urw
         - label: Compulsive rituals
           level: Component
+          kind: concept
           code: C00TgL
         - label: Compulsive cleaning
           level: Component
+          kind: concept
           code: C00S9m
         - label: Separation insecurity
           level: Trait
@@ -159,41 +184,41 @@ hierarchy:
           children:
             - label: Body dissatisfaction
               level: Component
-              code: C01rfi
+              code: C01l9M
             - label: Binge eating
               level: Component
-              code: C01s9T
+              code: C01mPz
             - label: Cognitive restraint
               level: Component
-              code: C01tAk
+              code: C01nVp
             - label: Purging
               level: Component
-              code: C01ueZ
+              code: C01oMk
             - label: Excessive exercise
               level: Component
-              code: C01vT5
+              code: C01pc6
             - label: Restricting
               level: Component
-              code: C01wSl
+              code: C01qTa
             - label: Muscle building
               level: Component
-              code: C01xzj
+              code: C01rfi
             - label: Negative attitudes toward obesity
               level: Component
-              code: C01yno
+              code: C01s9T
         - label: Sexual problems
           level: Subfactor
           code: U0012Y
           children:
             - label: Low sexual desire
               level: Component
-              code: C01zXz
+              code: C01tAk
             - label: Difficulties with arousal
               level: Component
-              code: C020XA
+              code: C01ueZ
             - label: Low orgasmic function
               level: Component
-              code: C021Q0
+              code: C01vT5
             - label: Sex-related distress
               level: Component
-              code: C022PW
+              code: C01wSl

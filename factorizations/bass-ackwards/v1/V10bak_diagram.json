@@ -2,11 +2,11 @@
   "meta": {
     "factorization_id": "bass-ackwards",
     "version": "V10bak",
-    "label": "HiTOP Bass-Ackwards Structure",
-    "status": "draft"
+    "label": "Bass-Ackwards Structure",
+    "status": "active"
   },
   "hierarchy": {
-    "label": "General Psychopathology",
+    "label": "General Factor of Psychopathology",
     "level": "Factor",
     "code": "F001Hw",
     "kind": "concept",
@@ -39,7 +39,6 @@
                 "bridge": [
                   "Detachment"
                 ],
-                "provisional": true,
                 "children": [
                   {
                     "label": "Somatic Depression",
@@ -48,7 +47,6 @@
                     "kind": "collection",
                     "branch": 0,
                     "color": "#DEECF5",
-                    "provisional": true,
                     "children": [
                       {
                         "label": "Lassitude",
@@ -75,7 +73,6 @@
                     "kind": "collection",
                     "branch": 0,
                     "color": "#DEECF5",
-                    "provisional": true,
                     "children": [
                       {
                         "label": "Dysphoria",
@@ -86,7 +83,7 @@
                         "color": "#E5EFF5"
                       },
                       {
-                        "label": "Anhedonia",
+                        "label": "Anhedonia (Component)",
                         "level": "Component",
                         "code": "C00XyI",
                         "kind": "concept",
@@ -107,7 +104,6 @@
                 "bridge": [
                   "PF Problems"
                 ],
-                "provisional": true,
                 "children": [
                   {
                     "label": "GAD & OCD",
@@ -121,7 +117,7 @@
                     ],
                     "children": [
                       {
-                        "label": "GAD Symptoms",
+                        "label": "Generalized Anxiety Disorder Symptoms",
                         "level": "Component",
                         "code": "C00fKQ",
                         "kind": "concept",
@@ -229,50 +225,75 @@
               {
                 "label": "Specific Phobia",
                 "level": "Component",
-                "code": "C00OuR",
-                "kind": "concept",
+                "code": "COLLSpecPhobia",
+                "kind": "collection",
                 "branch": 0,
                 "color": "#C6E8F3",
-                "provisional": true
+                "children": [
+                  {
+                    "label": "Animal phobia",
+                    "level": "Component",
+                    "code": "C00N4I",
+                    "kind": "concept",
+                    "branch": 0,
+                    "color": "#E3F2F7"
+                  },
+                  {
+                    "label": "Blood-Injection-Injury",
+                    "level": "Component",
+                    "code": "C00Pjp",
+                    "kind": "concept",
+                    "branch": 0,
+                    "color": "#E3F2F7"
+                  },
+                  {
+                    "label": "Situational phobia",
+                    "level": "Component",
+                    "code": "C00OuR",
+                    "kind": "concept",
+                    "branch": 0,
+                    "color": "#E3F2F7"
+                  }
+                ]
               }
             ]
           }
         ]
       },
       {
-        "label": "Eating Disorder",
+        "label": "Eating Pathology",
         "level": "Spectrum",
-        "code": "COLLEatDis",
-        "kind": "collection",
+        "code": "U002SC",
+        "kind": "concept",
         "branch": 1,
         "color": "#AEB8E3",
         "children": [
           {
             "label": "ED Thoughts",
             "level": "Component",
-            "code": "C01rfi",
-            "kind": "concept",
+            "code": "C01l9M",
+            "kind": "partial",
             "branch": 1,
             "color": "#D1D6EE",
-            "provisional": true
+            "id": "EDThoughts"
           },
           {
             "label": "ED Bulimic",
             "level": "Component",
-            "code": "C01ueZ",
-            "kind": "concept",
+            "code": "C01mPz",
+            "kind": "partial",
             "branch": 1,
             "color": "#D1D6EE",
-            "provisional": true
+            "id": "EDBulimic"
           },
           {
             "label": "ED Anorectic",
             "level": "Component",
-            "code": "C01wSl",
-            "kind": "concept",
+            "code": "C01qTa",
+            "kind": "partial",
             "branch": 1,
             "color": "#D1D6EE",
-            "provisional": true
+            "id": "EDAnorectic"
           }
         ]
       },
@@ -327,7 +348,7 @@
                 "color": "#FEDCE3",
                 "children": [
                   {
-                    "label": "Antagonism",
+                    "label": "Antagonistic Externalizing",
                     "level": "Component",
                     "code": "P006gM",
                     "kind": "concept",
@@ -341,7 +362,9 @@
                     "kind": "collection",
                     "branch": 2,
                     "color": "#FCDEE4",
-                    "provisional": true,
+                    "bridge": [
+                      "GAD & PF"
+                    ],
                     "children": [
                       {
                         "label": "Identity problems",
@@ -417,10 +440,36 @@
                   {
                     "label": "Substance use",
                     "level": "Component",
-                    "code": "C02EBv",
-                    "kind": "concept",
+                    "code": "COLLSubuse",
+                    "kind": "collection",
                     "branch": 2,
-                    "color": "#FCDEE4"
+                    "color": "#FCDEE4",
+                    "children": [
+                      {
+                        "label": "Alcohol use",
+                        "level": "Component",
+                        "code": "C01DAb",
+                        "kind": "concept",
+                        "branch": 2,
+                        "color": "#FAE1E6"
+                      },
+                      {
+                        "label": "Marijuana use",
+                        "level": "Component",
+                        "code": "C01FDy",
+                        "kind": "concept",
+                        "branch": 2,
+                        "color": "#FAE1E6"
+                      },
+                      {
+                        "label": "Drug use",
+                        "level": "Component",
+                        "code": "C01HGq",
+                        "kind": "concept",
+                        "branch": 2,
+                        "color": "#FAE1E6"
+                      }
+                    ]
                   }
                 ]
               }

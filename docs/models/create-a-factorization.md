@@ -39,7 +39,9 @@
       <div class="hitop-node-editor">
         <span data-selected-node-label>Selected node</span>
     <div class="hitop-form-grid">
-      <label>Node kind<select data-node-kind><option value="concept">concept</option><option value="collection">collection</option></select></label>
+      <label>Node kind<select data-node-kind><option value="concept">concept</option><option value="partial">partial</option><option value="collection">collection</option></select></label>
+      <label>Partial node ID<input data-node-local-id disabled pattern="[A-Za-z0-9]+"><small>Required for partial: stable local identity, independent of the core code.</small></label>
+      <label>Partial mapping note<textarea data-node-mapping-note disabled></textarea><small>Optional: describe the overlap and differences.</small></label>
       <label>Level<input data-node-level value="Factor" required></label>
       <label>Label<input data-node-label value="General Factor of Psychopathology" required></label>
       <label>Ontology code · search by code or label
@@ -48,16 +50,16 @@
           <input data-node-code type="hidden" value="F001Hw">
           <span id="hitop-code-options" class="hitop-code-options" data-code-options role="listbox" hidden></span>
         </span>
-        <small class="hitop-field-help">Concept: select one of the 158 ontology codes. Collection: enter a unique local code.</small>
+        <small class="hitop-field-help">Concept or partial: select an ontology code. Partial also requires a unique local ID. Collection: enter a unique local code.</small>
       </label>
       <label class="hitop-checkbox-field"><input data-node-provisional type="checkbox"><span>Provisional placement</span><small>Optional for any node kind; marks this placement as tentative.</small></label>
       <label class="hitop-bridge-field">Bridge · search by label
         <span class="hitop-code-combobox">
-          <input data-bridge-search role="combobox" aria-expanded="false" aria-controls="hitop-bridge-options" aria-autocomplete="list" aria-describedby="hitop-bridge-help" autocomplete="off" placeholder="Type an ontology label…">
+          <input data-bridge-search role="combobox" aria-expanded="false" aria-controls="hitop-bridge-options" aria-autocomplete="list" aria-describedby="hitop-bridge-help" autocomplete="off" placeholder="Type a label from this hierarchy…">
           <span id="hitop-bridge-options" class="hitop-code-options" data-bridge-options role="listbox" hidden></span>
         </span>
         <span class="hitop-bridge-selection" data-bridge-selection aria-label="Selected bridge labels"></span>
-        <small id="hitop-bridge-help">Select one or more labels from the core ontology. Each selection appears below as a removable chip; bridges document cross-loading and do not create hierarchy edges.</small>
+        <small id="hitop-bridge-help">Select unique labels of other nodes in this hierarchy, including partial and collection nodes. Each selection appears below as a removable chip; bridges document cross-loading and do not create hierarchy edges.</small>
       </label>
     </div>
     <div class="hitop-validation" data-node-message aria-live="polite">A concept code must reference an existing code from the core ontology.</div>
@@ -88,3 +90,17 @@
 </div>
 
 <script type="application/json" data-hitop-core-concepts>{{ hitop_core_concepts_json }}</script>
+
+### Node meaning
+
+Choose `concept` for the same core concept, including equivalent local wording.
+Choose `partial` for partial overlap with an existing core code; it does not
+assert equivalence, narrower/broader direction, or a reversed pole. Choose
+`collection` to group concepts using a local code. The label is the wording
+shown in this factorization; the core ontology remains unchanged.
+
+For `partial`, supply a stable alphanumeric `id`. It identifies the local
+node independently of its core `code`. Multiple partial nodes may reference
+the same core code using different IDs. An optional `mapping_note` explains
+which contents overlap and how they differ. IDs must not collide with
+collection codes. Labels and bridges do not determine identity.

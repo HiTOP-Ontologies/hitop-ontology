@@ -18,15 +18,13 @@ The script implements the generation half of the process described in
 * record ``provisional``/``bridge`` as ``skos:changeNote`` annotations
   (documentation only, never a structural edge)
 * write an ``owl:Ontology`` header derived from the file's ``meta`` block
-* copy each concept's ``rdfs:label`` (and ``rdfs:comment``, when present)
-  from the core ontology onto its ``rdf:Description`` in this file, purely
-  so a reader can tell what a node is without cross-referencing the core
+* preserve factorization-local labels; concept nodes keep core identity and
+  comments, partial nodes use local IRIs and skos:relatedMatch to the core
 
 The generated file references the stable HiTOP base codes from
 ``ontology/hitop.ttl`` by IRI; it never redefines a concept's ``rdf:type``
 or ``rdfs:subClassOf``, and the core ontology remains the sole source of
-truth for a concept's identity -- only the two human-readable annotation
-fields above are copied in, for readability of the generated file itself.
+truth for a concept's identity. Local wording never changes the base ontology.
 
 The default output is RDF/XML (``<version>_factorization.rdf``), the
 canonical hand-off format for ``scripts/rdf2ttl.py`` and
@@ -50,6 +48,7 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+from xml.etree import ElementTree
 from xml.sax.saxutils import escape, quoteattr
 
 from rdflib import RDF, RDFS, Graph, Literal, Namespace, URIRef
@@ -59,10 +58,14 @@ from hitop.factorization import (
     load_core_class_local_names,
     load_hierarchy_document,
     validate_hierarchy_document,
+    validate_meta,
 )
 
 HITOP = Namespace("http://purl.org/hitop#")
 FACTORIZATION_NS = "http://purl.org/hitop/factorizations/"
+PROV = Namespace("http://www.w3.org/ns/prov#")
+FOAF = Namespace("http://xmlns.com/foaf/0.1/")
+CONTRIBUTIONS_IRI = "http://purl.org/hitop/contributions"
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 DEFAULT_ONTOLOGY_TTL = ROOT_DIR / "ontology" / "hitop.ttl"
@@ -106,6 +109,12 @@ def build_parser() -> argparse.ArgumentParser:
         "input file). Not valid with --format both, which always writes both "
         "default paths.",
     )
+    parser.add_argument(
+        "--metadata-only",
+        action="store_true",
+        help="Refresh metadata in an existing RDF sibling; preserve its hierarchy triples. "
+        "This does not validate or rebuild the hierarchy from YAML.",
+    )
     return parser
 
 
@@ -125,7 +134,27 @@ def _add_meta_header(graph: Graph, *, factorization_iri: URIRef, meta: dict) -> 
             Literal(meta["based_on"]["ontology_version"]),
         )
     )
-    graph.add((factorization_iri, DCTERMS.creator, Literal(meta["provenance"]["created_by"])))
+    provenance = meta["provenance"]
+    creators = provenance["created_by"]
+    if isinstance(creators, str):
+        graph.add((factorization_iri, DCTERMS.creator, Literal(creators)))
+    else:
+        for person in creators:
+            graph.add((factorization_iri, DCTERMS.creator, URIRef(person["orcid"])))
+    people = ([] if isinstance(creators, str) else creators) + provenance.get("contributors", [])
+    for person in provenance.get("contributors", []):
+        graph.add((factorization_iri, DCTERMS.contributor, URIRef(person["orcid"])))
+    for person in people:
+        identifier = URIRef(person["orcid"])
+        graph.add((identifier, RDF.type, FOAF.Person))
+        graph.add((identifier, FOAF.name, Literal(person["name"])))
+        graph.add((identifier, RDFS.label, Literal(person["name"])))
+    contributions = URIRef(provenance.get("contributions", CONTRIBUTIONS_IRI))
+    graph.add((factorization_iri, PROV.has_provenance, contributions))
+    graph.add((factorization_iri, RDFS.seeAlso, contributions))
+    graph.add(
+        (contributions, RDFS.label, Literal("Contributors and contribution roles", lang="en"))
+    )
     graph.add(
         (
             factorization_iri,
@@ -141,9 +170,11 @@ def _add_meta_header(graph: Graph, *, factorization_iri: URIRef, meta: dict) -> 
 
 
 def _subject_iri(node: dict, *, factorization_iri: URIRef) -> URIRef:
-    """Return the IRI for a node: the core namespace for a concept, else local."""
+    """Use core identity for concept; local identity for partial and collection."""
 
-    if node.get("kind", "concept") == "collection":
+    if node.get("kind") == "partial":
+        return URIRef(f"{factorization_iri}#{node['id']}")
+    if node.get("kind") == "collection":
         return URIRef(f"{factorization_iri}#{node['code']}")
     return HITOP[node["code"]]
 
@@ -194,12 +225,22 @@ def build_factorization_graph(
     graph.bind("hitop", HITOP)
     graph.bind("skos", SKOS)
     graph.bind("dcterms", DCTERMS)
+    graph.bind("prov", PROV)
+    graph.bind("foaf", FOAF)
 
     core_annotations = core_annotations or {}
     meta = record["meta"]
     factorization_iri = URIRef(f"{FACTORIZATION_NS}{meta['factorization_id']}/v{meta['version']}")
     _add_meta_header(graph, factorization_iri=factorization_iri, meta=meta)
-    subject_order = [factorization_iri]
+    people = sorted(
+        set(graph.subjects(RDF.type, FOAF.Person)),
+        key=lambda person: (
+            str(graph.value(person, FOAF.name)).rsplit(" ", 1)[-1].casefold(),
+            str(person),
+        ),
+    )
+    subject_order = [factorization_iri, *people]
+    subject_order.extend(graph.objects(factorization_iri, PROV.has_provenance))
 
     hierarchy = record.get("hierarchy")
     if hierarchy is None:
@@ -215,10 +256,28 @@ def build_factorization_graph(
             # never a core Tier concept -- see docs/factorizations.md section 4.
             graph.add((subject, RDF.type, SKOS.Collection))
             graph.add((subject, RDFS.label, Literal(node["label"], lang="en")))
+        elif node.get("kind", "concept") == "partial":
+            graph.add((subject, RDF.type, SKOS.Concept))
+            graph.add((subject, RDFS.label, Literal(node["label"], lang="en")))
+            graph.add((subject, SKOS.relatedMatch, HITOP[node["code"]]))
+            if node.get("mapping_note"):
+                graph.add((subject, SKOS.scopeNote, Literal(node["mapping_note"], lang="en")))
+            graph.add(
+                (
+                    subject,
+                    SKOS.scopeNote,
+                    Literal(
+                        "Partial overlap with the referenced core concept; neither equivalence "
+                        "nor a narrower or broader direction is asserted.",
+                        lang="en",
+                    ),
+                )
+            )
         else:
             annotation = core_annotations.get(node["code"], {})
-            if "label" in annotation:
-                graph.add((subject, RDFS.label, annotation["label"]))
+            graph.add((subject, RDFS.label, Literal(node["label"], lang="en")))
+            if "label" in annotation and str(annotation["label"]) != node["label"]:
+                graph.add((subject, SKOS.altLabel, annotation["label"]))
             if "comment" in annotation:
                 graph.add((subject, RDFS.comment, annotation["comment"]))
 
@@ -287,6 +346,7 @@ def generate(
     ontology_ttl: Path,
     format: str = "rdf",
     output: Path | None = None,
+    metadata_only: bool = False,
 ) -> list[Path]:
     """Validate ``input_yaml`` and write the generated factorization file(s).
 
@@ -294,6 +354,11 @@ def generate(
     hand-off format for ``scripts/rdf2ttl.py``/``scripts/rdf2owl.py``),
     ``"ttl"`` (Turtle), or ``"both"``. ``output`` overrides the default path
     and is only valid for a single-format run.
+
+    ``metadata_only`` validates metadata and refreshes the existing RDF sibling,
+    preserving its hierarchy rather than compiling the YAML tree. It requires
+    an existing artifact with the expected ontology IRI and is not a content
+    validation or release-readiness check.
 
     Raises ``GenerationError`` if the document fails validation. Returns the
     list of paths written.
@@ -303,17 +368,44 @@ def generate(
         raise GenerationError("--output cannot be combined with --format both.")
 
     record = load_hierarchy_document(input_yaml)
-    core_class_names = load_core_class_local_names(ontology_ttl)
-    errors = validate_hierarchy_document(
-        record,
-        path=input_yaml,
-        core_class_names=core_class_names,
-    )
+    if metadata_only:
+        errors = validate_meta(record.get("meta"), path=input_yaml)
+    else:
+        core_class_names = load_core_class_local_names(ontology_ttl)
+        errors = validate_hierarchy_document(
+            record,
+            path=input_yaml,
+            core_class_names=core_class_names,
+        )
     if errors:
         raise GenerationError("; ".join(errors))
 
-    core_annotations = load_core_class_annotations(ontology_ttl)
-    graph, subject_order = build_factorization_graph(record, core_annotations=core_annotations)
+    if metadata_only:
+        existing = _default_output_path(input_yaml, record["meta"], suffix="rdf")
+        if not existing.is_file():
+            raise GenerationError("--metadata-only requires an existing RDF sibling.")
+        graph = Graph().parse(existing, format="xml")
+        metadata, subject_order = build_factorization_graph({"meta": record["meta"]})
+        ontology = subject_order[0]
+        if (ontology, RDF.type, OWL.Ontology) not in graph:
+            raise GenerationError("Existing RDF does not declare the expected factorization IRI.")
+        graph.remove((ontology, None, None))
+        for person in list(graph.subjects(RDF.type, FOAF.Person)):
+            graph.remove((person, None, None))
+        for triple in metadata:
+            graph.add(triple)
+        for prefix, namespace in metadata.namespaces():
+            graph.bind(prefix, namespace)
+        # Preserve the existing clinical graph and its source order exactly.
+        for element in ElementTree.parse(existing).getroot():
+            subject = element.get(f"{{{RDF}}}about")
+            if subject and URIRef(subject) not in subject_order:
+                subject_order.append(URIRef(subject))
+        if set(graph.subjects()) - set(subject_order):
+            raise GenerationError("Existing RDF contains subjects that cannot be serialized flat.")
+    else:
+        core_annotations = load_core_class_annotations(ontology_ttl)
+        graph, subject_order = build_factorization_graph(record, core_annotations=core_annotations)
 
     formats = ["rdf", "ttl"] if format == "both" else [format]
     written: list[Path] = []
@@ -341,6 +433,7 @@ def main() -> int:
             ontology_ttl=args.ontology,
             format=args.format,
             output=args.output,
+            metadata_only=args.metadata_only,
         )
     except GenerationError as exc:
         print(json.dumps({"valid": False, "errors": [str(exc)]}, indent=2))
@@ -350,6 +443,8 @@ def main() -> int:
         json.dumps(
             {
                 "valid": True,
+                "mode": "metadata-only" if args.metadata_only else "full",
+                "hierarchy_validated": not args.metadata_only,
                 "input": str(args.input_yaml),
                 "output": [str(p) for p in output_paths],
             },

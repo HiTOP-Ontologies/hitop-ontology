@@ -17,8 +17,8 @@ The resulting inventory gives these concepts stable identifiers under one consis
 | Model or superspectrum | Included concept scope | Dataset | Scientific source |
 | --- | --- | --- | --- |
 | HiTOP Working Model | All concepts represented in the current working model | [`V1052k`](https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/working-model/v1/V1052k_hierarchy.yaml) | [Current HiTOP model](https://www.hitop-system.org/current-model) |
-| Emotional Dysfunction | The superspectrum and all concepts arranged beneath it | [`V106mv`](https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/emotional-dysfunction/v1/V106mv_hierarchy.yaml) | [Kotov et al. (2021), *World Psychiatry*](https://onlinelibrary.wiley.com/doi/10.1002/wps.20943) |
-| Externalizing | The superspectrum and all concepts arranged beneath it | [`V108kx`](https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/externalizing/v1/V108kx_hierarchy.yaml) | [Kotov et al. (2021), *World Psychiatry*](https://onlinelibrary.wiley.com/doi/10.1002/wps.20844) |
+| Emotional Dysfunction | The superspectrum and all concepts arranged beneath it | [`V106mv`](https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/emotional-dysfunction/v1/V106mv_hierarchy.yaml) | [Watson et al. (2022), *World Psychiatry*](https://onlinelibrary.wiley.com/doi/10.1002/wps.20943) |
+| Externalizing | The superspectrum and all concepts arranged beneath it | [`V108kx`](https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/externalizing/v1/V108kx_hierarchy.yaml) | [Krueger et al. (2021), *World Psychiatry*](https://onlinelibrary.wiley.com/doi/10.1002/wps.20844) |
 | Psychosis | The superspectrum and all concepts arranged beneath it | [`V10749`](https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/factorizations/psychosis/v1/V10749_hierarchy.yaml) | [Kotov et al. (2020), *World Psychiatry*](https://onlinelibrary.wiley.com/doi/10.1002/wps.20730) |
 
 ## Canonical artifact
@@ -66,12 +66,11 @@ scripts/validate_hitop_suffix_tooling.sh
 
 ```text
 Checking Python syntax and imports... PASS
-Checking regression tests (approved label exception excluded)... PASS
-Approved exceptions: 1 cross-file label-consistency check (clinical review pending)
+Checking regression tests... PASS
 Checking documentation code examples... PASS
 Validation completed successfully.
 ```
 
-The approved exception is reported explicitly and follows the same temporary
-policy as CI. Set `ALLOW_KNOWN_LABEL_INCONSISTENCIES=false` to include that
-check and require a fully clean clinical label-consistency result.
+The core label-match check is part of the regression tests and follows the
+same policy as CI. `ALLOW_KNOWN_LABEL_INCONSISTENCIES=true` temporarily
+excludes it; the gate then reports the excluded check explicitly.

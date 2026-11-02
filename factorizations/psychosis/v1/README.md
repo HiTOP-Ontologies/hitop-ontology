@@ -1,6 +1,6 @@
 # Psychosis Superspectrum — v1 (V10749)
 
-Status: **draft**
+Status: **active**
 
 ## What this is
 
@@ -22,6 +22,6 @@ vocabulary, and how to add a new version.
 
 ## Status
 
-`meta.status` is `draft`. Move it to `active` in
-`V10749_hierarchy.yaml` once the tree has been fully reviewed against the
-cited paper.
+`meta.status` is `active` in `V10749_hierarchy.yaml`. The hierarchy has been
+manually reviewed and passed schema, structural, code, mapping, and generation
+checks. Mania and Dissociation retain their provisional placement.

@@ -114,6 +114,71 @@ sämtliche Konsistenzprüfungen (Referenzintegrität, doppelte Codes) laufen
 über die projekteigene Validierung (`validation/test_factorizations.py`),
 nicht über einen Reasoner.
 
+### Drei Knotentypen
+
+- `concept` (Default): derselbe Begriff wie der referenzierte Basiscode.
+  Das YAML-`label` darf das Wording der Quelle verwenden; dies behauptet
+  inhaltliche Identität, keine bloße Ähnlichkeit. Die Basisdefinition bleibt unverändert.
+- `partial`: ein lokaler Begriff mit teilweiser Überschneidung zum Basiscode.
+  Er kann weniger und zusätzliche Inhalte umfassen. Weder Äquivalenz noch
+  eine bestimmte Richtung (enger/weiter) oder Polumkehr werden behauptet.
+- `collection`: lokale Gruppierung von Konzepten, keine Äquivalenzbehauptung.
+
+`concept` und `partial` benötigen einen existierenden Basiscode. Nur
+`collection` verwendet eine lokale Kennung im Feld `code`. Jeder `partial`-Knoten
+benötigt zusätzlich eine eigene stabile `id`. Basisidentitäten und lokale Identitäten
+bleiben innerhalb eines Baums jeweils eindeutig.
+Ein `concept` und ein `partial` dürfen denselben Basiscode referenzieren;
+`partial` und `collection` teilen sich dagegen den lokalen Namensraum.
+
+```yaml
+label: Reality distortion
+level: Component
+kind: concept
+code: C00qSD
+```
+
+```yaml
+label: Emotional detachment
+level: Trait
+kind: partial
+id: EmotionalDetachment
+code: T00BXK
+mapping_note: "Overlap concerns restricted emotional expression; full equivalence is not asserted."
+```
+
+Der zweite Knoten erklärt nur eine Überschneidung; er kodiert keinen
+gegenüberliegenden Pol. Die fachliche Richtigkeit des Mappings wird manuell geprüft.
+
+### Mehrere Teilabbildungen desselben Basiskonzepts
+
+```yaml
+- label: Cardiopulmonary
+  level: Component
+  kind: partial
+  id: Cardiopulmonary
+  code: C00Q1t
+  mapping_note: "Overlap concerns cardiac and respiratory symptoms; panic is not required."
+- label: Physiological anxiety
+  level: Component
+  kind: partial
+  id: PhysiologicalAnxiety
+  code: C00Q1t
+  mapping_note: "Overlap concerns bodily anxiety symptoms, including outside panic episodes."
+```
+
+Die beiden lokalen IRIs enden auf `#Cardiopulmonary` und
+`#PhysiologicalAnxiety`, während beide `skos:relatedMatch` auf `hitop:C00Q1t`
+verweisen. `id` bleibt bei Änderungen an Label, Bridge oder Mapping-Notiz stabil.
+Sie muss auch gegenüber den lokalen `code`-Kennungen von Collections eindeutig sein.
+Ein identisches Basiskonzept (`concept`) darf nur einmal pro Baum vorkommen.
+Mehrere `partial`-Knoten dürfen denselben Basiscode verwenden, solange ihre IDs verschieden sind.
+
+Migration von Schema 1.2.0: bestehende Partial-Knoten erhalten eine `id`.
+Um ihre bisherige IRI zu erhalten, kann die bisherige `code`-Zeichenfolge als ID
+übernommen werden. Bei Kollisionen ist eine neue lokale ID erforderlich.
+Die Dateien im Repository wurden entsprechend ergänzt; Exporte werden nach Review neu erzeugt.
+
 ### Collection-Knoten (`kind: collection`) für faktorisierungslokale Zusammenführungen
 
 Manchmal führt eine Faktorisierung mehrere bestehende Konzepte zu einem
@@ -159,7 +224,13 @@ meta:
     ontology_iri: "http://purl.org/hitop"
     ontology_version: "0.1.0"
   provenance:
-    created_by: "Dr. Rogério Blitz"
+    created_by:
+      - orcid: "https://orcid.org/0000-0002-4505-4593"
+        name: "Rogério Blitz"
+    contributors:
+      - orcid: "https://orcid.org/0000-0002-4505-4593"
+        name: "Rogério Blitz"
+    contributions: "http://purl.org/hitop/contributions"
     created_at: "2026-07-03"
 
 hierarchy:
@@ -180,7 +251,9 @@ hierarchy:
 | `meta.status` | `draft`, `active`, oder `deprecated` |
 | `meta.based_on.ontology_iri` | immer `http://purl.org/hitop` |
 | `meta.based_on.ontology_version` | `owl:versionInfo`-Stand, gegen den `code`-Werte aufgelöst wurden |
-| `meta.provenance.created_by`, `.created_at` | Kuratierungs-Herkunft |
+| `meta.provenance.created_by`, `.created_at` | ORCID-/Namensliste der Ersteller und Erstellungsdatum; bisherige Namensstrings bleiben kompatibel |
+| `meta.provenance.contributors` | Optionale ORCID-/Namensliste der Mitwirkenden dieser Faktorisierung |
+| `meta.provenance.contributions` | PURL des zentralen Beitragsdatensatzes; Standard: `http://purl.org/hitop/contributions` |
 | `hierarchy` | rekursiver Baum, siehe unten |
 
 Jeder Knoten im `hierarchy`-Baum hat:
@@ -189,30 +262,26 @@ Jeder Knoten im `hierarchy`-Baum hat:
 | --- | --- | --- |
 | `label` | ja | menschenlesbarer Name |
 | `level` | ja | freier Text, benennt die Rolle dieses Knotens in dieser Faktorisierung (siehe Abschnitt 4) |
-| `code` | ja | für `kind: concept`: `hitop_base_code` aus `ontology/hitop.ttl`; für `kind: collection`: faktorisierungslokale ID |
-| `kind` | nein | `concept` (Default) oder `collection` (faktorisierungslokale Zusammenführung, siehe Abschnitt 4) |
+| `code` | ja | für `concept` und `partial`: `hitop_base_code` aus `ontology/hitop.ttl`; für `kind: collection`: faktorisierungslokale ID |
+| `id` | nur bei `partial` | stabile lokale Kennung aus Buchstaben/Ziffern; bei `concept` und `collection` nicht erlaubt |
+| `mapping_note` | nein | nur bei `partial`: erläutert die Überschneidung und Unterschiede |
+| `kind` | nein | `concept` (identisch, Default), `partial` (teilweise Überschneidung), `collection` (Gruppierung) |
 | `children` | nein | untergeordnete Knoten, eine Ebene tiefer; bestimmt die Baumtiefe/Ordnung |
-| `bridge` | nein | reine Doku-Angabe: Labels anderer Knoten, mit denen dieses Konzept empirisch cross-loaded. Erzeugt **keine** zweite `hasTier`-Kante und wird nicht gegen Codes validiert. |
+| `bridge` | nein | Doku-Verweis auf exakt geschriebene, eindeutige Labels anderer Knoten im selben Baum; alle `kind`-Typen zulässig. Keine Selbstverweise, doppelten Ziele oder Leerangaben. Erzeugt **keine** zweite `hasTier`-Kante. |
 | `provisional` | nein | markiert einen einzelnen Knoten als vorläufig, unabhängig von `meta.status` |
 
 `validation/test_factorizations.py` prüft:
 
 - Schema-Konformität gegen `factorization-hierarchy.schema.json`,
-- dass jeder `code` eines `kind: concept`-Knotens (rekursiv über den ganzen
+- dass jeder `code` eines `concept`- oder `partial`-Knotens (rekursiv über den ganzen
   Baum) tatsächlich als Klasse in `ontology/hitop.ttl` existiert
   (referenzielle Integrität; `kind: collection`-Knoten sind hiervon
   ausgenommen). Die vertikale Ordnung selbst ergibt sich bereits strukturell
   aus der `children`-Verschachtelung und wird nicht separat geprüft; `level`
   wird bewusst nicht auf Tiefen-Konsistenz geprüft (siehe Abschnitt 4),
-- dass innerhalb eines Baums kein `code` doppelt vorkommt,
-- dass das `label` jedes `kind: concept`-Knotens dem `rdfs:label` des Codes
-  in `ontology/hitop.ttl` entspricht (Groß-/Kleinschreibung wird ignoriert;
-  `kind: collection`-Knoten sind ausgenommen). Das fängt Code-Kollisionen
-  wie Tippfehler bei der Kuratierung ab. Jede Faktorisierung wird dabei nur
-  gegen die Core-Ontologie geprüft, nie gegen andere Faktorisierungen, weil
-  Faktorisierungen unabhängig voneinander erstellt werden. Ein Synonym
-  gehört als Mapping in den Core; ein inhaltlich abweichendes Konstrukt wird
-  als `kind: collection` modelliert.
+- dass innerhalb eines Baums keine Basisidentität oder lokale Identität doppelt vorkommt,
+- dass die Knotenfelder gültig sind. Abweichende lokale Labels sind erlaubt;
+  die inhaltliche Identität bzw. Überschneidung wird fachlich geprüft.
 
 ## 6. Generierte Faktorisierungs-Ontology
 
@@ -225,13 +294,16 @@ bzw. OWL/RDF-XML-Geschwisterdateien ableiten; `--format ttl`/`--format both`
 erzeugen Turtle direkt. Für jeden Knoten wird ein `hitop:hasLevel`-Literal-
 Tripel gesetzt, für jede Eltern-Kind-Kante ein `hitop:hasTier`-Tripel, für
 `kind: collection`-Knoten zusätzlich `rdf:type skos:Collection` mit lokaler
-IRI, sowie ein Ontology-Header aus `meta`. Zusätzlich kopiert der Generator
-für jeden regulären Konzeptknoten dessen `rdfs:label` (und, sofern
-vorhanden, `rdfs:comment`) aus der Core-Ontologie in die generierte Datei —
-ausschließlich zur Lesbarkeit, damit eine Faktorisierungsdatei für sich
-verständlich ist, ohne die IRI im Core nachschlagen zu müssen. `rdf:type`
-und `rdfs:subClassOf` eines Konzepts werden dabei nie dupliziert; die
-Core-Ontologie bleibt alleinige Quelle der Wahrheit für Label/Comment.
+IRI, sowie ein Ontology-Header aus `meta`.
+`concept` verwendet die Kern-IRI mit dem YAML-Label als `rdfs:label`; das
+abweichende Basislabel bleibt als `skos:altLabel`, der Basiskommentar als
+`rdfs:comment` erhalten. Die Basisdatei wird nicht geändert.
+`partial` erhält eine lokale IRI (`<factorization-iri>#<id>`),
+`rdf:type skos:Concept`, das lokale Label und `skos:relatedMatch` zum Basiscode.
+Ein `skos:scopeNote` dokumentiert, dass keine Gleichheit oder Richtung behauptet wird.
+Eine optionale `mapping_note` wird zusätzlich als `skos:scopeNote` exportiert.
+Basisdefinitionen werden nicht auf partielle Knoten kopiert.
+Diagramm-JSON erhält `kind`, `id`, `mapping_note` (soweit vorhanden) und das YAML-Label; der Viewer kennzeichnet partielle Knoten im Tooltip.
 Diese generierten Dateien werden nicht von Hand gepflegt — bei einer
 Änderung des YAML werden sie neu erzeugt und die alten Fassungen ersetzt.
 
@@ -285,3 +357,31 @@ Dateien nicht von Hand gepflegt.
    Abschnitt 7) zu erzeugen.
 7. `meta.status` erst auf `active` setzen, wenn der Baum vollständig und
    fachlich geprüft ist.
+
+## Beitragsmetadaten aktualisieren
+
+Der Generator schreibt Creator-/Contributor-ORCIDs als Ressourcenverweise und
+separate lokale Personenbeschreibungen ohne akademische Titel. Alle
+Faktorisierungen verweisen über `prov:has_provenance` und `rdfs:seeAlso` auf den
+zentralen Beitragsdatensatz. Die Rollen sind dort jeweils der konkreten
+Faktorisierung zugeordnet. Der Provenienzlink ist kein zusätzlicher OWL-Import.
+Die Personennamen kommen aus den YAML-Quellen, ohne Netzwerkabfragen.
+
+Für eine reine Aktualisierung der Metadaten eines bestehenden RDF-Artefakts
+kann `--metadata-only` genutzt werden. Dieser Modus prüft die Metadaten und
+erhält den vorhandenen Hierarchiegraphen; er übernimmt keine Änderungen aus
+dem YAML-Hierarchiebaum und bestätigt keine Inhaltsvalidität. Ein passendes
+RDF-Artefakt muss bereits vorhanden sein. Die normale Generierung prüft
+weiterhin alle Codes gegen die Kernontologie. Danach laufen die üblichen
+Konverter mit expliziten Ein-/Ausgabepfaden.
+
+### Validierung von Bridges
+
+Bridge-Ziele werden gegen die Knoten derselben Faktorisierung geprüft, nicht
+gegen `hitop.rdf`. Daher ist auch eine lokale Collection wie `PF Problems`
+ein gültiges Ziel. Verglichen wird das vollständige Label einschließlich
+Groß-/Kleinschreibung. Fehlende und mehrdeutige Ziele, Selbstverweise,
+doppelte Ziele und reine Leerzeichen sind Fehler. Bei ähnlichen Labels
+schlägt die Python-Validierung gegebenenfalls ein Ziel vor.
+Einseitige Verweise, gegenseitige Bridges und Bridge-Zyklen sind erlaubt.
+Sie verändern die Hierarchie nicht; RDF exportiert sie als `skos:changeNote`.

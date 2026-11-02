@@ -90,6 +90,9 @@ def _node_to_dict(node: dict[str, Any], *, branch: int | None) -> dict[str, Any]
         "branch": branch,
         "color": node["color"],
     }
+    for field in ("id", "mapping_note"):
+        if field in node:
+            out[field] = node[field]
     if "bridge" in node:
         out["bridge"] = node["bridge"]
     if node.get("provisional"):

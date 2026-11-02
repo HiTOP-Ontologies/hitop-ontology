@@ -19,6 +19,44 @@ The repository includes a maintained [`CITATION.cff`](https://github.com/HiTOP-O
 }
 ```
 
+## Contributions
+
+Individual contributor roles are maintained in
+[`ontology/contributions.rdf`](https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/ontology/contributions.rdf).
+The ontology header links to the persistent address
+[`http://purl.org/hitop/contributions`](http://purl.org/hitop/contributions)
+using `prov:has_provenance` and a human-readable `rdfs:seeAlso` link.
+The `dcterms:contributor` entries reference the contributors’ ORCID identifiers.
+Separate local `foaf:Person` descriptions provide names without academic titles,
+alphabetically ordered by family name. Detailed roles are maintained in the separate
+record, combining CRediT, SCoRO project membership and financial support.
+The same record also describes separate development activities for all six
+factorizations; sharing the record does not assign every person to every artifact.
+Creator, publisher and rights holder use the same existing ORCID identifier;
+the person's name is also defined locally.
+
+These links are metadata references, not `owl:imports`. Parsing or converting
+the local ontology does not retrieve the contribution record, PURL, ORCID or
+vocabulary documents. Names and the link label remain available without them.
+
+### PURL setup
+
+The PURL administrator needs to configure this redirect after the contribution
+file has been pushed; the repository change does not register it automatically:
+
+| PURL | Redirect target | Purpose |
+| --- | --- | --- |
+| `http://purl.org/hitop/contributions` | `https://raw.githubusercontent.com/HiTOP-Ontologies/hitop-ontology/main/ontology/contributions.rdf` | Current contribution record |
+
+Use a changeable redirect (for example HTTP 302) for the current record. Before
+freezing a release, create a version-specific PURL, for example
+`http://purl.org/hitop/0.1.0/contributions`, pointing to the raw contribution
+file at the exact commit containing the approved record. Set that versioned
+PURL in the release ontology and regenerate its formats. Keep the versioned
+redirect target fixed and archive the contribution record with the release.
+The unversioned PURL may continue to track the current record.
+Citation authorship remains a separate decision recorded in `CITATION.cff`.
+
 ## Reuse
 
 The repository is available under the MIT License. A citation records scholarly provenance; the license defines reuse permissions. Preserve version information when exporting ontology or factorization artifacts.

@@ -3,7 +3,7 @@
     "factorization_id": "psychosis",
     "version": "V10749",
     "label": "Psychosis Superspectrum",
-    "status": "draft"
+    "status": "active"
   },
   "hierarchy": {
     "label": "Psychosis",
@@ -14,7 +14,7 @@
     "color": "#1E3A5F",
     "children": [
       {
-        "label": "Thought disorder (Psychoticism)",
+        "label": "Thought disorder",
         "level": "Spectrum",
         "code": "P003SL",
         "kind": "concept",
@@ -40,7 +40,7 @@
           {
             "label": "Peculiarity",
             "level": "Trait",
-            "code": "T026cQ",
+            "code": "T00ua9",
             "kind": "concept",
             "branch": 0,
             "color": "#C6D9F0"
@@ -60,12 +60,13 @@
             "code": "C00kEN",
             "kind": "concept",
             "branch": 0,
-            "color": "#C6D9F0"
+            "color": "#C6D9F0",
+            "provisional": true
           },
           {
             "label": "Reality distortion",
             "level": "Component",
-            "code": "C0277d",
+            "code": "C00qSD",
             "kind": "concept",
             "branch": 0,
             "color": "#C6D9F0"
@@ -91,13 +92,14 @@
           {
             "label": "Emotional detachment",
             "level": "Trait",
-            "code": "T028jy",
-            "kind": "concept",
+            "code": "T00BXK",
+            "kind": "partial",
             "branch": 1,
-            "color": "#FEDCE3"
+            "color": "#FEDCE3",
+            "id": "Emotionaldetachment"
           },
           {
-            "label": "Anhedonia",
+            "label": "Anhedonia (Trait)",
             "level": "Trait",
             "code": "T01hQc",
             "kind": "concept",
@@ -107,7 +109,7 @@
           {
             "label": "Social withdrawal",
             "level": "Trait",
-            "code": "T029jr",
+            "code": "T011K6",
             "kind": "concept",
             "branch": 1,
             "color": "#FEDCE3"
@@ -115,10 +117,11 @@
           {
             "label": "Romantic disinterest",
             "level": "Trait",
-            "code": "T02A06",
-            "kind": "concept",
+            "code": "T00zDk",
+            "kind": "partial",
             "branch": 1,
-            "color": "#FEDCE3"
+            "color": "#FEDCE3",
+            "id": "Romanticdisinterest"
           },
           {
             "label": "Inexpressivity",

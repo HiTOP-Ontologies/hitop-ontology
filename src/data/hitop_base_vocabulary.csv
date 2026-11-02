@@ -106,37 +106,24 @@ Code;Label;Segment;Segment Level;CheckDigit;HiTOP
 1h;Anhedonia;T;0;Qc;T01hQc
 1i;Pain;C;0;7x;C01i7x
 1j;Fatigue;C;0;KN;C01jKN
-1k;Neurological;C;0;KJ;C01kKJ
-1l;Cardiopulmonary;C;0;9M;C01l9M
-1m;Negative emotionality;C;0;Pz;C01mPz
-1n;Anger/irritability;C;0;Vp;C01nVp
-1o;Behavioral avoidance;C;0;Mk;C01oMk
-1p;Anxiety sensitivity;C;0;c6;C01pc6
-1q;BII phobia;C;0;Ta;C01qTa
-1r;Body dissatisfaction;C;0;fi;C01rfi
-1s;Binge eating;C;0;9T;C01s9T
-1t;Cognitive restraint;C;0;Ak;C01tAk
-1u;Purging;C;0;eZ;C01ueZ
-1v;Excessive exercise;C;0;T5;C01vT5
-1w;Restricting;C;0;Sl;C01wSl
-1x;Muscle building;C;0;zj;C01xzj
-1y;Negative attitudes toward obesity;C;0;no;C01yno
-1z;Low sexual desire;C;0;Xz;C01zXz
-20;Difficulties with arousal;C;0;XA;C020XA
-21;Low orgasmic function;C;0;Q0;C021Q0
-22;Sex-related distress;C;0;PW;C022PW
-23;Decreased need for sleep;C;0;7W;C0237W
-24;Physiological anxiety;C;0;WG;C024WG
-25;Health/Illness anxiety;C;0;ex;C025ex
-26;Peculiarity;T;0;cQ;T026cQ
-27;Reality distortion;C;0;7d;C0277d
-28;Emotional detachment;T;0;jy;T028jy
-29;Social withdrawal;T;0;jr;T029jr
-2A;Romantic desinterest;T;0;06;T02A06
-2B;Inattention;C;0;O8;C02BO8
-2C;Destruction of property;C;0;iQ;C02CiQ
-2D;Exhibitionism;C;0;SC;C02DSC
-2E;Perceptual dysregulation;T;0;Fv;T02EFv
+1k;Behavioral avoidance;C;0;KJ;C01kKJ
+1l;Body dissatisfaction;C;0;9M;C01l9M
+1m;Binge eating;C;0;Pz;C01mPz
+1n;Cognitive restraint;C;0;Vp;C01nVp
+1o;Purging;C;0;Mk;C01oMk
+1p;Excessive exercise;C;0;c6;C01pc6
+1q;Restricting;C;0;Ta;C01qTa
+1r;Muscle building;C;0;fi;C01rfi
+1s;Negative attitudes toward obesity;C;0;9T;C01s9T
+1t;Low sexual desire;C;0;Ak;C01tAk
+1u;Difficulties with arousal;C;0;eZ;C01ueZ
+1v;Low orgasmic function;C;0;T5;C01vT5
+1w;Sex-related distress;C;0;Sl;C01wSl
+1x;Decreased need for sleep;C;0;zj;C01xzj
+1y;Health/Illness anxiety;C;0;no;C01yno
+1z;Hyperactivity;C;0;Xz;C01zXz
+20;Disorganization;C;0;XA;C020XA
+21;Perceptual dysregulation;T;0;iZ;T021iZ
 01;General Factor of Psychopathology;F;0;Hw;F001Hw
 01;Externalizing;S;0;3h;S0013h
 02;Emotional dysfunction;S;0;SE;S002SE

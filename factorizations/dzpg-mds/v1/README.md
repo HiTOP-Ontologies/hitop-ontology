@@ -1,6 +1,6 @@
-# HiTOP DZPG Minimal Data Set — v1 (V10dzp)
+# DZPG Minimal Data Set — v1 (V10dzp)
 
-Status: **draft**
+Status: **active**
 
 ## What this is
 
@@ -10,7 +10,8 @@ a recursive hierarchy tree. This factorization tracks the DZPG "Psychische
 Gesundheit Basiserfassung" minimal data set item composition (see
 `docs/concepts/core-vocabulary.md` and `docs/mapping-und-harmonisierung.md`
 for related manifestation-level tooling used by this data set). The tree
-was built from the "HiTOP Section" sheet of
+references [Woelke et al. (2025), DZPG Minimum Data Set (MDS)](https://doi.org/10.17605/OSF.IO/EC9HS)
+as its published source and was built from the "HiTOP Section" sheet of
 `docs/audit/20260615T191039+0200_hitop_ontology_release_audit/DZPG MDS Adult + HiTOP.xlsx`.
 
 This directory was previously a standalone repository (`hitop-dzpg-mds`)
@@ -28,12 +29,9 @@ version.
 
 ## Status
 
-`meta.status` is `draft`. Several nodes remain `provisional: true` because
-no exact core HiTOP code exists for the corresponding MDS item (e.g. "Low
-self esteem", "Free floating anxiety", "Social Anhedonia", "Entitlement",
-"Regulation aggessive impulses", "Norm violation", the Personality
-Functioning items). One source item category, the LEC5 trauma-exposure
-checklist ("Trauma: Kritische Lebensereignisse"), was intentionally left
-out of the tree: it measures event exposure, not a HiTOP symptom
-dimension. Move `meta.status` to `active` once these approximations have
-been clinically reviewed.
+`meta.status` is `active`. The hierarchy has been manually reviewed and
+passed schema, structural, code, local-identity, and generation checks.
+Partial mappings and any individual provisional placements remain explicitly
+marked in the YAML and generated artifacts. The LEC5 trauma-exposure
+checklist is intentionally excluded: it measures event exposure rather than
+a HiTOP symptom dimension.

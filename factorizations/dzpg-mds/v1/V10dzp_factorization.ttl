@@ -1,13 +1,15 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix hitop: <http://purl.org/hitop#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-hitop:F001Hw rdfs:label "General Psychopathology"@en ;
+hitop:F001Hw rdfs:label "General Factor of Psychopathology"@en ;
     hitop:hasLevel "Factor" ;
-    hitop:hasTier hitop:P001Y2,
+    hitop:hasTier hitop:C00217,
         hitop:P002nf,
         hitop:P003SL,
         hitop:P004R1,
@@ -17,21 +19,28 @@ hitop:F001Hw rdfs:label "General Psychopathology"@en ;
         hitop:T00Eht,
         hitop:T00Fe0,
         hitop:T00G3d ;
-    rdfs:comment "General Psychopathology refers to the broad, overarching category of mental disorders and psychological symptoms that can manifest across different mental health conditions. It encompasses a wide range of psychological phenomena that are not specific to any single disorder but may contribute to or exacerbate multiple types of mental health issues. This category includes general symptoms and traits that are commonly observed in various psychiatric conditions, such as mood disturbances, anxiety, cognitive dysfunctions, and behavioral problems."@en .
+    rdfs:comment "General Factor of Psychopathology refers to the broad, overarching category of mental disorders and psychological symptoms that can manifest across different mental health conditions. It encompasses a wide range of psychological phenomena that are not specific to any single disorder but may contribute to or exacerbate multiple types of mental health issues. This category includes general symptoms and traits that are commonly observed in various psychiatric conditions, such as mood disturbances, anxiety, cognitive dysfunctions, and behavioral problems."@en .
 
 <http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp> a owl:Ontology ;
-    rdfs:label "HiTOP DZPG Minimal Data Set"@en ;
+    rdfs:label "DZPG Minimal Data Set"@en ;
+    dcterms:bibliographicCitation "Woelke et al. (2025), DZPG Minimum Data Set (MDS), OSF, doi:10.17605/OSF.IO/EC9HS" ;
+    dcterms:contributor <https://orcid.org/0000-0002-4505-4593>,
+        <https://orcid.org/0000-0002-8588-7784> ;
     dcterms:created "2026-07-03"^^xsd:date ;
-    dcterms:creator "Dr. Rogério Blitz & Dr. André Kerber" ;
+    dcterms:creator <https://orcid.org/0000-0002-4505-4593>,
+        <https://orcid.org/0000-0002-8588-7784> ;
     dcterms:isVersionOf "0.1.0" ;
-    dcterms:source "docs/audit/20260615T191039+0200_hitop_ontology_release_audit/DZPG MDS Adult + HiTOP.xlsx (Reiter 'HiTOP Section')" ;
+    dcterms:source "https://doi.org/10.17605/OSF.IO/EC9HS" ;
+    rdfs:seeAlso <http://purl.org/hitop/contributions> ;
     owl:imports <http://purl.org/hitop> ;
     owl:versionInfo "V10dzp" ;
-    skos:changeNote "status: draft"@en .
+    skos:changeNote "status: active"@en ;
+    prov:has_provenance <http://purl.org/hitop/contributions> .
 
-hitop:C00217 rdfs:label "Somatization"@en ;
-    hitop:hasLevel "Component" ;
-    rdfs:comment "A component involving the expression of psychological distress through physical symptoms."@en .
+hitop:C00217 rdfs:label "Somatoform"@en ;
+    hitop:hasLevel "Spectrum" ;
+    rdfs:comment "A component involving the expression of psychological distress through physical symptoms."@en ;
+    skos:altLabel "Somatization"@en .
 
 hitop:C00JTU rdfs:label "Interactive anxiety"@en ;
     hitop:hasLevel "Component" ;
@@ -69,14 +78,10 @@ hitop:C00cSn rdfs:label "Appetite loss"@en ;
     hitop:hasLevel "Component" ;
     rdfs:comment "Reduction or loss of desire to eat, which can lead to weight loss."@en .
 
-hitop:C00e0L rdfs:label "(low) Wellbeing"@en ;
+hitop:C00fKQ rdfs:label "Generalized Anxiety Disorder Symptoms"@en ;
     hitop:hasLevel "Component" ;
-    rdfs:comment "A low level of mental and physical wellbeing, characterized by reduced feelings of happiness, contentment, and overall health."@en ;
-    skos:changeNote "provisional: true"@en .
-
-hitop:C00fKQ rdfs:label "Generalized anxiety disorder symptoms"@en ;
-    hitop:hasLevel "Component" ;
-    rdfs:comment "A component of generalized anxiety disorder symptoms is excessive, persistent worry that interferes with daily life and is often accompanied by physical symptoms like restlessness and fatigue."@en .
+    rdfs:comment "A component of generalized anxiety disorder symptoms is excessive, persistent worry that interferes with daily life and is often accompanied by physical symptoms like restlessness and fatigue."@en ;
+    skos:altLabel "Generalized anxiety disorder symptoms"@en .
 
 hitop:C00hPJ rdfs:label "Avoidance"@en ;
     hitop:hasLevel "Component" ;
@@ -94,10 +99,6 @@ hitop:C00l5y rdfs:label "Irritability"@en ;
     hitop:hasLevel "Component" ;
     rdfs:comment "State of being easily annoyed or angered, often with a low tolerance for frustration."@en .
 
-hitop:C00mpe rdfs:label "Pure obsessions"@en ;
-    hitop:hasLevel "Component" ;
-    rdfs:comment "Recurrent and persistent intrusive thoughts that cause significant distress, without accompanying compulsive behaviors."@en .
-
 hitop:C00qSD rdfs:label "Psychotic"@en ;
     hitop:hasLevel "Component" ;
     rdfs:comment "A component characterized by symptoms of psychosis."@en .
@@ -106,32 +107,24 @@ hitop:C01DAb rdfs:label "Alcohol use"@en ;
     hitop:hasLevel "Component" ;
     rdfs:comment "The consumption of alcoholic beverages, which may lead to problematic use."@en .
 
-hitop:C01HGq rdfs:label "Drug use"@en ;
-    hitop:hasLevel "Component" ;
-    rdfs:comment "The consumption of illicit or prescription drugs, which may lead to problematic use."@en .
-
 hitop:C01Ip4 rdfs:label "Drug problems"@en ;
     hitop:hasLevel "Component" ;
     rdfs:comment "Issues related to the use of drugs, including dependence and abuse."@en .
 
-hitop:C01s9T rdfs:label "Binge eating"@en ;
-    hitop:hasLevel "Component" ;
-    rdfs:comment "A component characterized by recurrent episodes of consuming unusually large amounts of food accompanied by a sense of loss of control during the episode."@en ;
-    skos:changeNote "provisional: true"@en .
+hitop:C01JH8 rdfs:label "Physical Aggression"@en ;
+    hitop:hasLevel "Trait" ;
+    rdfs:comment "Aggression involving physical acts of violence towards others."@en ;
+    skos:altLabel "Physical aggression"@en .
 
-hitop:C01wSl rdfs:label "Restricting"@en ;
-    hitop:hasLevel "Component" ;
-    rdfs:comment "A component defined by the deliberate limitation of food intake in order to influence body weight or shape, typically associated with disordered eating patterns."@en ;
-    skos:changeNote "provisional: true"@en .
+hitop:C01KXo rdfs:label "Destructive Aggression"@en ;
+    hitop:hasLevel "Trait" ;
+    rdfs:comment "Aggression that results in damage to property or the environment."@en ;
+    skos:altLabel "Destructive aggression"@en .
 
-hitop:C02EBv rdfs:label "Substance use"@en ;
-    hitop:hasLevel "Component" ;
-    rdfs:comment "The general consumption of alcohol, drugs, or other psychoactive substances, considered broadly rather than for one specific substance."@en .
-
-hitop:P001Y2 rdfs:label "Somatoform"@en ;
-    hitop:hasLevel "Spectrum" ;
-    hitop:hasTier hitop:C00217 ;
-    rdfs:comment "The Somatoform label refers to a category of mental health disorders characterized by physical symptoms that cannot be fully explained by any underlying medical condition, highlighting the complex interaction between mind and body in mental health."@en .
+hitop:C01LSp rdfs:label "Relational Aggression"@en ;
+    hitop:hasLevel "Trait" ;
+    rdfs:comment "Aggression that harms others through manipulation of social relationships."@en ;
+    skos:altLabel "Relational aggression"@en .
 
 hitop:P002nf rdfs:label "Internalizing"@en ;
     hitop:hasLevel "Spectrum" ;
@@ -144,17 +137,17 @@ hitop:P003SL rdfs:label "Thought Disorder"@en ;
     hitop:hasLevel "Spectrum" ;
     hitop:hasTier hitop:C00kEN,
         hitop:C00qSD,
-        hitop:T00vjR,
-        hitop:T00wk6 ;
+        hitop:T00wk6,
+        hitop:T021iZ ;
     rdfs:comment "Thought Disorder refers to a category of mental health conditions characterized by disorganized thinking, impaired reality testing, and disturbances in the form or content of thought."@en .
 
 hitop:P004R1 rdfs:label "Detachment"@en ;
     hitop:hasLevel "Spectrum" ;
-    hitop:hasTier hitop:T00BXK,
-        hitop:T00zDk,
+    hitop:hasTier hitop:T00zDk,
         hitop:T011K6,
         hitop:T013F1,
-        hitop:T01hQc ;
+        hitop:T01hQc,
+        <http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#Restrictedaffectivity> ;
     rdfs:comment "Detachment refers to a psychological state characterized by emotional distance and disengagement from social interactions."@en .
 
 hitop:P005xY rdfs:label "Disinhibited Externalizing"@en ;
@@ -163,7 +156,8 @@ hitop:P005xY rdfs:label "Disinhibited Externalizing"@en ;
         hitop:T015o8,
         hitop:T018ir,
         hitop:T019Cj,
-        hitop:U0061L ;
+        hitop:U0061L,
+        hitop:U007EJ ;
     rdfs:comment "Disinhibited Externalizing involves behaviors that are impulsive and lacking in social restraint or inhibition."@en .
 
 hitop:P006gM rdfs:label "Antagonistic Externalizing"@en ;
@@ -171,12 +165,11 @@ hitop:P006gM rdfs:label "Antagonistic Externalizing"@en ;
     hitop:hasTier hitop:T0094I,
         hitop:T01Ziz,
         hitop:T01a7u,
-        hitop:T01bz7,
-        hitop:U007EJ ;
+        hitop:T01bz7 ;
     rdfs:comment "Antagonistic Externalizing describes behaviors that involve hostility and aggression towards others."@en .
 
 hitop:T007eM rdfs:label "Anxiousness"@en ;
-    hitop:hasLevel "Component" ;
+    hitop:hasLevel "Trait" ;
     rdfs:comment "A trait characterized by a tendency to experience anxiety or nervousness."@en .
 
 hitop:T008mD rdfs:label "Emotional lability"@en ;
@@ -186,10 +179,6 @@ hitop:T008mD rdfs:label "Emotional lability"@en ;
 hitop:T0094I rdfs:label "Hostility"@en ;
     hitop:hasLevel "Trait" ;
     rdfs:comment "A trait characterized by a tendency toward aggression or antagonism."@en .
-
-hitop:T00BXK rdfs:label "(low) Restricted affectivity"@en ;
-    hitop:hasLevel "Trait" ;
-    rdfs:comment "A trait characterized by limited or constricted emotional expression."@en .
 
 hitop:T00Eht rdfs:label "Identity problems"@en ;
     hitop:hasLevel "Trait" ;
@@ -203,13 +192,10 @@ hitop:T00G3d rdfs:label "Fragility"@en ;
     hitop:hasLevel "Trait" ;
     rdfs:comment "A trait characterized by a lack of resilience and a tendency to be easily hurt or affected by stress."@en .
 
-hitop:T00vjR rdfs:label "Cognitive perceptual dysregulation"@en ;
+hitop:T00wk6 rdfs:label "Unusual beliefs and Experiences"@en ;
     hitop:hasLevel "Trait" ;
-    rdfs:comment "A trait characterized by disturbances in cognition and perception."@en .
-
-hitop:T00wk6 rdfs:label "Unusual beliefs and experiences"@en ;
-    hitop:hasLevel "Trait" ;
-    rdfs:comment "A trait characterized by the presence of atypical beliefs and experiences."@en .
+    rdfs:comment "A trait characterized by the presence of atypical beliefs and experiences."@en ;
+    skos:altLabel "Unusual beliefs and experiences"@en .
 
 hitop:T00zDk rdfs:label "Intimacy avoidance"@en ;
     hitop:hasLevel "Trait" ;
@@ -223,9 +209,10 @@ hitop:T013F1 rdfs:label "Disaffiliativeness"@en ;
     hitop:hasLevel "Trait" ;
     rdfs:comment "A trait characterized by a lack of interest in forming or maintaining social bonds."@en .
 
-hitop:T015o8 rdfs:label "Problematic impulsivity"@en ;
+hitop:T015o8 rdfs:label "Problematic Impulsivity"@en ;
     hitop:hasLevel "Trait" ;
-    rdfs:comment "A trait characterized by difficulty in controlling impulsive behaviors, often leading to negative consequences."@en .
+    rdfs:comment "A trait characterized by difficulty in controlling impulsive behaviors, often leading to negative consequences."@en ;
+    skos:altLabel "Problematic impulsivity"@en .
 
 hitop:T018ir rdfs:label "Distractibility"@en ;
     hitop:hasLevel "Trait" ;
@@ -235,13 +222,9 @@ hitop:T019Cj rdfs:label "Risk taking"@en ;
     hitop:hasLevel "Trait" ;
     rdfs:comment "A trait characterized by engaging in behaviors that involve significant risk, often without regard for potential negative outcomes."@en .
 
-hitop:T01Neb rdfs:label "Impatient urgency"@en ;
+hitop:T01W1E rdfs:label "Excitement seeking"@en ;
     hitop:hasLevel "Trait" ;
-    rdfs:comment "A trait characterized by a lack of patience and a tendency to act impulsively in urgent situations."@en .
-
-hitop:T01UGN rdfs:label "Rebelliousness"@en ;
-    hitop:hasLevel "Trait" ;
-    rdfs:comment "A trait characterized by resistance to authority and norms."@en .
+    rdfs:comment "A trait characterized by a desire for new, thrilling, or risky experiences."@en .
 
 hitop:T01Ziz rdfs:label "Deceitfulness"@en ;
     hitop:hasLevel "Trait" ;
@@ -255,22 +238,26 @@ hitop:T01bz7 rdfs:label "Manipulativeness"@en ;
     hitop:hasLevel "Trait" ;
     rdfs:comment "A trait characterized by a tendency to control or influence others for personal gain, often in a devious manner."@en .
 
-hitop:T01hQc rdfs:label "Anhedonia"@en ;
+hitop:T01hQc rdfs:label "Anhedonia (Trait)"@en ;
     hitop:hasLevel "Trait" ;
     rdfs:comment "Anhedonia conceptualized as a Trait refers to a stable, enduring disposition toward diminished pleasure or interest in typically rewarding experiences."@en .
 
+hitop:T021iZ rdfs:label "Perceptual dysregulation"@en ;
+    hitop:hasLevel "Trait" ;
+    rdfs:comment "A trait characterized by disturbances in perception."@en .
+
 hitop:U002SC rdfs:label "Eating Pathology"@en ;
     hitop:hasLevel "Subfactor" ;
-    hitop:hasTier hitop:C01s9T,
-        hitop:C01wSl ;
+    hitop:hasTier <http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#EDAnorectic>,
+        <http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#EDBulimic> ;
     rdfs:comment "Eating Pathology includes disorders and maladaptive behaviors related to eating and body image."@en .
 
 hitop:U0036N rdfs:label "Fear"@en ;
     hitop:hasLevel "Subfactor" ;
-    hitop:hasTier <http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#COLLOcd>,
-        <http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#COLLPhobia>,
+    hitop:hasTier <http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#COLLPhobia>,
         <http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#COLLSoc>,
-        <http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#COLLpani> ;
+        <http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#COLLpani>,
+        <http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#OCD> ;
     rdfs:comment "Fear refers to an emotional response to perceived threats or danger."@en .
 
 hitop:U004dm rdfs:label "Distress"@en ;
@@ -278,11 +265,11 @@ hitop:U004dm rdfs:label "Distress"@en ;
     hitop:hasTier hitop:C00VHv,
         hitop:C00WJc,
         hitop:C00cSn,
-        hitop:C00e0L,
         hitop:C00fKQ,
         hitop:C00hPJ,
         hitop:C00iAh,
-        hitop:T007eM ;
+        hitop:T007eM,
+        <http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#Lowselfesteem> ;
     rdfs:comment "Distress involves significant emotional suffering or discomfort."@en .
 
 hitop:U0061L rdfs:label "Harmful Substance Use"@en ;
@@ -290,19 +277,15 @@ hitop:U0061L rdfs:label "Harmful Substance Use"@en ;
     hitop:hasTier hitop:C01DAb,
         hitop:C01HGq,
         hitop:C01Ip4,
-        <http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#COLLsmok> ;
+        <http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#Smoking> ;
     rdfs:comment "Harmful Substance Use refers to the excessive use of substances that causes significant harm or impairment."@en .
 
 hitop:U007EJ rdfs:label "Antisocial Behavior"@en ;
     hitop:hasLevel "Subfactor" ;
-    hitop:hasTier <http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#COLLaggr>,
-        <http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#COLLexcit> ;
-    rdfs:comment "Antisocial Behavior involves actions that violate societal norms and the rights of others."@en .
-
-<http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#COLLOcd> a skos:Collection ;
-    rdfs:label "OCD"@en ;
-    hitop:hasLevel "Component" ;
-    hitop:hasTier hitop:C00mpe .
+    hitop:hasTier hitop:T01W1E,
+        <http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#COLLaggr> ;
+    rdfs:comment "Antisocial Behavior involves actions that violate societal norms and the rights of others."@en ;
+    skos:changeNote "Bridges: Disinhibited Externalizing, Antagonistic Externalizing"@en .
 
 <http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#COLLPhobia> a skos:Collection ;
     rdfs:label "(Agora)phobia"@en ;
@@ -319,13 +302,9 @@ hitop:U007EJ rdfs:label "Antisocial Behavior"@en ;
 <http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#COLLaggr> a skos:Collection ;
     rdfs:label "Aggression"@en ;
     hitop:hasLevel "Trait" ;
-    hitop:hasTier hitop:T01Neb ;
-    skos:changeNote "provisional: true"@en .
-
-<http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#COLLexcit> a skos:Collection ;
-    rdfs:label "Excitement seeking"@en ;
-    hitop:hasLevel "Trait" ;
-    hitop:hasTier hitop:T01UGN .
+    hitop:hasTier hitop:C01JH8,
+        hitop:C01KXo,
+        hitop:C01LSp .
 
 <http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#COLLpani> a skos:Collection ;
     rdfs:label "Panic"@en ;
@@ -333,9 +312,54 @@ hitop:U007EJ rdfs:label "Antisocial Behavior"@en ;
     hitop:hasTier hitop:C00Q1t,
         hitop:C00RGy .
 
-<http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#COLLsmok> a skos:Collection ;
+<http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#EDAnorectic> a skos:Concept ;
+    rdfs:label "ED Anorectic"@en ;
+    hitop:hasLevel "Component" ;
+    skos:relatedMatch hitop:C01qTa ;
+    skos:scopeNote "Partial overlap with the referenced core concept; neither equivalence nor a narrower or broader direction is asserted."@en .
+
+<http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#EDBulimic> a skos:Concept ;
+    rdfs:label "ED Bulimic"@en ;
+    hitop:hasLevel "Component" ;
+    skos:relatedMatch hitop:C01mPz ;
+    skos:scopeNote "Partial overlap with the referenced core concept; neither equivalence nor a narrower or broader direction is asserted."@en .
+
+<http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#Lowselfesteem> a skos:Concept ;
+    rdfs:label "Low self esteem"@en ;
+    hitop:hasLevel "Component" ;
+    skos:relatedMatch hitop:C00e0L ;
+    skos:scopeNote "Partial overlap with the referenced core concept; neither equivalence nor a narrower or broader direction is asserted."@en .
+
+<http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#OCD> a skos:Concept ;
+    rdfs:label "OCD"@en ;
+    hitop:hasLevel "Component" ;
+    skos:relatedMatch hitop:C00mpe ;
+    skos:scopeNote "Partial overlap with the referenced core concept; neither equivalence nor a narrower or broader direction is asserted."@en .
+
+<http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#Restrictedaffectivity> a skos:Concept ;
+    rdfs:label "Restricted affectivity"@en ;
+    hitop:hasLevel "Trait" ;
+    skos:relatedMatch hitop:T00BXK ;
+    skos:scopeNote "Partial overlap with the referenced core concept; neither equivalence nor a narrower or broader direction is asserted."@en .
+
+<http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp#Smoking> a skos:Concept ;
     rdfs:label "Smoking"@en ;
     hitop:hasLevel "Component" ;
-    hitop:hasTier hitop:C02EBv ;
-    skos:changeNote "provisional: true"@en .
+    skos:changeNote "provisional: true"@en ;
+    skos:relatedMatch hitop:C01HGq ;
+    skos:scopeNote "Partial overlap with the referenced core concept; neither equivalence nor a narrower or broader direction is asserted."@en .
+
+hitop:C01HGq rdfs:label "Drug use"@en ;
+    hitop:hasLevel "Component" ;
+    rdfs:comment "The consumption of illicit or prescription drugs, which may lead to problematic use."@en .
+
+<http://purl.org/hitop/contributions> rdfs:label "Contributors and contribution roles"@en .
+
+<https://orcid.org/0000-0002-4505-4593> a foaf:Person ;
+    rdfs:label "Rogério Blitz" ;
+    foaf:name "Rogério Blitz" .
+
+<https://orcid.org/0000-0002-8588-7784> a foaf:Person ;
+    rdfs:label "André Kerber" ;
+    foaf:name "André Kerber" .
 

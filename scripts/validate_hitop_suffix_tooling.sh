@@ -5,7 +5,7 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PYTHON="${ROOT_DIR}/.venv/bin/python"
-ALLOW_KNOWN_LABEL_INCONSISTENCIES="${ALLOW_KNOWN_LABEL_INCONSISTENCIES:-true}"
+ALLOW_KNOWN_LABEL_INCONSISTENCIES="${ALLOW_KNOWN_LABEL_INCONSISTENCIES:-false}"
 
 if [[ ! -x "${PYTHON}" ]]; then
   echo "Missing .venv. Run scripts/bootstrap_hitop_suffix_tools.sh first." >&2

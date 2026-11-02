@@ -178,6 +178,12 @@
     if (dData.kind === "collection") {
       parts.push("Art: faktorisierungslokale Zusammenfuehrung (skos:Collection)");
     }
+    if (dData.kind === "partial") {
+      parts.push("Art: teilweise Überschneidung mit Basiskonzept (keine Äquivalenz)");
+      const escapeText = value => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+      if (dData.id) parts.push("Local ID: " + escapeText(dData.id));
+      if (dData.mapping_note) parts.push("Mapping: " + escapeText(dData.mapping_note));
+    }
     if (dData.bridge && dData.bridge.length) {
       parts.push("Bridge: " + dData.bridge.join(", "));
     }

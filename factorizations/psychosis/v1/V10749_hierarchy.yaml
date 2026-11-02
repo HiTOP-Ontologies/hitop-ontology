@@ -6,12 +6,20 @@ meta:
   label: Psychosis Superspectrum
   source: https://onlinelibrary.wiley.com/doi/10.1002/wps.20730
   paper: "Kotov et al. (2020), World Psychiatry, doi:10.1002/wps.20730"
-  status: draft
+  status: active
   based_on:
     ontology_iri: "http://purl.org/hitop"
     ontology_version: "0.1.0"
   provenance:
-    created_by: "Dr. Rogério Blitz"
+    created_by:
+      - orcid: "https://orcid.org/0000-0002-4505-4593"
+        name: "Rogério Blitz"
+    contributors:
+      - orcid: "https://orcid.org/0000-0002-4505-4593"
+        name: "Rogério Blitz"
+      - orcid: "https://orcid.org/0000-0002-8588-7784"
+        name: "André Kerber"
+    contributions: "http://purl.org/hitop/contributions"
     created_at: "2026-07-05"
 
 hierarchy:
@@ -31,36 +39,45 @@ hierarchy:
           code: T00wk6
         - label: Peculiarity
           level: Trait
-          code: T026cQ
+          kind: concept
+          code: T00ua9
         - label: Mania
           level: Component
-          provisional: true
           code: U0050q
+          provisional: true
         - label: Dissociation
           level: Component
           code: C00kEN
+          provisional: true
         - label: Reality distortion
           level: Component
-          code: C0277d
+          kind: concept
+          code: C00qSD
         - label: Disorganization
           level: Component
+          kind: concept
           code: C00rnS
     - label: Detachment
       level: Spectrum
       code: P004R1
       children:
         - label: Emotional detachment
+          id: Emotionaldetachment
           level: Trait
-          code: T028jy
-        - label: Anhedonia
+          kind: partial
+          code: T00BXK
+        - label: Anhedonia (Trait)
           level: Trait
           code: T01hQc
         - label: Social withdrawal
           level: Trait
-          code: T029jr
+          kind: concept
+          code: T011K6
         - label: Romantic disinterest
+          id: Romanticdisinterest
           level: Trait
-          code: T02A06
+          kind: partial
+          code: T00zDk
         - label: Inexpressivity
           level: Component
           code: C00sWr

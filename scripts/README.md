@@ -150,6 +150,7 @@ Validates a `<version>_hierarchy.yaml` with the same rules as
 compiles it into an RDF factorization ontology: one `hitop:hasLevel`
 literal triple and one `hitop:hasTier` triple per parent-child edge,
 referencing the stable classes in `ontology/hitop.ttl` by IRI (a
+`kind: partial` node gets a local `skos:Concept` with `skos:relatedMatch` to its core code; a
 `kind: collection` node instead gets `rdf:type skos:Collection` and an IRI
 local to the factorization). See `docs/factorizations.md` for the
 underlying vocabulary.
@@ -246,3 +247,59 @@ build:
 second hard-coded page list. It verifies that each navigation target exists,
 that each detail page has exactly one matching H1 and a page intro, and that
 the custom HTML home page contains an H1.
+
+## Factorization contributor metadata
+
+`generate_factorization_ontology.py` accepts identified people in
+`meta.provenance.created_by` and `meta.provenance.contributors`:
+
+```yaml
+created_by:
+  - orcid: "https://orcid.org/0000-0002-4505-4593"
+    name: "Rogério Blitz"
+contributors:
+  - orcid: "https://orcid.org/0000-0002-8588-7784"
+    name: "André Kerber"
+contributions: "http://purl.org/hitop/contributions"
+```
+
+The generator produces ORCID resource references and separate named people.
+Names omit academic titles. The central contribution record holds the detailed
+roles for each factorization. Legacy `created_by` name strings remain readable
+for compatibility with existing callers and the interactive hierarchy editor.
+Schema version 1.1.0 added the structured form without removing the legacy form.
+Version 1.2.0 adds partial nodes and equivalent local wording for concept nodes.
+
+`--metadata-only` refreshes the metadata of an existing RDF sibling. It validates
+metadata but does not rebuild or validate the YAML hierarchy. It requires an
+existing artifact with the matching factorization IRI. Its JSON result reports
+`mode: metadata-only` and `hierarchy_validated: false`; this is not a successful
+release-content check. Ordinary generation retains full hierarchy validation.
+Run `rdf2ttl.py` and `rdf2owl.py` with the updated RDF as `--input` to regenerate
+the sibling formats. Both converters preserve the factorization IRI, people,
+roles link and existing core import without retrieving remote resources.
+
+## Node kinds (schema 1.3.0)
+
+`concept` uses a core code with equivalent factorization-local wording.
+`partial` uses a core code as an overlap target and generates a local node;
+`collection` groups children under a local identifier. Only collection codes
+are exempt from core lookup. Local labels are preserved in RDF and diagram JSON.
+The core ontology is not modified. See `docs/factorizations.md` for RDF semantics.
+
+Schema 1.3.0 requires an alphanumeric `id` on every `partial` node. Its core
+`code` remains the mapping target; its local IRI ends in `#<id>`. Multiple
+partial nodes may reference the same core code with distinct IDs. IDs share
+the local namespace with collection codes. `concept` and `collection` must
+not carry `id`. Optional `mapping_note` on partial nodes explains overlap
+and differences and is preserved as `skos:scopeNote`, in diagram JSON and
+in the viewer tooltip. Bridge and labels never determine local identity.
+
+## Bridge target checks
+
+Bridge entries must exactly match the label of one other node in the same
+factorization, including local `partial` and `collection` nodes. Core-ontology
+lookup is not used for bridge targets. Missing or ambiguous targets, self-links,
+duplicates, and blank entries are rejected. Reciprocal links and cycles are
+allowed and do not create hierarchy edges. The YAML editor offers unique
+labels from the current tree and applies the same validation rules.

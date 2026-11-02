@@ -102,6 +102,10 @@ function initializeFactorizationLearning() {
       `${fieldIndent}kind: ${yamlString(node.kind)}`,
       `${fieldIndent}code: ${yamlString(node.code)}`,
     ];
+    if (node.kind === "partial") {
+      lines.push(`${fieldIndent}id: ${yamlString(node.localId || "")}`);
+      if (node.mappingNote) lines.push(`${fieldIndent}mapping_note: ${yamlString(node.mappingNote)}`);
+    }
     if (node.provisional) lines.push(`${fieldIndent}provisional: true`);
     if (node.bridge.length) {
       lines.push(`${fieldIndent}bridge:`);
@@ -173,21 +177,52 @@ ${buildHierarchy()}`;
     updateDocument();
   };
 
-  const nodeErrors = (node, path, seenCodes = null) => {
+  const bridgeErrors = (nodes) => {
+    const labels = new Map();
+    for (const node of nodes) {
+      if (typeof node.label === "string") {
+        if (!labels.has(node.label)) labels.set(node.label, []);
+        labels.get(node.label).push(node);
+      }
+    }
     const errors = [];
+    for (const node of nodes) {
+      if (!Array.isArray(node.bridge)) continue;
+      const seen = new Set();
+      for (const target of node.bridge) {
+        if (typeof target !== "string" || !target.trim()) continue;
+        if (seen.has(target)) errors.push(`${node.label}: duplicate bridge target ${target}.`);
+        seen.add(target);
+        const matches = labels.get(target) || [];
+        if (!matches.length) errors.push(`${node.label}: bridge target ${target} does not exist in this tree.`);
+        else if (matches.length > 1) errors.push(`${node.label}: bridge target ${target} is ambiguous in this tree.`);
+        if (matches.includes(node)) errors.push(`${node.label}: bridge target ${target} is a self-reference.`);
+      }
+    }
+    return errors;
+  };
+
+  const nodeErrors = (node, path, seenIdentities = null) => {
+    const errors = [];
+    if (!["concept", "partial", "collection"].includes(node.kind)) errors.push(`${path}: invalid node kind.`);
     if (!node.label) errors.push(`${path}: label is required.`);
     if (!node.level) errors.push(`${path}: level is required.`);
+    if (node.kind === "partial" && !/^[A-Za-z0-9]+$/.test(node.localId || "")) {
+      errors.push(`${path}: partial nodes require an alphanumeric id.`);
+    }
+    const identifier = node.kind === "partial" ? node.localId : node.code;
+    const identity = `${(node.kind || "concept") === "concept" ? "core" : "local"}:${identifier}`;
     if (!/^[A-Za-z0-9]+$/.test(node.code)) {
       errors.push(`${path}: code must contain only letters and numbers.`);
-    } else if (seenCodes?.has(node.code)) {
-      errors.push(`${path}: code ${node.code} occurs more than once in the hierarchy.`);
+    } else if (seenIdentities?.has(identity)) {
+      errors.push(`${path}: identity ${identity} occurs more than once in the hierarchy.`);
     } else {
-      seenCodes?.add(node.code);
+      seenIdentities?.add(identity);
     }
-    if (node.kind === "concept" && conceptsByCode.size > 0 && !conceptsByCode.has(node.code)) {
+    if (node.kind !== "collection" && conceptsByCode.size > 0 && !conceptsByCode.has(node.code)) {
       errors.push(`${path}: concept code ${node.code || "(empty)"} is not in the core vocabulary.`);
     }
-    if (!Array.isArray(node.bridge) || node.bridge.some((label) => !label)) {
+    if (!Array.isArray(node.bridge) || node.bridge.some((label) => typeof label !== "string" || !label.trim())) {
       errors.push(`${path}: bridge must contain non-empty node labels.`);
     }
     return errors;
@@ -204,6 +239,8 @@ ${buildHierarchy()}`;
     } else if (node.kind === "collection") {
       message.textContent =
         "Valid collection node. Its code is local to this factorization; provisional and bridge remain optional.";
+    } else if (node.kind === "partial") {
+      message.textContent = `${node.code} exists in the core ontology. This node asserts partial overlap, not equivalence.`;
     } else {
       message.textContent = `${node.code} exists in the core ontology. Label and level are valid.`;
     }
@@ -232,7 +269,7 @@ ${buildHierarchy()}`;
   const renderCodeOptions = (query = "") => {
     const options = $("[data-code-options]");
     options.replaceChildren();
-    if (selectedNode().kind !== "concept") {
+    if (selectedNode().kind === "collection") {
       closeCodeOptions();
       return;
     }
@@ -336,10 +373,11 @@ ${buildHierarchy()}`;
     const options = $("[data-bridge-options]");
     const normalized = query.trim().toLocaleLowerCase();
     const labels = [
-      ...new Set(coreConcepts.map((concept) => concept.label).filter(Boolean)),
+      ...new Set(allNodes(hierarchy, []).map((target) => target.label).filter(Boolean)),
     ]
       .filter(
         (label) =>
+          allNodes(hierarchy, []).filter((target) => target.label === label).length === 1 &&
           label !== node.label &&
           !node.bridge.includes(label) &&
           (!normalized || label.toLocaleLowerCase().includes(normalized)),
@@ -369,11 +407,16 @@ ${buildHierarchy()}`;
     const node = selectedNode();
     const concept = conceptsByCode.get(node.code);
     $("[data-node-kind]").value = node.kind;
+    $("[data-node-local-id]").value = node.localId || "";
+    $("[data-node-local-id]").disabled = node.kind !== "partial";
+    $("[data-node-local-id]").required = node.kind === "partial";
+    $("[data-node-mapping-note]").value = node.mappingNote || "";
+    $("[data-node-mapping-note]").disabled = node.kind !== "partial";
     $("[data-node-level]").value = node.level;
     $("[data-node-label]").value = node.label;
     $("[data-node-code]").value = node.code;
     $("[data-node-code-search]").value =
-      node.kind === "concept" && concept ? `${concept.code} — ${concept.label}` : node.code;
+      node.kind !== "collection" && concept ? `${concept.code} — ${concept.label}` : node.code;
     $("[data-node-provisional]").checked = node.provisional;
     $("[data-bridge-search]").value = "";
     renderBridgeSelection();
@@ -387,6 +430,11 @@ ${buildHierarchy()}`;
   const updateSelectedNode = () => {
     const node = selectedNode();
     node.kind = $("[data-node-kind]").value;
+    node.localId = $("[data-node-local-id]").value.trim();
+    node.mappingNote = $("[data-node-mapping-note]").value.trim();
+    $("[data-node-local-id]").disabled = node.kind !== "partial";
+    $("[data-node-local-id]").required = node.kind === "partial";
+    $("[data-node-mapping-note]").disabled = node.kind !== "partial";
     node.level = $("[data-node-level]").value.trim();
     node.label = $("[data-node-label]").value.trim();
     node.code = $("[data-node-code]").value.trim();
@@ -407,7 +455,7 @@ ${buildHierarchy()}`;
     input.addEventListener("input", updateMeta),
   );
   all(
-    "[data-node-kind],[data-node-level],[data-node-label],[data-node-provisional]",
+    "[data-node-kind],[data-node-level],[data-node-label],[data-node-provisional],[data-node-local-id],[data-node-mapping-note]",
   ).forEach((input) => input.addEventListener("input", updateSelectedNode));
 
   const codeSearch = $("[data-node-code-search]");
@@ -521,25 +569,18 @@ ${buildHierarchy()}`;
       errors.push("The core vocabulary is unavailable in this build.");
     }
 
-    const seenCodes = new Set();
+    const seenIdentities = new Set();
     let nodeCount = 0;
     const validateNode = (node, path) => {
       nodeCount += 1;
-      errors.push(...nodeErrors(node, path, seenCodes));
+      errors.push(...nodeErrors(node, path, seenIdentities));
       node.children.forEach((child, index) =>
         validateNode(child, `${path} > child ${index + 1}`),
       );
     };
     validateNode(hierarchy, "Root");
     const hierarchyNodes = allNodes(hierarchy, []);
-    const ontologyLabels = new Set(coreConcepts.map((concept) => concept.label));
-    for (const node of hierarchyNodes) {
-      for (const bridge of node.bridge) {
-        if (!ontologyLabels.has(bridge) || bridge === node.label) {
-          errors.push(`${node.label || "Unlabeled node"}: bridge target ${bridge} is not another concept from the core ontology.`);
-        }
-      }
-    }
+    errors.push(...bridgeErrors(hierarchyNodes));
     if (!errors.length) {
       const parsedOntology = new DOMParser().parseFromString(buildOntology(), "application/xml");
       if (parsedOntology.querySelector("parsererror")) {
@@ -639,6 +680,10 @@ ${buildHierarchy()}`;
       const color = isPaletteNode ? directColors.get(node.id) : lighten(parentColor, derivedDepth + 1);
       const nextDepth = isPaletteNode ? 0 : derivedDepth + 1;
       const output = { label: node.label, level: node.level, code: node.code, kind: node.kind, branch, color };
+      if (node.kind === "partial") {
+        output.id = node.localId;
+        if (node.mappingNote) output.mapping_note = node.mappingNote;
+      }
       if (node.bridge.length) output.bridge = [...node.bridge];
       if (node.provisional) output.provisional = true;
       if (node.children.length) {
@@ -665,7 +710,7 @@ ${buildHierarchy()}`;
   const buildOntology = () => {
     const data = values();
     const base = `http://purl.org/hitop/factorizations/${data.factorId}/v${data.versionCode}`;
-    const subjectIri = (node) => node.kind === "collection" ? `${base}#${node.code}` : `http://purl.org/hitop#${node.code}`;
+    const subjectIri = (node) => node.kind === "partial" ? `${base}#${node.localId}` : node.kind === "collection" ? `${base}#${node.code}` : `http://purl.org/hitop#${node.code}`;
     const descriptions = [];
     descriptions.push(`  <rdf:Description rdf:about="${xmlEscape(base)}">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
@@ -683,9 +728,16 @@ ${buildHierarchy()}`;
       if (node.kind === "collection") {
         lines.push('    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Collection"/>');
         lines.push(`    <rdfs:label xml:lang="en">${xmlEscape(node.label)}</rdfs:label>`);
+      } else if (node.kind === "partial") {
+        lines.push('    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>');
+        lines.push(`    <rdfs:label xml:lang="en">${xmlEscape(node.label)}</rdfs:label>`);
+        lines.push(`    <skos:relatedMatch rdf:resource="http://purl.org/hitop#${xmlEscape(node.code)}"/>`);
+        lines.push('    <skos:scopeNote xml:lang="en">Partial overlap with the referenced core concept; neither equivalence nor a narrower or broader direction is asserted.</skos:scopeNote>');
+        if (node.mappingNote) lines.push(`    <skos:scopeNote xml:lang="en">${xmlEscape(node.mappingNote)}</skos:scopeNote>`);
       } else {
         const concept = conceptsByCode.get(node.code);
-        lines.push(`    <rdfs:label>${xmlEscape(concept?.label || node.label)}</rdfs:label>`);
+        lines.push(`    <rdfs:label xml:lang="en">${xmlEscape(node.label)}</rdfs:label>`);
+        if (concept?.label && concept.label !== node.label) lines.push(`    <skos:altLabel xml:lang="en">${xmlEscape(concept.label)}</skos:altLabel>`);
         if (concept?.comment) lines.push(`    <rdfs:comment>${xmlEscape(concept.comment)}</rdfs:comment>`);
       }
       if (node.provisional) lines.push('    <skos:changeNote xml:lang="en">provisional: true</skos:changeNote>');

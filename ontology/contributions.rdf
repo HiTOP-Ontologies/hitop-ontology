@@ -1,0 +1,373 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d">
+    <dcterms:hasPart rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#A002" />
+    <dcterms:hasPart rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#A003" />
+    <dcterms:hasPart rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#A004" />
+    <dcterms:hasPart rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#A005" />
+    <dcterms:hasPart rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#A006" />
+    <dcterms:hasPart rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#A007" />
+    <dcterms:hasPart rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C001" />
+    <dcterms:hasPart rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C002" />
+    <dcterms:hasPart rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C003" />
+    <dcterms:hasPart rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C004" />
+    <dcterms:hasPart rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C005" />
+    <dcterms:hasPart rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C006" />
+    <dcterms:hasPart rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C007" />
+    <dcterms:hasPart rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C008" />
+    <dcterms:hasPart rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C009" />
+    <dcterms:hasPart rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C010" />
+    <dcterms:hasPart rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C011" />
+    <dcterms:references rdf:resource="https://orcid.org/0000-0002-0908-5579" />
+    <dcterms:references rdf:resource="https://orcid.org/0000-0002-4505-4593" />
+    <dcterms:references rdf:resource="https://orcid.org/0000-0002-5702-8405" />
+    <dcterms:references rdf:resource="https://orcid.org/0000-0002-6808-2968" />
+    <dcterms:references rdf:resource="https://orcid.org/0000-0002-8588-7784" />
+    <dcterms:references rdf:resource="https://orcid.org/0000-0002-9128-3987" />
+    <dcterms:references rdf:resource="https://orcid.org/0000-0003-4078-3954" />
+    <dcterms:references rdf:resource="https://orcid.org/0000-0003-4091-5048" />
+    <dcterms:references rdf:resource="https://orcid.org/0000-0003-4749-3298" />
+    <dcterms:references rdf:resource="https://orcid.org/0009-0004-3059-6578" />
+    <dcterms:references rdf:resource="https://orcid.org/0009-0007-3950-7684" />
+    <dcterms:subject rdf:resource="http://purl.org/hitop" />
+    <dcterms:title xml:lang="en">Contributions</dcterms:title>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Bundle" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop">
+    <prov:wasGeneratedBy rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#A001" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop/factorizations/bass-ackwards/vV10bak">
+    <rdfs:label xml:lang="en">HiTOP Bass-Ackwards Structure</rdfs:label>
+    <prov:wasGeneratedBy rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#A002" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop/factorizations/dzpg-mds/vV10dzp">
+    <rdfs:label xml:lang="en">HiTOP DZPG Minimal Data Set</rdfs:label>
+    <prov:wasGeneratedBy rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#A003" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop/factorizations/emotional-dysfunction/vV106mv">
+    <rdfs:label xml:lang="en">Emotional Dysfunction Superspectrum</rdfs:label>
+    <prov:wasGeneratedBy rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#A004" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop/factorizations/externalizing/vV108kx">
+    <rdfs:label xml:lang="en">Externalizing Superspectrum</rdfs:label>
+    <prov:wasGeneratedBy rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#A005" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop/factorizations/psychosis/vV10749">
+    <rdfs:label xml:lang="en">Psychosis Superspectrum</rdfs:label>
+    <prov:wasGeneratedBy rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#A006" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop/factorizations/working-model/vV1052k">
+    <rdfs:label xml:lang="en">HiTOP Working Model</rdfs:label>
+    <prov:wasGeneratedBy rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#A007" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#A001">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity" />
+    <rdfs:label xml:lang="en">HiTOP Ontology</rdfs:label>
+    <prov:qualifiedAssociation rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C001" />
+    <prov:qualifiedAssociation rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C002" />
+    <prov:qualifiedAssociation rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C003" />
+    <prov:qualifiedAssociation rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C004" />
+    <prov:qualifiedAssociation rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C005" />
+    <prov:qualifiedAssociation rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C006" />
+    <prov:qualifiedAssociation rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C007" />
+    <prov:qualifiedAssociation rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C008" />
+    <prov:qualifiedAssociation rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C009" />
+    <prov:qualifiedAssociation rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C010" />
+    <prov:qualifiedAssociation rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C011" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#A002">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity" />
+    <rdfs:label xml:lang="en">HiTOP Bass-Ackwards Structure</rdfs:label>
+    <prov:qualifiedAssociation rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C0201" />
+    <prov:qualifiedAssociation rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C0202" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#A003">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity" />
+    <rdfs:label xml:lang="en">HiTOP DZPG Minimal Data Set</rdfs:label>
+    <prov:qualifiedAssociation rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C0301" />
+    <prov:qualifiedAssociation rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C0302" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#A004">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity" />
+    <rdfs:label xml:lang="en">Emotional Dysfunction Superspectrum</rdfs:label>
+    <prov:qualifiedAssociation rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C0401" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#A005">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity" />
+    <rdfs:label xml:lang="en">Externalizing Superspectrum</rdfs:label>
+    <prov:qualifiedAssociation rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C0501" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#A006">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity" />
+    <rdfs:label xml:lang="en">Psychosis Superspectrum</rdfs:label>
+    <prov:qualifiedAssociation rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C0601" />
+    <prov:qualifiedAssociation rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C0602" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#A007">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity" />
+    <rdfs:label xml:lang="en">HiTOP Working Model</rdfs:label>
+    <prov:qualifiedAssociation rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C0701" />
+  </rdf:Description>
+  <rdf:Description rdf:about="https://orcid.org/0000-0002-4505-4593">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Person" />
+    <foaf:name>Rogério Blitz</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://orcid.org/0009-0007-3950-7684">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Person" />
+    <foaf:name>Margaux Gatrio</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://orcid.org/0009-0004-3059-6578">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Person" />
+    <foaf:name>Marcel Jentsch</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://orcid.org/0000-0002-8588-7784">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Person" />
+    <foaf:name>André Kerber</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://orcid.org/0000-0003-4749-3298">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Person" />
+    <foaf:name>Nils Opel</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://orcid.org/0000-0002-5702-8405">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Person" />
+    <foaf:name>Lisa Rebecca Otto</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://orcid.org/0000-0003-4078-3954">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Person" />
+    <foaf:name>Maike Richter</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://orcid.org/0000-0003-4091-5048">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Person" />
+    <foaf:name>Yannik Terhorst</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://orcid.org/0000-0002-9128-3987">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Person" />
+    <foaf:name>Mira Tschorn</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://orcid.org/0000-0002-6808-2968">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Person" />
+    <foaf:name>Falk Gerrik Verhees</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://orcid.org/0000-0002-0908-5579">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Person" />
+    <foaf:name>Julius Weise</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C001">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <prov:agent rdf:resource="https://orcid.org/0000-0002-4505-4593" />
+    <prov:hadRole rdf:resource="urn:uuid:0c8ca7d4-06ad-4527-9cea-a8801fcb8746" />
+    <prov:hadRole rdf:resource="urn:uuid:43ebbd94-98b4-42f1-866b-c930cef228ca" />
+    <prov:hadRole rdf:resource="urn:uuid:4b1bf348-faf2-4fc4-bd66-4cd3a84b9d44" />
+    <prov:hadRole rdf:resource="urn:uuid:76b9d56a-e430-4e0a-84c9-59c11be343ae" />
+    <prov:hadRole rdf:resource="urn:uuid:8b73531f-db56-4914-9502-4cc4d4d8ed73" />
+    <prov:hadRole rdf:resource="urn:uuid:a693fe76-ea33-49ad-9dcc-5e4f3ac5f938" />
+    <prov:hadRole rdf:resource="urn:uuid:f21e2be9-4e38-4ab7-8691-d6f72d5d5843" />
+    <prov:hadRole rdf:resource="urn:uuid:f89c5233-01b0-4778-93e9-cc7d107aa2c8" />
+    <prov:hadRole rdf:resource="urn:uuid:f93e0f44-f2a4-4ea1-824a-4e0853b05c9d" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C002">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <prov:agent rdf:resource="https://orcid.org/0000-0003-4078-3954" />
+    <prov:hadRole rdf:resource="urn:uuid:4b1bf348-faf2-4fc4-bd66-4cd3a84b9d44" />
+    <prov:hadRole rdf:resource="urn:uuid:d3aead86-f2a2-47f7-bb99-79de6421164d" />
+    <prov:hadRole rdf:resource="urn:uuid:f93e0f44-f2a4-4ea1-824a-4e0853b05c9d" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C003">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <prov:agent rdf:resource="https://orcid.org/0000-0002-6808-2968" />
+    <prov:hadRole rdf:resource="urn:uuid:4b1bf348-faf2-4fc4-bd66-4cd3a84b9d44" />
+    <prov:hadRole rdf:resource="urn:uuid:f93e0f44-f2a4-4ea1-824a-4e0853b05c9d" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C004">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <prov:agent rdf:resource="https://orcid.org/0000-0002-5702-8405" />
+    <prov:hadRole rdf:resource="urn:uuid:4b1bf348-faf2-4fc4-bd66-4cd3a84b9d44" />
+    <prov:hadRole rdf:resource="urn:uuid:f93e0f44-f2a4-4ea1-824a-4e0853b05c9d" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C005">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <prov:agent rdf:resource="https://orcid.org/0000-0002-8588-7784" />
+    <prov:hadRole rdf:resource="urn:uuid:4b1bf348-faf2-4fc4-bd66-4cd3a84b9d44" />
+    <prov:hadRole rdf:resource="urn:uuid:8b73531f-db56-4914-9502-4cc4d4d8ed73" />
+    <prov:hadRole rdf:resource="urn:uuid:f21e2be9-4e38-4ab7-8691-d6f72d5d5843" />
+    <prov:hadRole rdf:resource="urn:uuid:f93e0f44-f2a4-4ea1-824a-4e0853b05c9d" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C006">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <prov:agent rdf:resource="https://orcid.org/0009-0007-3950-7684" />
+    <prov:hadRole rdf:resource="http://purl.org/spar/scoro/project-member" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C007">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <prov:agent rdf:resource="https://orcid.org/0009-0004-3059-6578" />
+    <prov:hadRole rdf:resource="http://purl.org/spar/scoro/project-member" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C008">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <prov:agent rdf:resource="https://orcid.org/0000-0003-4749-3298" />
+    <prov:hadRole rdf:resource="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#R001" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C009">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <prov:agent rdf:resource="https://orcid.org/0000-0003-4091-5048" />
+    <prov:hadRole rdf:resource="http://purl.org/spar/scoro/project-member" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C010">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <prov:agent rdf:resource="https://orcid.org/0000-0002-9128-3987" />
+    <prov:hadRole rdf:resource="http://purl.org/spar/scoro/project-member" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C011">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <prov:agent rdf:resource="https://orcid.org/0000-0002-0908-5579" />
+    <prov:hadRole rdf:resource="http://purl.org/spar/scoro/project-member" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C0201">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <prov:agent rdf:resource="https://orcid.org/0000-0002-4505-4593" />
+    <prov:hadRole rdf:resource="urn:uuid:76b9d56a-e430-4e0a-84c9-59c11be343ae" />
+    <prov:hadRole rdf:resource="urn:uuid:8b73531f-db56-4914-9502-4cc4d4d8ed73" />
+    <prov:hadRole rdf:resource="urn:uuid:f21e2be9-4e38-4ab7-8691-d6f72d5d5843" />
+    <prov:hadRole rdf:resource="urn:uuid:f89c5233-01b0-4778-93e9-cc7d107aa2c8" />
+    <prov:hadRole rdf:resource="urn:uuid:f93e0f44-f2a4-4ea1-824a-4e0853b05c9d" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C0202">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <prov:agent rdf:resource="https://orcid.org/0000-0002-8588-7784" />
+    <prov:hadRole rdf:resource="urn:uuid:4b1bf348-faf2-4fc4-bd66-4cd3a84b9d44" />
+    <prov:hadRole rdf:resource="urn:uuid:8b73531f-db56-4914-9502-4cc4d4d8ed73" />
+    <prov:hadRole rdf:resource="urn:uuid:f21e2be9-4e38-4ab7-8691-d6f72d5d5843" />
+    <prov:hadRole rdf:resource="urn:uuid:f93e0f44-f2a4-4ea1-824a-4e0853b05c9d" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C0301">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <prov:agent rdf:resource="https://orcid.org/0000-0002-4505-4593" />
+    <prov:hadRole rdf:resource="urn:uuid:76b9d56a-e430-4e0a-84c9-59c11be343ae" />
+    <prov:hadRole rdf:resource="urn:uuid:8b73531f-db56-4914-9502-4cc4d4d8ed73" />
+    <prov:hadRole rdf:resource="urn:uuid:f21e2be9-4e38-4ab7-8691-d6f72d5d5843" />
+    <prov:hadRole rdf:resource="urn:uuid:f89c5233-01b0-4778-93e9-cc7d107aa2c8" />
+    <prov:hadRole rdf:resource="urn:uuid:f93e0f44-f2a4-4ea1-824a-4e0853b05c9d" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C0302">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <prov:agent rdf:resource="https://orcid.org/0000-0002-8588-7784" />
+    <prov:hadRole rdf:resource="urn:uuid:4b1bf348-faf2-4fc4-bd66-4cd3a84b9d44" />
+    <prov:hadRole rdf:resource="urn:uuid:8b73531f-db56-4914-9502-4cc4d4d8ed73" />
+    <prov:hadRole rdf:resource="urn:uuid:f21e2be9-4e38-4ab7-8691-d6f72d5d5843" />
+    <prov:hadRole rdf:resource="urn:uuid:f93e0f44-f2a4-4ea1-824a-4e0853b05c9d" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C0401">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <prov:agent rdf:resource="https://orcid.org/0000-0002-4505-4593" />
+    <prov:hadRole rdf:resource="urn:uuid:76b9d56a-e430-4e0a-84c9-59c11be343ae" />
+    <prov:hadRole rdf:resource="urn:uuid:8b73531f-db56-4914-9502-4cc4d4d8ed73" />
+    <prov:hadRole rdf:resource="urn:uuid:f21e2be9-4e38-4ab7-8691-d6f72d5d5843" />
+    <prov:hadRole rdf:resource="urn:uuid:f89c5233-01b0-4778-93e9-cc7d107aa2c8" />
+    <prov:hadRole rdf:resource="urn:uuid:f93e0f44-f2a4-4ea1-824a-4e0853b05c9d" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C0501">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <prov:agent rdf:resource="https://orcid.org/0000-0002-4505-4593" />
+    <prov:hadRole rdf:resource="urn:uuid:76b9d56a-e430-4e0a-84c9-59c11be343ae" />
+    <prov:hadRole rdf:resource="urn:uuid:8b73531f-db56-4914-9502-4cc4d4d8ed73" />
+    <prov:hadRole rdf:resource="urn:uuid:f21e2be9-4e38-4ab7-8691-d6f72d5d5843" />
+    <prov:hadRole rdf:resource="urn:uuid:f89c5233-01b0-4778-93e9-cc7d107aa2c8" />
+    <prov:hadRole rdf:resource="urn:uuid:f93e0f44-f2a4-4ea1-824a-4e0853b05c9d" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C0601">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <prov:agent rdf:resource="https://orcid.org/0000-0002-4505-4593" />
+    <prov:hadRole rdf:resource="urn:uuid:76b9d56a-e430-4e0a-84c9-59c11be343ae" />
+    <prov:hadRole rdf:resource="urn:uuid:8b73531f-db56-4914-9502-4cc4d4d8ed73" />
+    <prov:hadRole rdf:resource="urn:uuid:f21e2be9-4e38-4ab7-8691-d6f72d5d5843" />
+    <prov:hadRole rdf:resource="urn:uuid:f89c5233-01b0-4778-93e9-cc7d107aa2c8" />
+    <prov:hadRole rdf:resource="urn:uuid:f93e0f44-f2a4-4ea1-824a-4e0853b05c9d" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C0701">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <prov:agent rdf:resource="https://orcid.org/0000-0002-4505-4593" />
+    <prov:hadRole rdf:resource="urn:uuid:76b9d56a-e430-4e0a-84c9-59c11be343ae" />
+    <prov:hadRole rdf:resource="urn:uuid:8b73531f-db56-4914-9502-4cc4d4d8ed73" />
+    <prov:hadRole rdf:resource="urn:uuid:f21e2be9-4e38-4ab7-8691-d6f72d5d5843" />
+    <prov:hadRole rdf:resource="urn:uuid:f89c5233-01b0-4778-93e9-cc7d107aa2c8" />
+    <prov:hadRole rdf:resource="urn:uuid:f93e0f44-f2a4-4ea1-824a-4e0853b05c9d" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:8b73531f-db56-4914-9502-4cc4d4d8ed73">
+    <dcterms:identifier>8b73531f-db56-4914-9502-4cc4d4d8ed73</dcterms:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Role" />
+    <rdfs:label xml:lang="en">Conceptualization</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://credit.niso.org/contributor-roles/conceptualization/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:f93e0f44-f2a4-4ea1-824a-4e0853b05c9d">
+    <dcterms:identifier>f93e0f44-f2a4-4ea1-824a-4e0853b05c9d</dcterms:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Role" />
+    <rdfs:label xml:lang="en">Data curation</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://credit.niso.org/contributor-roles/data-curation/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#R001">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Role" />
+    <rdfs:label xml:lang="en">Financial support</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:f21e2be9-4e38-4ab7-8691-d6f72d5d5843">
+    <dcterms:identifier>f21e2be9-4e38-4ab7-8691-d6f72d5d5843</dcterms:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Role" />
+    <rdfs:label xml:lang="en">Methodology</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://credit.niso.org/contributor-roles/methodology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:a693fe76-ea33-49ad-9dcc-5e4f3ac5f938">
+    <dcterms:identifier>a693fe76-ea33-49ad-9dcc-5e4f3ac5f938</dcterms:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Role" />
+    <rdfs:label xml:lang="en">Project administration</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://credit.niso.org/contributor-roles/project-administration/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/spar/scoro/project-member">
+    <rdf:type rdf:resource="http://purl.org/spar/scoro/ProjectRole" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Role" />
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/scoro/" />
+    <rdfs:label xml:lang="en">project member</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:f89c5233-01b0-4778-93e9-cc7d107aa2c8">
+    <dcterms:identifier>f89c5233-01b0-4778-93e9-cc7d107aa2c8</dcterms:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Role" />
+    <rdfs:label xml:lang="en">Software</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://credit.niso.org/contributor-roles/software/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:0c8ca7d4-06ad-4527-9cea-a8801fcb8746">
+    <dcterms:identifier>0c8ca7d4-06ad-4527-9cea-a8801fcb8746</dcterms:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Role" />
+    <rdfs:label xml:lang="en">Supervision</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://credit.niso.org/contributor-roles/supervision/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4b1bf348-faf2-4fc4-bd66-4cd3a84b9d44">
+    <dcterms:identifier>4b1bf348-faf2-4fc4-bd66-4cd3a84b9d44</dcterms:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Role" />
+    <rdfs:label xml:lang="en">Validation</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://credit.niso.org/contributor-roles/validation/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:76b9d56a-e430-4e0a-84c9-59c11be343ae">
+    <dcterms:identifier>76b9d56a-e430-4e0a-84c9-59c11be343ae</dcterms:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Role" />
+    <rdfs:label xml:lang="en">Visualization</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://credit.niso.org/contributor-roles/visualization/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:43ebbd94-98b4-42f1-866b-c930cef228ca">
+    <dcterms:identifier>43ebbd94-98b4-42f1-866b-c930cef228ca</dcterms:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Role" />
+    <rdfs:label xml:lang="en">Writing – original draft</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://credit.niso.org/contributor-roles/writing-original-draft/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:d3aead86-f2a2-47f7-bb99-79de6421164d">
+    <dcterms:identifier>d3aead86-f2a2-47f7-bb99-79de6421164d</dcterms:identifier>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Role" />
+    <rdfs:label xml:lang="en">Writing – review &amp; editing</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://credit.niso.org/contributor-roles/writing-review-editing/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:4a41eacb-3fbc-53b0-bc6c-6e6ed6c3820d#C0602">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <prov:agent rdf:resource="https://orcid.org/0000-0002-8588-7784" />
+    <prov:hadRole rdf:resource="urn:uuid:4b1bf348-faf2-4fc4-bd66-4cd3a84b9d44" />
+    <prov:hadRole rdf:resource="urn:uuid:8b73531f-db56-4914-9502-4cc4d4d8ed73" />
+    <prov:hadRole rdf:resource="urn:uuid:f21e2be9-4e38-4ab7-8691-d6f72d5d5843" />
+    <prov:hadRole rdf:resource="urn:uuid:f93e0f44-f2a4-4ea1-824a-4e0853b05c9d" />
+  </rdf:Description>
+</rdf:RDF>

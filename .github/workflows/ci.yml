@@ -6,13 +6,13 @@ on:
   pull_request:
 
 env:
-  # Central toggle (TECH-T3-01): while "true", the known pre-existing
-  # deviations of factorization labels from the core rdfs:label (tracked in
-  # the CLIN-C0-* label tasks) do not fail the build. Each factorization is
-  # checked against the core ontology only, never against other
-  # factorizations. Flip this to "false" once test_concept_labels_match_core
-  # is green, so CI goes back to failing honestly on any future regression.
-  ALLOW_KNOWN_LABEL_INCONSISTENCIES: "true"
+  # Central toggle (TECH-T3-01): while "true", deviations of factorization
+  # labels from the core rdfs:label do not fail the build. Each factorization
+  # is checked against the core ontology only, never against other
+  # factorizations. Set to "false" after the CLIN-C0-* label tasks were closed
+  # and test_concept_labels_match_core turned green, so CI fails honestly on
+  # any future regression.
+  ALLOW_KNOWN_LABEL_INCONSISTENCIES: "false"
 
 jobs:
   validate:

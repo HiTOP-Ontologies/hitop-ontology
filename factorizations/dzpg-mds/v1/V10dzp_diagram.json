@@ -2,11 +2,11 @@
   "meta": {
     "factorization_id": "dzpg-mds",
     "version": "V10dzp",
-    "label": "HiTOP DZPG Minimal Data Set",
-    "status": "draft"
+    "label": "DZPG Minimal Data Set",
+    "status": "active"
   },
   "hierarchy": {
-    "label": "General Psychopathology",
+    "label": "General Factor of Psychopathology",
     "level": "Factor",
     "code": "F001Hw",
     "kind": "concept",
@@ -73,14 +73,14 @@
                 "label": "Low self esteem",
                 "level": "Component",
                 "code": "C00e0L",
-                "kind": "concept",
+                "kind": "partial",
                 "branch": 4,
                 "color": "#73ACCF",
-                "provisional": true
+                "id": "Lowselfesteem"
               },
               {
                 "label": "Anxiousness",
-                "level": "Component",
+                "level": "Trait",
                 "code": "T007eM",
                 "kind": "concept",
                 "branch": 4,
@@ -217,25 +217,16 @@
               {
                 "label": "OCD",
                 "level": "Component",
-                "code": "COLLOcd",
-                "kind": "collection",
+                "code": "C00mpe",
+                "kind": "partial",
                 "branch": 4,
                 "color": "#81B3DB",
-                "children": [
-                  {
-                    "label": "Pure obsessions",
-                    "level": "Component",
-                    "code": "C00mpe",
-                    "kind": "concept",
-                    "branch": 4,
-                    "color": "#CBDEED"
-                  }
-                ]
+                "id": "OCD"
               }
             ]
           },
           {
-            "label": "Eating",
+            "label": "Eating Pathology",
             "level": "Subfactor",
             "code": "U002SC",
             "kind": "concept",
@@ -245,20 +236,20 @@
               {
                 "label": "ED Bulimic",
                 "level": "Component",
-                "code": "C01s9T",
-                "kind": "concept",
+                "code": "C01mPz",
+                "kind": "partial",
                 "branch": 4,
                 "color": "#A2D0E7",
-                "provisional": true
+                "id": "EDBulimic"
               },
               {
                 "label": "ED Anorectic",
                 "level": "Component",
-                "code": "C01wSl",
-                "kind": "concept",
+                "code": "C01qTa",
+                "kind": "partial",
                 "branch": 4,
                 "color": "#A2D0E7",
-                "provisional": true
+                "id": "EDAnorectic"
               }
             ]
           }
@@ -267,20 +258,10 @@
       {
         "label": "Somatoform",
         "level": "Spectrum",
-        "code": "P001Y2",
+        "code": "C00217",
         "kind": "concept",
         "branch": 5,
-        "color": "#9EDAED",
-        "children": [
-          {
-            "label": "Somatization",
-            "level": "Component",
-            "code": "C00217",
-            "kind": "concept",
-            "branch": 5,
-            "color": "#C6E8F3"
-          }
-        ]
+        "color": "#9EDAED"
       },
       {
         "label": "Thought Disorder",
@@ -301,13 +282,13 @@
           {
             "label": "Perceptual dysregulation",
             "level": "Trait",
-            "code": "T00vjR",
+            "code": "T021iZ",
             "kind": "concept",
             "branch": 6,
             "color": "#D1D6EE"
           },
           {
-            "label": "Unusual beliefs",
+            "label": "Unusual beliefs and Experiences",
             "level": "Trait",
             "code": "T00wk6",
             "kind": "concept",
@@ -315,7 +296,7 @@
             "color": "#D1D6EE"
           },
           {
-            "label": "Psychotic symptoms",
+            "label": "Psychotic",
             "level": "Component",
             "code": "C00qSD",
             "kind": "concept",
@@ -341,7 +322,7 @@
             "color": "#DAB6E4"
           },
           {
-            "label": "Anhedonia",
+            "label": "Anhedonia (Trait)",
             "level": "Trait",
             "code": "T01hQc",
             "kind": "concept",
@@ -352,9 +333,10 @@
             "label": "Restricted affectivity",
             "level": "Trait",
             "code": "T00BXK",
-            "kind": "concept",
+            "kind": "partial",
             "branch": 7,
-            "color": "#DAB6E4"
+            "color": "#DAB6E4",
+            "id": "Restrictedaffectivity"
           },
           {
             "label": "Intimacy avoidance",
@@ -391,7 +373,7 @@
             "color": "#F2DCEE"
           },
           {
-            "label": "Impulsivity",
+            "label": "Problematic Impulsivity",
             "level": "Trait",
             "code": "T015o8",
             "kind": "concept",
@@ -433,21 +415,12 @@
               {
                 "label": "Smoking",
                 "level": "Component",
-                "code": "COLLsmok",
-                "kind": "collection",
+                "code": "C01HGq",
+                "kind": "partial",
                 "branch": 8,
                 "color": "#FBDFE5",
-                "provisional": true,
-                "children": [
-                  {
-                    "label": "Substance Use",
-                    "level": "Component",
-                    "code": "C02EBv",
-                    "kind": "concept",
-                    "branch": 8,
-                    "color": "#F9E1E6"
-                  }
-                ]
+                "id": "Smoking",
+                "provisional": true
               },
               {
                 "label": "Drug problems",
@@ -466,6 +439,62 @@
                 "color": "#FBDFE5"
               }
             ]
+          },
+          {
+            "label": "Antisocial Behavior",
+            "level": "Subfactor",
+            "code": "U007EJ",
+            "kind": "concept",
+            "branch": 8,
+            "color": "#FFB3BA",
+            "bridge": [
+              "Disinhibited Externalizing",
+              "Antagonistic Externalizing"
+            ],
+            "children": [
+              {
+                "label": "Aggression",
+                "level": "Trait",
+                "code": "COLLaggr",
+                "kind": "collection",
+                "branch": 8,
+                "color": "#FEDCDF",
+                "children": [
+                  {
+                    "label": "Relational Aggression",
+                    "level": "Trait",
+                    "code": "C01LSp",
+                    "kind": "concept",
+                    "branch": 8,
+                    "color": "#FCDEE1"
+                  },
+                  {
+                    "label": "Destructive Aggression",
+                    "level": "Trait",
+                    "code": "C01KXo",
+                    "kind": "concept",
+                    "branch": 8,
+                    "color": "#FCDEE1"
+                  },
+                  {
+                    "label": "Physical Aggression",
+                    "level": "Trait",
+                    "code": "C01JH8",
+                    "kind": "concept",
+                    "branch": 8,
+                    "color": "#FCDEE1"
+                  }
+                ]
+              },
+              {
+                "label": "Excitement seeking",
+                "level": "Trait",
+                "code": "T01W1E",
+                "kind": "concept",
+                "branch": 8,
+                "color": "#FEDCDF"
+              }
+            ]
           }
         ]
       },
@@ -475,7 +504,7 @@
         "code": "P006gM",
         "kind": "concept",
         "branch": 9,
-        "color": "#FFB3BA",
+        "color": "#FFCCD6",
         "children": [
           {
             "label": "Deceitfulness",
@@ -483,7 +512,7 @@
             "code": "T01Ziz",
             "kind": "concept",
             "branch": 9,
-            "color": "#FEDCDF"
+            "color": "#FEDCE3"
           },
           {
             "label": "Grandiosity",
@@ -491,7 +520,7 @@
             "code": "T01a7u",
             "kind": "concept",
             "branch": 9,
-            "color": "#FEDCDF"
+            "color": "#FEDCE3"
           },
           {
             "label": "Hostility",
@@ -499,7 +528,7 @@
             "code": "T0094I",
             "kind": "concept",
             "branch": 9,
-            "color": "#FEDCDF"
+            "color": "#FEDCE3"
           },
           {
             "label": "Manipulativeness",
@@ -507,54 +536,7 @@
             "code": "T01bz7",
             "kind": "concept",
             "branch": 9,
-            "color": "#FEDCDF"
-          },
-          {
-            "label": "Antisocial Behavior",
-            "level": "Subfactor",
-            "code": "U007EJ",
-            "kind": "concept",
-            "branch": 9,
-            "color": "#FFCCD6",
-            "children": [
-              {
-                "label": "Aggression",
-                "level": "Trait",
-                "code": "COLLaggr",
-                "kind": "collection",
-                "branch": 9,
-                "color": "#FEDCE3",
-                "provisional": true,
-                "children": [
-                  {
-                    "label": "Impatient Urgency",
-                    "level": "Trait",
-                    "code": "T01Neb",
-                    "kind": "concept",
-                    "branch": 9,
-                    "color": "#FCDEE4"
-                  }
-                ]
-              },
-              {
-                "label": "Excitement seeking",
-                "level": "Trait",
-                "code": "COLLexcit",
-                "kind": "collection",
-                "branch": 9,
-                "color": "#FEDCE3",
-                "children": [
-                  {
-                    "label": "Rebelliousness",
-                    "level": "Trait",
-                    "code": "T01UGN",
-                    "kind": "concept",
-                    "branch": 9,
-                    "color": "#FCDEE4"
-                  }
-                ]
-              }
-            ]
+            "color": "#FEDCE3"
           }
         ]
       }

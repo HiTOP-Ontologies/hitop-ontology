@@ -2,15 +2,20 @@ meta:
   factorization_id: working-model
   version: V1052k
   label: HiTOP Working Model
-  status: draft
+  status: active
   source: https://www.hitop-system.org/current-model
   based_on:
     ontology_iri: "http://purl.org/hitop"
     ontology_version: "0.1.0"
   provenance:
-    created_by: "Dr. Rogério Blitz"
+    created_by:
+      - orcid: "https://orcid.org/0000-0002-4505-4593"
+        name: "Rogério Blitz"
+    contributors:
+      - orcid: "https://orcid.org/0000-0002-4505-4593"
+        name: "Rogério Blitz"
+    contributions: "http://purl.org/hitop/contributions"
     created_at: "2026-07-07"
-    notes: "Derived from hitop_working_model.png; manually validated against V1052k audit."
 
 hierarchy:
   label: General Factor of Psychopathology
@@ -272,7 +277,7 @@ hierarchy:
             - label: Lassitude
               level: Component
               code: C00WJc
-            - label: Anhedonia
+            - label: Anhedonia (Component)
               level: Component
               code: C00XyI
             - label: Insomnia
@@ -296,7 +301,7 @@ hierarchy:
             - label: (low) Wellbeing
               level: Component
               code: C00e0L
-            - label: GAD Symptoms
+            - label: Generalized anxiety disorder symptoms
               level: Component
               code: C00fKQ
             - label: Re-experiencing
@@ -330,7 +335,7 @@ hierarchy:
             - label: Euphoric activation
               level: Component
               code: C00nyb
-            - label: Hyper-active cognition
+            - label: Hyperactive cognition
               level: Component
               code: C00oKM
             - label: Reckless overconfidence
@@ -355,9 +360,12 @@ hierarchy:
         - label: Eccentricity
           level: Trait
           code: T00ua9
-        - label: Cognitive Perceptual Dysregulation
+        - label: Cognitive Dysregulation
           level: Trait
           code: T00vjR
+        - label: Perceptual Dysregulation
+          level: Trait
+          code: T021iZ
         - label: Unusual beliefs and experiences
           level: Trait
           code: T00wk6
@@ -368,7 +376,7 @@ hierarchy:
       level: Spectrum
       code: P004R1
       children:
-        - label: Anhedonia
+        - label: Anhedonia (Trait)
           level: Trait
           code: T01hQc
         - label: Depressivity

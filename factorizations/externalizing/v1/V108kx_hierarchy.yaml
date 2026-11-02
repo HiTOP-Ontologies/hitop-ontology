@@ -5,13 +5,21 @@ meta:
   version: V108kx
   label: Externalizing Superspectrum
   source: https://onlinelibrary.wiley.com/doi/10.1002/wps.20844
-  paper: "Kotov et al. (2021), World Psychiatry, doi:10.1002/wps.20844"
-  status: draft
+  paper: "Krueger et al. (2021), World Psychiatry, doi:10.1002/wps.20844"
+  status: active
   based_on:
     ontology_iri: "http://purl.org/hitop"
     ontology_version: "0.1.0"
   provenance:
-    created_by: "Dr. Rogério Blitz"
+    created_by:
+      - orcid: "https://orcid.org/0000-0002-4505-4593"
+        name: "Rogério Blitz"
+    contributors:
+      - orcid: "https://orcid.org/0000-0002-4505-4593"
+        name: "Rogério Blitz"
+      - orcid: "https://orcid.org/0000-0002-8588-7784"
+        name: "André Kerber"
+    contributions: "http://purl.org/hitop/contributions"
     created_at: "2026-07-05"
 
 hierarchy:
@@ -25,16 +33,12 @@ hierarchy:
       children:
         - label: Hyperactivity
           level: Component
-          code: COLLHypera
-          kind: collection
-          provisional: true
-          children:
-            - label: Impatient Urgency
-              level: Component
-              code: T01Neb
+          code: C01zXz
         - label: Inattention
+          id: Inattention
           level: Component
-          code: C02BO8
+          kind: partial
+          code: T018ir
         - label: Substance abuse
           level: Subfactor
           code: U0061L
@@ -67,7 +71,6 @@ hierarchy:
                 - label: Drug Problems
                   level: Component
                   code: C01Ip4
-
         - label: Antisocial behavior
           level: Subfactor
           code: U007EJ
@@ -81,7 +84,8 @@ hierarchy:
               code: C01LSp
             - label: Destruction of property
               level: Component
-              code: C02CiQ
+              kind: concept
+              code: C01KXo
             - label: Fraud
               level: Component
               code: C01MjB
@@ -90,13 +94,14 @@ hierarchy:
               code: T0177S
         - label: Impulsivity
           level: Trait
+          kind: concept
           code: T015o8
         - label: Irresponsibility
           level: Trait
           code: T016k0
         - label: Disorganization
           level: Trait
-          code: C00rnS
+          code: C020XA
         - label: Distractibility
           level: Trait
           code: T018ir
@@ -104,10 +109,13 @@ hierarchy:
           level: Trait
           code: T019Cj
         - label: (Low) Perfectionism
+          id: Lowperfectionism
           level: Trait
+          kind: partial
           code: T01A5i
         - label: (Low) Workaholism
           level: Trait
+          kind: concept
           code: T01C1W
     - label: Antagonism
       level: Spectrum
@@ -124,7 +132,8 @@ hierarchy:
           code: T01Y7w
         - label: Exhibitionism
           level: Trait
-          code: C02DSC
+          kind: concept
+          code: T01XQi
         - label: Grandiosity
           level: Trait
           code: T01a7u
@@ -133,6 +142,7 @@ hierarchy:
           code: T0094I
         - label: Domineering
           level: Trait
+          kind: concept
           code: T01eG6
         - label: Suspiciousness
           level: Trait

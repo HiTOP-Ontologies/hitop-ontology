@@ -3,7 +3,7 @@
     "factorization_id": "externalizing",
     "version": "V108kx",
     "label": "Externalizing Superspectrum",
-    "status": "draft"
+    "status": "active"
   },
   "hierarchy": {
     "label": "Externalizing",
@@ -24,7 +24,7 @@
           {
             "label": "Hyperactivity",
             "level": "Component",
-            "code": "C00oKM",
+            "code": "C01zXz",
             "kind": "concept",
             "branch": 0,
             "color": "#81B3DB"
@@ -32,10 +32,11 @@
           {
             "label": "Inattention",
             "level": "Component",
-            "code": "C02BO8",
-            "kind": "concept",
+            "code": "T018ir",
+            "kind": "partial",
             "branch": 0,
-            "color": "#81B3DB"
+            "color": "#81B3DB",
+            "id": "Inattention"
           },
           {
             "label": "Substance abuse",
@@ -48,18 +49,70 @@
               {
                 "label": "Substance use",
                 "level": "Component",
-                "code": "C02EBv",
-                "kind": "concept",
+                "code": "COLLSubuse",
+                "kind": "collection",
                 "branch": 0,
-                "color": "#C6D9F0"
+                "color": "#C6D9F0",
+                "children": [
+                  {
+                    "label": "Alcohol use",
+                    "level": "Component",
+                    "code": "C01DAb",
+                    "kind": "concept",
+                    "branch": 0,
+                    "color": "#E4ECF6"
+                  },
+                  {
+                    "label": "Marijuana use",
+                    "level": "Component",
+                    "code": "C01FDy",
+                    "kind": "concept",
+                    "branch": 0,
+                    "color": "#E4ECF6"
+                  },
+                  {
+                    "label": "Drug use",
+                    "level": "Component",
+                    "code": "C01HGq",
+                    "kind": "concept",
+                    "branch": 0,
+                    "color": "#E4ECF6"
+                  }
+                ]
               },
               {
-                "label": "Substance problems",
+                "label": "Substance Problems",
                 "level": "Component",
-                "code": "C02FZY",
-                "kind": "concept",
+                "code": "COLLSubprob",
+                "kind": "collection",
                 "branch": 0,
-                "color": "#C6D9F0"
+                "color": "#C6D9F0",
+                "children": [
+                  {
+                    "label": "Alcohol Problems",
+                    "level": "Component",
+                    "code": "C01Elz",
+                    "kind": "concept",
+                    "branch": 0,
+                    "color": "#E4ECF6"
+                  },
+                  {
+                    "label": "Marijuana Problems",
+                    "level": "Component",
+                    "code": "C01GEY",
+                    "kind": "concept",
+                    "branch": 0,
+                    "color": "#E4ECF6"
+                  },
+                  {
+                    "label": "Drug Problems",
+                    "level": "Component",
+                    "code": "C01Ip4",
+                    "kind": "concept",
+                    "branch": 0,
+                    "color": "#E4ECF6"
+                  }
+                ]
               }
             ]
           },
@@ -94,7 +147,7 @@
               {
                 "label": "Destruction of property",
                 "level": "Component",
-                "code": "C02CiQ",
+                "code": "C01KXo",
                 "kind": "concept",
                 "branch": 0,
                 "color": "#F2DCEE"
@@ -136,7 +189,7 @@
           {
             "label": "Disorganization",
             "level": "Trait",
-            "code": "C00rnS",
+            "code": "C020XA",
             "kind": "concept",
             "branch": 0,
             "color": "#81B3DB"
@@ -161,9 +214,10 @@
             "label": "(Low) Perfectionism",
             "level": "Trait",
             "code": "T01A5i",
-            "kind": "concept",
+            "kind": "partial",
             "branch": 0,
-            "color": "#81B3DB"
+            "color": "#81B3DB",
+            "id": "Lowperfectionism"
           },
           {
             "label": "(Low) Workaholism",
@@ -210,7 +264,7 @@
           {
             "label": "Exhibitionism",
             "level": "Trait",
-            "code": "C02DSC",
+            "code": "T01XQi",
             "kind": "concept",
             "branch": 1,
             "color": "#FEDCE3"

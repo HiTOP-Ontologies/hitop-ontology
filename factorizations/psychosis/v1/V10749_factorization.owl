@@ -1,16 +1,33 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:hitop="http://purl.org/hitop#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-  <owl:Ontology rdf:about="http://purl.org/hitop/factorizations/psychosis/vV10749">
-    <rdfs:label xml:lang="en">Psychosis Superspectrum</rdfs:label>
-    <owl:versionInfo>V10749</owl:versionInfo>
-    <owl:imports rdf:resource="http://purl.org/hitop"/>
-    <dcterms:isVersionOf>0.1.0</dcterms:isVersionOf>
-    <dcterms:creator>Dr. Rogério Blitz</dcterms:creator>
-    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-05</dcterms:created>
-    <skos:changeNote xml:lang="en">status: draft</skos:changeNote>
-    <dcterms:source>data/hitop/images/Psychosis superspectrum.jpg</dcterms:source>
-    <dcterms:bibliographicCitation>Kotov et al. (2020), World Psychiatry, doi:10.1002/wps.20730</dcterms:bibliographicCitation>
-  </owl:Ontology>
+<rdf:RDF xmlns:dcterms="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:hitop="http://purl.org/hitop#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+  <rdf:Description rdf:about="http://purl.org/hitop#C00kEN">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Dissociation</rdfs:label>
+    <rdfs:comment xml:lang="en">A mental process used to cope with stress or trauma, leading to a sense of detachment from one's surroundings or self.</rdfs:comment>
+    <skos:changeNote xml:lang="en">provisional: true</skos:changeNote>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00qSD">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Reality distortion</rdfs:label>
+    <skos:altLabel xml:lang="en">Psychotic</skos:altLabel>
+    <rdfs:comment xml:lang="en">A component characterized by symptoms of psychosis.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00rnS">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Disorganization</rdfs:label>
+    <skos:altLabel xml:lang="en">Disorganized</skos:altLabel>
+    <rdfs:comment xml:lang="en">A component characterized by disorganized thinking and behavior.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00sWr">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Inexpressivity</rdfs:label>
+    <rdfs:comment xml:lang="en">A component characterized by a lack of emotional expression.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#C00tUQ">
+    <hitop:hasLevel>Component</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Avolition</rdfs:label>
+    <rdfs:comment xml:lang="en">A component characterized by a lack of motivation to initiate and sustain purposeful activities.</rdfs:comment>
+  </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/hitop#S003TB">
     <hitop:hasLevel>Superspectrum</hitop:hasLevel>
     <rdfs:label xml:lang="en">Psychosis</rdfs:label>
@@ -18,14 +35,15 @@
     <hitop:hasTier>
       <rdf:Description rdf:about="http://purl.org/hitop#P003SL">
         <hitop:hasLevel>Spectrum</hitop:hasLevel>
-        <rdfs:label xml:lang="en">Thought Disorder</rdfs:label>
+        <rdfs:label xml:lang="en">Thought disorder</rdfs:label>
+        <skos:altLabel xml:lang="en">Thought Disorder</skos:altLabel>
         <rdfs:comment xml:lang="en">Thought Disorder refers to a category of mental health conditions characterized by disorganized thinking, impaired reality testing, and disturbances in the form or content of thought.</rdfs:comment>
         <hitop:hasTier rdf:resource="http://purl.org/hitop#T00xLn"/>
         <hitop:hasTier rdf:resource="http://purl.org/hitop#T00wk6"/>
-        <hitop:hasTier rdf:resource="http://purl.org/hitop#T026cQ"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#T00ua9"/>
         <hitop:hasTier rdf:resource="http://purl.org/hitop#U0050q"/>
         <hitop:hasTier rdf:resource="http://purl.org/hitop#C00kEN"/>
-        <hitop:hasTier rdf:resource="http://purl.org/hitop#C0277d"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#C00qSD"/>
         <hitop:hasTier rdf:resource="http://purl.org/hitop#C00rnS"/>
       </rdf:Description>
     </hitop:hasTier>
@@ -34,29 +52,42 @@
         <hitop:hasLevel>Spectrum</hitop:hasLevel>
         <rdfs:label xml:lang="en">Detachment</rdfs:label>
         <rdfs:comment xml:lang="en">Detachment refers to a psychological state characterized by emotional distance and disengagement from social interactions.</rdfs:comment>
-        <hitop:hasTier rdf:resource="http://purl.org/hitop#T028jy"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop/factorizations/psychosis/vV10749#Emotionaldetachment"/>
         <hitop:hasTier rdf:resource="http://purl.org/hitop#T01hQc"/>
-        <hitop:hasTier rdf:resource="http://purl.org/hitop#T029jr"/>
-        <hitop:hasTier rdf:resource="http://purl.org/hitop#T02A06"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop#T011K6"/>
+        <hitop:hasTier rdf:resource="http://purl.org/hitop/factorizations/psychosis/vV10749#Romanticdisinterest"/>
         <hitop:hasTier rdf:resource="http://purl.org/hitop#C00sWr"/>
         <hitop:hasTier rdf:resource="http://purl.org/hitop#C00tUQ"/>
       </rdf:Description>
     </hitop:hasTier>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/hitop#C0277d">
-    <hitop:hasLevel>Component</hitop:hasLevel>
-    <rdfs:label xml:lang="en">Reality distortion</rdfs:label>
-    <rdfs:comment xml:lang="en">A component characterized by alterations in the perception or interpretation of reality, such as delusions, hallucinations, or disorganized thinking.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/hitop#T02A06">
+  <rdf:Description rdf:about="http://purl.org/hitop#T00ua9">
     <hitop:hasLevel>Trait</hitop:hasLevel>
-    <rdfs:label xml:lang="en">Romantic disinterest</rdfs:label>
-    <rdfs:comment xml:lang="en">A trait marked by diminished or absent interest in forming or maintaining romantic relationships, independent of sexual orientation or activity.</rdfs:comment>
+    <rdfs:label xml:lang="en">Peculiarity</rdfs:label>
+    <skos:altLabel xml:lang="en">Eccentricity</skos:altLabel>
+    <rdfs:comment xml:lang="en">A trait characterized by unconventional or peculiar behavior.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/hitop#C00tUQ">
-    <hitop:hasLevel>Component</hitop:hasLevel>
-    <rdfs:label xml:lang="en">Avolition</rdfs:label>
-    <rdfs:comment xml:lang="en">A component characterized by a lack of motivation to initiate and sustain purposeful activities.</rdfs:comment>
+  <rdf:Description rdf:about="http://purl.org/hitop#T00wk6">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Unusual Beliefs and Experiences</rdfs:label>
+    <skos:altLabel xml:lang="en">Unusual beliefs and experiences</skos:altLabel>
+    <rdfs:comment xml:lang="en">A trait characterized by the presence of atypical beliefs and experiences.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T00xLn">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Fantasy proneness</rdfs:label>
+    <rdfs:comment xml:lang="en">A trait characterized by a tendency to engage in vivid and complex fantasies.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T011K6">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Social withdrawal</rdfs:label>
+    <skos:altLabel xml:lang="en">Withdrawal</skos:altLabel>
+    <rdfs:comment xml:lang="en">A trait characterized by a tendency to retreat from social interactions and avoid engagement with others.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T01hQc">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Anhedonia (Trait)</rdfs:label>
+    <rdfs:comment xml:lang="en">Anhedonia conceptualized as a Trait refers to a stable, enduring disposition toward diminished pleasure or interest in typically rewarding experiences.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/hitop#U0050q">
     <hitop:hasLevel>Component</hitop:hasLevel>
@@ -64,49 +95,45 @@
     <rdfs:comment xml:lang="en">Mania is characterized by elevated mood, increased activity, and impulsive behavior.</rdfs:comment>
     <skos:changeNote xml:lang="en">provisional: true</skos:changeNote>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/hitop#T01hQc">
-    <hitop:hasLevel>Trait</hitop:hasLevel>
-    <rdfs:label xml:lang="en">Anhedonia</rdfs:label>
-    <rdfs:comment xml:lang="en">Anhedonia conceptualized as a Trait refers to a stable, enduring disposition toward diminished pleasure or interest in typically rewarding experiences.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/hitop#T026cQ">
-    <hitop:hasLevel>Trait</hitop:hasLevel>
-    <rdfs:label xml:lang="en">Peculiarity</rdfs:label>
-    <rdfs:comment xml:lang="en">A trait characterized by unusual, unconventional, or idiosyncratic patterns of thinking, perception, or behavior that deviate from social norms.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/hitop#T00wk6">
-    <hitop:hasLevel>Trait</hitop:hasLevel>
-    <rdfs:label xml:lang="en">Unusual beliefs and experiences</rdfs:label>
-    <rdfs:comment xml:lang="en">A trait characterized by the presence of atypical beliefs and experiences.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/hitop#C00rnS">
-    <hitop:hasLevel>Component</hitop:hasLevel>
-    <rdfs:label xml:lang="en">Disorganized</rdfs:label>
-    <rdfs:comment xml:lang="en">A component characterized by disorganized thinking and behavior.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/hitop#T029jr">
-    <hitop:hasLevel>Trait</hitop:hasLevel>
-    <rdfs:label xml:lang="en">Social withdrawal</rdfs:label>
-    <rdfs:comment xml:lang="en">A trait defined by the tendency to avoid or disengage from social interactions and relationships, often leading to reduced social contact and support.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/hitop#T028jy">
+  <owl:Ontology rdf:about="http://purl.org/hitop/factorizations/psychosis/vV10749">
+    <rdfs:label xml:lang="en">Psychosis Superspectrum</rdfs:label>
+    <owl:versionInfo>V10749</owl:versionInfo>
+    <owl:imports rdf:resource="http://purl.org/hitop"/>
+    <dcterms:isVersionOf>0.1.0</dcterms:isVersionOf>
+    <dcterms:creator>
+      <foaf:Person rdf:about="https://orcid.org/0000-0002-4505-4593">
+        <foaf:name>Rogério Blitz</foaf:name>
+        <rdfs:label>Rogério Blitz</rdfs:label>
+      </foaf:Person>
+    </dcterms:creator>
+    <dcterms:contributor rdf:resource="https://orcid.org/0000-0002-4505-4593"/>
+    <dcterms:contributor>
+      <foaf:Person rdf:about="https://orcid.org/0000-0002-8588-7784">
+        <foaf:name>André Kerber</foaf:name>
+        <rdfs:label>André Kerber</rdfs:label>
+      </foaf:Person>
+    </dcterms:contributor>
+    <prov:has_provenance>
+      <rdf:Description rdf:about="http://purl.org/hitop/contributions">
+        <rdfs:label xml:lang="en">Contributors and contribution roles</rdfs:label>
+      </rdf:Description>
+    </prov:has_provenance>
+    <rdfs:seeAlso rdf:resource="http://purl.org/hitop/contributions"/>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-05</dcterms:created>
+    <skos:changeNote xml:lang="en">status: active</skos:changeNote>
+    <dcterms:source>https://onlinelibrary.wiley.com/doi/10.1002/wps.20730</dcterms:source>
+    <dcterms:bibliographicCitation>Kotov et al. (2020), World Psychiatry, doi:10.1002/wps.20730</dcterms:bibliographicCitation>
+  </owl:Ontology>
+  <skos:Concept rdf:about="http://purl.org/hitop/factorizations/psychosis/vV10749#Emotionaldetachment">
     <hitop:hasLevel>Trait</hitop:hasLevel>
     <rdfs:label xml:lang="en">Emotional detachment</rdfs:label>
-    <rdfs:comment xml:lang="en">A trait reflecting a persistent lack of emotional responsiveness, warmth, or connection in interpersonal interactions.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/hitop#T00xLn">
+    <skos:relatedMatch rdf:resource="http://purl.org/hitop#T00BXK"/>
+    <skos:scopeNote xml:lang="en">Partial overlap with the referenced core concept; neither equivalence nor a narrower or broader direction is asserted.</skos:scopeNote>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://purl.org/hitop/factorizations/psychosis/vV10749#Romanticdisinterest">
     <hitop:hasLevel>Trait</hitop:hasLevel>
-    <rdfs:label xml:lang="en">Fantasy proneness</rdfs:label>
-    <rdfs:comment xml:lang="en">A trait characterized by a tendency to engage in vivid and complex fantasies.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/hitop#C00sWr">
-    <hitop:hasLevel>Component</hitop:hasLevel>
-    <rdfs:label xml:lang="en">Inexpressivity</rdfs:label>
-    <rdfs:comment xml:lang="en">A component characterized by a lack of emotional expression.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/hitop#C00kEN">
-    <hitop:hasLevel>Component</hitop:hasLevel>
-    <rdfs:label xml:lang="en">Dissociation</rdfs:label>
-    <rdfs:comment xml:lang="en">A mental process used to cope with stress or trauma, leading to a sense of detachment from one's surroundings or self.</rdfs:comment>
-  </rdf:Description>
+    <rdfs:label xml:lang="en">Romantic disinterest</rdfs:label>
+    <skos:relatedMatch rdf:resource="http://purl.org/hitop#T00zDk"/>
+    <skos:scopeNote xml:lang="en">Partial overlap with the referenced core concept; neither equivalence nor a narrower or broader direction is asserted.</skos:scopeNote>
+  </skos:Concept>
 </rdf:RDF>

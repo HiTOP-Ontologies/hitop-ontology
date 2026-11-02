@@ -2,12 +2,13 @@ cff-version: 1.2.0
 message: >-
   If you use this software or ontology, please cite it as below.
   A DOI-backed citation will replace this entry once
-  TECH-T1-04 (Zenodo DOI) is completed — see docs/release_checklist.md.
+  TECH-T1-04 (Zenodo DOI) is completed — see docs/reference/release-checklist.md.
 title: HiTOP Ontology
 type: software
 version: 0.1.0
-# date-released and doi are intentionally omitted until TECH-T1-03 / TECH-T1-04
-# are executed (see docs/release_checklist.md, section 3 and 4).
+date-released: "2026-11-02"
+# doi is added in a follow-up change once Zenodo has archived the release
+# (see docs/reference/release-checklist.md, section 6).
 url: "https://github.com/HiTOP-Ontologies/hitop-ontology"
 repository-code: "https://github.com/HiTOP-Ontologies/hitop-ontology"
 license: MIT
@@ -17,21 +18,31 @@ authors:
     orcid: "https://orcid.org/0000-0002-4505-4593"
   - given-names: Margaux
     family-names: Gatrio
+    orcid: "https://orcid.org/0009-0007-3950-7684"
   - given-names: Marcel
     family-names: Jentsch
+    orcid: "https://orcid.org/0009-0004-3059-6578"
   - given-names: André
     family-names: Kerber
+    orcid: "https://orcid.org/0000-0002-8588-7784"
   - given-names: Nils
     family-names: Opel
+    orcid: "https://orcid.org/0000-0003-4749-3298"
   - given-names: Lisa Rebecca
     family-names: Otto
+    orcid: "https://orcid.org/0000-0002-5702-8405"
   - given-names: Maike
     family-names: Richter
+    orcid: "https://orcid.org/0000-0003-4078-3954"
   - given-names: Yannik
     family-names: Terhorst
+    orcid: "https://orcid.org/0000-0003-4091-5048"
   - given-names: Mira
     family-names: Tschorn
+    orcid: "https://orcid.org/0000-0002-9128-3987"
   - given-names: Falk Gerrik
     family-names: Verhees
+    orcid: "https://orcid.org/0000-0002-6808-2968"
   - given-names: Julius
     family-names: Weise
+    orcid: "https://orcid.org/0000-0002-0908-5579"

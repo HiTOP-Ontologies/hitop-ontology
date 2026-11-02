@@ -3,10 +3,10 @@
     "factorization_id": "working-model",
     "version": "V1052k",
     "label": "HiTOP Working Model",
-    "status": "draft"
+    "status": "active"
   },
   "hierarchy": {
-    "label": "General Factor of Psychopathology (p-factor)",
+    "label": "General Factor of Psychopathology",
     "level": "Factor",
     "code": "F001Hw",
     "kind": "concept",
@@ -680,7 +680,7 @@
                 "color": "#F6E5F0"
               },
               {
-                "label": "Anhedonia",
+                "label": "Anhedonia (Component)",
                 "level": "Component",
                 "code": "C00XyI",
                 "kind": "concept",
@@ -744,7 +744,7 @@
                 "color": "#F6E5F0"
               },
               {
-                "label": "GAD Symptoms",
+                "label": "Generalized anxiety disorder symptoms",
                 "level": "Component",
                 "code": "C00fKQ",
                 "kind": "concept",
@@ -830,7 +830,7 @@
                 "color": "#FDBFCB"
               },
               {
-                "label": "Hyper-active cognition",
+                "label": "Hyperactive cognition",
                 "level": "Component",
                 "code": "C00oKM",
                 "kind": "concept",
@@ -898,9 +898,17 @@
             "color": "#FEDCDF"
           },
           {
-            "label": "Cognitive/perceptual dysregulation",
+            "label": "Cognitive Dysregulation",
             "level": "Trait",
             "code": "T00vjR",
+            "kind": "concept",
+            "branch": 3,
+            "color": "#FEDCDF"
+          },
+          {
+            "label": "Perceptual Dysregulation",
+            "level": "Trait",
+            "code": "T021iZ",
             "kind": "concept",
             "branch": 3,
             "color": "#FEDCDF"
@@ -932,7 +940,7 @@
         "color": "#FFCCD6",
         "children": [
           {
-            "label": "Anhedonia",
+            "label": "Anhedonia (Trait)",
             "level": "Trait",
             "code": "T01hQc",
             "kind": "concept",
@@ -980,7 +988,7 @@
             "color": "#FEDCE3"
           },
           {
-            "label": "Disaffiliative",
+            "label": "Disaffiliativeness",
             "level": "Trait",
             "code": "T013F1",
             "kind": "concept",

@@ -2,8 +2,8 @@
 
 <div class="hitop-page-intro">
   <p>A modular, namespaced suffix extends a stable HiTOP concept with a manifestation specific to a study, instrument, organization, or dataset.</p>
-  <span class="hitop-source">Status · Draft specification</span>
-  <span class="hitop-source">Specification version · 0.2.0</span>
+  <span class="hitop-source">Status · Released specification</span>
+  <span class="hitop-source">Specification version · 0.3.0</span>
   <span class="hitop-source">Source · <a href="https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/docs/modular-namespaced-suffix-schema.md">docs/modular-namespaced-suffix-schema.md</a></span>
 </div>
 
@@ -70,6 +70,37 @@ The identifier MUST be ASCII and MUST NOT contain spaces. Hyphens MUST separate 
 | `SU` | Substance-related | Substance-related manifestation |
 | `IR` | Interpersonal / relational | Interpersonal or relational manifestation |
 | `IM` | Impairment / functioning | Impairment or level of functioning |
+
+### Type assignment
+
+The type describes **how** a manifestation presents (domain or mode of assessment), not **which** HiTOP concept it belongs to; the base code carries that. Apply the following rules in order; the first match determines `<TT>`:
+
+```text
+1. Sum/scale score or explicitly defined combination of symptoms  -> SY
+2. Level of functioning / impairment rather than a symptom         -> IM
+3. Substance-related (use, craving, intoxication, withdrawal,
+   consequences)                                                   -> SU
+4. Sleep or circadian rhythm                                       -> SL
+5. Information from external rating or measurement
+   (clinician rating, examination finding, laboratory)             -> CS
+6. Defined by a relationship                                       -> IR
+7. Primary domain of the core asked about in the item stem:
+     perception                                                    -> PC
+     thinking / cognition                                          -> CG
+     affect / mood                                                 -> AF
+     bodily / autonomic                                            -> SS
+     reported behavior                                             -> BH
+8. None of rules 1-7 applies, or several domains without
+   an identifiable core                                            -> GS
+```
+
+- `AF` covers experienced affect or mood; `SS` covers bodily or autonomic accompaniments. The core asked about in the item stem decides.
+- `CS` applies when the information comes from external assessment or measurement; `BH` applies when behavior is reported by the person or an informant.
+- `CG` covers thought content and process; `PC` covers perception.
+- `GS` MUST NOT be assigned when any of rules 1–7 applies.
+- When `GS` is assigned, the rationale SHOULD be recorded in the extension field `x_type_rationale`.
+- When two domains in rule 7 apply equally, the order listed there decides.
+- Validators MAY warn when `GS` appears without `x_type_rationale`.
 
 ## Namespace token
 

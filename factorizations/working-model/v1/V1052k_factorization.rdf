@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF
   xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
   xmlns:hitop="http://purl.org/hitop#"
   xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:prov="http://www.w3.org/ns/prov#"
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
@@ -13,15 +15,26 @@
     <owl:versionInfo>V1052k</owl:versionInfo>
     <owl:imports rdf:resource="http://purl.org/hitop"/>
     <dcterms:isVersionOf>0.1.0</dcterms:isVersionOf>
-    <dcterms:creator>Dr. Rogério Blitz</dcterms:creator>
+    <dcterms:creator rdf:resource="https://orcid.org/0000-0002-4505-4593"/>
+    <dcterms:contributor rdf:resource="https://orcid.org/0000-0002-4505-4593"/>
+    <prov:has_provenance rdf:resource="http://purl.org/hitop/contributions"/>
+    <rdfs:seeAlso rdf:resource="http://purl.org/hitop/contributions"/>
     <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-07</dcterms:created>
-    <skos:changeNote xml:lang="en">status: draft</skos:changeNote>
+    <skos:changeNote xml:lang="en">status: active</skos:changeNote>
     <dcterms:source>https://www.hitop-system.org/current-model</dcterms:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://orcid.org/0000-0002-4505-4593">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <foaf:name>Rogério Blitz</foaf:name>
+    <rdfs:label>Rogério Blitz</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop/contributions">
+    <rdfs:label xml:lang="en">Contributors and contribution roles</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/hitop#F001Hw">
     <hitop:hasLevel>Factor</hitop:hasLevel>
-    <rdfs:label xml:lang="en">General Psychopathology</rdfs:label>
-    <rdfs:comment xml:lang="en">General Psychopathology refers to the broad, overarching category of mental disorders and psychological symptoms that can manifest across different mental health conditions. It encompasses a wide range of psychological phenomena that are not specific to any single disorder but may contribute to or exacerbate multiple types of mental health issues. This category includes general symptoms and traits that are commonly observed in various psychiatric conditions, such as mood disturbances, anxiety, cognitive dysfunctions, and behavioral problems.</rdfs:comment>
+    <rdfs:label xml:lang="en">General Factor of Psychopathology</rdfs:label>
+    <rdfs:comment xml:lang="en">General Factor of Psychopathology refers to the broad, overarching category of mental disorders and psychological symptoms that can manifest across different mental health conditions. It encompasses a wide range of psychological phenomena that are not specific to any single disorder but may contribute to or exacerbate multiple types of mental health issues. This category includes general symptoms and traits that are commonly observed in various psychiatric conditions, such as mood disturbances, anxiety, cognitive dysfunctions, and behavioral problems.</rdfs:comment>
     <hitop:hasTier rdf:resource="http://purl.org/hitop#S0013h"/>
     <hitop:hasTier rdf:resource="http://purl.org/hitop#P001Y2"/>
     <hitop:hasTier rdf:resource="http://purl.org/hitop#P002nf"/>
@@ -531,7 +544,7 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/hitop#C00XyI">
     <hitop:hasLevel>Component</hitop:hasLevel>
-    <rdfs:label xml:lang="en">Anhedonia</rdfs:label>
+    <rdfs:label xml:lang="en">Anhedonia (Component)</rdfs:label>
     <rdfs:comment xml:lang="en">Anhedonia conceptualized as a Component refers to a transient reduction in the capacity to experience pleasure, often emerging in response to acute stress or mood states.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/hitop#C00Y8j">
@@ -643,6 +656,7 @@
     <hitop:hasTier rdf:resource="http://purl.org/hitop#C00tUQ"/>
     <hitop:hasTier rdf:resource="http://purl.org/hitop#T00ua9"/>
     <hitop:hasTier rdf:resource="http://purl.org/hitop#T00vjR"/>
+    <hitop:hasTier rdf:resource="http://purl.org/hitop#T021iZ"/>
     <hitop:hasTier rdf:resource="http://purl.org/hitop#T00wk6"/>
     <hitop:hasTier rdf:resource="http://purl.org/hitop#T00xLn"/>
   </rdf:Description>
@@ -673,8 +687,15 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/hitop#T00vjR">
     <hitop:hasLevel>Trait</hitop:hasLevel>
-    <rdfs:label xml:lang="en">Cognitive perceptual dysregulation</rdfs:label>
-    <rdfs:comment xml:lang="en">A trait characterized by disturbances in cognition and perception.</rdfs:comment>
+    <rdfs:label xml:lang="en">Cognitive Dysregulation</rdfs:label>
+    <skos:altLabel xml:lang="en">Cognitive dysregulation</skos:altLabel>
+    <rdfs:comment xml:lang="en">A trait characterized by disturbances in cognition.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/hitop#T021iZ">
+    <hitop:hasLevel>Trait</hitop:hasLevel>
+    <rdfs:label xml:lang="en">Perceptual Dysregulation</rdfs:label>
+    <skos:altLabel xml:lang="en">Perceptual dysregulation</skos:altLabel>
+    <rdfs:comment xml:lang="en">A trait characterized by disturbances in perception.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/hitop#T00wk6">
     <hitop:hasLevel>Trait</hitop:hasLevel>
@@ -701,7 +722,7 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/hitop#T01hQc">
     <hitop:hasLevel>Trait</hitop:hasLevel>
-    <rdfs:label xml:lang="en">Anhedonia</rdfs:label>
+    <rdfs:label xml:lang="en">Anhedonia (Trait)</rdfs:label>
     <rdfs:comment xml:lang="en">Anhedonia conceptualized as a Trait refers to a stable, enduring disposition toward diminished pleasure or interest in typically rewarding experiences.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/hitop#T00yfU">

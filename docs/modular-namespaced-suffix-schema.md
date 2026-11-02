@@ -1,8 +1,8 @@
 # Modulares Namespaced Suffix Schema
 
-Status: Entwurf  
-Version: 0.2.0  
-Letzte Aktualisierung: 2026-05-31  
+Status: Freigegeben (2026-11-02)  
+Version: 0.3.0  
+Letzte Aktualisierung: 2026-11-02  
 Gilt fuer: HiTOP-Manifestationssuffixe  
 Primaerformat: `<HITOP_BASE_CODE>.M-<TT>-<NS>-<SLUG>`
 
@@ -109,6 +109,51 @@ enthalten.
 
 `GS` SHOULD vermieden werden, wenn ein spezifischerer Typ fachlich vertretbar
 ist.
+
+### 5.1 Typzuordnung
+
+Der Typ beschreibt, **wie** sich eine Manifestation zeigt (Erscheinungsdomaene
+bzw. Erhebungsart), nicht **welches** HiTOP-Konzept betroffen ist; das leistet
+der Basiscode. Die folgenden Regeln werden in dieser Reihenfolge angewendet;
+der erste Treffer bestimmt `<TT>`:
+
+```text
+1. Summen-/Skalenwert oder explizit definierte Kombination
+   mehrerer Symptome                                       -> SY
+2. Funktionsniveau / Beeintraechtigung statt Symptom      -> IM
+3. Substanzbezogen (Konsum, Craving, Intoxikation, Entzug,
+   Folgeprobleme)                                          -> SU
+4. Schlaf oder zirkadianer Rhythmus                        -> SL
+5. Information aus externer Beurteilung oder Messung
+   (Fremdrating, Untersuchungsbefund, Labor)               -> CS
+6. Durch eine Beziehung definiert                          -> IR
+7. Primaere Erscheinungsdomaene des im Itemstamm erfragten Kerns:
+     Wahrnehmung                                           -> PC
+     Denken / Kognition                                    -> CG
+     Affekt / Stimmung                                     -> AF
+     koerperlich / vegetativ                               -> SS
+     berichtetes Verhalten                                 -> BH
+8. Keine der Regeln 1-7 trifft zu, oder mehrere Domaenen
+   ohne erkennbaren Kern                                   -> GS
+```
+
+Abgrenzungen:
+
+- `AF` erfasst erlebten Affekt bzw. Stimmung, `SS` koerperliche oder vegetative
+  Begleiterscheinungen; massgeblich ist der im Itemstamm erfragte Kern.
+- `CS` gilt, wenn die Information aus externer Beurteilung oder Messung stammt;
+  `BH`, wenn ein Verhalten selbst oder von Angehoerigen berichtet wird.
+- `CG` erfasst Denkinhalt und -ablauf, `PC` Wahrnehmung.
+
+Normative Regeln:
+
+- `GS` MUST NOT vergeben werden, wenn eine der Regeln 1-7 zutrifft.
+- Wird `GS` vergeben, SHOULD die Begruendung im Extension-Feld
+  `x_type_rationale` dokumentiert werden (siehe Abschnitt 9.1).
+- Treffen in Regel 7 zwei Domaenen gleich stark zu, gilt die dort genannte
+  Reihenfolge.
+- Validatoren MAY eine Warnung ausgeben, wenn `GS` ohne `x_type_rationale`
+  auftritt.
 
 ## 6. Namespace-Token
 

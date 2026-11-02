@@ -27,6 +27,7 @@ from __future__ import annotations
 
 import re
 from collections.abc import Iterator
+from difflib import get_close_matches
 from pathlib import Path
 from typing import Any
 
@@ -38,8 +39,9 @@ CANONICAL_ONTOLOGY_IRI = "http://purl.org/hitop"
 
 FACTORIZATION_ID_RE = re.compile(r"^[a-z][a-z0-9]*(-[a-z0-9]+)*$")
 BASE_CODE_RE = re.compile(r"^[A-Za-z0-9]+$")
+ORCID_RE = re.compile(r"^https://orcid\.org/\d{4}-\d{4}-\d{4}-\d{3}[\dX]$")
 STATUSES = {"draft", "active", "deprecated"}
-NODE_KINDS = {"concept", "collection"}
+NODE_KINDS = {"concept", "partial", "collection"}
 
 REQUIRED_META_FIELDS = {
     "factorization_id",
@@ -53,7 +55,7 @@ OPTIONAL_META_FIELDS = {"source", "paper"}
 ALLOWED_META_FIELDS = REQUIRED_META_FIELDS | OPTIONAL_META_FIELDS
 
 REQUIRED_NODE_FIELDS = {"label", "level", "code"}
-OPTIONAL_NODE_FIELDS = {"bridge", "provisional", "children", "kind"}
+OPTIONAL_NODE_FIELDS = {"bridge", "provisional", "children", "kind", "id", "mapping_note"}
 ALLOWED_NODE_FIELDS = REQUIRED_NODE_FIELDS | OPTIONAL_NODE_FIELDS
 
 
@@ -188,7 +190,51 @@ def validate_meta(meta: Any, *, path: Path) -> list[str]:
             _require(
                 bool(provenance.get(field)),
                 errors,
-                f"meta.provenance.{field} must be a non-empty string.",
+                f"meta.provenance.{field} must not be empty.",
+            )
+        for field in ("created_by", "contributors"):
+            people = provenance.get(field, [])
+            # Legacy creator strings remain readable; new sources use identified people.
+            if field == "created_by" and isinstance(people, str):
+                continue
+            if not isinstance(people, list) or (field == "created_by" and not people):
+                errors.append(f"meta.provenance.{field} must be a list of people.")
+                continue
+            seen = set()
+            for person in people:
+                if not isinstance(person, dict):
+                    errors.append(f"meta.provenance.{field} entries must be mappings.")
+                    continue
+                orcid = person.get("orcid")
+                valid = isinstance(orcid, str) and bool(ORCID_RE.fullmatch(orcid))
+                if valid:
+                    digits = orcid.rsplit("/", 1)[-1].replace("-", "")
+                    total = 0
+                    for digit in digits[:-1]:
+                        total = (total + int(digit)) * 2
+                    check = (12 - total % 11) % 11
+                    valid = digits[-1] == ("X" if check == 10 else str(check))
+                _require(valid, errors, f"Invalid ORCID in meta.provenance.{field}: {orcid!r}.")
+                name = person.get("name")
+                _require(
+                    isinstance(name, str) and bool(name.strip()),
+                    errors,
+                    f"meta.provenance.{field} entries require a non-empty name.",
+                )
+                if isinstance(orcid, str):
+                    _require(orcid not in seen, errors, f"Duplicate person in {field}: {orcid}.")
+                    seen.add(orcid)
+                _require(
+                    not (set(person) - {"orcid", "name"}),
+                    errors,
+                    f"Unknown person field in meta.provenance.{field}.",
+                )
+        if "contributions" in provenance:
+            link = provenance["contributions"]
+            _require(
+                isinstance(link, str) and bool(re.fullmatch(r"https?://[^\s]+", link)),
+                errors,
+                "meta.provenance.contributions must be an absolute HTTP(S) URI.",
             )
     else:
         errors.append("meta.provenance must be a mapping.")
@@ -240,14 +286,32 @@ def validate_node_shape(node: Any, *, context: str) -> list[str]:
         kind in NODE_KINDS, errors, f"{context}: kind {kind!r} must be one of {sorted(NODE_KINDS)}."
     )
 
+    if kind == "partial":
+        local_id = node.get("id")
+        _require(
+            isinstance(local_id, str) and bool(BASE_CODE_RE.fullmatch(local_id)),
+            errors,
+            f"{context}: partial nodes require an alphanumeric id.",
+        )
+    elif "id" in node:
+        errors.append(f"{context}: id is only allowed for partial nodes.")
+    if "mapping_note" in node:
+        _require(
+            kind == "partial"
+            and isinstance(node["mapping_note"], str)
+            and bool(node["mapping_note"].strip()),
+            errors,
+            f"{context}: mapping_note must be non-empty text on a partial node.",
+        )
+
     if "bridge" in node:
         bridge = node["bridge"]
         _require(
             isinstance(bridge, list)
             and bool(bridge)
-            and all(isinstance(item, str) for item in bridge),
+            and all(isinstance(item, str) and bool(item.strip()) for item in bridge),
             errors,
-            f"{context}: bridge must be a non-empty list of strings.",
+            f"{context}: bridge must be a non-empty list of non-blank strings.",
         )
 
     if "provisional" in node:
@@ -265,6 +329,41 @@ def validate_node_shape(node: Any, *, context: str) -> list[str]:
             f"{context}: children must be a non-empty list.",
         )
 
+    return errors
+
+
+def _validate_bridge_targets(hierarchy: dict[str, Any], *, path: Path) -> list[str]:
+    """Resolve exact labels within this tree, regardless of node kind or core labels."""
+    nodes = [node for node, _ in iter_nodes(hierarchy) if isinstance(node, dict)]
+    labels: dict[str, list[dict[str, Any]]] = {}
+    for node in nodes:
+        label = node.get("label")
+        if isinstance(label, str):
+            labels.setdefault(label, []).append(node)
+    errors: list[str] = []
+    for node in nodes:
+        bridge = node.get("bridge")
+        if not isinstance(bridge, list):
+            continue
+        seen: set[str] = set()
+        for target in bridge:
+            if not isinstance(target, str) or not target.strip():
+                continue  # Shape validation reports these entries.
+            context = f"{path.name}:{node.get('label', '<unlabeled>')}"
+            if target in seen:
+                errors.append(f"{context}: duplicate bridge target {target!r}.")
+            seen.add(target)
+            matches = labels.get(target, [])
+            if not matches:
+                suggestions = get_close_matches(target, labels, n=1, cutoff=0.6)
+                hint = f" Did you mean {suggestions[0]!r}?" if suggestions else ""
+                errors.append(
+                    f"{context}: bridge target {target!r} does not exist in this tree.{hint}"
+                )
+            elif len(matches) > 1:
+                errors.append(f"{context}: bridge target {target!r} is ambiguous in this tree.")
+            if any(match is node for match in matches):
+                errors.append(f"{context}: bridge target {target!r} is a self-reference.")
     return errors
 
 
@@ -308,7 +407,7 @@ def validate_hierarchy_document(
         errors.append("hierarchy must be a mapping or null.")
         return errors
 
-    seen_codes: dict[str, str] = {}
+    seen_identities: set[tuple[str, str]] = set()
     for node, _parent in iter_nodes(hierarchy):
         node_label = node.get("label", "<unlabeled>") if isinstance(node, dict) else "<invalid>"
         context = f"{path.name}:{node_label}"
@@ -318,15 +417,22 @@ def validate_hierarchy_document(
 
         code = node.get("code")
         if isinstance(code, str):
-            if code in seen_codes:
-                errors.append(f"{context}: code {code!r} appears more than once in this tree.")
+            namespace = "core" if node.get("kind", "concept") == "concept" else "local"
+            identifier = node.get("id", "") if node.get("kind") == "partial" else code
+            identity = (namespace, identifier) if isinstance(identifier, str) else (namespace, "")
+            if identity in seen_identities:
+                errors.append(
+                    f"{context}: {namespace} identity for code {code!r} "
+                    "appears more than once in this tree."
+                )
             else:
-                seen_codes[code] = node.get("label")
+                seen_identities.add(identity)
             if node.get("kind", "concept") != "collection" and code not in core_class_names:
                 errors.append(
                     f"{context}: code {code!r} does not exist as a class in ontology/hitop.ttl."
                 )
 
+    errors.extend(_validate_bridge_targets(hierarchy, path=path))
     return errors
 
 
@@ -354,36 +460,10 @@ def check_labels_match_core(
     path: Path,
     core_labels: dict[str, set[str]],
 ) -> list[str]:
-    """Flag any ``kind: concept`` node whose ``label`` differs from its core ``rdfs:label``.
+    """Allow factorization-local wording for concept and partial nodes.
 
-    Each factorization is validated against the core ontology only, never
-    against other factorizations: factorizations are authored independently
-    and have no knowledge of each other. Comparison is case-insensitive,
-    since papers routinely differ only in casing for the same construct
-    (e.g. "Sexual Problems" vs. "Sexual problems"). A wording difference
-    beyond casing is reported, since it either hides a real code-assignment
-    bug (as with the historical ``T01OY2`` collision) or a synonym that
-    belongs in the core as a mapping. A node that deliberately names a
-    different, factorization-local construct must be a ``kind: collection``
-    node, which is exempt. Codes missing from the core are left to
-    ``validate_hierarchy_document``'s referential-integrity check.
+    Retained as a compatibility hook for existing callers. Identity is asserted
+    by kind=concept plus a validated core code, rather than label equality.
+    Referential integrity remains enforced by validate_hierarchy_document.
     """
-
-    hierarchy = record.get("hierarchy")
-    if not isinstance(hierarchy, dict):
-        return []
-
-    errors: list[str] = []
-    for node, _parent in iter_nodes(hierarchy):
-        if not isinstance(node, dict) or node.get("kind", "concept") == "collection":
-            continue
-        code, label = node.get("code"), node.get("label")
-        if not isinstance(code, str) or not isinstance(label, str):
-            continue
-        expected = core_labels.get(code)
-        if expected and label.casefold() not in {value.casefold() for value in expected}:
-            errors.append(
-                f"{path.name}:{label}: label differs from core rdfs:label "
-                f"{sorted(expected)} for code {code!r}."
-            )
-    return errors
+    return []

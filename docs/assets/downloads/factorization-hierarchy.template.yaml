@@ -30,8 +30,15 @@ meta:
     # commit: "<REPLACE_WITH_GIT_COMMIT_HASH>"
 
   provenance:
-    # Required: person or role who curated this factorization
-    created_by: "<REPLACE_WITH_CREATOR_NAME_OR_ROLE>"
+    # Required: identified creators, without academic titles
+    created_by:
+      - orcid: "https://orcid.org/<REPLACE_WITH_ORCID>"
+        name: "<REPLACE_WITH_CREATOR_NAME>"
+    # Optional: additional identified contributors
+    # contributors:
+    #   - orcid: "https://orcid.org/<REPLACE_WITH_ORCID>"
+    #     name: "<REPLACE_WITH_CONTRIBUTOR_NAME>"
+    contributions: "http://purl.org/hitop/contributions"
     # Required: ISO 8601 date (YYYY-MM-DD)
     created_at: "<REPLACE_WITH_YYYY-MM-DD>"
     # Optional: free-text notes, e.g. differences from a previous version
@@ -47,11 +54,16 @@ hierarchy:
   # Required: hitop_base_code from ontology/hitop.ttl; for kind: collection,
   # a factorization-local id instead
   code: "<REPLACE_WITH_ROOT_NODE_CODE>"
-  # Optional: concept (default) or collection
+  # Optional: concept (default, same meaning), partial (overlap), or collection (grouping)
   # kind: "concept"
+  # Required only when kind is partial: stable local identity (letters/digits).
+  # id: "<REPLACE_WITH_UNIQUE_PARTIAL_ID>"
+  # Optional only when kind is partial: explain overlap and differences.
+  # mapping_note: "<REPLACE_WITH_MAPPING_EXPLANATION>"
   # Optional: marks this node's placement as tentative, independent of meta.status
   # provisional: true
-  # Optional: other node labels this concept empirically cross-loads onto
+  # Optional: exact, unique labels of other nodes in THIS tree (all kinds).
+  # No self-links, duplicate targets or blank entries; reciprocal links are allowed.
   # bridge:
   #   - "<REPLACE_WITH_OTHER_NODE_LABEL>"
 
