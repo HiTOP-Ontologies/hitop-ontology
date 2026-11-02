@@ -17,12 +17,14 @@ import colorsys
 import copy
 from typing import Any
 
+# fmt: off
 PALETTE: list[str] = [
     "#1E3A5F", "#264B7D", "#2F5FA3", "#3F7EB8", "#4D98C7", "#4B8CC7",
     "#5A9ED4", "#6AAFE0", "#7ABEE1", "#8ACCE6", "#9EDAED", "#B1E0F0",
     "#9FC0E9", "#AEB8E3", "#BCA2DF", "#CA92DA", "#DDA5DD", "#E7B9DF",
     "#EECAE1", "#F8B7C5", "#FF8FA4", "#FFB3BA", "#FFBCC4", "#FFCCD6",
 ]
+# fmt: on
 
 PALETTE_LEVELS = {"Factor", "Superspectrum", "Spectrum", "Subfactor"}
 
@@ -48,10 +50,10 @@ def _lighten(color: str, steps: int) -> str:
     if steps <= 0:
         return color
     r, g, b = _hex_to_rgb01(color)
-    h, l, s = colorsys.rgb_to_hls(r, g, b)
-    l = min(_MAX_LIGHTNESS, l + steps * _LIGHTNESS_STEP)
+    h, lightness, s = colorsys.rgb_to_hls(r, g, b)
+    lightness = min(_MAX_LIGHTNESS, lightness + steps * _LIGHTNESS_STEP)
     s = s * (_SATURATION_DECAY**steps)
-    return _rgb01_to_hex(colorsys.hls_to_rgb(h, l, s))
+    return _rgb01_to_hex(colorsys.hls_to_rgb(h, lightness, s))
 
 
 def _collect_palette_nodes(node: dict[str, Any], out: list[dict[str, Any]]) -> None:

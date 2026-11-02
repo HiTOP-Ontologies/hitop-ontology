@@ -60,7 +60,9 @@ def _extract(readme: Path) -> FactorizationRow:
     status = status_match.group(1) if status_match else "unknown"
     version = readme.parent.name
     diagram_candidates = sorted(readme.parent.glob("*_diagram.json"))
-    diagram_relative = diagram_candidates[0].relative_to(ROOT).as_posix() if diagram_candidates else None
+    diagram_relative = (
+        diagram_candidates[0].relative_to(ROOT).as_posix() if diagram_candidates else None
+    )
     return FactorizationRow(
         factorization_id=factorization_id,
         title=title,

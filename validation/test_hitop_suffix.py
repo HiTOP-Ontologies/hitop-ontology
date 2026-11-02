@@ -143,9 +143,7 @@ class CodeTests(unittest.TestCase):
     def test_visible_hitop_prefix_is_rejected(self) -> None:
         """Reject a base code with a written HiTOP prefix."""
 
-        errors = validate_code(
-            "HiTOPU0aB2X.M-AF-ROR3FG46LQKYZLLX-CHRONIC_WORRY"
-        )
+        errors = validate_code("HiTOPU0aB2X.M-AF-ROR3FG46LQKYZLLX-CHRONIC_WORRY")
         self.assertTrue(errors)
 
     def test_invalid_manifestation_type_is_rejected(self) -> None:
