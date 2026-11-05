@@ -89,7 +89,7 @@
   </section>
 </div>
 
-<script type="application/json" data-hitop-core-concepts>{{ hitop_core_concepts_json }}</script>
+<div hidden data-hitop-core-concepts>{{ hitop_core_concepts_json }}</div>
 
 ### Node meaning
 

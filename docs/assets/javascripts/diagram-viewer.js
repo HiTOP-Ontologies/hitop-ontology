@@ -41,8 +41,8 @@ function initializeDiagramViewer() {
     option.value = customKey;
     option.textContent = (customDiagram.meta && customDiagram.meta.label) || "Browser preview";
     select.prepend(option);
-    var payload = document.createElement("script");
-    payload.type = "application/json";
+    var payload = document.createElement("div");
+    payload.hidden = true;
     payload.id = "data-" + customKey;
     payload.textContent = JSON.stringify(customDiagram);
     select.parentNode.insertBefore(payload, select.nextSibling);

@@ -98,7 +98,7 @@ def on_page_markdown(markdown, **_kwargs):
     return (
         markdown.replace(VERSION_TOKEN, metadata["ontology_version"])
         .replace(STATUS_TOKEN, metadata["project_status"])
-        .replace(CORE_CONCEPTS_TOKEN, _core_concepts_json())
+        .replace(CORE_CONCEPTS_TOKEN, escape(_core_concepts_json(), quote=False))
     )
 
 

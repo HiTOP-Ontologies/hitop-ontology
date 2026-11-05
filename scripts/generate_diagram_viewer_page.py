@@ -8,28 +8,28 @@ fresh from ``factorizations/*/v*/*_diagram.json`` on every run — never
 copy-pasted or hand-maintained, so the page can never drift from the data
 it renders.
 
-The page itself carries no executable ``<script>`` tags — only the inert
-``<script type="application/json">`` data blocks below, plus the select and
-container markup. All wiring lives in
-``docs/assets/javascripts/diagram-viewer.js``, loaded site-wide via
-``mkdocs.yml``'s ``extra_javascript`` (alongside d3 and
-``factorization-icicle.js``) and re-run on Material's ``document$`` after
-every instant-navigation swap. A plain ``<script src>``/``<script>`` inside
-the page's own content would work on a hard page load, but
-``navigation.instant`` swaps in-app navigations via innerHTML, and a
-<script> element inserted that way never executes — only a real full-page
-load parses and runs it. Wiring the interaction from the persistent,
-once-loaded JS file instead of the swapped content is what makes the
-diagram render on an in-app click, not just on a hard reload.
+Diagram payloads are HTML-escaped text in hidden div elements, not script
+blocks: Material re-executes content scripts during instant navigation and
+can treat even application/json scripts as JavaScript. Hidden text remains
+inert on both full loads and navigation swaps. Persistent viewer wiring
+subscribes to Material's document$ after each page transition.
+
 """
 
 from __future__ import annotations
 
 import json
+from html import escape
 
 from _factorization_catalog_shared import ROOT, catalog_rows
 
 OUTPUT = ROOT / "docs" / "models" / "diagrams.md"
+
+
+def diagram_data_block(factorization_id: str, diagram: dict) -> str:
+    """Keep JSON inert during instant navigation and preserve arbitrary labels."""
+    payload = json.dumps(diagram, ensure_ascii=False, separators=(",", ":"))
+    return f'  <div hidden id="data-{escape(factorization_id, quote=True)}">{escape(payload, quote=False)}</div>'
 
 
 def main() -> None:
@@ -53,11 +53,8 @@ def main() -> None:
     data_blocks = []
     for row in rows:
         diagram = json.loads((ROOT / row.diagram_json_relative).read_text(encoding="utf-8"))
-        payload = json.dumps(diagram, ensure_ascii=False, separators=(",", ":"))
-        data_blocks.append(
-            f'  <script type="application/json" id="data-{row.factorization_id}">{payload}</script>'
-        )
-    data_script_blocks = "\n".join(data_blocks)
+        data_blocks.append(diagram_data_block(row.factorization_id, diagram))
+    embedded_data_blocks = "\n".join(data_blocks)
 
     content = f"""# Diagrams
 
@@ -96,7 +93,7 @@ Click any box to focus its subtree in the legend below the diagram. The toolbar 
 .hitop-diagram-fallback p{{margin:0 0 1rem;color:var(--md-default-fg-color--light);font-size:.82rem}}
 </style>
 
-{data_script_blocks}
+{embedded_data_blocks}
 
 Every diagram compiles mechanically from `<version>_hierarchy.yaml` via `scripts/generate_factorization_diagram_data.py`, using the same validation logic as the test suite — [see the full catalog](factorizations.md) for status and provenance, or [create a factorization](create-a-factorization.md) to compose one yourself.
 """

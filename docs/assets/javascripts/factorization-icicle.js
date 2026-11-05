@@ -176,10 +176,10 @@
     parts.push("Level: " + dData.level);
     parts.push("Code: " + dData.code);
     if (dData.kind === "collection") {
-      parts.push("Art: faktorisierungslokale Zusammenfuehrung (skos:Collection)");
+      parts.push("Kind: factorization-local grouping (skos:Collection)");
     }
     if (dData.kind === "partial") {
-      parts.push("Art: teilweise Überschneidung mit Basiskonzept (keine Äquivalenz)");
+      parts.push("Kind: partial overlap with a core concept (not equivalence)");
       const escapeText = value => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
       if (dData.id) parts.push("Local ID: " + escapeText(dData.id));
       if (dData.mapping_note) parts.push("Mapping: " + escapeText(dData.mapping_note));
@@ -188,7 +188,7 @@
       parts.push("Bridge: " + dData.bridge.join(", "));
     }
     if (dData.provisional) {
-      parts.push("Status: provisional (gestrichelt dargestellt)");
+      parts.push("Status: provisional (shown with dashed outlines or connectors)");
     }
     return parts.join("<br>");
   }
@@ -636,7 +636,7 @@
     return new Promise(function (resolve, reject) {
       canvas.toBlob(
         function (blob) {
-          blob ? resolve(blob) : reject(new Error("Export fehlgeschlagen."));
+          blob ? resolve(blob) : reject(new Error("Export failed."));
         },
         type,
         quality
@@ -825,8 +825,8 @@
     var detail = document.createElement("div");
     detail.className = "hitop-icicle-detail";
     detail.innerHTML =
-      "<em>Knoten anklicken oder mit der Maus/Tastatur fokussieren, " +
-      "um Level, Code und Herkunft zu sehen.</em>";
+      "<em>Click a node or focus it with the mouse or keyboard " +
+      "to see its level, code, and provenance.</em>";
     wrapper.appendChild(toolbar);
     wrapper.appendChild(svgHost);
     wrapper.appendChild(legend);
@@ -1385,8 +1385,8 @@
     function buildExportFilename(ext) {
       var meta = data.meta || {};
       var base =
-        [meta.factorization_id, meta.version].filter(Boolean).join("-") || "hitop-faktorisierung";
-      return base + "-diagramm." + ext;
+        [meta.factorization_id, meta.version].filter(Boolean).join("-") || "hitop-factorization";
+      return base + "-diagram." + ext;
     }
 
     /** The diagram alone, scaled (if needed) to what would still fit a DIN A4
