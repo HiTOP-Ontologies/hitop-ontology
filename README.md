@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.10-3.12](https://img.shields.io/badge/python-3.10--3.12-blue.svg)](pyproject.toml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24302800.svg)](https://doi.org/10.5281/zenodo.24302800)
 
 The HiTOP Ontology is a machine-readable representation of the Hierarchical
 Taxonomy of Psychopathology (HiTOP). It provides stable identifiers, RDF/OWL
@@ -294,21 +295,31 @@ https://github.com/HiTOP-Ontologies/hitop-ontology/issues
 
 ## Citation
 
-Until a DOI-backed release and `CITATION.cff` are published, cite the
-repository and the version used:
+Version **0.1.0**, released on **November 2, 2026**, is archived on Zenodo.
+Cite the exact release used in your work with the version DOI
+[10.5281/zenodo.24302800](https://doi.org/10.5281/zenodo.24302800).
+The concept DOI [10.5281/zenodo.24302799](https://doi.org/10.5281/zenodo.24302799)
+identifies the project across all versions.
 
 ```bibtex
-@misc{hitop_ontology_2026,
+@software{hitop_ontology_2026,
+  author = {Blitz, Rogério and Kerber, André and Richter, Maike and
+            Otto, Lisa Rebecca and Verhees, Falk Gerrik and Gatrio, Margaux and
+            Jentsch, Marcel and Terhorst, Yannik and Tschorn, Mira and
+            Weise, Julius and Opel, Nils},
   title = {HiTOP Ontology},
-  author = {{HiTOP Ontologies contributors}},
   year = {2026},
   version = {0.1.0},
-  url = {https://github.com/HiTOP-Ontologies/hitop-ontology}
+  publisher = {Zenodo},
+  doi = {10.5281/zenodo.24302800},
+  url = {https://doi.org/10.5281/zenodo.24302800}
 }
 ```
 
-For a DOI-backed scholarly release, update the root-level [`CITATION.cff`](CITATION.cff)
-with the DOI, release date, authorship metadata, and preferred citation.
+Machine-readable citation metadata, including the author order and ORCID
+identifiers, are maintained in [`CITATION.cff`](CITATION.cff). See the
+[publication and citation guide](https://hitop-ontologies.github.io/hitop-ontology/project/publication-and-citation/)
+for further guidance.
 
 ## License
 
