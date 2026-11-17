@@ -7,17 +7,36 @@
 
 ## Citation
 
-The repository includes a maintained [`CITATION.cff`](https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/CITATION.cff). Use the citation metadata and version information associated with the release or repository state used in your work:
+Version **0.1.0**, released on **November 2, 2026**, is archived on Zenodo.
+The repository maintains the corresponding author order, ORCID identifiers,
+license and release metadata in
+[`CITATION.cff`](https://github.com/HiTOP-Ontologies/hitop-ontology/blob/main/CITATION.cff).
+
+| Citation target | DOI | When to use it |
+| --- | --- | --- |
+| Version 0.1.0 | [10.5281/zenodo.24302800](https://doi.org/10.5281/zenodo.24302800) | Cite the exact archived release used in your work |
+| Project across all versions | [10.5281/zenodo.24302799](https://doi.org/10.5281/zenodo.24302799) | Refer to the project without selecting a specific release |
+
+For reproducible research, cite the version-specific DOI. The following
+BibTeX entry follows the author order of the published Zenodo record:
 
 ```bibtex
-@misc{hitop_ontology_2026,
-  title  = {HiTOP Ontology},
-  author = {{HiTOP Ontologies contributors}},
-  year   = {<release year>},
-  version = {<version used>},
-  url    = {https://github.com/HiTOP-Ontologies/hitop-ontology}
+@software{hitop_ontology_2026,
+  author = {Blitz, Rogério and Kerber, André and Richter, Maike and
+            Otto, Lisa Rebecca and Verhees, Falk Gerrik and Gatrio, Margaux and
+            Jentsch, Marcel and Terhorst, Yannik and Tschorn, Mira and
+            Weise, Julius and Opel, Nils},
+  title = {HiTOP Ontology},
+  year = {2026},
+  version = {0.1.0},
+  publisher = {Zenodo},
+  doi = {10.5281/zenodo.24302800},
+  url = {https://doi.org/10.5281/zenodo.24302800}
 }
 ```
+
+The DOI metadata were added to the repository after archival. The published
+`v0.1.0` tag and its release archive remain unchanged.
 
 ## Contributions
 
