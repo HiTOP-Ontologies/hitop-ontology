@@ -11,6 +11,8 @@
 | --- | --- |
 | Ontology IRI | `http://purl.org/hitop` |
 | Canonical ontology source | `ontology/hitop.rdf` |
+| Project status | {{ hitop_project_status }} |
+| Release DOI | [{{ hitop_release_doi }}](https://doi.org/{{ hitop_release_doi }}) |
 | Ontology version | `{{ hitop_ontology_version }}` |
 | Python package | `hitop-ontology-tools` version `{{ hitop_ontology_version }}` |
 | Primary format | RDF/XML |

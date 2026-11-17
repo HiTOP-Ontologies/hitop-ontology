@@ -20,6 +20,7 @@ hide:
       <div><strong>{{ hitop_project_status }}</strong><span>Project status</span></div>
       <div><strong>MIT</strong><span>Open-source license</span></div>
     </div>
+    <p class="hitop-example">Archived release · <a href="https://doi.org/{{ hitop_release_doi }}">DOI: {{ hitop_release_doi }}</a></p>
   </section>
 
   <section class="hitop-section">

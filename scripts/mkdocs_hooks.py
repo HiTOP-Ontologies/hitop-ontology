@@ -7,11 +7,13 @@ import re
 from html import escape
 from pathlib import Path
 
+import yaml
 from rdflib import OWL, RDF, RDFS, Graph
 
 ROOT = Path(__file__).resolve().parents[1]
 VERSION_TOKEN = "{{ hitop_ontology_version }}"
 STATUS_TOKEN = "{{ hitop_project_status }}"
+DOI_TOKEN = "{{ hitop_release_doi }}"
 CORE_CONCEPTS_TOKEN = "{{ hitop_core_concepts_json }}"
 LEGACY_ROUTES = {
     "about": "project/about-the-project",
@@ -63,7 +65,19 @@ def _release_metadata() -> dict[str, str]:
         raise RuntimeError(
             f"Version drift: pyproject.toml={version}, ontology/hitop.rdf={ontology_version}"
         )
-    return {"ontology_version": version, "project_status": development}
+    citation = yaml.safe_load((ROOT / "CITATION.cff").read_text(encoding="utf-8"))
+    if str(citation.get("version")) != version:
+        raise RuntimeError("Version drift: CITATION.cff does not match pyproject.toml")
+    release_doi = citation.get("doi", "")
+    if not isinstance(release_doi, str) or not re.fullmatch(r"10\.\d{4,9}/[^\s<>\"]+", release_doi):
+        raise RuntimeError("CITATION.cff has no valid release DOI")
+    return {
+        "ontology_version": version,
+        "project_status": "Published release"
+        if development == "Production/Stable"
+        else development,
+        "release_doi": release_doi,
+    }
 
 
 def _core_concepts_json() -> str:
@@ -98,6 +112,7 @@ def on_page_markdown(markdown, **_kwargs):
     return (
         markdown.replace(VERSION_TOKEN, metadata["ontology_version"])
         .replace(STATUS_TOKEN, metadata["project_status"])
+        .replace(DOI_TOKEN, metadata["release_doi"])
         .replace(CORE_CONCEPTS_TOKEN, escape(_core_concepts_json(), quote=False))
     )
 
